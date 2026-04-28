@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An ABET CAC-aligned intelligent textbook covering the foundations of networking and communication — layered architecture, routing, reliable transport, wireless, network security, and modern programmable networks — aligned to the ACM/IEEE CS2023 Networking and Communication knowledge area.">
+        <meta name="description" content="Practical tooling for running and measuring networks — wire protocol design and versioning, packet capture with Wireshark and tcpdump, throughput measurement with iperf, Linux network namespaces and bridges, traffic impairment with tc netem, network logging, change control, and configuration management.">
       
       
         <meta name="author" content="Dan McCreary">
@@ -26,7 +26,7 @@
     
     
       
-        <title>15. Network Operations - Networking and Communication</title>
+        <title>Network Operations and Measurement - Networking and Communication</title>
       
     
     
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              15. Network Operations
+              Network Operations and Measurement
             
           </span>
         </div>
@@ -822,6 +822,129 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#151-why-operations-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      15.1 Why Operations Matters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#152-wire-protocol-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      15.2 Wire Protocol Design
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#153-protocol-versioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      15.3 Protocol Versioning
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#154-packet-capture-wireshark-and-tcpdump" class="md-nav__link">
+    <span class="md-ellipsis">
+      15.4 Packet Capture: Wireshark and tcpdump
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#155-iperf-measuring-throughput" class="md-nav__link">
+    <span class="md-ellipsis">
+      15.5 iperf: Measuring Throughput
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#156-linux-network-namespaces-and-bridges" class="md-nav__link">
+    <span class="md-ellipsis">
+      15.6 Linux Network Namespaces and Bridges
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#157-traffic-impairment-with-tc-netem" class="md-nav__link">
+    <span class="md-ellipsis">
+      15.7 Traffic Impairment with tc netem
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="15.7 Traffic Impairment with tc netem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-network-lab-topology-with-namespaces-and-netem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Network Lab Topology with Namespaces and netem
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#158-network-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      15.8 Network Logging
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#159-change-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      15.9 Change Control
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1510-configuration-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      15.10 Configuration Management
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1511-putting-it-together-diagnosing-a-slow-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      15.11 Putting It Together: Diagnosing a Slow Application
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1512-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      15.12 Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1112,6 +1235,129 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#151-why-operations-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      15.1 Why Operations Matters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#152-wire-protocol-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      15.2 Wire Protocol Design
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#153-protocol-versioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      15.3 Protocol Versioning
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#154-packet-capture-wireshark-and-tcpdump" class="md-nav__link">
+    <span class="md-ellipsis">
+      15.4 Packet Capture: Wireshark and tcpdump
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#155-iperf-measuring-throughput" class="md-nav__link">
+    <span class="md-ellipsis">
+      15.5 iperf: Measuring Throughput
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#156-linux-network-namespaces-and-bridges" class="md-nav__link">
+    <span class="md-ellipsis">
+      15.6 Linux Network Namespaces and Bridges
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#157-traffic-impairment-with-tc-netem" class="md-nav__link">
+    <span class="md-ellipsis">
+      15.7 Traffic Impairment with tc netem
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="15.7 Traffic Impairment with tc netem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-network-lab-topology-with-namespaces-and-netem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Network Lab Topology with Namespaces and netem
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#158-network-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      15.8 Network Logging
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#159-change-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      15.9 Change Control
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1510-configuration-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      15.10 Configuration Management
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1511-putting-it-together-diagnosing-a-slow-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      15.11 Putting It Together: Diagnosing a Slow Application
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1512-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      15.12 Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1165,13 +1411,302 @@
 <li><a href="../07-ethernet-and-vlans/">Chapter 7: Ethernet, Switching, and VLANs</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">The toolkit</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Buzz the bee waving welcome">
+Welcome back. Foragers don't just fly — they navigate, measure, and report back. Networks need the same operator instincts: capture what's happening, measure carefully, change deliberately, and log everything. <em>Let's trace the route!</em> This chapter turns you from a student of networking into a practitioner.</p>
+</div>
+<h2 id="151-why-operations-matters">15.1 Why Operations Matters<a class="headerlink" href="#151-why-operations-matters" title="Permanent link">&para;</a></h2>
+<p>Up to this chapter we have built mental models of how networks work. Real networks need someone to <em>run</em> them. Network operations is the practical discipline of designing, deploying, monitoring, and changing networks while keeping them available for the workloads they carry. Most networking jobs are operational: ISP NOC engineer, datacenter SRE, security analyst, network architect. Even pure software engineers spend a substantial fraction of their time debugging networked systems they did not build.</p>
+<p>This chapter develops the operator's toolkit. The core skills are: capturing what's actually on the wire, measuring throughput and latency under controlled conditions, building reproducible test environments, intentionally degrading the network to test resilience, logging every consequential change, and managing configuration in a way that does not produce a different snowflake on every device.</p>
+<h2 id="152-wire-protocol-design">15.2 Wire Protocol Design<a class="headerlink" href="#152-wire-protocol-design" title="Permanent link">&para;</a></h2>
+<p>Most chapters of this book described existing protocols. The first operational skill is recognizing when you are <em>designing</em> one. <strong>Wire protocol design</strong> comes up whenever an application needs to talk over the network in a way that existing protocols do not directly support — a custom RPC scheme, a new media format, a specialized industrial protocol.</p>
+<p>Good wire-protocol design follows a few hard-won principles:</p>
+<ul>
+<li><strong>Be explicit about message framing.</strong> TCP is a byte stream; you must define how to find the boundary between messages. Three classic options: fixed-length records, length-prefixed messages (4-byte length, then that many bytes), or delimiter-terminated messages.</li>
+<li><strong>Include a magic number / version field at the start.</strong> A two-byte magic number lets the receiver fail fast on garbage input; a version field prepares for future evolution.</li>
+<li><strong>Use binary, network byte order, fixed-size fields when performance matters.</strong> Use text (JSON, MessagePack, CBOR) when human inspection and tooling matter more than raw efficiency.</li>
+<li><strong>Reserve bits.</strong> Always include "reserved for future use" bits in fixed-format headers; future protocol evolution will thank you.</li>
+<li><strong>Make every field self-describing where you can.</strong> A message with <code>{type: "login", user: "alice"}</code> is easier to debug than <code>\x01\x00\x05alice</code>.</li>
+<li><strong>Authenticate and integrity-check.</strong> Every wire protocol that carries security-relevant data needs a MAC or signature; do not invent your own crypto.</li>
+<li><strong>Plan for backwards compatibility.</strong> What does an old client do when a new server sends a message it does not understand? What does a new client do when an old server can't process its message?</li>
+</ul>
+<p>The single most influential modern design framework is <strong>Protocol Buffers</strong> (and its companions Thrift, Avro, FlatBuffers). These tools let you describe messages in a schema language, generate code in many target languages, and evolve the schema over time with a forwards/backwards-compatibility discipline. If you find yourself designing a new wire format, start with Protocol Buffers and only move to a hand-rolled format when there is a specific reason.</p>
+<h2 id="153-protocol-versioning">15.3 Protocol Versioning<a class="headerlink" href="#153-protocol-versioning" title="Permanent link">&para;</a></h2>
+<p><strong>Protocol versioning</strong> is the discipline of evolving a wire protocol without breaking deployed clients and servers. Three approaches dominate, often combined.</p>
+<ul>
+<li><strong>Hard version field</strong> (e.g., HTTP/1.1, HTTP/2, HTTP/3). Each version is a distinct protocol; clients and servers negotiate which version to use, and old code refuses to speak new versions.</li>
+<li><strong>Optional fields with default values</strong> (Protocol Buffers, JSON). New fields are added without breaking old code, which simply ignores fields it doesn't understand. Old code keeps working; new code uses the new fields where the peer supports them.</li>
+<li><strong>Capability negotiation</strong> (TLS cipher suites, HTTP <code>Upgrade</code>, BGP capabilities). Both sides advertise what they support, and they pick the most-capable common subset.</li>
+</ul>
+<p>Protocol versioning rules of thumb:</p>
+<ul>
+<li>Always include a version field, even if you don't expect to need it.</li>
+<li>Plan migration paths. "All clients update on the same day" is rarely realistic.</li>
+<li>Test mixed-version deployments. Bugs hide in version-skew interactions.</li>
+<li>Document deprecation timelines. Clients will rely on undocumented behavior unless you actively warn them.</li>
+</ul>
+<h2 id="154-packet-capture-wireshark-and-tcpdump">15.4 Packet Capture: Wireshark and tcpdump<a class="headerlink" href="#154-packet-capture-wireshark-and-tcpdump" title="Permanent link">&para;</a></h2>
+<p>The single most useful network-debugging tool is <strong>packet capture</strong> — recording the actual bytes flowing across a link and inspecting them. Two tools dominate: a command-line tool, <strong><code>tcpdump</code></strong>, and a graphical tool, <strong>Wireshark</strong>, both built on the same packet-capture library (libpcap).</p>
+<p><code>tcpdump</code> is the operator's quick-look tool. A typical invocation:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>tcpdump<span class="w"> </span>-i<span class="w"> </span>eth0<span class="w"> </span>-n<span class="w"> </span>-nn<span class="w"> </span><span class="s1">&#39;tcp port 443&#39;</span><span class="w"> </span>-c<span class="w"> </span><span class="m">20</span>
+</span></code></pre></div>
+<p>This captures the first 20 TCP packets on eth0 destined for or originating from port 443, displaying source/destination IPs and ports without DNS lookups. The <code>-n -nn</code> flags disable name resolution (so you see actual IPs and ports, not friendly names); <code>'tcp port 443'</code> is a Berkeley Packet Filter (BPF) expression that limits capture to matching traffic. BPF is its own little language; common patterns include <code>host 10.0.0.5</code>, <code>dst port 53</code>, <code>arp</code>, and combined expressions like <code>'host 10.0.0.5 and tcp port 443'</code>.</p>
+<p>Wireshark provides a graphical alternative: a sortable list of captured packets, a tree view of every protocol's headers, and a hex dump of the raw bytes. Wireshark dissects hundreds of protocols; clicking any field highlights the corresponding bytes in the hex dump. The "Follow TCP Stream" feature reconstructs the byte stream of an entire conversation, which is invaluable for reading HTTP, SMTP, or any text-based protocol.</p>
+<p>A typical packet-capture workflow:</p>
+<ol>
+<li><strong>Capture broadly first.</strong> Use <code>tcpdump -i any -w trace.pcap</code> to capture all traffic on all interfaces, with as little filtering as possible (so you don't accidentally exclude the bug you're hunting).</li>
+<li><strong>Reproduce the problem.</strong> Trigger the failing operation while capturing.</li>
+<li><strong>Stop and analyze.</strong> Open <code>trace.pcap</code> in Wireshark and search for the relevant connection.</li>
+<li><strong>Filter down.</strong> Use Wireshark display filters (<code>tcp.stream eq 5</code>, <code>http.response.code != 200</code>, <code>ip.addr == 10.0.0.5</code>) to find the segment that matters.</li>
+<li><strong>Read carefully.</strong> Note timing, sequence numbers, retransmissions, RST flags, and TLS handshake details.</li>
+</ol>
+<p>Two practical notes: capturing requires root or appropriate capabilities (CAP_NET_RAW on Linux); always filter or trim captures before sharing them, because they contain everything that traversed the wire including credentials and personal data.</p>
+<h2 id="155-iperf-measuring-throughput">15.5 iperf: Measuring Throughput<a class="headerlink" href="#155-iperf-measuring-throughput" title="Permanent link">&para;</a></h2>
+<p><code>iperf</code> (and its modern variant <code>iperf3</code>) is the standard tool for measuring TCP and UDP throughput between two hosts. One side runs as a server (<code>iperf3 -s</code>); the other connects as a client (<code>iperf3 -c &lt;server-ip&gt;</code>); both report measured throughput, retransmissions, and (with -u) UDP packet loss and jitter.</p>
+<p>Common <code>iperf3</code> flags:</p>
+<ul>
+<li><code>-t 30</code> — run for 30 seconds (default 10).</li>
+<li><code>-P 4</code> — open 4 parallel TCP streams (helps when one stream is window-limited or CPU-bound).</li>
+<li><code>-w 16M</code> — set the TCP window size (often needed to fill high-BDP links).</li>
+<li><code>-u -b 100M</code> — UDP at 100 Mbps; reports jitter and loss.</li>
+<li><code>-R</code> — reverse direction (server sends to client).</li>
+</ul>
+<p>A typical session shows the negotiated window size, the achieved throughput per second, and any retransmissions. Comparing the achieved throughput to the path's theoretical capacity (Chapter 4) reveals whether the link, the OS settings, or the application is the bottleneck.</p>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Likely cause</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Throughput far below link rate, small window</td>
+<td>TCP window scaling not enabled</td>
+</tr>
+<tr>
+<td>Throughput drops with -P 1 vs. -P 4</td>
+<td>Single-flow window-limited or single-CPU bottleneck</td>
+</tr>
+<tr>
+<td>TCP retransmissions visible</td>
+<td>Loss on the path (link-layer error, queue overflow, or middlebox drop)</td>
+</tr>
+<tr>
+<td>UDP jitter large</td>
+<td>Queuing variability on the path; consider QoS</td>
+</tr>
+<tr>
+<td>Asymmetric throughput</td>
+<td>One direction has different bandwidth or queuing</td>
+</tr>
+</tbody>
+</table>
+<h2 id="156-linux-network-namespaces-and-bridges">15.6 Linux Network Namespaces and Bridges<a class="headerlink" href="#156-linux-network-namespaces-and-bridges" title="Permanent link">&para;</a></h2>
+<p>A <strong>network namespace</strong> is a Linux feature that creates an isolated network environment within a single kernel — a virtual networking sandbox. Each namespace has its own routing tables, firewall rules, interfaces, and even loopback. Namespaces are the building block underneath Docker containers, Kubernetes pods, network test harnesses, and the <code>ip netns</code> command-line workflow.</p>
+<p>Creating and using namespaces directly:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Create two network namespaces</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sudo<span class="w"> </span>ip<span class="w"> </span>netns<span class="w"> </span>add<span class="w"> </span>ns1
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>sudo<span class="w"> </span>ip<span class="w"> </span>netns<span class="w"> </span>add<span class="w"> </span>ns2
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># Create a virtual ethernet pair connecting them</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span>add<span class="w"> </span>veth1<span class="w"> </span><span class="nb">type</span><span class="w"> </span>veth<span class="w"> </span>peer<span class="w"> </span>name<span class="w"> </span>veth2
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c1"># Move each end into a namespace</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>veth1<span class="w"> </span>netns<span class="w"> </span>ns1
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>veth2<span class="w"> </span>netns<span class="w"> </span>ns2
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="c1"># Configure addresses</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>sudo<span class="w"> </span>ip<span class="w"> </span>netns<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>ns1<span class="w"> </span>ip<span class="w"> </span>addr<span class="w"> </span>add<span class="w"> </span><span class="m">10</span>.0.0.1/24<span class="w"> </span>dev<span class="w"> </span>veth1
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>sudo<span class="w"> </span>ip<span class="w"> </span>netns<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>ns2<span class="w"> </span>ip<span class="w"> </span>addr<span class="w"> </span>add<span class="w"> </span><span class="m">10</span>.0.0.2/24<span class="w"> </span>dev<span class="w"> </span>veth2
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="c1"># Bring interfaces up</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>sudo<span class="w"> </span>ip<span class="w"> </span>netns<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>ns1<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>veth1<span class="w"> </span>up
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>sudo<span class="w"> </span>ip<span class="w"> </span>netns<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>ns2<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>veth2<span class="w"> </span>up
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="c1"># Test</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>sudo<span class="w"> </span>ip<span class="w"> </span>netns<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>ns1<span class="w"> </span>ping<span class="w"> </span><span class="m">10</span>.0.0.2
+</span></code></pre></div>
+<p>The same kernel hosts two networks on <code>10.0.0.0/24</code> that cannot see each other except through the explicitly-configured veth link. A networking student can build complete test topologies with routers, firewalls, and many hosts on a single laptop using namespaces.</p>
+<p>A <strong>Linux bridge</strong> is a software Ethernet switch implemented inside the kernel. Bridges connect multiple interfaces (physical, virtual, or veth) into one Layer-2 segment, with MAC learning and forwarding. Bridges combined with namespaces produce arbitrary virtual topologies:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span>add<span class="w"> </span>br0<span class="w"> </span><span class="nb">type</span><span class="w"> </span>bridge
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>br0<span class="w"> </span>up
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>veth1<span class="w"> </span>master<span class="w"> </span>br0<span class="w">   </span><span class="c1"># attach veth1 to the bridge</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>veth2<span class="w"> </span>master<span class="w"> </span>br0<span class="w">   </span><span class="c1"># attach veth2 to the bridge</span>
+</span></code></pre></div>
+<p>Now <code>veth1</code> and <code>veth2</code> share a Layer-2 broadcast domain. Add VLAN support with <code>bridge vlan add ...</code> and you have a virtual VLAN-aware switch. The same building blocks underlie every container runtime, Kubernetes CNI plugin, and software-defined networking deployment.</p>
+<h2 id="157-traffic-impairment-with-tc-netem">15.7 Traffic Impairment with tc netem<a class="headerlink" href="#157-traffic-impairment-with-tc-netem" title="Permanent link">&para;</a></h2>
+<p>One of the most useful operational skills is <em>deliberately</em> breaking the network. <strong><code>tc netem</code></strong> (network emulator) is a Linux traffic-control facility that lets you inject latency, loss, reordering, duplication, and corruption into traffic on a specific interface. It is invaluable for testing application resilience.</p>
+<p>A few common <code>tc netem</code> recipes:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Add 100 ms of latency to all egress traffic on eth0</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>sudo<span class="w"> </span>tc<span class="w"> </span>qdisc<span class="w"> </span>add<span class="w"> </span>dev<span class="w"> </span>eth0<span class="w"> </span>root<span class="w"> </span>netem<span class="w"> </span>delay<span class="w"> </span>100ms
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Add 100 ms of latency with ±20 ms jitter</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>sudo<span class="w"> </span>tc<span class="w"> </span>qdisc<span class="w"> </span>change<span class="w"> </span>dev<span class="w"> </span>eth0<span class="w"> </span>root<span class="w"> </span>netem<span class="w"> </span>delay<span class="w"> </span>100ms<span class="w"> </span>20ms
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1"># Inject 1% packet loss</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>sudo<span class="w"> </span>tc<span class="w"> </span>qdisc<span class="w"> </span>change<span class="w"> </span>dev<span class="w"> </span>eth0<span class="w"> </span>root<span class="w"> </span>netem<span class="w"> </span>loss<span class="w"> </span><span class="m">1</span>%
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="c1"># Inject 1% loss with bursts of 3 consecutive losses (loss correlation)</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>sudo<span class="w"> </span>tc<span class="w"> </span>qdisc<span class="w"> </span>change<span class="w"> </span>dev<span class="w"> </span>eth0<span class="w"> </span>root<span class="w"> </span>netem<span class="w"> </span>loss<span class="w"> </span><span class="m">1</span>%<span class="w"> </span><span class="m">25</span>%
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="c1"># Reorder 5% of packets, with the rest delayed by 10 ms</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>sudo<span class="w"> </span>tc<span class="w"> </span>qdisc<span class="w"> </span>change<span class="w"> </span>dev<span class="w"> </span>eth0<span class="w"> </span>root<span class="w"> </span>netem<span class="w"> </span>delay<span class="w"> </span>10ms<span class="w"> </span>reorder<span class="w"> </span><span class="m">5</span>%<span class="w"> </span><span class="m">50</span>%
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="c1"># Duplicate 0.1% of packets</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>sudo<span class="w"> </span>tc<span class="w"> </span>qdisc<span class="w"> </span>change<span class="w"> </span>dev<span class="w"> </span>eth0<span class="w"> </span>root<span class="w"> </span>netem<span class="w"> </span>duplicate<span class="w"> </span><span class="m">0</span>.1%
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="c1"># Corrupt 0.1% of packets (introduce single-bit errors)</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>sudo<span class="w"> </span>tc<span class="w"> </span>qdisc<span class="w"> </span>change<span class="w"> </span>dev<span class="w"> </span>eth0<span class="w"> </span>root<span class="w"> </span>netem<span class="w"> </span>corrupt<span class="w"> </span><span class="m">0</span>.1%
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="c1"># Combine: 80 ms delay, 0.5% loss, 1% reordering</span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>sudo<span class="w"> </span>tc<span class="w"> </span>qdisc<span class="w"> </span>change<span class="w"> </span>dev<span class="w"> </span>eth0<span class="w"> </span>root<span class="w"> </span>netem<span class="w"> </span>delay<span class="w"> </span>80ms<span class="w"> </span>loss<span class="w"> </span><span class="m">0</span>.5%<span class="w"> </span>reorder<span class="w"> </span><span class="m">1</span>%
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="c1"># Remove all impairments</span>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>sudo<span class="w"> </span>tc<span class="w"> </span>qdisc<span class="w"> </span>del<span class="w"> </span>dev<span class="w"> </span>eth0<span class="w"> </span>root
+</span></code></pre></div>
+<p>Combined with namespaces, <code>tc netem</code> lets you test exactly how an application behaves on a 200-ms-latency, 2%-loss path without leaving your laptop. Production-grade testing of TCP-based applications on high-BDP paths almost always involves netem in a test harness somewhere.</p>
+<h4 id="diagram-network-lab-topology-with-namespaces-and-netem">Diagram: Network Lab Topology with Namespaces and netem<a class="headerlink" href="#diagram-network-lab-topology-with-namespaces-and-netem" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Visualization of a virtual network test environment built with namespaces, bridges, and tc netem</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> virtual-network-lab<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Build an interactive MicroSim that visualizes a small Linux-host virtual network lab and lets students apply impairments to specific interfaces.</p>
+<p>Canvas: 960 px wide by 600 px tall, responsive down to 360 px. A 120 px control panel sits below.</p>
+<p>Topology:</p>
+<ul>
+<li>A single host containing 4 network namespaces: client, router, server-east, server-west.</li>
+<li>A Linux bridge <code>br0</code> connects client to router; another bridge <code>br1</code> connects router to both servers.</li>
+<li>veth pairs are drawn explicitly between namespaces and bridges.</li>
+</ul>
+<p>Animation:</p>
+<ul>
+<li>A traffic source in <code>client</code> sends test packets to <code>server-east</code> or <code>server-west</code>. Packet animations show traffic flowing through the bridges and router.</li>
+<li>When tc netem is applied (via the controls), a small "impairment" badge appears on the affected interface, and packets visibly slow, get dropped, or reorder.</li>
+<li>A real-time stats panel shows RTT, throughput, and loss observed by the client.</li>
+</ul>
+<p>Controls panel:</p>
+<ul>
+<li>Per-interface dropdowns to apply netem impairments: latency (0–500 ms), jitter (0–100 ms), loss (0–10%), reorder (0–10%).</li>
+<li>Test buttons: ping (send ICMP), iperf-style throughput, http GET (large file).</li>
+<li>Reset all impairments.</li>
+<li>Toggle: "Show command line" displays the equivalent <code>tc netem</code> and <code>ip netns</code> commands the simulation is emulating.</li>
+</ul>
+<p>Visual style:</p>
+<ul>
+<li>Namespaces: rounded rectangles with namespace icons.</li>
+<li>Bridges: hexagons.</li>
+<li>veth pairs: dashed amber edges.</li>
+<li>Impairment badges: red for loss, blue for delay, green for reorder.</li>
+<li>Packets: small dots animated along edges.</li>
+</ul>
+<p>Learning objectives:</p>
+<ul>
+<li>(Bloom — Understanding) Students explain how Linux namespaces and bridges build a virtual network on one host.</li>
+<li>(Bloom — Applying) Students choose and apply tc netem impairments to test specific application behaviors.</li>
+<li>(Bloom — Analyzing) Students decompose observed application behavior under impairment into its causes (delay, loss, reorder).</li>
+</ul>
+<p>Implement in pure p5.js with the existing MicroSim CSS theme.</p>
+</details>
+<h2 id="158-network-logging">15.8 Network Logging<a class="headerlink" href="#158-network-logging" title="Permanent link">&para;</a></h2>
+<p><strong>Network logging</strong> is the practice of recording every consequential event from network devices and services in a way that supports later investigation and correlation. Three categories of log matter to operators:</p>
+<ul>
+<li><strong>Device logs.</strong> Routers, switches, firewalls, and load balancers emit logs about state changes, errors, and security events. Standard formats include syslog (RFC 5424) and structured variants like JSON. Most enterprise networks aggregate device logs into a central logging server.</li>
+<li><strong>Flow logs.</strong> Sampled or complete records of every flow that crossed the network: source IP, destination IP, ports, byte counts, start and end timestamps. NetFlow (Cisco), sFlow, and IPFIX (RFC 7011) are the dominant formats. Flow logs are gold for traffic analysis and post-incident forensics.</li>
+<li><strong>Application logs.</strong> Every application that handles a network request should log enough to trace it later: timestamp, request ID, source, action, result. Modern microservice systems use distributed tracing (OpenTelemetry, Jaeger) to correlate logs across services.</li>
+</ul>
+<p>Time correlation requires accurate clocks (Chapter 13's NTP). Searching at scale requires structured formats (JSON, key-value) and log-search engines (Elasticsearch, Loki, Splunk). Retention requires storage planning — full packet capture is too expensive for long retention, while flow logs and structured device logs can be kept for months or years cheaply.</p>
+<p>A good operational baseline:</p>
+<ul>
+<li>Every device sends syslog to a central server.</li>
+<li>Routers emit NetFlow / sFlow samples to a flow collector.</li>
+<li>Applications log to a central system with a request-ID header propagated through every service.</li>
+<li>All logs include accurate timestamps via NTP.</li>
+<li>Retention policies are documented and tested (yes, occasionally try to find a log from three months ago).</li>
+</ul>
+<h2 id="159-change-control">15.9 Change Control<a class="headerlink" href="#159-change-control" title="Permanent link">&para;</a></h2>
+<p>The single largest cause of network outages is <em>people changing things</em>. <strong>Change control</strong> is the discipline of making network changes deliberately, reviewably, and recoverably.</p>
+<p>A mature change-control process includes:</p>
+<ul>
+<li><strong>Pre-change documentation.</strong> What is being changed, why, when, by whom. Risk assessment. Impact assessment.</li>
+<li><strong>Peer review.</strong> Another engineer reviews the proposed change before deployment.</li>
+<li><strong>Maintenance windows.</strong> Risky changes happen at scheduled, low-traffic times — typically late at night or weekend mornings — when the impact of failure is smallest.</li>
+<li><strong>Rollback plan.</strong> Every change has a documented procedure to back out if something breaks.</li>
+<li><strong>Verification.</strong> A scripted set of tests run after the change to confirm it worked.</li>
+<li><strong>Post-change monitoring.</strong> The engineer stays online for some period to watch for delayed effects.</li>
+<li><strong>Post-incident review.</strong> When changes go wrong (and they will), a blameless review captures what went wrong and how to prevent similar mistakes.</li>
+</ul>
+<p>Tools that support change control include <strong>change-management systems</strong> (ServiceNow, Jira), <strong>version-controlled configuration repositories</strong> (every device's config in Git), and <strong>CI/CD pipelines for network changes</strong> (validation → deployment → verification).</p>
+<p>The cultural element matters as much as the tools. A team that punishes mistakes will hide them; a team that runs blameless post-mortems will learn from them. Site Reliability Engineering practices, formalized at Google in the 2010s and now widely adopted, codify this approach.</p>
+<h2 id="1510-configuration-management">15.10 Configuration Management<a class="headerlink" href="#1510-configuration-management" title="Permanent link">&para;</a></h2>
+<p>A network of any size has hundreds of devices, each with its own configuration. <strong>Configuration management</strong> is the practice of tracking what configuration each device should have, deploying that configuration, and detecting drift when actual config diverges from intended config.</p>
+<p>Three approaches in increasing order of automation:</p>
+<ul>
+<li><strong>Manual + version control.</strong> Engineers SSH into devices, make changes, and copy the resulting configs into a Git repo. Better than nothing but does not catch drift between checks.</li>
+<li><strong>Configuration push tools.</strong> Ansible, Puppet, Chef, SaltStack apply declarative configurations to many devices. The tool makes the device match the intended state and reports diffs.</li>
+<li><strong>Network automation platforms.</strong> Specialized tools like Cisco's NSO, Juniper's Apstra, and the open-source Nornir/NAPALM ecosystems treat the network as a model that the platform compiles into per-device configs.</li>
+</ul>
+<p>The aspiration is <strong>"infrastructure as code"</strong> — the canonical state of every device's configuration lives in a version-controlled repository, every change is a code review, and the actual devices are continuously reconciled with the repo. The aspiration is hard to fully realize in practice, but partial adoption pays off quickly.</p>
+<p>A few common configuration-management lessons:</p>
+<ul>
+<li><strong>Convergent automation beats imperative scripts.</strong> A tool that says "make the device match this template" is forgiving of partial failures; a script that says "run these commands in order" is fragile.</li>
+<li><strong>Test in a virtual environment first.</strong> Tools like Containerlab, GNS3, and EVE-NG let you simulate a topology and apply changes to virtual devices before touching production.</li>
+<li><strong>Detect drift continuously.</strong> Periodic reconciliation surfaces unauthorized or accidental changes.</li>
+<li><strong>Standardize.</strong> A network with three template variations is manageable; a network with a hundred unique devices is not.</li>
+</ul>
+<h2 id="1511-putting-it-together-diagnosing-a-slow-application">15.11 Putting It Together: Diagnosing a Slow Application<a class="headerlink" href="#1511-putting-it-together-diagnosing-a-slow-application" title="Permanent link">&para;</a></h2>
+<p>A user reports: "The data export feels slow." Apply this chapter's tools:</p>
+<ol>
+<li><strong>Reproduce the problem.</strong> Get a specific timestamp, source IP, and destination from the user.</li>
+<li><strong>Capture.</strong> SSH to a host on the path; <code>tcpdump -i any -w slow-export.pcap host &lt;user-ip&gt; and host &lt;server-ip&gt;</code>.</li>
+<li><strong>Reproduce the problem while capturing.</strong> User triggers the export.</li>
+<li><strong>Stop capture; open in Wireshark.</strong> Look for the TCP stream of interest.</li>
+<li><strong>Examine.</strong> Are there retransmissions? What is the RTT? Is the receive window throttling? Is the application sending in many small writes (Nagle interaction)? Is TLS doing many round-trip session resumptions?</li>
+<li><strong>Test with iperf.</strong> <code>iperf3 -c &lt;server&gt;</code> on the affected path. If iperf shows full link rate, the application is the bottleneck. If iperf is also slow, the network is the bottleneck.</li>
+<li><strong>If network: examine flow logs.</strong> Is the path itself congested? Is some other flow dominating?</li>
+<li><strong>If application: profile with a representative test.</strong> Run the export under <code>strace</code> or an equivalent profiling tool to see where time is spent.</li>
+<li><strong>Reproduce under controlled conditions.</strong> Build a virtual topology with namespaces and netem matching the user's path; the application's behavior should match.</li>
+<li><strong>Fix and verify.</strong> Whatever the fix is — tune TCP, refactor the application, change a router's QoS — re-run the test and confirm the metric you care about has improved.</li>
+</ol>
+<p>This kind of methodical capture-measure-reproduce-fix loop is the everyday work of operations.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">The first rule of network debugging</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Buzz thinking carefully">
+<em>Capture before you guess.</em> Every networking instinct will tempt you to jump to a diagnosis. Resist. A 30-second packet capture answers more questions than an hour of speculation, and it almost always reveals at least one surprise. Make capture-first your reflex.</p>
+</div>
+<h2 id="1512-key-takeaways">15.12 Key Takeaways<a class="headerlink" href="#1512-key-takeaways" title="Permanent link">&para;</a></h2>
+<p>Operations is the day-to-day discipline that keeps networks alive. Before moving on, make sure you can answer the following without looking back:</p>
+<ul>
+<li>Name three principles of good wire-protocol design.</li>
+<li>Compare three approaches to protocol versioning.</li>
+<li>Why is <code>tcpdump</code> -n -nn often the right starting point for a packet capture?</li>
+<li>What does <code>iperf3</code> measure, and what is one common reason it shows below-link-rate throughput?</li>
+<li>What is a Linux network namespace, and what is one production system that uses them?</li>
+<li>What does a Linux bridge provide?</li>
+<li>Give three things <code>tc netem</code> can do that are useful for testing application resilience.</li>
+<li>Compare device logs, flow logs, and application logs.</li>
+<li>What are the elements of a mature change-control process?</li>
+<li>Compare manual configuration management with declarative tools like Ansible.</li>
+<li>Walk through the diagnostic loop in Section 15.11.</li>
+</ul>
+<p>If any of those answers feel shaky, re-read the corresponding section before continuing to Chapter 16, where we close out the textbook with a survey of software-defined networking, service meshes, content delivery networks, edge computing, zero-trust architectures, and the emerging topics that will shape networks over the next decade.</p>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Operator's toolkit ready</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Buzz celebrating">
+You can now operate a network — capture what's on the wire, measure throughput, build virtual labs, deliberately impair traffic to test resilience, and manage change without breaking production. The next chapter is the horizon: where networks are going next. <em>Follow the packet.</em></p>
+</div>
 
 
 
 
 
 
+
+  
+  
 
 
 
