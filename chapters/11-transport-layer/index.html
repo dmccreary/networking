@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An ABET CAC-aligned intelligent textbook covering the foundations of networking and communication — layered architecture, routing, reliable transport, wireless, network security, and modern programmable networks — aligned to the ACM/IEEE CS2023 Networking and Communication knowledge area.">
+        <meta name="description" content="End-to-end delivery — UDP datagram service, then TCP from segments and sequence numbers through three-way handshake, termination, sliding window, flow control, and congestion control (slow start, congestion avoidance, Reno, CUBIC, BBR), plus Karn, Nagle, SACK, QUIC, and Multipath TCP.">
       
       
         <meta name="author" content="Dan McCreary">
@@ -26,7 +26,7 @@
     
     
       
-        <title>11. The Transport Layer - Networking and Communication</title>
+        <title>The Transport Layer - Networking and Communication</title>
       
     
     
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              11. The Transport Layer
+              The Transport Layer
             
           </span>
         </div>
@@ -730,6 +730,162 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#111-what-the-transport-layer-adds" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.1 What the Transport Layer Adds
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#112-udp-and-its-datagram-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.2 UDP and Its Datagram Service
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#113-tcp-the-reliable-byte-stream" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.3 TCP: The Reliable Byte Stream
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#114-the-three-way-handshake" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.4 The Three-Way Handshake
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#115-connection-termination" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.5 Connection Termination
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.5 Connection Termination">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-tcp-three-way-handshake-and-termination" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: TCP Three-Way Handshake and Termination
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#116-sliding-window-and-flow-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.6 Sliding Window and Flow Control
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#117-congestion-control-the-four-phases" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.7 Congestion Control: The Four Phases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#118-karns-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.8 Karn's Algorithm
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#119-reno-cubic-and-bbr" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.9 Reno, CUBIC, and BBR
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.9 Reno, CUBIC, and BBR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-congestion-control-phases-and-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Congestion Control Phases and Algorithms
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1110-nagles-algorithm-and-sack" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.10 Nagle's Algorithm and SACK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1111-quic-tcp-reinvented-in-user-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.11 QUIC: TCP, Reinvented in User Space
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1112-multipath-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.12 Multipath TCP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1113-putting-it-together-reading-a-tcp-exchange" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.13 Putting It Together: Reading a TCP Exchange
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1114-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.14 Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1112,6 +1268,162 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#111-what-the-transport-layer-adds" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.1 What the Transport Layer Adds
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#112-udp-and-its-datagram-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.2 UDP and Its Datagram Service
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#113-tcp-the-reliable-byte-stream" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.3 TCP: The Reliable Byte Stream
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#114-the-three-way-handshake" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.4 The Three-Way Handshake
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#115-connection-termination" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.5 Connection Termination
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.5 Connection Termination">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-tcp-three-way-handshake-and-termination" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: TCP Three-Way Handshake and Termination
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#116-sliding-window-and-flow-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.6 Sliding Window and Flow Control
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#117-congestion-control-the-four-phases" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.7 Congestion Control: The Four Phases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#118-karns-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.8 Karn's Algorithm
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#119-reno-cubic-and-bbr" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.9 Reno, CUBIC, and BBR
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.9 Reno, CUBIC, and BBR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-congestion-control-phases-and-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Congestion Control Phases and Algorithms
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1110-nagles-algorithm-and-sack" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.10 Nagle's Algorithm and SACK
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1111-quic-tcp-reinvented-in-user-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.11 QUIC: TCP, Reinvented in User Space
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1112-multipath-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.12 Multipath TCP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1113-putting-it-together-reading-a-tcp-exchange" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.13 Putting It Together: Reading a TCP Exchange
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1114-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.14 Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1176,13 +1488,390 @@
 <li><a href="../06-link-layer-fundamentals/">Chapter 6: Link Layer Fundamentals and Reliable Transfer</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Reliable hands</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Buzz the bee waving welcome">
+Welcome back. The Internet's network layer just delivers packets — best-effort, possibly out of order, occasionally lost. The transport layer is what turns that into a reliable byte stream you can build a website on. <em>Let's trace the route!</em> This chapter is the most operationally important in the textbook. Read a TCP capture cleanly and you can debug almost anything above it.</p>
+</div>
+<h2 id="111-what-the-transport-layer-adds">11.1 What the Transport Layer Adds<a class="headerlink" href="#111-what-the-transport-layer-adds" title="Permanent link">&para;</a></h2>
+<p>The network layer hands the transport layer a best-effort packet-delivery service. Packets <em>might</em> arrive; they <em>might</em> arrive in the right order; they <em>might not</em> be corrupted. The <strong>transport layer</strong> sits between the network and the application, and its job is to translate that ragged service into something useful for application code.</p>
+<p>Two main transport protocols dominate the Internet. <strong>UDP (User Datagram Protocol)</strong> keeps the network layer's best-effort character and adds only the minimum needed to multiplex multiple applications onto one host. <strong>TCP (Transmission Control Protocol)</strong> does much more: connection establishment, in-order delivery, reliability, flow control, and congestion control. Newer protocols (QUIC, MPTCP) build on these and address their limitations. This chapter develops UDP first as a baseline, then TCP in depth.</p>
+<p>Three jobs unify all transport-layer protocols, regardless of how much else they do:</p>
+<ul>
+<li><strong>Multiplexing</strong> — let many application processes on one host share a single network-layer address. Achieved through port numbers.</li>
+<li><strong>End-to-end identification</strong> — a transport-layer connection (or flow) is named by a 4-tuple <code>(source IP, source port, destination IP, destination port)</code> plus the protocol. The same 4-tuple identifies the same connection across the entire path.</li>
+<li><strong>Optional reliability</strong> — the transport layer may add retransmission, ordering, and flow control on top of best-effort IP, or it may not. UDP does not; TCP does.</li>
+</ul>
+<h2 id="112-udp-and-its-datagram-service">11.2 UDP and Its Datagram Service<a class="headerlink" href="#112-udp-and-its-datagram-service" title="Permanent link">&para;</a></h2>
+<p><strong>UDP</strong> is the bare-minimum transport. The UDP header is just 8 bytes:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Size</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Source Port</td>
+<td>2 bytes</td>
+<td>The sender's port number (often ephemeral)</td>
+</tr>
+<tr>
+<td>Destination Port</td>
+<td>2 bytes</td>
+<td>The receiver's well-known port number</td>
+</tr>
+<tr>
+<td>Length</td>
+<td>2 bytes</td>
+<td>UDP header + payload length, in bytes</td>
+</tr>
+<tr>
+<td>Checksum</td>
+<td>2 bytes</td>
+<td>Internet checksum over header + payload + pseudo-header</td>
+</tr>
+</tbody>
+</table>
+<p>That is the entire protocol. UDP adds no sequence numbers, no acknowledgments, no retransmission, no connection setup, no congestion control. A <strong>UDP datagram</strong> is sent independently and arrives independently — or doesn't. The application is responsible for whatever reliability and ordering it needs.</p>
+<p>UDP is the right choice when:</p>
+<ul>
+<li><strong>Latency matters more than reliability.</strong> Voice and video conferencing send 50 packets per second; retransmitting a lost packet 100 ms later is worse than just skipping it.</li>
+<li><strong>The exchange is tiny.</strong> A DNS query and response is a few hundred bytes; setting up a TCP connection costs more than the data exchange itself.</li>
+<li><strong>The application does its own reliability.</strong> QUIC runs on top of UDP because UDP gives it the freedom to implement everything from scratch in user space.</li>
+<li><strong>The application needs multicast or broadcast.</strong> TCP is unicast-only; UDP can carry multicast and broadcast traffic.</li>
+</ul>
+<p>Common UDP-based protocols include DNS (port 53), SNMP (161), DHCP (67/68), NTP (123), and many real-time media streams using RTP. UDP's simplicity is its strength: it adds the minimum overhead while letting applications choose their own reliability strategy.</p>
+<h2 id="113-tcp-the-reliable-byte-stream">11.3 TCP: The Reliable Byte Stream<a class="headerlink" href="#113-tcp-the-reliable-byte-stream" title="Permanent link">&para;</a></h2>
+<p><strong>TCP</strong> delivers the Internet's most-used service: a reliable, in-order, byte-stream connection between two endpoints. Two characters — "byte stream" — are the key. TCP does not preserve message boundaries. If the application sends one 3000-byte message and another 1000-byte message, the receiver might read them as one 4000-byte chunk, or as 10 chunks of 400 bytes each, or any other slicing of the 4000 bytes. TCP guarantees only that the bytes arrive in the order they were sent, exactly once each, with no corruption.</p>
+<p>The <strong>TCP header</strong> is at least 20 bytes (without options) and contains substantially more state than UDP:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Size</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Source Port</td>
+<td>2 bytes</td>
+<td>Sender's port</td>
+</tr>
+<tr>
+<td>Destination Port</td>
+<td>2 bytes</td>
+<td>Receiver's port</td>
+</tr>
+<tr>
+<td>Sequence Number</td>
+<td>4 bytes</td>
+<td>Byte position in the sender's stream</td>
+</tr>
+<tr>
+<td>Acknowledgment Number</td>
+<td>4 bytes</td>
+<td>Next byte the receiver expects</td>
+</tr>
+<tr>
+<td>Data Offset</td>
+<td>4 bits</td>
+<td>Header length in 32-bit words</td>
+</tr>
+<tr>
+<td>Flags</td>
+<td>9 bits</td>
+<td>SYN, ACK, FIN, RST, PSH, URG, ECE, CWR, NS</td>
+</tr>
+<tr>
+<td>Window Size</td>
+<td>2 bytes</td>
+<td>Receiver's advertised buffer space</td>
+</tr>
+<tr>
+<td>Checksum</td>
+<td>2 bytes</td>
+<td>Internet checksum over header + payload</td>
+</tr>
+<tr>
+<td>Urgent Pointer</td>
+<td>2 bytes</td>
+<td>Rarely used</td>
+</tr>
+<tr>
+<td>Options</td>
+<td>variable</td>
+<td>MSS, Window Scaling, SACK, Timestamps, etc.</td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>sequence number</strong> is TCP's most fundamental concept. Every byte in the TCP byte stream has a position; the sequence number in a segment names the position of the <em>first</em> byte in that segment. The <strong>acknowledgment number</strong> in a returning segment names the next byte the receiver expects — equivalent to "I have received everything before this." Sequence numbers wrap around modulo (2^{32}), giving roughly 4 GB of stream before reuse; window scaling and Protect Against Wrapped Sequences (PAWS) handle the wrap on long-lived connections.</p>
+<p>A <strong>TCP segment</strong> is the unit TCP transmits — a TCP header plus some payload bytes, the whole thing carried in an IP packet. Segments are not framed in the byte stream the application sees; they are an internal protocol detail. The receiver might deliver bytes from multiple segments as one buffer to the application or split one segment's bytes across two <code>read()</code> calls.</p>
+<h2 id="114-the-three-way-handshake">11.4 The Three-Way Handshake<a class="headerlink" href="#114-the-three-way-handshake" title="Permanent link">&para;</a></h2>
+<p>A TCP connection begins with the <strong>three-way handshake</strong>, which establishes initial sequence numbers and confirms both endpoints can communicate. The exchange is:</p>
+<ol>
+<li><strong>SYN</strong> — Client sends a segment with the SYN flag set and an initial sequence number <code>Cseq</code>. No data; just the header.</li>
+<li><strong>SYN+ACK</strong> — Server replies with SYN flag <em>and</em> ACK flag set, its own initial sequence number <code>Sseq</code>, and an acknowledgment number of <code>Cseq + 1</code> (acknowledging the client's SYN).</li>
+<li><strong>ACK</strong> — Client replies with ACK flag set and acknowledgment number <code>Sseq + 1</code> (acknowledging the server's SYN). The connection is now established and either side can send data.</li>
+</ol>
+<p>The handshake serves three purposes. First, both sides confirm the other is alive and reachable. Second, both sides exchange initial sequence numbers — chosen randomly to avoid certain attack and reuse pitfalls. Third, both sides advertise their initial window size and any options they want to negotiate (MSS, window scaling, SACK support, timestamps).</p>
+<p>The handshake costs one round-trip time before any data flows. On a 100 ms RTT, that's 100 ms of pure overhead. Modern alternatives — TCP Fast Open, QUIC's 0-RTT mode — reduce this to zero on resumed connections.</p>
+<h2 id="115-connection-termination">11.5 Connection Termination<a class="headerlink" href="#115-connection-termination" title="Permanent link">&para;</a></h2>
+<p>A TCP connection closes through a four-way handshake. Each direction closes independently — TCP supports a "half-closed" state where one direction is shut down while the other still flows.</p>
+<ol>
+<li><strong>FIN</strong> — Endpoint A sends a segment with the FIN flag set, signaling "I have no more data to send."</li>
+<li><strong>ACK</strong> — Endpoint B acknowledges the FIN. Now A → B is closed; B → A is still open.</li>
+<li><strong>FIN</strong> — Endpoint B sends its own FIN when it has finished sending.</li>
+<li><strong>ACK</strong> — Endpoint A acknowledges. Both directions are now closed.</li>
+</ol>
+<p>After a connection closes, the side that sent the last ACK enters a TIME_WAIT state for a few minutes (typically 2 × Maximum Segment Lifetime, or roughly 60–240 seconds). TIME_WAIT prevents stale segments from a previous instance of the same 4-tuple from being mistaken for traffic on a newly-established connection. TIME_WAIT is a frequent source of operational frustration on busy servers, since the kernel keeps state for every recently-closed connection.</p>
+<p>A connection can also be torn down abruptly with a <strong>RST</strong> (reset) segment. RST is used to abort connections after errors, refuse connections to closed ports, or short-circuit graceful closure. Applications usually do not send RST deliberately; the kernel sends it on their behalf when something goes wrong.</p>
+<h4 id="diagram-tcp-three-way-handshake-and-termination">Diagram: TCP Three-Way Handshake and Termination<a class="headerlink" href="#diagram-tcp-three-way-handshake-and-termination" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Animated sequence diagram of TCP setup, data exchange, and graceful termination</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> tcp-handshake-and-termination<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Build an interactive MicroSim that animates TCP connection setup, data exchange, and termination as a labeled sequence diagram.</p>
+<p>Canvas: 940 px wide by 640 px tall, responsive down to 360 px. A 100 px control panel sits below.</p>
+<p>Layout:</p>
+<ul>
+<li>Two vertical timelines (Client on the left, Server on the right) running top to bottom.</li>
+<li>Each segment is drawn as a labeled arrow between the timelines, with sequence and acknowledgment numbers shown.</li>
+<li>A current-state label appears beside each timeline at every step (CLOSED → SYN_SENT → ESTABLISHED → FIN_WAIT_1 → FIN_WAIT_2 → TIME_WAIT → CLOSED).</li>
+</ul>
+<p>Animation phases:</p>
+<ol>
+<li><strong>Handshake</strong>: Client sends SYN(Cseq=100), Server replies SYN+ACK(Sseq=500, ack=101), Client sends ACK(ack=501).</li>
+<li><strong>Data exchange</strong>: Client sends DATA(seq=101, len=200), Server ACKs. Server sends DATA(seq=501, len=300), Client ACKs.</li>
+<li><strong>Termination</strong>: Client sends FIN(seq=301), Server ACKs. Server sends FIN(seq=801), Client ACKs. Client enters TIME_WAIT.</li>
+</ol>
+<p>Controls panel:</p>
+<ul>
+<li>Buttons: Step / Play / Reset.</li>
+<li>Toggle: "Show TCP states" overlays the state machine on the side.</li>
+<li>Toggle: "Drop a packet" causes one of the segments to be lost; show retransmission and timer behavior.</li>
+<li>Toggle: "Half-close" pauses the termination after the first FIN, so students see a half-closed connection.</li>
+</ul>
+<p>Visual style:</p>
+<ul>
+<li>Segments: arrows colored by direction (client→server in honey amber, server→client in slate).</li>
+<li>SYN/FIN flags: highlighted with a small badge.</li>
+<li>ACK numbers and sequence numbers in monospace labels.</li>
+</ul>
+<p>Learning objectives:</p>
+<ul>
+<li>(Bloom — Understanding) Students explain each step of the three-way handshake and the four-way termination.</li>
+<li>(Bloom — Analyzing) Students decompose a captured TCP exchange into its phases and state transitions.</li>
+<li>(Bloom — Evaluating) Students judge when half-close is useful and why TIME_WAIT exists.</li>
+</ul>
+<p>Implement in pure p5.js with the existing MicroSim CSS theme.</p>
+</details>
+<h2 id="116-sliding-window-and-flow-control">11.6 Sliding Window and Flow Control<a class="headerlink" href="#116-sliding-window-and-flow-control" title="Permanent link">&para;</a></h2>
+<p>Once a connection is established, data flows. TCP uses a <strong>sliding window</strong> (Chapter 6 introduced the general concept) to keep multiple segments outstanding without waiting for each ACK. The window slides forward as ACKs arrive: at any moment, the sender knows the lowest unacknowledged sequence number, and can send up to <code>window</code> bytes ahead of it.</p>
+<p>TCP's window has two distinct ceilings. The first is <strong>flow control</strong>: the receiver advertises in every ACK how much buffer space it has available (the <strong>rwnd</strong> — receive window). The sender must not send more than <code>rwnd</code> unacknowledged bytes, regardless of how fast the network can carry them. Flow control protects the receiver from being overwhelmed by a sender faster than the receiver's application reads. If the receiver's buffer fills (because the application is slow to consume), <code>rwnd</code> shrinks toward zero and the sender stops; ACKs with non-zero <code>rwnd</code> re-open the window when the application reads more data.</p>
+<p>The receive window is announced as a 16-bit number — capped at 65,535 bytes. For long-haul connections with bandwidth-delay products in the megabytes (Chapter 4), this is a hopeless cap. The <strong>window-scaling option</strong> (RFC 1323) lets endpoints advertise a left-shift factor at handshake time, multiplying the effective window by up to (2^{14}). Modern TCP stacks always negotiate window scaling; without it, no high-rate transfer over a transcontinental link is possible.</p>
+<p>The second window ceiling is <strong>congestion control</strong> (next section), which limits how much the sender chooses to keep in flight based on its estimate of network capacity. The actual amount in flight is <code>min(rwnd, cwnd)</code> — the smaller of the receiver's advertised window and the sender's congestion window.</p>
+<h2 id="117-congestion-control-the-four-phases">11.7 Congestion Control: The Four Phases<a class="headerlink" href="#117-congestion-control-the-four-phases" title="Permanent link">&para;</a></h2>
+<p>The Internet's foundational rule of fairness is that TCP senders voluntarily slow down when the network is congested, and they probe upward when there is bandwidth available. <strong>Congestion control</strong> is the algorithm that does this voluntary throttling. It is a vast subject; this section gives the canonical four-phase algorithm and the dominant variants.</p>
+<p>The standard congestion-control algorithm, often called <strong>TCP Reno</strong> (after the BSD variant where it was first deployed), maintains a state variable <code>cwnd</code> (congestion window) and follows four phases:</p>
+<p><strong>Slow start.</strong> When the connection begins, <code>cwnd</code> starts at a small value (typically 10 segments now; historically 1) and <em>doubles</em> every RTT. Each ACK increases <code>cwnd</code> by one segment. This exponential ramp finds the network's capacity quickly. Slow start ends when either <code>cwnd</code> reaches a threshold called <code>ssthresh</code>, or a packet loss is detected.</p>
+<p><strong>Congestion avoidance.</strong> Once past <code>ssthresh</code>, <code>cwnd</code> grows linearly: by one segment per RTT (more precisely, roughly one segment per <code>cwnd</code> ACKs). This slower probing avoids causing too much loss.</p>
+<p><strong>Fast retransmit.</strong> When the sender receives three duplicate ACKs (a sign that one segment was lost but later segments did arrive), it retransmits the missing segment immediately rather than waiting for a timer. This is much faster than waiting for the retransmission timer to expire.</p>
+<p><strong>Fast recovery.</strong> After a fast retransmit, instead of dropping <code>cwnd</code> all the way to one and re-entering slow start, Reno enters fast recovery: halve <code>cwnd</code> and <code>ssthresh</code>, then resume congestion-avoidance growth from the new <code>cwnd</code>. The reasoning: if duplicate ACKs are arriving, the network is still delivering packets, just with one missing — no need to throttle as hard as a full timeout would suggest.</p>
+<p>When the <strong>retransmission timer</strong> does expire (no ACK at all for an extended period — the network has stopped delivering), Reno falls all the way back: drop <code>cwnd</code> to 1 segment, set <code>ssthresh</code> to half of the previous <code>cwnd</code>, and re-enter slow start.</p>
+<p>The retransmission timer itself is computed adaptively from observed RTT samples. The algorithm is roughly:</p>
+<p>[
+\text{RTO} = \text{SRTT} + 4 \times \text{RTTVAR}
+]</p>
+<p>where SRTT is a smoothed RTT estimate and RTTVAR is its smoothed variance. The factor of 4 in the variance keeps spurious retransmissions rare. Lower bounds (typically 200 ms or 1 second) prevent absurdly aggressive retransmission on fast paths.</p>
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Connection start</td>
+<td><code>cwnd = 10</code>, slow start</td>
+</tr>
+<tr>
+<td>Each ACK during slow start</td>
+<td><code>cwnd += 1</code> (exponential growth)</td>
+</tr>
+<tr>
+<td><code>cwnd</code> reaches <code>ssthresh</code></td>
+<td>Switch to congestion avoidance</td>
+</tr>
+<tr>
+<td>Each ACK during congestion avoidance</td>
+<td><code>cwnd += 1/cwnd</code> (linear growth, +1 per RTT)</td>
+</tr>
+<tr>
+<td>3 duplicate ACKs</td>
+<td>Fast retransmit + fast recovery: <code>cwnd = ssthresh = cwnd/2</code></td>
+</tr>
+<tr>
+<td>RTO timeout</td>
+<td>Slow start restart: <code>cwnd = 1</code>, <code>ssthresh = cwnd/2</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="118-karns-algorithm">11.8 Karn's Algorithm<a class="headerlink" href="#118-karns-algorithm" title="Permanent link">&para;</a></h2>
+<p>A subtle wrinkle in the retransmission-timer calculation: when a segment is retransmitted, the ACK that eventually arrives could be acknowledging the original transmission or the retransmission — the receiver does not say which. Using the wrong association would corrupt the RTT estimate.</p>
+<p><strong>Karn's algorithm</strong> addresses this with two rules: (1) do not update RTT estimates from retransmitted segments at all, and (2) when a retransmission timer fires, <em>exponentially back off</em> the timer rather than reusing it. So the first retransmission uses RTO; the second uses 2 × RTO; the third uses 4 × RTO; and so on, capped at some maximum. This prevents pathological retransmission storms when the network is severely congested. Modern TCP retains both Karn's rules.</p>
+<h2 id="119-reno-cubic-and-bbr">11.9 Reno, CUBIC, and BBR<a class="headerlink" href="#119-reno-cubic-and-bbr" title="Permanent link">&para;</a></h2>
+<p>Reno was the dominant congestion-control algorithm for years. It works well for "low-BDP" connections — short paths or modest bandwidths — but its linear growth in congestion avoidance is too slow to fill modern long-haul, high-bandwidth links. Two newer algorithms now dominate.</p>
+<p><strong>TCP CUBIC</strong>, defined in RFC 8312, replaces Reno's linear growth with a <em>cubic function</em> of time since the last congestion event. CUBIC ramps up rapidly far from the previous loss point, slows down near it, and accelerates again past it. The result is that CUBIC fills high-BDP links far faster than Reno while still backing off after loss. CUBIC has been the default in Linux since 2007; it is the algorithm carrying most of today's Internet traffic.</p>
+<p><strong>TCP BBR (Bottleneck Bandwidth and Round-trip propagation)</strong>, developed by Google starting in 2016, takes a different approach. BBR ignores packet loss as a congestion signal and instead measures the bottleneck bandwidth and minimum RTT directly. It paces sending to match the bottleneck rate without filling buffers along the way (avoiding the "buffer bloat" problem of router queues). BBR achieves significantly higher throughput than CUBIC on lossy long-haul paths and is now the default in much of Google's infrastructure and some Linux distributions.</p>
+<table>
+<thead>
+<tr>
+<th>Algorithm</th>
+<th>Strategy</th>
+<th>Fills buffers?</th>
+<th>Default in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reno</td>
+<td>AIMD (additive-increase, multiplicative-decrease) on loss</td>
+<td>Yes</td>
+<td>Legacy systems</td>
+</tr>
+<tr>
+<td>CUBIC</td>
+<td>Cubic increase, halving on loss</td>
+<td>Yes</td>
+<td>Linux default since 2007</td>
+</tr>
+<tr>
+<td>BBR</td>
+<td>Estimates bottleneck bandwidth and min RTT</td>
+<td>No</td>
+<td>Google services, some Linux</td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>TCP Reno</strong>, <strong>TCP CUBIC</strong>, and <strong>TCP BBR</strong> distinctions matter because different algorithms compete differently for shared bandwidth. A CUBIC sender and a Reno sender on the same bottleneck link will each get a different share than would two senders running the same algorithm. Network operators and protocol designers care about this kind of fairness because the Internet's stability depends on senders behaving roughly compatibly.</p>
+<h4 id="diagram-congestion-control-phases-and-algorithms">Diagram: Congestion Control Phases and Algorithms<a class="headerlink" href="#diagram-congestion-control-phases-and-algorithms" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Plot of cwnd over time showing slow start, congestion avoidance, and recovery for Reno, CUBIC, and BBR</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> tcp-congestion-control-comparison<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Build an interactive MicroSim that plots <code>cwnd</code> over time for Reno, CUBIC, and BBR running on the same simulated path with configurable loss and bandwidth.</p>
+<p>Canvas: 960 px wide by 600 px tall, responsive down to 360 px. A 120 px control panel sits below.</p>
+<p>Layout:</p>
+<ul>
+<li>A large time-vs-cwnd plot occupying most of the canvas. X-axis is time in RTTs; Y-axis is cwnd in segments.</li>
+<li>Three traces, one per algorithm, in distinct colors with a legend.</li>
+<li>Horizontal dashed lines marking the simulated link's bottleneck capacity and the bandwidth-delay product.</li>
+<li>Annotations at each loss event, showing fast retransmit, fast recovery, and timeout events.</li>
+</ul>
+<p>Controls panel:</p>
+<ul>
+<li>Sliders: link bandwidth (1–10000 Mbps log), RTT (10–500 ms), loss rate (0–5%), buffer size (in BDPs).</li>
+<li>Toggle: "Add competing flows" to introduce additional algorithms competing for the link.</li>
+<li>Buttons: Step / Play / Reset.</li>
+<li>"Single algorithm focus" dropdown to highlight one trace.</li>
+</ul>
+<p>Visual style:</p>
+<ul>
+<li>Reno: slate blue, sawtooth pattern.</li>
+<li>CUBIC: honey amber, cubic curve.</li>
+<li>BBR: forest green, smoother saturating curve.</li>
+</ul>
+<p>Learning objectives:</p>
+<ul>
+<li>(Bloom — Understanding) Students explain how each algorithm's <code>cwnd</code> evolves through slow start, congestion avoidance, and loss recovery.</li>
+<li>(Bloom — Analyzing) Students compare fairness, buffer occupancy, and convergence time for the three algorithms.</li>
+<li>(Bloom — Evaluating) Students judge which algorithm fits a given link profile (lossy, long, or fast).</li>
+</ul>
+<p>Implement in pure p5.js with the existing MicroSim CSS theme.</p>
+</details>
+<h2 id="1110-nagles-algorithm-and-sack">11.10 Nagle's Algorithm and SACK<a class="headerlink" href="#1110-nagles-algorithm-and-sack" title="Permanent link">&para;</a></h2>
+<p>Two practical TCP optimizations worth knowing.</p>
+<p><strong>Nagle's algorithm</strong>, defined in RFC 896, addresses a problem with chatty applications that write a few bytes at a time (think character-by-character SSH typing). Without Nagle, every keystroke produces a 41-byte packet (1 byte payload + 20 IP + 20 TCP) — astronomically inefficient. Nagle's rule: if there is unacknowledged data in flight, don't send a new small segment; instead, wait and combine more bytes into a larger segment. The result is that TCP automatically batches small writes into larger segments without the application having to do anything. Nagle is on by default but can be disabled (the <code>TCP_NODELAY</code> socket option) for latency-sensitive applications that don't want the batching delay.</p>
+<p><strong>SACK (Selective Acknowledgment)</strong>, defined in RFC 2018, fixes a Reno limitation. With cumulative ACKs alone, the sender knows only the highest contiguous byte received — if segments 1, 3, and 4 arrive but segment 2 is lost, the cumulative ACK names byte 2 as the next expected, even though bytes 3 and 4 are actually buffered at the receiver. Without SACK, the sender doesn't know it has 3 and 4, so it might retransmit them too. The SACK option in the TCP header lets the receiver tell the sender exactly which non-contiguous ranges it has received, so the sender retransmits only the truly missing segments. SACK is universally supported in modern TCP implementations.</p>
+<h2 id="1111-quic-tcp-reinvented-in-user-space">11.11 QUIC: TCP, Reinvented in User Space<a class="headerlink" href="#1111-quic-tcp-reinvented-in-user-space" title="Permanent link">&para;</a></h2>
+<p>The Internet ran on TCP for forty years. In the 2010s, Google began deploying a new transport — <strong>QUIC (Quick UDP Internet Connections)</strong> — that replaces TCP for a growing fraction of web traffic. QUIC is now standardized as RFC 9000 and is the transport beneath HTTP/3.</p>
+<p>QUIC's headline differences from TCP:</p>
+<ul>
+<li><strong>Runs over UDP.</strong> This lets QUIC avoid the calcified middlebox ecosystem that constrains TCP changes — middleboxes that mangle SYN packets, strip TCP options, or block unfamiliar segment shapes. UDP is a clean transport substrate.</li>
+<li><strong>0-RTT and 1-RTT setup.</strong> QUIC integrates TLS handshakes with connection establishment, so connection setup and encryption negotiation finish in one round trip on a fresh connection — and zero round trips on a resumed connection. TCP+TLS needs two RTTs for the same.</li>
+<li><strong>No head-of-line blocking across streams.</strong> QUIC supports multiple independent streams on one connection. A lost packet on stream A does not block delivery on stream B. HTTP/2 multiplexed streams over a single TCP connection but suffered from TCP's single-stream loss recovery; QUIC's per-stream recovery solves this.</li>
+<li><strong>Connection migration via connection IDs.</strong> A QUIC connection is identified by a connection ID rather than the 4-tuple, so it can survive an IP address change (e.g., a phone moving between networks). TCP cannot.</li>
+<li><strong>Always encrypted.</strong> QUIC integrates TLS 1.3 directly; there is no unencrypted QUIC option. This is partly a cleanliness choice and partly an end-run around middleboxes that interfere with unencrypted traffic.</li>
+</ul>
+<p>QUIC re-implements much of TCP's behavior — congestion control, retransmission, flow control — in user-space libraries rather than kernel code. This makes it easier to evolve: deploying a new congestion-control algorithm or feature is an application update, not a kernel update.</p>
+<p>The result is that for HTTP-based traffic — which is the majority of public Internet traffic — QUIC has largely replaced TCP. TCP remains dominant for non-web protocols (SSH, SMTP, database clients, server-to-server) and will for years, but the share of Internet bytes carried over QUIC has grown rapidly since 2020.</p>
+<h2 id="1112-multipath-tcp">11.12 Multipath TCP<a class="headerlink" href="#1112-multipath-tcp" title="Permanent link">&para;</a></h2>
+<p>A mobile device often has multiple network interfaces — Wi-Fi and cellular, two cellular radios, or many in a datacenter context. TCP traditionally uses one interface per connection: the kernel picks one based on routing policy and uses it exclusively until the connection ends. <strong>Multipath TCP (MPTCP)</strong>, defined in RFC 8684, lets a single TCP connection use <em>multiple</em> paths simultaneously, dynamically adding and removing subflows as interfaces come and go.</p>
+<p>MPTCP appears to applications as ordinary TCP — the same byte stream, the same socket interface, the same APIs. Underneath, MPTCP maintains multiple subflows, each a real TCP connection over a different path. Bytes are sent on whichever subflow has capacity; the receiver reassembles in order using extended sequence numbering.</p>
+<p>The two main use cases:</p>
+<ul>
+<li><strong>Mobile devices.</strong> A phone uses Wi-Fi when available and falls back smoothly to cellular when Wi-Fi degrades, without dropping the connection. Apple uses MPTCP for Siri (over Wi-Fi+cellular) since 2013.</li>
+<li><strong>Datacenter aggregation.</strong> A server with multiple NICs aggregates their bandwidth into one MPTCP connection, similar to link aggregation but at the transport layer.</li>
+</ul>
+<p>MPTCP deployment has been slower than its proponents hoped, but iOS, Linux, and several other OSes now support it. As Wi-Fi-cellular handoff becomes routine, MPTCP's seamless path failover becomes more valuable.</p>
+<h2 id="1113-putting-it-together-reading-a-tcp-exchange">11.13 Putting It Together: Reading a TCP Exchange<a class="headerlink" href="#1113-putting-it-together-reading-a-tcp-exchange" title="Permanent link">&para;</a></h2>
+<p>A good way to fix all of this is to walk through what <code>tcpdump</code> would show for a small exchange — say, a client running <code>curl https://example.com/</code>:</p>
+<ol>
+<li><strong>DNS lookup.</strong> Client uses UDP to ask the DNS resolver for <code>example.com</code>. UDP datagram out, UDP datagram back.</li>
+<li><strong>TCP handshake.</strong> Client sends SYN to port 443. Server replies SYN+ACK. Client sends ACK. Connection ESTABLISHED. Roughly 1 RTT elapsed.</li>
+<li><strong>TLS handshake.</strong> Client sends ClientHello (over TCP). Server responds ServerHello + Certificate + ... Two more RTTs of TLS exchange (or one if TLS 1.3 0-RTT is used). Encryption keys established.</li>
+<li><strong>HTTP request.</strong> Encrypted under TLS, the client sends <code>GET / HTTP/1.1\r\nHost: example.com\r\n\r\n</code>. The bytes flow through TCP segments, sequenced and ACKed.</li>
+<li><strong>HTTP response.</strong> Server sends back the response — headers and HTML body — across some number of TCP segments. TCP slides its window forward as ACKs come back.</li>
+<li><strong>Close.</strong> Client or server sends FIN. The other side ACKs. The other side sends its own FIN. The first side ACKs. Connection enters TIME_WAIT.</li>
+</ol>
+<p>In a packet capture you would see: SYN, SYN+ACK, ACK, [TLS handshake segments and ACKs], [HTTP request/response segments and ACKs], FIN, ACK, FIN, ACK. Knowing what each segment is doing — what flag is set, why the sequence numbers advance the way they do, how the window evolves over time — is the practical skill that makes TCP debugging tractable.</p>
+<p>If you replace TCP+TLS with QUIC+HTTP/3, the picture is more compact: a single QUIC handshake (1 RTT or 0 RTT) replaces both the TCP and TLS handshakes; HTTP/3 frames flow inside QUIC streams; and the close is a single CONNECTION_CLOSE frame on UDP.</p>
+<div class="admonition mascot-encourage">
+<p class="admonition-title">If congestion control feels mathematical — that's because it is</p>
+<p><img src="../../img/mascot/encouraging.png" class="mascot-admonition-img" alt="Buzz cheering you on">
+The four phases of Reno, the cubic curve of CUBIC, the bandwidth probing of BBR — these are decades of careful engineering. <em>One hop at a time.</em> You don't have to derive them, but you do need to recognize them in <code>cwnd</code>-vs-time plots. Spend twenty minutes with the comparison MicroSim and the patterns will click.</p>
+</div>
+<h2 id="1114-key-takeaways">11.14 Key Takeaways<a class="headerlink" href="#1114-key-takeaways" title="Permanent link">&para;</a></h2>
+<p>The transport layer is where the network's rough edges are smoothed for application code. Before moving on, make sure you can answer the following without looking back:</p>
+<ul>
+<li>What three jobs does every transport-layer protocol do?</li>
+<li>Compare UDP and TCP on header size, connection setup, reliability, and use cases.</li>
+<li>What is a TCP segment? What is a sequence number? What is an acknowledgment number?</li>
+<li>Walk through the three-way handshake and the four-way termination.</li>
+<li>Why does TCP have <em>two</em> windows (rwnd and cwnd)? What does each protect against?</li>
+<li>What is window scaling, and why is it essential?</li>
+<li>Describe slow start, congestion avoidance, fast retransmit, and fast recovery.</li>
+<li>What is Karn's algorithm? Why does it matter for retransmission timers?</li>
+<li>Compare Reno, CUBIC, and BBR. Why might BBR achieve higher throughput on a lossy path?</li>
+<li>What is Nagle's algorithm? When would you disable it?</li>
+<li>What does the SACK option add to TCP?</li>
+<li>What does QUIC do differently from TCP+TLS, and why does it matter?</li>
+<li>What problem does Multipath TCP solve?</li>
+</ul>
+<p>If any of those answers feel shaky, re-read the corresponding section before continuing to Chapter 12, where we shift focus to network security — the attacks that the transport layer cannot prevent and the cryptographic protocols (TLS, IPsec, SSH) that protect everything we have built so far.</p>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">TCP, demystified</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Buzz celebrating">
+You can now read a TCP capture, name every flag, and explain why <code>cwnd</code> is bouncing the way it is. The next chapter zooms back out — to the security layer that wraps every modern transport-layer connection. <em>Follow the packet.</em></p>
+</div>
 
 
 
 
 
 
+
+  
+  
 
 
 
