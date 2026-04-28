@@ -16,17 +16,22 @@
 .md-typeset .admonition.mascot-thinking,
 .md-typeset .admonition.mascot-tip,
 .md-typeset .admonition.mascot-warning,
-.md-typeset .admonition.mascot-celebration,
 .md-typeset .admonition.mascot-encourage,
 .md-typeset .admonition.mascot-neutral,
 .md-typeset details.mascot-welcome,
 .md-typeset details.mascot-thinking,
 .md-typeset details.mascot-tip,
 .md-typeset details.mascot-warning,
-.md-typeset details.mascot-celebration,
 .md-typeset details.mascot-encourage,
 .md-typeset details.mascot-neutral {
   font-size: inherit;
+  color: #000;
+}
+
+.md-typeset .admonition.mascot-celebration,
+.md-typeset details.mascot-celebration {
+  font-size: inherit;
+  color: #fff;
 }
 
 /* ---- Welcome (chapter openings) — honey gold ---- */
@@ -82,7 +87,6 @@
 .md-typeset details.mascot-celebration {
   border-color: #4a148c;
   background-color: #311b4f;
-  color: #f3e5f5;
 }
 .md-typeset .mascot-celebration > .admonition-title,
 .md-typeset .mascot-celebration > summary {
