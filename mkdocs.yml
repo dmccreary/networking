@@ -87,7 +87,23 @@ nav:
   - About: about.md
   - Course Description: course-description.md
   - Chapters:
-      - Introduction: chapters/index.md
+      - List of Chapters: chapters/index.md
+      - 1. Introduction to Networks: chapters/01-intro-to-networks/index.md
+      - 2. Standards and Encapsulation: chapters/02-standards-and-encapsulation/index.md
+      - 3. Architecture and Layering: chapters/03-architecture-and-layering/index.md
+      - 4. Performance and QoS: chapters/04-performance-and-qos/index.md
+      - 5. The Physical Layer: chapters/05-physical-layer/index.md
+      - 6. Link Layer Fundamentals: chapters/06-link-layer-fundamentals/index.md
+      - 7. Ethernet and VLANs: chapters/07-ethernet-and-vlans/index.md
+      - 8. Wireless and Mobility: chapters/08-wireless-and-mobility/index.md
+      - 9. Network Layer and IP: chapters/09-network-layer-and-ip/index.md
+      - 10. Routing and Forwarding: chapters/10-routing-and-forwarding/index.md
+      - 11. The Transport Layer: chapters/11-transport-layer/index.md
+      - 12. Network Security: chapters/12-network-security/index.md
+      - 13. Application Layer: chapters/13-application-layer/index.md
+      - 14. Network Programming: chapters/14-network-programming/index.md
+      - 15. Network Operations: chapters/15-network-operations/index.md
+      - 16. SDN, Emerging, and Capstones: chapters/16-sdn-emerging-and-capstones/index.md
   - Learning Graph:
     - Introduction: learning-graph/index.md
     - Course Description Assessment: learning-graph/course-description-assessment.md
