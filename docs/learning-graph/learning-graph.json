@@ -10,30 +10,9 @@
     "license": "CC BY-NC-SA 4.0 DEED"
   },
   "groups": {
-    "SEC": {
-      "classifierName": "Network Security",
-      "color": "MistyRose",
-      "font": {
-        "color": "black"
-      }
-    },
-    "ROUT": {
-      "classifierName": "Routing and Forwarding",
-      "color": "PeachPuff",
-      "font": {
-        "color": "black"
-      }
-    },
-    "PHYS": {
-      "classifierName": "Physical Layer",
-      "color": "LightYellow",
-      "font": {
-        "color": "black"
-      }
-    },
-    "CAP": {
-      "classifierName": "Capstone Projects",
-      "color": "Honeydew",
+    "FOUND": {
+      "classifierName": "Foundation Concepts",
+      "color": "Gainsboro",
       "font": {
         "color": "black"
       }
@@ -45,13 +24,6 @@
         "color": "black"
       }
     },
-    "NET": {
-      "classifierName": "Network Layer and Addressing",
-      "color": "SteelBlue",
-      "font": {
-        "color": "black"
-      }
-    },
     "PERF": {
       "classifierName": "Performance and Quality of Service",
       "color": "Lavender",
@@ -59,23 +31,9 @@
         "color": "black"
       }
     },
-    "APP": {
-      "classifierName": "Application Layer Protocols",
-      "color": "LavenderBlush",
-      "font": {
-        "color": "black"
-      }
-    },
-    "PROG": {
-      "classifierName": "Network Programming",
-      "color": "Thistle",
-      "font": {
-        "color": "black"
-      }
-    },
-    "OPS": {
-      "classifierName": "Network Operations and Measurement",
-      "color": "MintCream",
+    "PHYS": {
+      "classifierName": "Physical Layer",
+      "color": "LightYellow",
       "font": {
         "color": "black"
       }
@@ -94,9 +52,51 @@
         "color": "black"
       }
     },
-    "FOUND": {
-      "classifierName": "Foundation Concepts",
-      "color": "Gainsboro",
+    "NET": {
+      "classifierName": "Network Layer and Addressing",
+      "color": "SteelBlue",
+      "font": {
+        "color": "black"
+      }
+    },
+    "ROUT": {
+      "classifierName": "Routing and Forwarding",
+      "color": "PeachPuff",
+      "font": {
+        "color": "black"
+      }
+    },
+    "TRANS": {
+      "classifierName": "Transport Layer",
+      "color": "PaleGreen",
+      "font": {
+        "color": "black"
+      }
+    },
+    "APP": {
+      "classifierName": "Application Layer Protocols",
+      "color": "LavenderBlush",
+      "font": {
+        "color": "black"
+      }
+    },
+    "SEC": {
+      "classifierName": "Network Security",
+      "color": "MistyRose",
+      "font": {
+        "color": "black"
+      }
+    },
+    "PROG": {
+      "classifierName": "Network Programming",
+      "color": "Thistle",
+      "font": {
+        "color": "black"
+      }
+    },
+    "OPS": {
+      "classifierName": "Network Operations and Measurement",
+      "color": "MintCream",
       "font": {
         "color": "black"
       }
@@ -108,9 +108,9 @@
         "color": "black"
       }
     },
-    "TRANS": {
-      "classifierName": "Transport Layer",
-      "color": "PaleGreen",
+    "CAP": {
+      "classifierName": "Capstone Projects",
+      "color": "Honeydew",
       "font": {
         "color": "black"
       }

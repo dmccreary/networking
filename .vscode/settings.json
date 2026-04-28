@@ -5,16 +5,23 @@
         "CSMA",
         "Datagram",
         "Decapsulation",
+        "DNSSEC",
+        "Epoll",
         "Goodput",
         "ICANN",
         "Interdomain",
         "Intradomain",
+        "Iperf",
+        "Kqueue",
+        "Netem",
         "OSPF",
         "remediations",
+        "SNMP",
         "Subnetting",
         "Supernetting",
         "tcpdump",
         "Traceroute",
+        "VXLAN",
         "Wireshark"
     ]
 }
