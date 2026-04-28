@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An ABET CAC-aligned intelligent textbook covering the foundations of networking and communication — layered architecture, routing, reliable transport, wireless, network security, and modern programmable networks — aligned to the ACM/IEEE CS2023 Networking and Communication knowledge area.">
+        <meta name="description" content="Wireless LANs (Wi-Fi 802.11), access points, SSIDs, BSS and ESS, channels, RTS/CTS, roaming, Bluetooth, cellular generations (4G LTE, 5G NR), Mobile IP, handoff, and link adaptation — what makes wireless links different from wired ones and how the upper layers cope.">
       
       
         <meta name="author" content="Dan McCreary">
@@ -26,7 +26,7 @@
     
     
       
-        <title>8. Wireless and Mobility - Networking and Communication</title>
+        <title>Wireless and Mobile Networking - Networking and Communication</title>
       
     
     
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              8. Wireless and Mobility
+              Wireless and Mobile Networking
             
           </span>
         </div>
@@ -661,6 +661,144 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#81-why-wireless-is-different" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 Why Wireless Is Different
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#82-the-wireless-lan-and-the-wi-fi-family" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2 The Wireless LAN and the Wi-Fi Family
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#83-access-points-bss-and-ess" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3 Access Points, BSS, and ESS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.3 Access Points, BSS, and ESS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-bss-and-ess-topology" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: BSS and ESS Topology
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#84-channels-and-spectrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4 Channels and Spectrum
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#85-the-hidden-terminal-problem-and-rtscts" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.5 The Hidden Terminal Problem and RTS/CTS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#86-roaming-and-handoff" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.6 Roaming and Handoff
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#87-bluetooth-personal-area-networking" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.7 Bluetooth: Personal-Area Networking
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#88-cellular-networks-4g-lte-and-5g-nr" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.8 Cellular Networks: 4G LTE and 5G NR
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#89-mobility-mobile-ip-and-beyond" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.9 Mobility: Mobile IP and Beyond
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#810-link-adaptation-choosing-the-right-modulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.10 Link Adaptation: Choosing the Right Modulation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.10 Link Adaptation: Choosing the Right Modulation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-wireless-performance-vs-distance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Wireless Performance vs. Distance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#811-putting-it-together-a-mobile-phones-day" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.11 Putting It Together: A Mobile Phone's Day
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#812-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.12 Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1112,6 +1250,144 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#81-why-wireless-is-different" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 Why Wireless Is Different
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#82-the-wireless-lan-and-the-wi-fi-family" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2 The Wireless LAN and the Wi-Fi Family
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#83-access-points-bss-and-ess" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3 Access Points, BSS, and ESS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.3 Access Points, BSS, and ESS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-bss-and-ess-topology" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: BSS and ESS Topology
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#84-channels-and-spectrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4 Channels and Spectrum
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#85-the-hidden-terminal-problem-and-rtscts" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.5 The Hidden Terminal Problem and RTS/CTS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#86-roaming-and-handoff" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.6 Roaming and Handoff
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#87-bluetooth-personal-area-networking" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.7 Bluetooth: Personal-Area Networking
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#88-cellular-networks-4g-lte-and-5g-nr" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.8 Cellular Networks: 4G LTE and 5G NR
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#89-mobility-mobile-ip-and-beyond" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.9 Mobility: Mobile IP and Beyond
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#810-link-adaptation-choosing-the-right-modulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.10 Link Adaptation: Choosing the Right Modulation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.10 Link Adaptation: Choosing the Right Modulation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-wireless-performance-vs-distance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Wireless Performance vs. Distance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#811-putting-it-together-a-mobile-phones-day" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.11 Putting It Together: A Mobile Phone's Day
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#812-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.12 Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1169,13 +1445,394 @@
 <li><a href="../06-link-layer-fundamentals/">Chapter 6: Link Layer Fundamentals and Reliable Transfer</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Out of the hive, into the air</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Buzz the bee waving welcome">
+Welcome back. Foragers leave the hive and navigate by sun, polarized light, and pheromone trails — all wireless, all variable, all subject to interference. <em>Let's trace the route!</em> This chapter is about networks that work the same way: variable, mobile, and shared with everyone else's invisible signals. By the end you'll know why wireless works as well as it does <em>and</em> why it sometimes feels like it shouldn't.</p>
+</div>
+<h2 id="81-why-wireless-is-different">8.1 Why Wireless Is Different<a class="headerlink" href="#81-why-wireless-is-different" title="Permanent link">&para;</a></h2>
+<p>Every chapter to this point has worked through links you could touch — copper, fiber, the wires inside a switch. <strong>Wireless</strong> networks share electromagnetic spectrum that no one owns and that everyone radiates into. The contrasts with wired media show up at every layer.</p>
+<ul>
+<li><strong>Shared, not point-to-point.</strong> A single Wi-Fi channel is heard by every receiver in range. Two laptops cannot both transmit at once on the same channel without their signals colliding. Wired switching gave each cable its own collision domain; wireless cannot.</li>
+<li><strong>Variable bit error rate.</strong> A wired link's BER is set by the cable plant and is roughly stable. A wireless link's BER varies second-by-second with distance, walls, microwave ovens, weather, and other transmitters. Engineers never assume a fixed BER on radio.</li>
+<li><strong>Half-duplex, mostly.</strong> Most wireless radios cannot transmit and receive on the same frequency at the same time — the transmitter's own signal swamps everything else. Wired Ethernet has been full-duplex for decades; Wi-Fi is still mostly half-duplex.</li>
+<li><strong>Mobile receivers.</strong> A wireless device may move while in active conversation. Its identity (MAC, IP, port) must remain stable; the network underneath must change to match its new location.</li>
+<li><strong>Power and regulation.</strong> Wireless transmitters must obey legal limits on power and frequency — limits set by national regulators (FCC in the US, Ofcom in the UK, etc.). Wired networks have no such constraint.</li>
+</ul>
+<p>These differences shape every wireless design decision. The Wi-Fi MAC uses CSMA/CA (Chapter 6) instead of CSMA/CD because collision detection is impossible. Cellular networks devote vast complexity to handoff because users genuinely move while connected. Wireless protocols layer aggressive forward error correction over their physical layers because residual BER is too high for end-to-end retransmission alone. Wireless is harder than wired networking, and that difficulty is fundamentally physical, not just a temporary engineering shortcoming.</p>
+<h2 id="82-the-wireless-lan-and-the-wi-fi-family">8.2 The Wireless LAN and the Wi-Fi Family<a class="headerlink" href="#82-the-wireless-lan-and-the-wi-fi-family" title="Permanent link">&para;</a></h2>
+<p>A <strong>wireless LAN (WLAN)</strong> is a local-area network whose links are wireless rather than wired. The dominant wireless LAN technology is <strong>Wi-Fi</strong>, the consumer brand for the IEEE 802.11 family of standards. The first 802.11 standard appeared in 1997 with a peak rate of 2 Mbps; the latest, Wi-Fi 7 (802.11be), reaches multiple gigabits per second per spatial stream. Wi-Fi has gone through eight generations, summarized below.</p>
+<table>
+<thead>
+<tr>
+<th>Generation</th>
+<th>IEEE standard</th>
+<th>Year</th>
+<th>Frequency band(s)</th>
+<th>Peak rate (per stream)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wi-Fi 1 (legacy)</td>
+<td>802.11b</td>
+<td>1999</td>
+<td>2.4 GHz</td>
+<td>11 Mbps</td>
+</tr>
+<tr>
+<td>Wi-Fi 2 (legacy)</td>
+<td>802.11a</td>
+<td>1999</td>
+<td>5 GHz</td>
+<td>54 Mbps</td>
+</tr>
+<tr>
+<td>Wi-Fi 3 (legacy)</td>
+<td>802.11g</td>
+<td>2003</td>
+<td>2.4 GHz</td>
+<td>54 Mbps</td>
+</tr>
+<tr>
+<td>Wi-Fi 4</td>
+<td>802.11n</td>
+<td>2009</td>
+<td>2.4 / 5 GHz</td>
+<td>150 Mbps</td>
+</tr>
+<tr>
+<td>Wi-Fi 5</td>
+<td>802.11ac</td>
+<td>2013</td>
+<td>5 GHz</td>
+<td>433 Mbps</td>
+</tr>
+<tr>
+<td>Wi-Fi 6 / 6E</td>
+<td>802.11ax</td>
+<td>2019 / 2021</td>
+<td>2.4 / 5 / 6 GHz</td>
+<td>600 Mbps</td>
+</tr>
+<tr>
+<td>Wi-Fi 7</td>
+<td>802.11be</td>
+<td>2024</td>
+<td>2.4 / 5 / 6 GHz</td>
+<td>2.4 Gbps</td>
+</tr>
+</tbody>
+</table>
+<p>Each generation has improved on three axes: more bandwidth (wider channels), higher modulation order (more bits per symbol), and more spatial streams (multiple antennas working in parallel via MIMO). Wi-Fi 7's headline numbers — 320 MHz channels, 4096-QAM, up to 16 spatial streams — push the same Shannon-bound trade-offs introduced in Chapter 5 toward the ceiling.</p>
+<p>The Wi-Fi MAC sits on top of these radios and handles the contention, framing, and reliability work introduced in Chapter 6. The frame format is similar to Ethernet but adds extra fields to identify the access point, the BSS, the QoS class, and the encryption state — Wi-Fi management is more complex than Ethernet's because the medium is more dynamic.</p>
+<h2 id="83-access-points-bss-and-ess">8.3 Access Points, BSS, and ESS<a class="headerlink" href="#83-access-points-bss-and-ess" title="Permanent link">&para;</a></h2>
+<p>Wi-Fi networks come in two main topology modes: <strong>infrastructure mode</strong>, where one or more <strong>access points (APs)</strong> mediate communication, and <strong>ad hoc mode</strong>, where devices talk directly without an AP. Infrastructure mode dominates in production deployments; ad hoc mode is rare and used mostly for direct device-to-device transfers (Wi-Fi Direct).</p>
+<p>An <strong>access point</strong> is a device that bridges the wireless medium and a wired backbone. APs receive frames from wireless clients, inspect their destination, and forward them either to another wireless client (rare) or out to the wired network through the AP's Ethernet port. In a typical deployment, each AP plugs into an enterprise switch over a single Ethernet cable (often Power-over-Ethernet) and provides wireless service to a small region.</p>
+<p>A <strong>Basic Service Set (BSS)</strong> is one AP plus all the wireless clients currently associated with it. Every BSS has a unique 48-bit identifier called the <strong>BSSID</strong>, which is usually just the AP's MAC address. Every frame sent within a BSS includes the BSSID so that overlapping APs can distinguish their respective traffic.</p>
+<p>An <strong>Extended Service Set (ESS)</strong> is a collection of multiple BSSes that present themselves as a single logical wireless network. The whole ESS shares a network name — the <strong>Service Set Identifier (SSID)</strong> — that is what users see when their device lists "available networks." Users connect to "Coffee_Shop_Wi-Fi" without knowing or caring which of the building's eight access points they are currently associated with. Behind the scenes, each AP runs its own BSS, but they share the SSID, the security configuration, and the network behind the wired backhaul.</p>
+<p>The relationship between AP, BSS, ESS, and SSID is one of the most useful mental pictures of how Wi-Fi is administered:</p>
+<ul>
+<li>One AP forms one BSS.</li>
+<li>Many BSSes can share an SSID and form an ESS.</li>
+<li>A user's device sees the SSID; the device picks one of the BSSes (one AP) to associate with at any moment.</li>
+<li>When the user walks across the building, the device transitions from one BSS to another within the same ESS — a process called <strong>roaming</strong>.</li>
+</ul>
+<h4 id="diagram-bss-and-ess-topology">Diagram: BSS and ESS Topology<a class="headerlink" href="#diagram-bss-and-ess-topology" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Visualization of multiple access points sharing one SSID, with a client roaming between them</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> bss-ess-roaming<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Build an interactive MicroSim that visualizes a multi-AP enterprise Wi-Fi deployment, with a single client device that the user can drag through the floor plan to trigger roaming.</p>
+<p>Canvas: 940 px wide by 600 px tall, responsive down to 360 px. A 100 px control panel sits below.</p>
+<p>Layout:</p>
+<ul>
+<li>A simple floor plan: a horizontal rectangle representing a building with three rooms separated by walls (rendered as gray bars that attenuate signal).</li>
+<li>Three APs, one per room, each labeled AP-1, AP-2, AP-3. Each AP has a circular signal-strength region drawn in pale color extending around it; regions overlap at room boundaries.</li>
+<li>One client device (laptop icon) that the user can click and drag through the floor plan.</li>
+<li>All three APs share the same SSID "Office_Wi-Fi" but each has its own BSSID (MAC address) shown on hover.</li>
+</ul>
+<p>Interactivity:</p>
+<ul>
+<li>The client device automatically associates with whichever AP has the strongest signal at its current position.</li>
+<li>A "current AP" indicator shows the BSSID of the AP the client is associated with.</li>
+<li>When the client crosses into another AP's stronger region, an animation visualizes the roaming handoff: probe request, association response, brief connection drop indicator, reassociation.</li>
+<li>A signal-strength meter shows RSSI from each of the three APs to the client in real time.</li>
+<li>A toggle "Show wired backbone" reveals the switch behind the APs and the path data takes through the wired network.</li>
+</ul>
+<p>Controls panel:</p>
+<ul>
+<li>"Drag to move" instruction.</li>
+<li>Toggle: "Auto-walk client" — automatically moves the client along a predefined path so students can watch handoffs.</li>
+<li>Toggle: "Slow handoff" — delays the reassociation to show the brief connectivity gap that real roaming can incur.</li>
+<li>Speed slider for auto-walk.</li>
+</ul>
+<p>Visual style:</p>
+<ul>
+<li>APs: rounded rectangles with antenna icons.</li>
+<li>Signal regions: pale concentric circles fading outward.</li>
+<li>Walls: gray bars with reduced signal strength on the far side.</li>
+<li>Client: laptop icon with a small antenna indicator showing current BSSID.</li>
+</ul>
+<p>Learning objectives:</p>
+<ul>
+<li>(Bloom — Understanding) Students explain how an SSID is shared across many BSSes to form an ESS.</li>
+<li>(Bloom — Analyzing) Students trace what happens during a Wi-Fi roam, including the brief disconnection and reassociation.</li>
+<li>(Bloom — Evaluating) Students judge how AP placement affects roaming behavior in a building floor plan.</li>
+</ul>
+<p>Implement in pure p5.js with the existing MicroSim CSS theme.</p>
+</details>
+<h2 id="84-channels-and-spectrum">8.4 Channels and Spectrum<a class="headerlink" href="#84-channels-and-spectrum" title="Permanent link">&para;</a></h2>
+<p>Wi-Fi shares unlicensed spectrum with many other devices. Three primary frequency bands matter today: <strong>2.4 GHz</strong>, <strong>5 GHz</strong>, and <strong>6 GHz</strong> (the latter added in 2020 and used by Wi-Fi 6E and Wi-Fi 7). The bands have very different characteristics.</p>
+<p>The 2.4 GHz band has only 11 channels in most countries (1–11 in the US, 1–13 in Europe, 1–14 in Japan), each 22 MHz wide. The channels overlap so heavily that only three of them — 1, 6, and 11 — are non-overlapping. This is a tiny number for any real deployment: in a city apartment building, dozens of nearby networks all crowd onto the same three usable channels. The 2.4 GHz band also overlaps Bluetooth, microwave ovens, baby monitors, and many other consumer devices, producing high interference. On the other hand, 2.4 GHz signals propagate further and pass through walls more easily than higher frequencies, which is why it remains useful for long-range and through-wall coverage.</p>
+<p>The 5 GHz band has 25+ non-overlapping 20 MHz channels (depending on region), can bond pairs into 40 MHz channels or quads into 80 MHz, and so on. More channels mean less crowding and less interference. The trade-off is shorter range — 5 GHz signals don't propagate through walls as well — and some channels carry <strong>DFS (Dynamic Frequency Selection)</strong> restrictions because they share spectrum with weather radar and some military systems.</p>
+<p>The 6 GHz band, opened to Wi-Fi by the FCC in 2020 and others worldwide since, adds 1200 MHz of fresh spectrum with seven non-overlapping 160 MHz channels (or one 320 MHz channel for Wi-Fi 7). The 6 GHz band is currently mostly empty, which is why Wi-Fi 6E and Wi-Fi 7 deliver dramatic real-world performance improvements over older Wi-Fi 5 — not because the radios are intrinsically better, but because there is room to breathe.</p>
+<p>A <strong>Wi-Fi channel</strong> is a specific frequency range that a BSS uses for its transmissions. Each AP picks a channel (manually or automatically) on which to operate, and adjacent APs in an ESS are usually configured on different channels to minimize co-channel interference. A site survey for a new office uses a spectrum analyzer to find the cleanest channels in the building's RF environment and assigns APs accordingly.</p>
+<h2 id="85-the-hidden-terminal-problem-and-rtscts">8.5 The Hidden Terminal Problem and RTS/CTS<a class="headerlink" href="#85-the-hidden-terminal-problem-and-rtscts" title="Permanent link">&para;</a></h2>
+<p>Wireless adds a problem that wired networks never have. Imagine three devices: A on the left, B in the middle, C on the right. A and C are out of radio range of each other but both can hear B. If A is transmitting to B, C cannot detect A's signal — C senses the channel as idle and may transmit to B as well. The two transmissions collide at B, both fail, and neither sender knows why. This is the <strong>hidden terminal problem</strong>, and CSMA/CA's listen-before-transmit logic does not solve it.</p>
+<p>The IEEE 802.11 standard provides an optional fix: the <strong>RTS/CTS handshake</strong>. Before transmitting a long frame, a sender may first send a short <strong>Request to Send (RTS)</strong> frame to its intended receiver. The receiver replies with a <strong>Clear to Send (CTS)</strong> frame, which is heard by every station within range of the receiver — including the otherwise-hidden terminals. The CTS contains a duration value that tells listeners "stay quiet for the next N microseconds while the upcoming data frame transmits." Hidden terminals defer based on the CTS even though they could not hear the RTS.</p>
+<p>RTS/CTS adds two short frames of overhead per data frame, which is wasteful for short frames and dense networks. Most Wi-Fi deployments enable RTS/CTS only for frames above a configurable threshold (e.g., 2300 bytes), so the handshake is used for big frames where the cost of a collision is high but skipped for small frames where the overhead would dominate. RTS/CTS is essential in any deployment with significant hidden-terminal probability, and it is mandatory for some Wi-Fi rate-control modes.</p>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Without RTS/CTS</th>
+<th>With RTS/CTS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hidden terminal collisions</td>
+<td>Common, expensive</td>
+<td>Avoided</td>
+</tr>
+<tr>
+<td>Short-frame overhead</td>
+<td>Low</td>
+<td>High (two extra frames)</td>
+</tr>
+<tr>
+<td>Long-frame overhead</td>
+<td>(collision risk)</td>
+<td>Modest (handshake amortized)</td>
+</tr>
+<tr>
+<td>Typical configuration</td>
+<td>Disabled or threshold-based</td>
+<td>Enabled above a frame-size threshold</td>
+</tr>
+</tbody>
+</table>
+<h2 id="86-roaming-and-handoff">8.6 Roaming and Handoff<a class="headerlink" href="#86-roaming-and-handoff" title="Permanent link">&para;</a></h2>
+<p>When a Wi-Fi client moves out of one AP's coverage and into another's, it must transition associations — a process called <strong>Wi-Fi roaming</strong>. The basic algorithm is simple: the client monitors signal strength to its current AP, scans for nearby APs in the same ESS that are stronger, and reassociates with the new AP when the signal-strength advantage exceeds a threshold.</p>
+<p>Roaming has historically been slow because the client typically authenticates anew with the new AP — full 802.1X EAP exchanges and key derivation can take several hundred milliseconds, during which the client cannot send or receive data. Several extensions reduce this gap:</p>
+<ul>
+<li><strong>Pre-authentication</strong> lets the client authenticate with neighboring APs before it needs to roam.</li>
+<li><strong>Opportunistic Key Caching (OKC)</strong> lets multiple APs share an authenticated session, so reassociation does not require a full handshake.</li>
+<li><strong>802.11r (Fast BSS Transition)</strong> standardizes a handshake-elision scheme that gets handoff time below 50 ms.</li>
+<li><strong>802.11k</strong> lets APs exchange "neighbor reports" so the client knows where to look for a better AP.</li>
+<li><strong>802.11v</strong> lets the network <em>suggest</em> to a client that it should roam, rather than waiting for the client to decide.</li>
+</ul>
+<p>These extensions are now standard in enterprise deployments. Voice over Wi-Fi (VoWiFi), where sub-50-ms handoff is essential to avoid audible glitches, drove their adoption.</p>
+<p>The general term for any transition between network attachment points is <strong>handoff</strong> (also spelled handover). Handoff applies in cellular networks too — when a phone moves from one tower's coverage to another's — and the cellular industry has spent four decades engineering handoff to be invisible to the user.</p>
+<h2 id="87-bluetooth-personal-area-networking">8.7 Bluetooth: Personal-Area Networking<a class="headerlink" href="#87-bluetooth-personal-area-networking" title="Permanent link">&para;</a></h2>
+<p><strong>Bluetooth</strong> is a short-range wireless standard designed for personal-area networking — connecting headphones, keyboards, mice, fitness trackers, and other small devices to a host. It operates in the 2.4 GHz band (yes, the same band as Wi-Fi, sharing all the interference) and uses <strong>frequency hopping</strong> across 79 channels (Bluetooth Classic) or 40 channels (Bluetooth Low Energy) to mitigate interference: rather than camping on one channel, a Bluetooth link rapidly hops among channels in a pseudo-random sequence shared between the two endpoints.</p>
+<p>Bluetooth's key trade-off is short range and low power. A typical Bluetooth Classic radio reaches about 10 meters at 2.5 mW; Bluetooth Low Energy (BLE) can reach further at lower data rates and very low power consumption — a coin-cell battery can power a BLE sensor for a year or more. Bluetooth's data rates are modest by Wi-Fi standards (peak rates of 1–3 Mbps for Classic, 1–2 Mbps for BLE), but they are appropriate for the workloads it serves.</p>
+<p>Bluetooth has its own naming: a <strong>piconet</strong> is a small group of one master device (the host) and up to seven slaves (the peripherals). A <strong>scatternet</strong> is multiple piconets sharing some devices. Bluetooth's scope ends at the personal area; it is not intended to compete with Wi-Fi for general LAN connectivity.</p>
+<h2 id="88-cellular-networks-4g-lte-and-5g-nr">8.8 Cellular Networks: 4G LTE and 5G NR<a class="headerlink" href="#88-cellular-networks-4g-lte-and-5g-nr" title="Permanent link">&para;</a></h2>
+<p>A <strong>cellular network</strong> is a wide-area wireless network organized into geographic cells, each served by a cellular base station (also called a cell tower or eNodeB/gNodeB). A user's phone associates with one base station at a time; as the user moves, the network hands the connection from one base station to another. Modern cellular networks reach effectively every populated area on Earth, carry the majority of the world's mobile data, and increasingly compete with fixed broadband for residential service.</p>
+<p><strong>4G LTE (Long-Term Evolution)</strong> standardized cellular data networking in 2009 and remained the dominant mobile data technology through the 2010s. LTE introduced an all-IP architecture (no separate circuit-switched voice path), used OFDMA modulation similar to Wi-Fi, and reached peak rates of around 100 Mbps downlink in real-world conditions. LTE-Advanced (2013) and LTE-Advanced Pro (2017) pushed peak rates above 1 Gbps with carrier aggregation and higher-order MIMO. LTE remains widely deployed today and will coexist with 5G for many years.</p>
+<p><strong>5G NR (New Radio)</strong>, standardized by 3GPP starting in 2018, is the current generation of cellular technology. 5G's headline goals are three: extreme mobile broadband (multi-Gbps peak rates), ultra-reliable low-latency communication (single-digit milliseconds end-to-end, intended for industrial and vehicular applications), and massive machine-type communications (a million devices per square kilometer, intended for IoT). Three frequency ranges are used:</p>
+<ul>
+<li><strong>Sub-6 GHz</strong> — provides broad coverage and reasonable capacity, similar to LTE bands.</li>
+<li><strong>Mid-band (3–7 GHz)</strong> — provides the best balance of capacity and range, where most 5G traffic actually flows.</li>
+<li><strong>mmWave (24–47 GHz)</strong> — provides enormous capacity over very short range (typically under 200 meters), used in dense urban deployments and stadiums.</li>
+</ul>
+<p>5G's architecture also separates the user plane from the control plane more cleanly than LTE, supports network slicing (creating logically separate virtual networks for different applications on the same physical infrastructure), and can run a fully cloud-native core.</p>
+<table>
+<thead>
+<tr>
+<th>Generation</th>
+<th>Year</th>
+<th>Peak rate</th>
+<th>Latency</th>
+<th>Key feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2G GSM</td>
+<td>1991</td>
+<td>100 Kbps</td>
+<td>~500 ms</td>
+<td>Digital voice + SMS</td>
+</tr>
+<tr>
+<td>3G UMTS</td>
+<td>2001</td>
+<td>2 Mbps</td>
+<td>~150 ms</td>
+<td>Mobile data</td>
+</tr>
+<tr>
+<td>4G LTE</td>
+<td>2009</td>
+<td>100 Mbps – 1 Gbps</td>
+<td>30–50 ms</td>
+<td>All-IP networking</td>
+</tr>
+<tr>
+<td>5G NR</td>
+<td>2019</td>
+<td>1–10 Gbps</td>
+<td>1–10 ms</td>
+<td>Slicing, mmWave, URLLC</td>
+</tr>
+</tbody>
+</table>
+<h2 id="89-mobility-mobile-ip-and-beyond">8.9 Mobility: Mobile IP and Beyond<a class="headerlink" href="#89-mobility-mobile-ip-and-beyond" title="Permanent link">&para;</a></h2>
+<p>Wi-Fi roaming and cellular handoff handle mobility within a single layer-2 administrative scope. But the deeper question is: when a device moves <em>between</em> networks (from your home Wi-Fi to your office Wi-Fi to a cellular network), how does the rest of the Internet keep its TCP connections alive?</p>
+<p>The classic answer is <strong>Mobile IP</strong>, defined in RFC 5944 (IPv4) and RFC 6275 (IPv6, called "Mobile IPv6"). Mobile IP gives each mobile device two addresses: a permanent <strong>home address</strong> (which is what the rest of the Internet uses to reach the device) and a temporary <strong>care-of address</strong> (which reflects its current network). A <strong>home agent</strong> in the device's home network captures traffic destined for the home address and tunnels it to the device at its current care-of address. The mobile device tells the home agent which care-of address to use as it moves.</p>
+<p>Mobile IP works in principle but has never seen wide deployment on the public Internet, mostly because the indirection through the home agent adds latency that real applications would rather avoid. In practice, three other approaches dominate:</p>
+<ul>
+<li><strong>Re-establishing connections</strong> — most mobile applications simply retry their TCP/QUIC connections after a network change. This is invisible because modern stacks notice the network change and reconnect within seconds.</li>
+<li><strong>Multipath transports (MPTCP, QUIC connection migration)</strong> — newer transport protocols can move a connection between IPs without disrupting it. QUIC, in particular, identifies connections by a connection ID rather than by 4-tuple, so it can survive an IP change cleanly.</li>
+<li><strong>VPNs</strong> — corporate VPNs put the mobile device on a stable virtual address that does not change as the device moves, hiding mobility from applications.</li>
+</ul>
+<p>The deeper insight is that the original Internet architecture identified hosts by their IP address, which is also their location. When hosts move, the identifier changes, breaking connections that assumed otherwise. Modern protocols (QUIC's connection ID, Mobile IP's home address, even simple application-level reconnection) all decouple identity from location to make mobility tractable.</p>
+<h2 id="810-link-adaptation-choosing-the-right-modulation">8.10 Link Adaptation: Choosing the Right Modulation<a class="headerlink" href="#810-link-adaptation-choosing-the-right-modulation" title="Permanent link">&para;</a></h2>
+<p>A wireless channel is not stationary. Its signal-to-noise ratio changes second-by-second as the user moves, walls block signals, and other transmitters come and go. A static modulation choice would be either too aggressive (failing whenever conditions degrade) or too conservative (wasting capacity whenever conditions improve).</p>
+<p><strong>Link adaptation</strong> is the practice of dynamically choosing the modulation and coding scheme based on observed channel quality. Both Wi-Fi and cellular use it. The radio measures signal strength and error rate in real time; when the channel is clean, it ramps up to a high-order modulation (256-QAM, 1024-QAM, 4096-QAM in Wi-Fi 7) and a high coding rate; when the channel degrades, it drops back to a lower-order modulation and a stronger code rate.</p>
+<p>The practical effect is that Wi-Fi peak rates (the headline numbers in marketing) are achieved only in a small region near the access point, in a clean RF environment. As you move away, your data rate drops in steps as the radio shifts modulation. A device at the edge of an AP's coverage might get 6 Mbps even though the same AP can deliver 2.4 Gbps to a device next to it.</p>
+<table>
+<thead>
+<tr>
+<th>Distance from AP</th>
+<th>Typical signal strength</th>
+<th>Modulation chosen</th>
+<th>Data rate (Wi-Fi 6, 80 MHz, 2 streams)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Close (≤ 5 m)</td>
+<td>Strong</td>
+<td>1024-QAM, rate 5/6</td>
+<td>~1.2 Gbps</td>
+</tr>
+<tr>
+<td>Medium (10–15 m)</td>
+<td>Medium</td>
+<td>256-QAM, rate 3/4</td>
+<td>~600 Mbps</td>
+</tr>
+<tr>
+<td>Far (20–25 m)</td>
+<td>Weak</td>
+<td>16-QAM, rate 1/2</td>
+<td>~120 Mbps</td>
+</tr>
+<tr>
+<td>Edge (30 m+)</td>
+<td>Very weak</td>
+<td>BPSK, rate 1/2</td>
+<td>~6 Mbps</td>
+</tr>
+</tbody>
+</table>
+<p>Link adaptation is invisible to the user: the device just shows "connected" while the underlying rate fluctuates. But it explains why network engineers spend so much time on AP placement: the goal is to keep every user in a region where the chosen modulation is high.</p>
+<h4 id="diagram-wireless-performance-vs-distance">Diagram: Wireless Performance vs. Distance<a class="headerlink" href="#diagram-wireless-performance-vs-distance" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Interactive plot of Wi-Fi data rate as a function of distance, showing the link-adaptation steps</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> wireless-link-adaptation<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Build an interactive MicroSim that visualizes how link adaptation steps Wi-Fi modulation down as distance from the access point increases, and how interference further degrades the choice.</p>
+<p>Canvas: 940 px wide by 600 px tall, responsive down to 360 px. A 120 px control panel sits below.</p>
+<p>Layout:</p>
+<ul>
+<li>Top: a horizontal floor plan with an AP on the left and a draggable client device. The line between them is annotated with current SNR (dB) computed from a path-loss model.</li>
+<li>Middle: a stepped data-rate plot vs. distance, showing the discrete modulation/coding-scheme (MCS) steps as the client moves further from the AP.</li>
+<li>Bottom: a constellation diagram showing the currently-active modulation (BPSK / QPSK / 16-QAM / 64-QAM / 256-QAM / 1024-QAM / 4096-QAM) with noise-induced jitter on the constellation points.</li>
+</ul>
+<p>Interactivity:</p>
+<ul>
+<li>Drag the client to change distance; the SNR, modulation, and data rate update live.</li>
+<li>Add walls (drag from a "wall" palette) between AP and client to simulate attenuation.</li>
+<li>Inject interference (slider for interference power) and see modulation step down accordingly.</li>
+<li>"Compare Wi-Fi 5 / Wi-Fi 6 / Wi-Fi 7" toggle changes the modulation set and recomputes data rates at the same SNRs.</li>
+</ul>
+<p>Controls panel:</p>
+<ul>
+<li>Distance display (live).</li>
+<li>SNR display.</li>
+<li>Active MCS index and name.</li>
+<li>"Show Shannon limit" toggle that overlays the Shannon-bound capacity curve on the data-rate plot, showing the gap to optimal.</li>
+<li>"Add neighbor AP" button that introduces co-channel interference and shows further degradation.</li>
+</ul>
+<p>Visual style:</p>
+<ul>
+<li>AP: amber rounded rectangle.</li>
+<li>Client: laptop icon.</li>
+<li>Constellation diagram: classic circular layout with constellation points and noise clouds.</li>
+<li>Data-rate plot: stepped staircase with each step labeled by modulation name.</li>
+</ul>
+<p>Learning objectives:</p>
+<ul>
+<li>(Bloom — Understanding) Students explain how link adaptation chooses a modulation based on channel quality.</li>
+<li>(Bloom — Analyzing) Students decompose a real-world Wi-Fi connection's effective rate into the SNR, modulation, and coding contributions.</li>
+<li>(Bloom — Evaluating) Students judge how AP placement decisions affect effective data rate across a building.</li>
+</ul>
+<p>Implement in pure p5.js with the existing MicroSim CSS theme.</p>
+</details>
+<h2 id="811-putting-it-together-a-mobile-phones-day">8.11 Putting It Together: A Mobile Phone's Day<a class="headerlink" href="#811-putting-it-together-a-mobile-phones-day" title="Permanent link">&para;</a></h2>
+<p>A typical phone on a normal day uses every concept in this chapter:</p>
+<ol>
+<li><strong>Morning at home.</strong> The phone is associated with a home Wi-Fi access point — an infrastructure-mode BSS, with the home Wi-Fi router's SSID. Bluetooth connects it to the user's wireless earbuds (a separate Bluetooth piconet).</li>
+<li><strong>Commute.</strong> The phone roams from home Wi-Fi to a 5G cellular network as the user walks out of range. A handoff transfers the active connection from the residential Wi-Fi BSS to the carrier's 5G base station.</li>
+<li><strong>Highway driving.</strong> The phone hands off between cell towers every few minutes as the car moves. The TCP and QUIC connections survive because connection IDs and reconnection logic absorb the IP changes.</li>
+<li><strong>Office Wi-Fi.</strong> Inside the office building, the phone associates with the corporate Wi-Fi ESS — a single SSID covering many APs. The phone roams between APs as the user walks the corridor; 802.11r fast-transition keeps each handoff under 50 ms so an in-progress voice call does not glitch.</li>
+<li><strong>Conference room.</strong> Bluetooth connects to the conference room speakerphone. Wi-Fi 6E and 5G are both present; the phone's policy chooses Wi-Fi when signal is strong because data is unmetered, and falls back to 5G when Wi-Fi degrades.</li>
+<li><strong>Evening at the cafe.</strong> A public Wi-Fi network with a captive portal and unknown security. The phone's VPN automatically tunnels all traffic through a corporate gateway, hiding the network change from corporate applications.</li>
+</ol>
+<p>Every step in this story uses something from this chapter: an SSID, a BSS, a roam, a handoff, link adaptation responding to changing distance, RTS/CTS in dense areas, frequency hopping in Bluetooth, and tunnels (Mobile IP-style or VPN-style) when the underlying network changes. Wireless is <em>not</em> simpler than wired networking; it is at least as complex, and most of that complexity is hidden inside well-engineered protocol stacks so it stays invisible to users.</p>
+<div class="admonition mascot-encourage">
+<p class="admonition-title">If wireless feels chaotic — that's because it is</p>
+<p><img src="../../img/mascot/encouraging.png" class="mascot-admonition-img" alt="Buzz cheering you on">
+Every variable a wired link controls — distance, SNR, contention, interference, who else is talking — is fluid in wireless. The protocols cope with constant adaptation. <em>One hop at a time.</em> When your Wi-Fi seems slow, you now have the vocabulary to ask the right diagnostic questions: how far am I from the AP, what channel are we on, is there a hidden terminal, what modulation is the radio currently using.</p>
+</div>
+<h2 id="812-key-takeaways">8.12 Key Takeaways<a class="headerlink" href="#812-key-takeaways" title="Permanent link">&para;</a></h2>
+<p>Wireless networking adds a layer of variability and mobility that wired networks never face. Before moving on, make sure you can answer the following without looking back:</p>
+<ul>
+<li>Why does Wi-Fi use CSMA/CA instead of CSMA/CD?</li>
+<li>What is the difference between an AP, a BSS, an ESS, and an SSID?</li>
+<li>Why are only three 2.4 GHz channels (1, 6, 11) typically used?</li>
+<li>What problem does the RTS/CTS handshake solve, and why is it not always enabled?</li>
+<li>What happens during a Wi-Fi roam? What protocols (802.11r/k/v) make it fast?</li>
+<li>Compare Wi-Fi and Bluetooth in range, data rate, and intended use cases.</li>
+<li>Compare 4G LTE and 5G NR in peak rate, latency, and frequency bands.</li>
+<li>What is mobile IP, and why has it not been widely deployed on the public Internet?</li>
+<li>What is link adaptation, and why does Wi-Fi data rate vary so much within a single coverage area?</li>
+<li>Why does AP placement matter so much for wireless performance?</li>
+</ul>
+<p>If any of those answers feel shaky, re-read the corresponding section before continuing to Chapter 9, where we move up one layer to the network layer — IP addressing, subnetting, and the global routing fabric that connects every link this chapter covered.</p>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Wireless — handled</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Buzz celebrating">
+You can now reason about Wi-Fi, Bluetooth, and cellular as one family of variable, mobile, shared-medium links. Every later chapter assumes packets emerge from these radios into a wired network where the rest of the Internet takes over. <em>Follow the packet.</em></p>
+</div>
 
 
 
 
 
 
+
+  
+  
 
 
 
