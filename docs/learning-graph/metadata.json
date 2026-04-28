@@ -1,0 +1,10 @@
+{
+  "title": "Networking and Communication",
+  "description": "An ABET CAC-aligned undergraduate intelligent textbook covering the foundations of networking and communication: layered architecture, physical and link layers, LANs and switching, IPv4/IPv6 and routing, reliable transport (TCP/UDP/QUIC), application protocols, network security, wireless and mobility, network programming, measurement and operations, and software-defined and programmable networks. Aligned to the ACM/IEEE-CS/AAAI CS2023 Networking and Communication knowledge area.",
+  "creator": "Dan McCreary",
+  "date": "2026-04-27",
+  "version": "1.0",
+  "format": "Learning Graph JSON v1.0",
+  "schema": "https://raw.githubusercontent.com/dmccreary/learning-graphs/refs/heads/main/src/schema/learning-graph-schema.json",
+  "license": "CC BY-NC-SA 4.0 DEED"
+}
