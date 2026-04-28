@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An ABET CAC-aligned intelligent textbook covering the foundations of networking and communication — layered architecture, routing, reliable transport, wireless, network security, and modern programmable networks — aligned to the ACM/IEEE CS2023 Networking and Communication knowledge area.">
+        <meta name="description" content="The protocols that ride on TCP, UDP, and QUIC — DNS (hierarchy, records, resolvers, caching, DNSSEC), HTTP/1.1, HTTP/2, HTTP/3, HTTPS, REST design, WebSocket, gRPC, mail (SMTP, IMAP, POP3), file/remote access (FTP, SSH, Telnet), and infrastructure protocols (DHCP, SNMP, NTP).">
       
       
         <meta name="author" content="Dan McCreary">
@@ -26,7 +26,7 @@
     
     
       
-        <title>13. Application Layer - Networking and Communication</title>
+        <title>Application Layer Protocols - Networking and Communication</title>
       
     
     
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              13. Application Layer
+              Application Layer Protocols
             
           </span>
         </div>
@@ -776,6 +776,171 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#131-the-application-layer-in-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      13.1 The Application Layer in Practice
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#132-dns-the-internets-phone-book" class="md-nav__link">
+    <span class="md-ellipsis">
+      13.2 DNS: The Internet's Phone Book
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#133-dns-record-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      13.3 DNS Record Types
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#134-dns-caching-and-ttl" class="md-nav__link">
+    <span class="md-ellipsis">
+      13.4 DNS Caching and TTL
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#135-dnssec-and-cache-poisoning" class="md-nav__link">
+    <span class="md-ellipsis">
+      13.5 DNSSEC and Cache Poisoning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13.5 DNSSEC and Cache Poisoning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-dns-resolution-walkthrough" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: DNS Resolution Walkthrough
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#136-http-the-webs-application-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      13.6 HTTP: The Web's Application Protocol
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13.6 HTTP: The Web&#39;s Application Protocol">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTP Methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-status-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTP Status Codes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-headers-and-cookies" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTP Headers and Cookies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#137-rest-and-the-web-api-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      13.7 REST and the Web API Style
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#138-websocket-and-grpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      13.8 WebSocket and gRPC
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#139-email-protocols-smtp-imap-pop3" class="md-nav__link">
+    <span class="md-ellipsis">
+      13.9 Email Protocols: SMTP, IMAP, POP3
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1310-remote-access-ssh-and-telnet-plus-ftp" class="md-nav__link">
+    <span class="md-ellipsis">
+      13.10 Remote Access: SSH and Telnet, Plus FTP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1311-infrastructure-protocols-dhcp-snmp-ntp" class="md-nav__link">
+    <span class="md-ellipsis">
+      13.11 Infrastructure Protocols: DHCP, SNMP, NTP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1312-putting-it-together-a-single-page-load" class="md-nav__link">
+    <span class="md-ellipsis">
+      13.12 Putting It Together: A Single Page Load
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1313-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      13.13 Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1112,6 +1277,171 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#131-the-application-layer-in-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      13.1 The Application Layer in Practice
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#132-dns-the-internets-phone-book" class="md-nav__link">
+    <span class="md-ellipsis">
+      13.2 DNS: The Internet's Phone Book
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#133-dns-record-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      13.3 DNS Record Types
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#134-dns-caching-and-ttl" class="md-nav__link">
+    <span class="md-ellipsis">
+      13.4 DNS Caching and TTL
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#135-dnssec-and-cache-poisoning" class="md-nav__link">
+    <span class="md-ellipsis">
+      13.5 DNSSEC and Cache Poisoning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13.5 DNSSEC and Cache Poisoning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-dns-resolution-walkthrough" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: DNS Resolution Walkthrough
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#136-http-the-webs-application-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      13.6 HTTP: The Web's Application Protocol
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13.6 HTTP: The Web&#39;s Application Protocol">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTP Methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-status-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTP Status Codes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-headers-and-cookies" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTP Headers and Cookies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#137-rest-and-the-web-api-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      13.7 REST and the Web API Style
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#138-websocket-and-grpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      13.8 WebSocket and gRPC
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#139-email-protocols-smtp-imap-pop3" class="md-nav__link">
+    <span class="md-ellipsis">
+      13.9 Email Protocols: SMTP, IMAP, POP3
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1310-remote-access-ssh-and-telnet-plus-ftp" class="md-nav__link">
+    <span class="md-ellipsis">
+      13.10 Remote Access: SSH and Telnet, Plus FTP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1311-infrastructure-protocols-dhcp-snmp-ntp" class="md-nav__link">
+    <span class="md-ellipsis">
+      13.11 Infrastructure Protocols: DHCP, SNMP, NTP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1312-putting-it-together-a-single-page-load" class="md-nav__link">
+    <span class="md-ellipsis">
+      13.12 Putting It Together: A Single Page Load
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1313-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      13.13 Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1183,13 +1513,379 @@
 <li><a href="../12-network-security/">Chapter 12: Network Security</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">What the network is actually carrying</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Buzz the bee waving welcome">
+Welcome back. The hive's lower layers move pollen and water; its upper layers — communication, larva care, hive defense — give those resources meaning. Networks are the same. Every TCP segment is carrying <em>something</em>: a web request, a DNS lookup, an email, a database query. <em>Let's trace the route!</em> This chapter is the catalog of what every byte you've followed is actually doing.</p>
+</div>
+<h2 id="131-the-application-layer-in-practice">13.1 The Application Layer in Practice<a class="headerlink" href="#131-the-application-layer-in-practice" title="Permanent link">&para;</a></h2>
+<p>Every protocol so far has been infrastructure: links, routes, addresses, transports. The <strong>application layer</strong> is where applications live, and it is by far the most heterogeneous layer in the stack. Every application chooses (or invents) its own message format, its own state machine, and its own naming conventions, and uses the transport layer to ship those messages around. This chapter walks through the application protocols that carry the overwhelming majority of Internet traffic.</p>
+<p>The chapter clusters them by function: name resolution (DNS), web (HTTP/HTTPS, REST, WebSocket, gRPC), mail, remote access (SSH, Telnet, FTP), and infrastructure (DHCP, SNMP, NTP). The point is not encyclopedic coverage — it is to make sure you can recognize each protocol on a packet capture and name what it does.</p>
+<h2 id="132-dns-the-internets-phone-book">13.2 DNS: The Internet's Phone Book<a class="headerlink" href="#132-dns-the-internets-phone-book" title="Permanent link">&para;</a></h2>
+<p>The <strong>Domain Name System (DNS)</strong> maps human-friendly names like <code>example.com</code> to the IP addresses that the network layer needs. DNS is, in a sense, the most-used Internet protocol — every TCP connection to a hostname starts with a DNS query — and yet most users never think about it.</p>
+<p>DNS is organized as a <strong>hierarchy</strong> (the <strong>DNS hierarchy</strong>). The hierarchy is rooted at a special "." (the root), branches into top-level domains (<code>.com</code>, <code>.org</code>, <code>.us</code>, <code>.io</code>, ...), then second-level domains (<code>example.com</code>, <code>wikipedia.org</code>), then sub-domains (<code>mail.example.com</code>, <code>en.wikipedia.org</code>), and so on. Each level of the hierarchy delegates authority for the level below: the root delegates <code>.com</code> to a TLD operator (Verisign), the TLD delegates <code>example.com</code> to whoever registered it, and that registrant delegates further as they see fit.</p>
+<p>Three kinds of server make DNS work:</p>
+<ul>
+<li><strong>Root name servers</strong> sit at the top of the hierarchy. There are 13 logical root servers (<code>a.root-servers.net</code> through <code>m.root-servers.net</code>), each implemented as hundreds of physical servers anycast worldwide. Root servers answer queries about TLD delegation.</li>
+<li><strong>Authoritative servers</strong> are the source of truth for some specific zone. The authoritative servers for <code>example.com</code> know everything about <code>example.com</code> and its subdomains; they were configured by the domain owner.</li>
+<li><strong>Recursive resolvers</strong> are the workhorses that clients actually talk to. A recursive resolver receives a query from a client, walks the hierarchy on the client's behalf (asking the root, then the TLD, then the authoritative server), and returns the final answer. The well-known public resolvers <code>8.8.8.8</code> (Google), <code>1.1.1.1</code> (Cloudflare), and <code>9.9.9.9</code> (Quad9) are recursive resolvers.</li>
+</ul>
+<p>A typical DNS query goes:</p>
+<ol>
+<li>Client asks its configured recursive resolver for <code>www.example.com</code>.</li>
+<li>Recursive resolver checks its cache. Cache miss; proceed.</li>
+<li>Resolver asks a root name server: "where do I find <code>.com</code>?"</li>
+<li>Root replies with the TLD servers for <code>.com</code>.</li>
+<li>Resolver asks a <code>.com</code> TLD server: "where do I find <code>example.com</code>?"</li>
+<li>TLD replies with the authoritative servers for <code>example.com</code>.</li>
+<li>Resolver asks the authoritative server: "what's the address for <code>www.example.com</code>?"</li>
+<li>Authoritative server replies with an A record (e.g., <code>93.184.216.34</code>).</li>
+<li>Resolver caches the answer and returns it to the client.</li>
+</ol>
+<p>DNS uses UDP for most queries (fast, simple, low overhead) and TCP for responses larger than 512 bytes or for AXFR (zone transfers). DNS over TLS (DoT) and DNS over HTTPS (DoH) are increasingly common alternatives that protect query privacy from network observers.</p>
+<h2 id="133-dns-record-types">13.3 DNS Record Types<a class="headerlink" href="#133-dns-record-types" title="Permanent link">&para;</a></h2>
+<p>A <strong>DNS record type</strong> specifies what kind of information is being requested or returned. The most common types:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>What it stores</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>IPv4 address</td>
+<td><code>example.com → 93.184.216.34</code></td>
+</tr>
+<tr>
+<td>AAAA</td>
+<td>IPv6 address</td>
+<td><code>example.com → 2606:2800:220:1::1946</code></td>
+</tr>
+<tr>
+<td>CNAME</td>
+<td>Alias to another name</td>
+<td><code>www.example.com → example.com</code></td>
+</tr>
+<tr>
+<td>MX</td>
+<td>Mail exchange (mail server name + priority)</td>
+<td><code>example.com → 10 mail.example.com</code></td>
+</tr>
+<tr>
+<td>NS</td>
+<td>Name server for the zone</td>
+<td><code>example.com → ns1.example.com</code></td>
+</tr>
+<tr>
+<td>TXT</td>
+<td>Free-form text (SPF, DKIM, verification records)</td>
+<td><code>example.com → "v=spf1 -all"</code></td>
+</tr>
+<tr>
+<td>SOA</td>
+<td>Start of authority (zone metadata)</td>
+<td>(zone admin info)</td>
+</tr>
+<tr>
+<td>PTR</td>
+<td>Reverse mapping (IP → name)</td>
+<td><code>34.216.184.93.in-addr.arpa → example.com</code></td>
+</tr>
+<tr>
+<td>SRV</td>
+<td>Service location with priority and weight</td>
+<td><code>_sip._tcp.example.com → 10 5 5060 sipserver.example.com</code></td>
+</tr>
+<tr>
+<td>CAA</td>
+<td>Certificate authority authorization</td>
+<td><code>example.com → 0 issue "letsencrypt.org"</code></td>
+</tr>
+</tbody>
+</table>
+<p>Every name in DNS can have multiple records of different types attached to it. A web server might have an A and AAAA record for its IP addresses, an MX record for its mail, a TXT record for SPF, and a CAA record limiting which CAs can issue certificates for it.</p>
+<h2 id="134-dns-caching-and-ttl">13.4 DNS Caching and TTL<a class="headerlink" href="#134-dns-caching-and-ttl" title="Permanent link">&para;</a></h2>
+<p>If every DNS query had to walk the full hierarchy, DNS would be far too slow. <strong>DNS caching</strong> at every level of the system makes the protocol practical. Recursive resolvers cache answers for the duration specified by each record's <strong>Time To Live (TTL)</strong> — typically minutes to days. Within an organization, cached answers serve thousands of queries from one walk of the hierarchy.</p>
+<p>TTL is a tradeoff. Long TTLs (24 hours) reduce traffic and load on authoritative servers but slow down propagation when records change (e.g., a server migration). Short TTLs (60 seconds) propagate changes quickly but multiply the query load. Modern operations teams typically use medium TTLs (5–60 minutes) and shorten them temporarily before planned changes.</p>
+<p>Browsers and operating systems also cache DNS answers. Even a small amount of caching dramatically reduces effective latency: a name lookup that takes 50 ms uncached takes effectively zero on a cache hit.</p>
+<h2 id="135-dnssec-and-cache-poisoning">13.5 DNSSEC and Cache Poisoning<a class="headerlink" href="#135-dnssec-and-cache-poisoning" title="Permanent link">&para;</a></h2>
+<p>DNS was designed without authentication. A response packet that arrives at a resolver is trusted as long as it claims to be from the right server and has the right transaction ID. This makes DNS vulnerable to <strong>DNS cache poisoning</strong>: an attacker who can inject a forged response (or just guess the transaction ID and timing) tricks the resolver into caching a wrong answer. The poisoned cache then redirects every client's traffic for that name to a server of the attacker's choice.</p>
+<p>Two responses to this risk:</p>
+<p><strong>Source-port randomization</strong> (Dan Kaminsky's 2008 fix). Resolvers issue queries from a random source port, multiplying the attacker's guess space by the size of the port range. This made cache poisoning much harder but did not eliminate it.</p>
+<p><strong>DNSSEC (DNS Security Extensions)</strong>, defined in RFCs 4033/4034/4035, adds cryptographic signatures to DNS records. Each zone signs its records with a private key; the parent zone signs the child's public key in a chain of trust rooted at the DNS root key. A DNSSEC-validating resolver verifies the chain of signatures and rejects any answer that doesn't match. DNSSEC adoption is uneven — the root and most TLDs are signed, but only a minority of second-level domains have enabled it. The deployment friction is real: DNSSEC adds operational complexity, and the consequences of a misconfiguration (a signed zone that fails to validate) is total unreachability of the domain.</p>
+<p>DoT and DoH (DNS over TLS / HTTPS) protect query <em>privacy</em> but not record <em>authenticity</em> — the resolver still has to be trusted to give honest answers. DNSSEC and DoH/DoT solve different problems.</p>
+<h4 id="diagram-dns-resolution-walkthrough">Diagram: DNS Resolution Walkthrough<a class="headerlink" href="#diagram-dns-resolution-walkthrough" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Animated DNS query traversing root, TLD, and authoritative servers with caching</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> dns-resolution-walkthrough<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Build an interactive MicroSim that animates a DNS resolution from the user's laptop through their recursive resolver and the DNS hierarchy.</p>
+<p>Canvas: 960 px wide by 620 px tall, responsive down to 360 px. A 100 px control panel sits below.</p>
+<p>Layout:</p>
+<ul>
+<li>Five labeled nodes arranged top to bottom: "Laptop", "Recursive Resolver", "Root", "TLD Server (.com)", "Authoritative Server (example.com)".</li>
+<li>Bidirectional arrows show queries (down) and answers (up). Each query/answer is labeled with the question/answer.</li>
+<li>A "cache" panel beside the recursive resolver shows currently-cached records with their remaining TTLs.</li>
+</ul>
+<p>Animation:</p>
+<ul>
+<li>Step 1: Laptop sends "A example.com?" to resolver. Cache miss.</li>
+<li>Step 2: Resolver asks Root: "Where can I find .com?" Root returns NS records for .com TLD.</li>
+<li>Step 3: Resolver asks .com TLD: "Where can I find example.com?" TLD returns NS records.</li>
+<li>Step 4: Resolver asks Authoritative: "A example.com?" Authoritative returns the IP.</li>
+<li>Step 5: Resolver caches each answer with its TTL and returns the final IP to the laptop.</li>
+</ul>
+<p>Subsequent queries: a second query for the same name is answered from cache instantly, demonstrating caching benefits. A third query for <code>www.example.com</code> walks only to the authoritative server (TLD info already cached).</p>
+<p>Controls panel:</p>
+<ul>
+<li>Buttons: Step / Play / Reset.</li>
+<li>Toggle: "Enable DNSSEC" — adds signature exchanges and verification steps.</li>
+<li>Toggle: "Cache poisoning attack" — shows an attacker injecting a forged response and the resolver caching it (without DNSSEC); with DNSSEC the forged response is rejected.</li>
+<li>Speed slider for animation pace.</li>
+</ul>
+<p>Visual style:</p>
+<ul>
+<li>Nodes: rounded rectangles with role-specific icons.</li>
+<li>Queries: honey-amber arrows.</li>
+<li>Answers: slate arrows.</li>
+<li>Cache panel: yellow background with timestamps counting down.</li>
+</ul>
+<p>Learning objectives:</p>
+<ul>
+<li>(Bloom — Understanding) Students explain the DNS hierarchy and the role of each tier.</li>
+<li>(Bloom — Analyzing) Students decompose a DNS resolution and identify which queries are answered from cache vs. fresh lookups.</li>
+<li>(Bloom — Evaluating) Students judge how DNSSEC and randomization defend against cache poisoning.</li>
+</ul>
+<p>Implement in pure p5.js with the existing MicroSim CSS theme.</p>
+</details>
+<h2 id="136-http-the-webs-application-protocol">13.6 HTTP: The Web's Application Protocol<a class="headerlink" href="#136-http-the-webs-application-protocol" title="Permanent link">&para;</a></h2>
+<p>The <strong>HTTP (HyperText Transfer Protocol)</strong> is the protocol of the web. Originally designed to deliver hypertext documents, HTTP has grown into the universal request-response protocol for almost every modern client-server application — browsers, mobile apps, microservice APIs, IoT firmware updates, and more.</p>
+<p>HTTP is <strong>request-response</strong>: the client sends a request, the server returns a response, and the exchange is complete. HTTP is also (officially) stateless — every request stands on its own, and the protocol does not preserve information between requests. Stateful behavior (login sessions, shopping carts) is layered on top through cookies and tokens.</p>
+<p>Three versions of HTTP are in active use:</p>
+<ul>
+<li><strong>HTTP/1.1</strong> (1997, RFC 7230 et al.) — text-based protocol over a TCP connection, with persistent connections and pipelining. Still widely used.</li>
+<li><strong>HTTP/2</strong> (2015, RFC 7540) — binary framing, header compression (HPACK), and multiplexing of many streams over one TCP connection. Solved most of HTTP/1.1's performance problems but still subject to TCP head-of-line blocking.</li>
+<li><strong>HTTP/3</strong> (2022, RFC 9114) — runs over QUIC instead of TCP. Solves head-of-line blocking and adds 0-RTT setup. Now the dominant protocol for major sites.</li>
+</ul>
+<p><strong>HTTPS</strong> is HTTP over TLS — there is no separate "HTTPS protocol," just HTTP wrapped in encryption. Modern browsers and operating systems push aggressively for HTTPS by default; HTTP without TLS is increasingly treated as a security warning.</p>
+<h3 id="http-methods">HTTP Methods<a class="headerlink" href="#http-methods" title="Permanent link">&para;</a></h3>
+<p>An <strong>HTTP method</strong> is the verb in a request — the action being performed. The standard methods:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Purpose</th>
+<th>Idempotent?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td>Retrieve a resource</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>Create or submit data</td>
+<td>No</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>Replace a resource</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>Remove a resource</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td>Partially update a resource</td>
+<td>No (typically)</td>
+</tr>
+<tr>
+<td>HEAD</td>
+<td>Like GET, but headers only</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>OPTIONS</td>
+<td>Inquire about supported methods</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>Idempotency is a useful property: GET, PUT, and DELETE can be safely retried because doing them twice produces the same result as doing them once.</p>
+<h3 id="http-status-codes">HTTP Status Codes<a class="headerlink" href="#http-status-codes" title="Permanent link">&para;</a></h3>
+<p>Every HTTP response carries a <strong>status code</strong> — a three-digit number with a standardized meaning. Codes are grouped by their first digit:</p>
+<ul>
+<li><strong>1xx — Informational</strong> (rare): <code>100 Continue</code>, <code>101 Switching Protocols</code>.</li>
+<li><strong>2xx — Success</strong>: <code>200 OK</code>, <code>201 Created</code>, <code>204 No Content</code>.</li>
+<li><strong>3xx — Redirection</strong>: <code>301 Moved Permanently</code>, <code>302 Found</code>, <code>304 Not Modified</code>.</li>
+<li><strong>4xx — Client error</strong>: <code>400 Bad Request</code>, <code>401 Unauthorized</code>, <code>403 Forbidden</code>, <code>404 Not Found</code>, <code>429 Too Many Requests</code>.</li>
+<li><strong>5xx — Server error</strong>: <code>500 Internal Server Error</code>, <code>502 Bad Gateway</code>, <code>503 Service Unavailable</code>.</li>
+</ul>
+<p>A network engineer or web developer reads status codes constantly. A flood of 5xx codes signals server-side problems; 4xx codes indicate client-side or auth issues; 3xx redirects are usually harmless but can chain into infinite loops.</p>
+<h3 id="http-headers-and-cookies">HTTP Headers and Cookies<a class="headerlink" href="#http-headers-and-cookies" title="Permanent link">&para;</a></h3>
+<p><strong>HTTP headers</strong> are key-value pairs that accompany each request and response. Headers carry an enormous amount of metadata: content type and length, cache directives, encoding (compression), authentication credentials, language preferences, user agent, and dozens of others. The header is text in HTTP/1.1 and binary-compressed in HTTP/2 and HTTP/3, but the conceptual model is the same.</p>
+<p>A <strong>cookie</strong> is a small piece of state that the server sends in a <code>Set-Cookie</code> response header, which the client then echoes back in subsequent requests' <code>Cookie</code> header. Cookies are how login sessions, preferences, and tracking work on the web. Modern security practice attaches several attributes (<code>HttpOnly</code>, <code>Secure</code>, <code>SameSite</code>) to cookies to protect against XSS and CSRF attacks.</p>
+<h2 id="137-rest-and-the-web-api-style">13.7 REST and the Web API Style<a class="headerlink" href="#137-rest-and-the-web-api-style" title="Permanent link">&para;</a></h2>
+<p>The dominant architectural style for designing HTTP APIs is <strong>REST (Representational State Transfer)</strong>, articulated by Roy Fielding in his 2000 dissertation. REST is not a protocol; it is a set of constraints on how to use HTTP for application APIs:</p>
+<ul>
+<li>Resources are identified by URLs.</li>
+<li>Operations on resources use the standard HTTP methods (GET to read, POST to create, PUT/PATCH to update, DELETE to remove).</li>
+<li>Representations of resources are typically JSON or XML.</li>
+<li>Stateless: each request contains all the information the server needs to process it.</li>
+<li>Uniform interface: all resources are accessed through the same idiom.</li>
+</ul>
+<p>A REST API for a blog might expose <code>/posts</code> (collection of all posts), <code>/posts/42</code> (specific post), <code>/posts/42/comments</code> (comments on that post). <code>GET /posts/42</code> reads it; <code>PUT /posts/42</code> replaces it; <code>DELETE /posts/42</code> removes it; <code>POST /posts/42/comments</code> adds a comment. The URL paths and HTTP methods together name the operation, and the body carries data when needed.</p>
+<p>REST is the dominant style for new APIs but not the only one. <strong>GraphQL</strong> (a single endpoint that accepts queries describing what data the client wants) and <strong>gRPC</strong> (next section) are alternative approaches with their own strengths.</p>
+<h2 id="138-websocket-and-grpc">13.8 WebSocket and gRPC<a class="headerlink" href="#138-websocket-and-grpc" title="Permanent link">&para;</a></h2>
+<p>Two specialized application protocols solve problems HTTP cannot.</p>
+<p><strong>WebSocket</strong>, defined in RFC 6455, is a bidirectional, persistent communication channel between client and server, established by upgrading an HTTP connection. Once established, both sides can send messages at any time without the request-response constraint of HTTP. WebSockets are how live chat, collaborative editing, real-time dashboards, and game backends typically deliver low-latency updates. The handshake reuses HTTP's port 80/443 (so it traverses firewalls and proxies that pass HTTP), but after the upgrade, the protocol is its own thing.</p>
+<p><strong>gRPC</strong> is a high-performance RPC (remote procedure call) framework built on HTTP/2. gRPC defines services and message types in <strong>Protocol Buffers</strong> (a compact binary serialization format), generates client and server code in many languages, and supports streaming in both directions. gRPC's strengths over REST are efficiency (binary encoding is much smaller than JSON), cross-language schema sharing, and built-in streaming. Its costs are tooling complexity and the lack of human-readable wire format. gRPC dominates internal microservice communication at large companies (Google, Netflix, Square) and is increasingly common in public APIs as well.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>HTTP/REST</th>
+<th>WebSocket</th>
+<th>gRPC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Direction</td>
+<td>Request-response</td>
+<td>Bidirectional</td>
+<td>Bidirectional, streaming</td>
+</tr>
+<tr>
+<td>Encoding</td>
+<td>JSON / text</td>
+<td>Application-defined</td>
+<td>Protocol Buffers (binary)</td>
+</tr>
+<tr>
+<td>Schema</td>
+<td>Documentation</td>
+<td>Application-defined</td>
+<td><code>.proto</code> files</td>
+</tr>
+<tr>
+<td>Browser support</td>
+<td>Native</td>
+<td>Native</td>
+<td>Limited (gRPC-Web)</td>
+</tr>
+<tr>
+<td>Typical use</td>
+<td>Public APIs, web frontends</td>
+<td>Live updates, chat, games</td>
+<td>Internal microservices</td>
+</tr>
+</tbody>
+</table>
+<h2 id="139-email-protocols-smtp-imap-pop3">13.9 Email Protocols: SMTP, IMAP, POP3<a class="headerlink" href="#139-email-protocols-smtp-imap-pop3" title="Permanent link">&para;</a></h2>
+<p>Email is the oldest large-scale application on the Internet. Three protocols dominate.</p>
+<p><strong>SMTP (Simple Mail Transfer Protocol)</strong>, defined in RFC 5321, is the protocol that delivers mail between mail servers. When you send an email, your mail client (or web frontend) hands the message to your outgoing SMTP server, which uses SMTP to relay it to the recipient's mail server, which delivers it to the recipient's mailbox. SMTP runs on port 25 (server-to-server), 587 (authenticated client submission), or 465 (TLS-wrapped SMTPS). SMTP itself has no authentication; modern deployments add SPF, DKIM, and DMARC to prevent spoofing and the relays do TLS to prevent eavesdropping.</p>
+<p><strong>IMAP (Internet Message Access Protocol)</strong>, RFC 3501, is the protocol mail clients use to read messages stored on a server. IMAP keeps the canonical copy of a mailbox on the server, and the client synchronizes a local cache. Messages stay on the server until deleted; folders, flags, and threading are server-side. IMAP is the right choice when users want to access the same mailbox from multiple devices.</p>
+<p><strong>POP3 (Post Office Protocol version 3)</strong>, RFC 1939, is the older alternative to IMAP. POP3 downloads messages to the client and (typically) deletes them from the server. It's a one-device-at-a-time model that has largely been superseded by IMAP, but is still encountered in legacy systems and in some lightweight environments.</p>
+<p>The end-to-end picture: SMTP carries mail between servers; IMAP or POP3 lets a client read what's in its mailbox.</p>
+<h2 id="1310-remote-access-ssh-and-telnet-plus-ftp">13.10 Remote Access: SSH and Telnet, Plus FTP<a class="headerlink" href="#1310-remote-access-ssh-and-telnet-plus-ftp" title="Permanent link">&para;</a></h2>
+<p>Three classic protocols handle remote access and file transfer.</p>
+<p><strong>Telnet</strong> (RFC 854) is the original interactive remote-shell protocol. It opens a TCP connection on port 23 and exchanges keystrokes and screen output as plain text. Telnet has no encryption and no authentication beyond a username and password sent in cleartext. It is used today only for dedicated console-server access on local networks; on the public Internet it is essentially extinct because of its security properties.</p>
+<p><strong>SSH (Secure Shell)</strong>, RFC 4251, is Telnet's modern replacement. SSH provides encrypted shell access, secure file transfer (<code>scp</code>, <code>sftp</code>), port forwarding, and tunneling. The protocol authenticates servers by their host keys (cached on first connection — the famous "known hosts" prompt) and clients by passwords or, more commonly, by public-key authentication. SSH listens on port 22 and is the universal protocol for administrative access to Linux and Unix systems.</p>
+<p><strong>FTP (File Transfer Protocol)</strong>, RFC 959, is a 1971-vintage protocol for transferring files. FTP uses a control connection (port 21) for commands and a separate data connection for each file or directory listing. FTP also has no encryption; FTP-over-TLS (FTPS) and SFTP-over-SSH are the modern replacements. FTP retains a long tail in some industries (publishing, scientific data) but is rarely used in new systems.</p>
+<table>
+<thead>
+<tr>
+<th>Protocol</th>
+<th>Port</th>
+<th>Encryption</th>
+<th>Modern alternative</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Telnet</td>
+<td>23</td>
+<td>None</td>
+<td>SSH</td>
+</tr>
+<tr>
+<td>SSH</td>
+<td>22</td>
+<td>Always</td>
+<td>(this is the modern one)</td>
+</tr>
+<tr>
+<td>FTP</td>
+<td>21 + data ports</td>
+<td>None (unless FTPS)</td>
+<td>SFTP / SCP / HTTPS file APIs</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1311-infrastructure-protocols-dhcp-snmp-ntp">13.11 Infrastructure Protocols: DHCP, SNMP, NTP<a class="headerlink" href="#1311-infrastructure-protocols-dhcp-snmp-ntp" title="Permanent link">&para;</a></h2>
+<p>Three protocols quietly keep networks operational.</p>
+<p><strong>DHCP (Dynamic Host Configuration Protocol)</strong>, RFC 2131, automatically assigns IP addresses (and other configuration: subnet mask, default gateway, DNS servers, NTP servers) to hosts on a network. When a client boots and joins a network, it broadcasts a DHCP Discover; a DHCP server responds with an Offer; the client accepts with a Request; the server confirms with an Ack. The exchange takes a fraction of a second and is the default way every device gets its IP configuration.</p>
+<p><strong>SNMP (Simple Network Management Protocol)</strong>, RFC 3411 et al., is the protocol network operators use to monitor and configure routers, switches, and servers. SNMP exposes a managed device's state as a tree of variables (the <strong>MIB</strong>, Management Information Base) and lets monitoring systems read those variables periodically. Most enterprise monitoring (Nagios, Zabbix, PRTG) collects SNMP data. SNMPv3 added authentication and encryption; older versions (SNMPv1, SNMPv2c) used cleartext community strings and are appropriate only on protected management networks.</p>
+<p><strong>NTP (Network Time Protocol)</strong>, RFC 5905, synchronizes clocks across the Internet. NTP servers form a hierarchy of strata, with stratum 0 being authoritative time sources (atomic clocks, GPS) and each stratum below synchronizing from the one above. NTP achieves accuracy of milliseconds across the Internet and microseconds on a local network — accuracy that is essential for log correlation, certificate validation, and any cryptographic protocol that uses timestamps. Clock skew of more than a few minutes typically breaks TLS (because certificates fail validation) and Kerberos (which has a ±5-minute clock-skew tolerance by default).</p>
+<h2 id="1312-putting-it-together-a-single-page-load">13.12 Putting It Together: A Single Page Load<a class="headerlink" href="#1312-putting-it-together-a-single-page-load" title="Permanent link">&para;</a></h2>
+<p>Open a browser and type <code>https://example.com</code>. In the moments before the page renders, the application protocols of this chapter coordinate in roughly this order:</p>
+<ol>
+<li><strong>DNS lookup.</strong> The browser asks the operating system for <code>example.com</code>'s IP. The OS asks the recursive resolver. The resolver returns A and AAAA records (cached or freshly fetched).</li>
+<li><strong>TCP / QUIC connection.</strong> The browser opens a connection to the chosen IP on port 443. With HTTP/3, this is a QUIC connection over UDP; with HTTP/2 or HTTP/1.1, it's TCP.</li>
+<li><strong>TLS handshake.</strong> Inside the TCP/QUIC connection, TLS negotiates the session. The server presents its X.509 certificate; the browser validates the chain. (Or for HTTP/3, all of TLS happens in the same QUIC handshake.)</li>
+<li><strong>HTTP request.</strong> The browser sends <code>GET / HTTP/2\r\n</code> plus headers — including any cookies it has for <code>example.com</code>. Headers are HPACK-compressed.</li>
+<li><strong>HTTP response.</strong> The server returns <code>200 OK</code> with content-type, content-length, cache-control, and other headers, plus the HTML body.</li>
+<li><strong>Subresource loading.</strong> The browser parses the HTML, identifies images, scripts, stylesheets, and fonts, and (re)issues HTTP requests for each. HTTP/2 and HTTP/3 multiplex these over the existing connection.</li>
+<li><strong>WebSocket or fetch.</strong> If the page uses real-time features, it may upgrade to a WebSocket or open additional fetch streams.</li>
+<li><strong>Cookies and analytics.</strong> Background requests send cookies, analytics events, and telemetry to various domains the page references.</li>
+<li><strong>Connection idle.</strong> The HTTP/2 or HTTP/3 connection stays open for further interactions; eventually the browser closes it.</li>
+</ol>
+<p>Every protocol from this chapter shows up in some way. You can confirm by opening your browser's developer tools (Network tab) on any modern site and watching the requests and responses. The exact pattern of which version, which methods, which headers, and which connections are reused tells the whole performance story of the page.</p>
+<div class="admonition mascot-encourage">
+<p class="admonition-title">If the catalog feels overwhelming — that's normal</p>
+<p><img src="../../img/mascot/encouraging.png" class="mascot-admonition-img" alt="Buzz cheering you on">
+The application layer is the most heterogeneous layer in the stack. Nobody memorizes every protocol on first read. <em>One hop at a time.</em> Keep this chapter as a reference — when you see a strange port number on a packet capture, look it up here. The recurring patterns (request-response over TCP, datagram over UDP, hierarchy with caching) will become second nature.</p>
+</div>
+<h2 id="1313-key-takeaways">13.13 Key Takeaways<a class="headerlink" href="#1313-key-takeaways" title="Permanent link">&para;</a></h2>
+<p>The application layer is what the rest of the stack exists to carry. Before moving on, make sure you can answer the following without looking back:</p>
+<ul>
+<li>Walk through a DNS resolution for a name your local resolver has never seen.</li>
+<li>Name five DNS record types and what each is used for.</li>
+<li>What is DNSSEC, and what attack does it prevent? Why is its adoption uneven?</li>
+<li>Compare HTTP/1.1, HTTP/2, and HTTP/3 on transport, multiplexing, and head-of-line blocking.</li>
+<li>Name five HTTP methods and one status code from each of the 2xx, 3xx, 4xx, 5xx classes.</li>
+<li>What is REST? How does it use HTTP methods?</li>
+<li>Compare WebSocket and gRPC on direction, encoding, and typical use case.</li>
+<li>Compare SMTP, IMAP, and POP3 on what each does and where each runs.</li>
+<li>Why has SSH almost completely replaced Telnet?</li>
+<li>For DHCP, SNMP, and NTP, name what each protocol does and one consequence of it failing.</li>
+</ul>
+<p>If any of those answers feel shaky, re-read the corresponding section before continuing to Chapter 14, where we move from <em>using</em> protocols to <em>writing</em> them — sockets, blocking vs. non-blocking I/O, and designing your own application-layer protocol over TCP.</p>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">The catalog of carried bytes</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Buzz celebrating">
+You can now read a packet capture and name what every flow is. The next chapter shifts gears: how do you <em>write</em> a program that talks to these protocols, or designs new ones? The Berkeley sockets API is one of the most enduring interfaces in computing. <em>Follow the packet.</em></p>
+</div>
 
 
 
 
 
 
+
+  
+  
 
 
 
