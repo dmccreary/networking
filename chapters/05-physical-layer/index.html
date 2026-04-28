@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An ABET CAC-aligned intelligent textbook covering the foundations of networking and communication — layered architecture, routing, reliable transport, wireless, network security, and modern programmable networks — aligned to the ACM/IEEE CS2023 Networking and Communication knowledge area.">
+        <meta name="description" content="How bits actually cross physical media — analog vs. digital signals, modulation and encoding, symbol vs. baud rate, channel capacity bounded by Shannon's theorem, the four transmission media (twisted pair, coax, fiber, wireless), and the impairments (attenuation, noise, interference, bit error rate) that motivate every layer above.">
       
       
         <meta name="author" content="Dan McCreary">
@@ -26,7 +26,7 @@
     
     
       
-        <title>5. The Physical Layer - Networking and Communication</title>
+        <title>The Physical Layer - Networking and Communication</title>
       
     
     
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              5. The Physical Layer
+              The Physical Layer
             
           </span>
         </div>
@@ -587,6 +587,141 @@
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#51-why-the-physical-layer-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Why the Physical Layer Matters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52-signals-analog-and-digital" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Signals: Analog and Digital
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#53-modulation-and-encoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Modulation and Encoding
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3 Modulation and Encoding">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-nrz-vs-manchester-encoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: NRZ vs. Manchester Encoding
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#54-symbol-rate-baud-rate-and-bit-rate" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 Symbol Rate, Baud Rate, and Bit Rate
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#55-channel-capacity-and-shannons-theorem" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5 Channel Capacity and Shannon's Theorem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#56-transmission-media" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.6 Transmission Media
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.6 Transmission Media">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-choosing-a-transmission-medium" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Choosing a Transmission Medium
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#57-why-signals-degrade-the-three-impairments" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7 Why Signals Degrade: The Three Impairments
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#58-the-bit-error-rate" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.8 The Bit Error Rate
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.8 The Bit Error Rate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-signal-quality-across-distance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Signal Quality Across Distance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#59-putting-it-together-why-each-medium-wins-where-it-wins" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.9 Putting It Together: Why Each Medium Wins Where It Wins
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#510-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.10 Key Takeaways
     </span>
   </a>
   
@@ -1112,6 +1247,141 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#51-why-the-physical-layer-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Why the Physical Layer Matters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52-signals-analog-and-digital" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Signals: Analog and Digital
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#53-modulation-and-encoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 Modulation and Encoding
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3 Modulation and Encoding">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-nrz-vs-manchester-encoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: NRZ vs. Manchester Encoding
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#54-symbol-rate-baud-rate-and-bit-rate" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 Symbol Rate, Baud Rate, and Bit Rate
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#55-channel-capacity-and-shannons-theorem" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5 Channel Capacity and Shannon's Theorem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#56-transmission-media" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.6 Transmission Media
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.6 Transmission Media">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-choosing-a-transmission-medium" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Choosing a Transmission Medium
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#57-why-signals-degrade-the-three-impairments" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7 Why Signals Degrade: The Three Impairments
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#58-the-bit-error-rate" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.8 The Bit Error Rate
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.8 The Bit Error Rate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-signal-quality-across-distance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Signal Quality Across Distance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#59-putting-it-together-why-each-medium-wins-where-it-wins" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.9 Putting It Together: Why Each Medium Wins Where It Wins
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#510-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.10 Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1173,13 +1443,382 @@
 <li><a href="../04-performance-and-qos/">Chapter 4: Network Performance and Quality of Service</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Down to the wire — and the air</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Buzz the bee waving welcome">
+Welcome back. Bees signal each other with vibrations on the comb, with pheromone molecules in the air, with light that bounces off polarized wax cells. Each medium has its own range, its own noise, its own carrying capacity. Computer networks face the same constraints. <em>Let's trace the route!</em> This chapter is where the abstractions of the upper layers finally meet copper, glass, and electromagnetic waves.</p>
+</div>
+<h2 id="51-why-the-physical-layer-matters">5.1 Why the Physical Layer Matters<a class="headerlink" href="#51-why-the-physical-layer-matters" title="Permanent link">&para;</a></h2>
+<p>The four chapters before this one talked about packets, frames, and protocols as if bits were a free abstraction — as if a "1" could simply travel from one machine to another and arrive intact. The physical layer is where that abstraction earns its keep. Every bit that traverses any network is, at its bottom, a fluctuation in voltage on a copper wire, a pulse of light in a glass fiber, a brief electromagnetic wave in the air, or a pattern of magnetism on a satellite uplink. These are all <em>signals</em> — physical phenomena propagating through media — and the physical layer's job is to convert bits into signals and back.</p>
+<p>The physical layer matters because the constraints it imposes — finite bandwidth, finite signal-to-noise ratio, attenuation over distance, susceptibility to interference — set the absolute upper bounds on every higher layer. A 1 Gbps Ethernet connection cannot deliver more than 1 Gbps no matter how clever the routing or how well-tuned the TCP stack, and that ceiling exists because Shannon's theorem (introduced later in this chapter) says so. Understanding why the bandwidth ceiling exists, why bit errors occur, and why some media outperform others by orders of magnitude is essential context for everything above.</p>
+<h2 id="52-signals-analog-and-digital">5.2 Signals: Analog and Digital<a class="headerlink" href="#52-signals-analog-and-digital" title="Permanent link">&para;</a></h2>
+<p>A <strong>signal</strong> is any physical quantity that varies in time and carries information. The variation might be in voltage, current, light intensity, electromagnetic field strength, sound pressure, or any other measurable property. A signal is "useful" precisely insofar as the receiver can recover the information from the variation.</p>
+<p>Signals come in two flavors that matter for networking. An <strong>analog signal</strong> varies continuously — at any instant in time it can take on any value within some range, and small changes in the value carry useful information. The voltage on an old telephone line carrying a voice conversation is analog: a smooth, continuously-changing waveform whose shape <em>is</em> the speech. A microphone produces an analog signal; a vinyl record stores one. Analog signals are conceptually clean — what you measure is what was sent, more or less — but they degrade gradually with distance and noise, and small impairments accumulate without recovery.</p>
+<p>A <strong>digital signal</strong> varies in discrete steps — its instantaneous value is restricted to a small finite set, typically two values (high and low) representing 0 and 1. The voltage on a Cat-6 Ethernet cable is digital: it flips between defined levels rather than sliding through a continuum. Digital signals are more verbose than the analog signals they replace (a single voltage level carries one bit, while an analog voltage could in principle carry many) but they are vastly more <em>robust</em>. A digital receiver must only decide whether the value is closer to "high" or "low" — even a noisy or attenuated signal can be regenerated cleanly as long as the high and low levels remain distinguishable. This robustness is why every modern network is digital end-to-end, even when the underlying physics involves continuous waveforms.</p>
+<p>The relationship between the two kinds of signal is everywhere in networking. A wireless network transmits a digital bit stream by varying continuous-valued radio waves; the receiver sees a noisy analog waveform and recovers digital bits. The physical layer's job is exactly this conversion — at the sender, packing digital information onto analog signals suitable for the medium; at the receiver, unpacking analog signals back into digital bits.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Analog signal</th>
+<th>Digital signal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Values</td>
+<td>Continuous within a range</td>
+<td>Discrete (typically two)</td>
+</tr>
+<tr>
+<td>Information density</td>
+<td>High in principle</td>
+<td>Low per symbol; high in aggregate</td>
+</tr>
+<tr>
+<td>Noise tolerance</td>
+<td>Poor — small noise → small error</td>
+<td>Excellent — small noise → no error until threshold</td>
+</tr>
+<tr>
+<td>Regeneration</td>
+<td>Each amplifier adds noise</td>
+<td>Receiver can perfectly regenerate</td>
+</tr>
+<tr>
+<td>Examples</td>
+<td>Voice on copper, FM radio, AM</td>
+<td>Ethernet, USB, fiber-optic links</td>
+</tr>
+</tbody>
+</table>
+<h2 id="53-modulation-and-encoding">5.3 Modulation and Encoding<a class="headerlink" href="#53-modulation-and-encoding" title="Permanent link">&para;</a></h2>
+<p>Two related terms describe how digital information is impressed onto a physical signal. <strong>Modulation</strong> is the process of varying some property of an analog carrier wave — its amplitude, frequency, or phase — to encode digital data. Modulation is the technique used whenever the underlying medium is fundamentally continuous, such as a radio channel or a coaxial cable carrying signals in the megahertz range. <strong>Demodulation</strong> is the inverse: the receiver extracts the digital information from the modulated analog signal.</p>
+<p>The simplest modulation schemes vary one property of the carrier wave at a time:</p>
+<ul>
+<li><strong>Amplitude modulation (AM)</strong> — vary the carrier's amplitude (loudness). AM is simple and used in commercial AM radio, but it is highly susceptible to noise.</li>
+<li><strong>Frequency modulation (FM)</strong> — vary the carrier's frequency. FM is more noise-resistant than AM, used in commercial FM radio and many wireless networking standards.</li>
+<li><strong>Phase modulation (PM)</strong> — vary the carrier's phase. Phase modulation is the workhorse of modern digital wireless.</li>
+</ul>
+<p>Real wireless protocols combine several techniques. <strong>Quadrature Amplitude Modulation (QAM)</strong>, used in Wi-Fi, cellular, and cable modems, varies both amplitude and phase together to pack many bits per symbol. A 64-QAM scheme arranges 64 distinct combinations of amplitude and phase, encoding 6 bits per transmitted symbol; 256-QAM encodes 8 bits per symbol; modern 1024-QAM and 4096-QAM schemes pack 10 and 12 bits respectively. Higher-order QAM increases throughput but requires a cleaner channel — small noise can flip the receiver's decision among neighboring constellation points.</p>
+<p><strong>Encoding</strong>, by contrast, refers to how digital bits are mapped onto a digital signal — a sequence of voltage levels or light pulses on a wire. Encoding is what happens on a digital medium where the physical signal is already a sequence of discrete levels. <strong>Decoding</strong> is the inverse: the receiver converts the sequence of voltage transitions back into a bit stream.</p>
+<p>Two encoding schemes appear repeatedly in networking. <strong>NRZ encoding (Non-Return-to-Zero)</strong> is the simplest possible scheme: a 1 is one voltage level (say, +5 V) and a 0 is another (say, 0 V), and the level holds steady for the entire bit duration. NRZ uses bandwidth efficiently — one symbol per bit — but has a serious problem: a long run of 0s or 1s produces a constant voltage with no transitions, and the receiver loses track of where one bit ends and the next begins (a problem called <em>clock drift</em>).</p>
+<p><strong>Manchester encoding</strong> solves the clock-drift problem at the cost of using twice the bandwidth. Each bit is encoded as a <em>transition</em>: a 0 becomes a high-to-low transition in the middle of the bit period, a 1 becomes a low-to-high transition (or vice versa, depending on the convention). Every bit period contains exactly one transition, so the receiver can always recover the clock by watching for transitions. Classic 10 Mbps Ethernet used Manchester encoding for exactly this reason. Higher-speed Ethernet uses more elaborate schemes (8B/10B, 64B/66B, PAM-5, PAM-16) that pack more bits per symbol while still guaranteeing enough transitions for clock recovery.</p>
+<h4 id="diagram-nrz-vs-manchester-encoding">Diagram: NRZ vs. Manchester Encoding<a class="headerlink" href="#diagram-nrz-vs-manchester-encoding" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Side-by-side waveforms showing how the same bit pattern looks under each encoding scheme</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> nrz-vs-manchester-encoding<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Build an interactive MicroSim that lets students enter a bit pattern and see the resulting voltage waveform under NRZ and Manchester encoding side by side.</p>
+<p>Canvas: 920 px wide by 520 px tall, responsive down to 360 px. A 100 px control panel sits below.</p>
+<p>Layout:</p>
+<ul>
+<li>A text input box at the top accepts a bit string (e.g., "10110001") with a default of "10110001".</li>
+<li>Below the input, two stacked oscilloscope-style displays:</li>
+<li>Top trace labeled "NRZ Encoding": a horizontal voltage axis with discrete levels (low and high). The waveform follows the bit pattern directly — high for 1, low for 0 — with no transitions during a run of identical bits.</li>
+<li>Bottom trace labeled "Manchester Encoding": the same bit pattern, but each bit period contains a mid-bit transition. A 1 is a low-to-high transition; a 0 is a high-to-low transition.</li>
+<li>A vertical dashed line indicates each bit boundary, and a small numeric label above shows which bit (0/1) is being encoded in that period.</li>
+</ul>
+<p>Interactivity:</p>
+<ul>
+<li>The user can edit the bit string and the waveforms update live.</li>
+<li>Toggle "Add noise": injects small random voltage offsets and shows how the receiver's decision threshold (a horizontal dashed line at the midpoint) tolerates the noise. Manchester's transition-based decoding is shown to be more robust because the receiver is comparing levels just before and after the mid-bit transition.</li>
+<li>Toggle "Long run of zeros": replaces the input with "00000000" and highlights how NRZ produces a flat line with no clock recovery, while Manchester continues to provide a transition each bit period.</li>
+</ul>
+<p>Visual style:</p>
+<ul>
+<li>Voltage traces in honey amber on a slate grid background.</li>
+<li>Bit boundaries as thin vertical lines.</li>
+<li>Decision threshold as a horizontal dashed line in white.</li>
+</ul>
+<p>Learning objectives:</p>
+<ul>
+<li>(Bloom — Understanding) Students explain why Manchester encoding always provides at least one transition per bit period.</li>
+<li>(Bloom — Analyzing) Students compare the bandwidth efficiency and clock-recovery properties of NRZ vs. Manchester.</li>
+<li>(Bloom — Evaluating) Students judge which encoding is appropriate for a given combination of distance, noise, and clock-recovery requirements.</li>
+</ul>
+<p>Implement in pure p5.js with the existing MicroSim CSS theme. The waveform display should be responsive and remain readable at 360 px wide.</p>
+</details>
+<h2 id="54-symbol-rate-baud-rate-and-bit-rate">5.4 Symbol Rate, Baud Rate, and Bit Rate<a class="headerlink" href="#54-symbol-rate-baud-rate-and-bit-rate" title="Permanent link">&para;</a></h2>
+<p>Three closely-related rates show up in physical-layer specifications, and they are easy to confuse.</p>
+<p>The <strong>symbol rate</strong> is the number of distinct signal symbols transmitted per second on a channel. A symbol is one indivisible unit of the modulation scheme — one QAM constellation point, one Manchester transition pair, one PAM-5 voltage level. Symbol rate is measured in symbols per second.</p>
+<p>The <strong>baud rate</strong> is a synonym for symbol rate, named after the 19th-century telegraph engineer Émile Baudot. The two terms are interchangeable in modern usage. Older specifications typically use <em>baud</em>, modern wireless specifications typically use <em>symbols per second</em>, but they mean the same thing.</p>
+<p>The <strong>bit rate</strong>, measured in bits per second, is the symbol rate multiplied by the number of bits each symbol carries. Bit rate and baud rate are equal when each symbol carries exactly one bit (as in NRZ); they diverge when the modulation packs many bits into each symbol. A 64-QAM modulation running at 10 megabaud carries (10 \times 10^6 \times 6 = 60\ \text{Mbps}). The same 10 megabaud symbol rate at 256-QAM carries 80 Mbps. The relationship is</p>
+<p>[
+\text{bit rate} = \text{symbol rate} \times \log_2(\text{symbols per modulation alphabet})
+]</p>
+<p>This relationship is the central trade-off of modulation. Higher-order modulations pack more bits per symbol but require a cleaner channel; lower-order modulations are more robust but slower. A modern adaptive modem dynamically chooses the highest modulation order that the current channel can sustain, ramping up when conditions are good and dropping back when they degrade.</p>
+<h2 id="55-channel-capacity-and-shannons-theorem">5.5 Channel Capacity and Shannon's Theorem<a class="headerlink" href="#55-channel-capacity-and-shannons-theorem" title="Permanent link">&para;</a></h2>
+<p>Why is there an upper bound on bit rate at all? The answer comes from one of the most beautiful results in 20th-century mathematics: <strong>Shannon's theorem</strong>, published by Claude Shannon in 1948, which gives the absolute maximum data rate achievable on a noisy channel with finite bandwidth.</p>
+<p>Shannon's formula for <strong>channel capacity</strong> is</p>
+<p>[
+C = B \log_2!\left(1 + \frac{S}{N}\right)
+]</p>
+<p>where (C) is the maximum bit rate in bits per second, (B) is the channel bandwidth in hertz, and (S/N) is the signal-to-noise ratio (a dimensionless ratio of signal power to noise power). The theorem says no encoding scheme, no matter how clever, can exceed this rate over a channel with the given bandwidth and noise. Every higher-layer technique must live within this ceiling.</p>
+<p>Shannon's result has three important consequences. First, <strong>bandwidth is intrinsically tied to capacity</strong>: doubling (B) doubles (C). This is why fiber-optic links (with bandwidths of terahertz) can carry vastly more data than copper twisted pair (with bandwidths of hundreds of megahertz). Second, <strong>adding power buys you only logarithmic gains</strong>: doubling (S/N) adds only one bit per symbol of capacity. Pumping more transmit power into a noisy channel quickly hits diminishing returns. Third, <strong>Shannon does not tell you how to <em>achieve</em> the capacity</strong> — only that it cannot be exceeded. Designing modulation, coding, and equalization schemes that approach Shannon's bound has occupied the field of communications engineering for the past 75 years.</p>
+<p>A worked example. A typical Wi-Fi channel has (B = 20\ \text{MHz}) and a signal-to-noise ratio of (S/N = 30\ \text{dB}). 30 dB corresponds to a power ratio of 1000. So the Shannon capacity is</p>
+<p>[
+C = 20 \times 10^6 \times \log_2(1001) \approx 20 \times 10^6 \times 9.97 \approx 200\ \text{Mbps}
+]</p>
+<p>Real Wi-Fi 5 (802.11ac) on a 20 MHz channel with one spatial stream achieves roughly 87 Mbps in good conditions — about 44% of the Shannon limit. Modern Wi-Fi 7 with multiple spatial streams, 320 MHz channels, and 4096-QAM gets much closer to the Shannon bound for its larger bandwidth. The gap between achieved bit rate and Shannon capacity is the room left for engineering improvement.</p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Symbol</th>
+<th>Units</th>
+<th>What it captures</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bandwidth</td>
+<td>(B)</td>
+<td>Hz</td>
+<td>Frequency range of the channel</td>
+</tr>
+<tr>
+<td>Signal-to-noise ratio</td>
+<td>(S/N)</td>
+<td>(ratio, often quoted in dB)</td>
+<td>Power of useful signal vs. noise</td>
+</tr>
+<tr>
+<td>Channel capacity</td>
+<td>(C)</td>
+<td>bits per second</td>
+<td>Theoretical maximum bit rate</td>
+</tr>
+<tr>
+<td>Symbol / baud rate</td>
+<td>—</td>
+<td>symbols per second</td>
+<td>Distinct signal changes per second</td>
+</tr>
+<tr>
+<td>Bit rate</td>
+<td>—</td>
+<td>bits per second</td>
+<td>Symbol rate × bits per symbol</td>
+</tr>
+</tbody>
+</table>
+<h2 id="56-transmission-media">5.6 Transmission Media<a class="headerlink" href="#56-transmission-media" title="Permanent link">&para;</a></h2>
+<p>Networks run on four kinds of physical medium, each with different bandwidth, attenuation, and cost characteristics.</p>
+<p><strong>Twisted pair cable</strong> consists of pairs of insulated copper wires twisted together, which cancels electromagnetic interference between the wires of a pair and reduces susceptibility to outside interference. Twisted pair is the most common physical medium in local area networks. It is cheap, easy to install, and supports modern Ethernet rates (1 Gbps over Cat-5e and Cat-6, 10 Gbps over Cat-6a, 25/40 Gbps over Cat-8) at distances up to 100 meters before signal regeneration is needed. Two main grades exist: <strong>unshielded twisted pair (UTP)</strong> for ordinary office wiring, and <strong>shielded twisted pair (STP)</strong> for harsher electromagnetic environments. Twisted pair's bandwidth ceiling — bounded by Shannon's theorem and by physical constants of copper — is the main reason it cannot scale arbitrarily high.</p>
+<p><strong>Coaxial cable</strong> is a single inner conductor surrounded by a cylindrical outer conductor, separated by an insulating dielectric. The geometry confines the electromagnetic field tightly within the cable, giving coax much better noise immunity and higher bandwidth than twisted pair at the cost of higher per-meter cost and more difficult installation. Cable Internet (DOCSIS) uses coax; legacy 10BASE-2 and 10BASE-5 Ethernet used coax in the 1980s; coax is rare in modern enterprise LANs but ubiquitous in residential broadband and broadcast applications.</p>
+<p><strong>Fiber optic cable</strong> is a thin strand of glass (or sometimes plastic) along which infrared light pulses travel. Fiber has bandwidth measured in tens to hundreds of terahertz — many orders of magnitude more than copper — and astonishingly low attenuation: a modern single-mode fiber loses only about 0.2 dB per kilometer at 1550 nm, allowing signals to travel hundreds of kilometers between amplifiers. Fiber is immune to electromagnetic interference (because it carries light, not current), and it does not radiate, making it harder to wiretap. Two main flavors are deployed: <strong>multimode fiber</strong> (a thicker core, used over short distances inside datacenters) and <strong>single-mode fiber</strong> (a thin core, used over long distances in carrier networks). Fiber dominates every long-haul link in the world.</p>
+<p><strong>Wireless medium</strong> refers to electromagnetic propagation through free space — radio waves, microwaves, infrared, or visible light. Wireless has the unique property of mobility: receivers can move freely through the propagation region. The cost is shared bandwidth (every device on the same channel competes for the same airtime), variable channel conditions (interference from microwave ovens, walls, and other transmitters), and power limits set by regulation and battery life. Wi-Fi (802.11), Bluetooth, cellular (4G/5G), satellite, and many specialized standards all use wireless. Chapter 8 develops wireless networking in detail; this chapter only places it among the four media.</p>
+<p>The four media and their representative properties are summarized below. The numbers in the table are typical engineering values, not absolute limits.</p>
+<table>
+<thead>
+<tr>
+<th>Medium</th>
+<th>Typical bandwidth</th>
+<th>Typical reach (no amp)</th>
+<th>Cost</th>
+<th>Mobility</th>
+<th>EMI immunity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Twisted pair (Cat-6a)</td>
+<td>10 Gbps</td>
+<td>100 m</td>
+<td>Low</td>
+<td>None</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Coaxial</td>
+<td>1–10 Gbps</td>
+<td>500 m</td>
+<td>Medium</td>
+<td>None</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Fiber (single-mode)</td>
+<td>100 Gbps – 100 Tbps</td>
+<td>80 km+</td>
+<td>Medium-high</td>
+<td>None</td>
+<td>Excellent</td>
+</tr>
+<tr>
+<td>Wireless (Wi-Fi 6E)</td>
+<td>1–10 Gbps shared</td>
+<td>50 m indoors</td>
+<td>Low</td>
+<td>Yes</td>
+<td>Poor</td>
+</tr>
+</tbody>
+</table>
+<h4 id="diagram-choosing-a-transmission-medium">Diagram: Choosing a Transmission Medium<a class="headerlink" href="#diagram-choosing-a-transmission-medium" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Decision tree comparing the four transmission media against deployment constraints</summary>
+<p>Type: infographic
+<strong>sim-id:</strong> transmission-media-choice<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Render an interactive infographic that helps students choose a transmission medium based on deployment constraints (distance, mobility, EMI environment, cost budget).</p>
+<p>Canvas: 920 px wide by 600 px tall, responsive down to 360 px.</p>
+<p>Tree layout:</p>
+<ol>
+<li>Root: "Need mobility?" → Yes (wireless branch) | No (continue).</li>
+<li>"Distance &gt; 1 km?" → Yes (fiber) | No (continue).</li>
+<li>"EMI environment severe?" → Yes (fiber or shielded twisted pair / coax) | No (continue).</li>
+<li>"Cost-sensitive bulk install?" → Yes (twisted pair) | No (consider fiber for future-proofing).</li>
+</ol>
+<p>Each leaf is a labeled box with the recommended medium, a representative typical use case, and a small icon (twisted-pair icon, coax icon, fiber icon, antenna icon).</p>
+<p>Interactivity:</p>
+<ul>
+<li>Each tree node is clickable. When clicked, the path from root highlights in honey amber; off-path branches dim.</li>
+<li>Hover on a leaf shows a side panel with that medium's typical bandwidth, attenuation per km, EMI immunity, and approximate cost per meter.</li>
+<li>A reset button collapses the tree.</li>
+</ul>
+<p>Visual style:</p>
+<ul>
+<li>Tree edges drawn as honey-amber arrows.</li>
+<li>Decision nodes: rounded rectangles in slate.</li>
+<li>Leaf nodes: rounded rectangles in honey amber.</li>
+</ul>
+<p>Learning objective (Bloom — Applying): Students apply medium-selection criteria to a deployment scenario and justify their choice based on bandwidth, distance, mobility, EMI, and cost.</p>
+</details>
+<h2 id="57-why-signals-degrade-the-three-impairments">5.7 Why Signals Degrade: The Three Impairments<a class="headerlink" href="#57-why-signals-degrade-the-three-impairments" title="Permanent link">&para;</a></h2>
+<p>Every physical signal degrades as it propagates. Three impairments dominate, and each has predictable behavior that the higher layers must work around.</p>
+<p><strong>Attenuation</strong> is the loss of signal strength as it propagates through the medium. Attenuation has multiple causes — resistive loss in copper, absorption and scattering in fiber, free-space spreading in wireless — but the engineering effect is the same: the further the signal travels, the weaker it gets at the receiver. Attenuation is typically measured in decibels per kilometer (dB/km), and it is the reason long links require periodic amplification or regeneration. Twisted pair attenuates at roughly 20 dB/100 m at 100 MHz; single-mode fiber loses only 0.2 dB/km at 1550 nm — a difference of 1000× per kilometer. Attenuation also depends on frequency: copper loses much more at high frequencies than at low frequencies, which is why higher-rate copper standards specify shorter maximum cable lengths.</p>
+<p><strong>Noise</strong> is unwanted random variation in the signal that the receiver cannot distinguish from intended variation. Noise has several physical sources: <strong>thermal noise</strong> (random motion of electrons in conductors, present at any temperature above absolute zero), <strong>shot noise</strong> (statistical variation in the arrival of electrons or photons), <strong>flicker noise</strong> (low-frequency fluctuations in semiconductor devices), and <strong>crosstalk</strong> (signals from neighboring channels leaking into ours). Noise sets the denominator in Shannon's signal-to-noise ratio: more noise means less capacity. Some noise can be reduced by engineering (better shielding, lower-temperature amplifiers, differential signaling) but thermal noise is set by physical constants and cannot be eliminated.</p>
+<p><strong>Interference</strong> is unwanted signal energy from external sources that the receiver mistakes for intended signal. Interference is distinct from noise because it has structure — it is some other transmitter's signal, not random fluctuation — but its effect on the receiver is similar: lost or corrupted bits. In wireless networks, interference comes from other Wi-Fi networks on the same channel, microwave ovens, Bluetooth devices, and outright jammers. In wired networks, interference comes from power lines, fluorescent lights, and other cables in the same conduit. Mitigation strategies include frequency-hopping, channel selection, shielding, and adaptive modulation.</p>
+<p>The consequence of all three impairments is that some bits arrive incorrectly. The frequency of incorrect bits is captured by a single number.</p>
+<h2 id="58-the-bit-error-rate">5.8 The Bit Error Rate<a class="headerlink" href="#58-the-bit-error-rate" title="Permanent link">&para;</a></h2>
+<p>The <strong>bit error rate (BER)</strong> is the fraction of received bits that are incorrect, typically reported in scientific notation: a BER of (10^{-9}) means one bit in a billion arrives wrong. BER is the bottom-line measurement of physical-layer quality. It depends on signal-to-noise ratio, modulation order, and any forward error correction in use, and it varies widely across media:</p>
+<ul>
+<li>Modern fiber-optic links: (10^{-12}) to (10^{-15}) — essentially error-free.</li>
+<li>Modern Ethernet over twisted pair: (10^{-10}) to (10^{-12}).</li>
+<li>Wi-Fi in good conditions: (10^{-6}) to (10^{-9}).</li>
+<li>Wireless in difficult conditions: (10^{-3}) or worse — one error per thousand bits.</li>
+</ul>
+<p>BER directly drives the design of every higher layer. A medium with very low BER (fiber) needs only minimal error checking — a CRC-32 in the link-layer trailer, computed in hardware, catches the rare error and discards the frame for the upper layer to retransmit. A medium with high BER (wireless) needs aggressive forward error correction at the physical layer (codes that add redundancy so the receiver can repair errors without a retransmission) and link-layer retransmission for residual errors. Wi-Fi's 802.11 link layer retransmits frames at the link layer specifically because the physical layer's BER is high enough that letting end-to-end TCP detect and recover would be prohibitively slow.</p>
+<p>The relationship between Shannon capacity and BER is fundamental. Shannon's theorem says that for any channel with capacity (C), there exists <em>some</em> coding scheme achieving arbitrarily low error rate at any rate below (C). Modern error-correcting codes (LDPC, polar codes, turbo codes) approach this bound closely. The design effort goes into trading complexity (how hard the code is to encode and decode) against gap to Shannon (how close to the bound the code reaches).</p>
+<table>
+<thead>
+<tr>
+<th>Impairment</th>
+<th>Physical cause</th>
+<th>Typical mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Attenuation</td>
+<td>Resistive / absorption losses</td>
+<td>Amplifiers, regenerators, lower frequency</td>
+</tr>
+<tr>
+<td>Noise</td>
+<td>Thermal motion, shot noise, crosstalk</td>
+<td>Shielding, differential signaling, cooling</td>
+</tr>
+<tr>
+<td>Interference</td>
+<td>Other transmitters</td>
+<td>Channel selection, frequency hopping, filters</td>
+</tr>
+<tr>
+<td>→ Resulting BER</td>
+<td>Combination of the above</td>
+<td>Modulation choice, forward error correction</td>
+</tr>
+</tbody>
+</table>
+<h4 id="diagram-signal-quality-across-distance">Diagram: Signal Quality Across Distance<a class="headerlink" href="#diagram-signal-quality-across-distance" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Animated signal-quality plot showing how attenuation and noise produce bit errors over distance</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> ber-vs-distance<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Build an interactive MicroSim that visualizes how attenuation, noise, and interference produce bit errors as signal traverses a medium of variable length.</p>
+<p>Canvas: 920 px wide by 580 px tall, responsive down to 360 px. A 120 px control panel sits below.</p>
+<p>Layout:</p>
+<ul>
+<li>Top half: an oscilloscope-style display showing the signal at the sender (clean digital pulse train) and at the receiver (degraded waveform). A vertical "decision threshold" line indicates how the receiver decides 0 vs. 1.</li>
+<li>Bottom half: a horizontal "channel" rendered as a long rectangle with a small graph showing signal amplitude vs. distance. The amplitude curve drops exponentially with distance (attenuation), and a noise floor is added as scattered random fluctuations.</li>
+<li>A bit-error indicator shows received bits in two colors: green (correctly received) and red (errored).</li>
+</ul>
+<p>Controls panel:</p>
+<ul>
+<li>Sliders: distance (0–100 km), transmit power (0–30 dBm), noise floor (-100 to -30 dBm), interference level (off / low / high).</li>
+<li>Modulation dropdown: NRZ (1 bit/symbol), 4-QAM (2 bits/symbol), 16-QAM (4 bits/symbol), 64-QAM (6 bits/symbol).</li>
+<li>"Add forward error correction" toggle — when on, errors below a threshold are corrected by the receiver and shown in yellow.</li>
+<li>"Show Shannon capacity" toggle — annotates the current configuration's Shannon capacity and the achieved bit rate.</li>
+</ul>
+<p>Behavior:</p>
+<ul>
+<li>As distance increases, signal amplitude shrinks; the receiver's decision threshold becomes harder to apply, and red error bits start to appear.</li>
+<li>As modulation order increases, the constellation diagram shows tighter spacing between points, and small noise produces many more errors.</li>
+<li>The bit-error rate (BER) is computed live and displayed as a numeric readout.</li>
+</ul>
+<p>Visual style:</p>
+<ul>
+<li>Sender waveform: clean honey-amber pulses.</li>
+<li>Receiver waveform: noisy version of the same, with the noise tinted in slate.</li>
+<li>Errored bits highlighted in red on a strip below the receiver display.</li>
+</ul>
+<p>Learning objectives:</p>
+<ul>
+<li>(Bloom — Understanding) Students explain how attenuation, noise, and modulation order interact to produce bit errors.</li>
+<li>(Bloom — Analyzing) Students decompose a high-BER scenario into its contributing factors.</li>
+<li>(Bloom — Evaluating) Students judge whether a deployment requires a different medium or just a different modulation, given a target BER.</li>
+</ul>
+<p>The MicroSim should be implemented in pure p5.js with the existing MicroSim CSS theme.</p>
+</details>
+<h2 id="59-putting-it-together-why-each-medium-wins-where-it-wins">5.9 Putting It Together: Why Each Medium Wins Where It Wins<a class="headerlink" href="#59-putting-it-together-why-each-medium-wins-where-it-wins" title="Permanent link">&para;</a></h2>
+<p>The four transmission media are not interchangeable. Each one's bandwidth, attenuation, cost, and EMI properties make it the right answer in some niche.</p>
+<p><strong>Fiber wins long-haul.</strong> Bandwidth in the terabits per second over distances measured in tens of kilometers per amplifier hop, with BER below (10^{-12}) and complete EMI immunity. Every transoceanic cable, every backbone link between major cities, and most metro-area carrier links are fiber. The cost of laying fiber is high upfront but the cost per delivered bit-kilometer is the lowest of any medium. When the numerator of bandwidth × distance is large, fiber is the only sensible answer.</p>
+<p><strong>Twisted pair wins last-meter LAN.</strong> A 100-meter twisted-pair drop to a desk costs a few dollars per meter, terminates with a cheap RJ45 connector, and supports 10 Gbps with off-the-shelf switches. No other medium delivers such bandwidth to such inexpensive endpoints over short distances. Every office, classroom, and lab on Earth is wired primarily with twisted pair.</p>
+<p><strong>Coax wins residential broadband and broadcast.</strong> The cable Internet plant deployed over decades reaches almost every home in the developed world; running fiber to each home is feasible only where it has been done over decades of investment. Coax's higher bandwidth-per-meter than twisted pair, combined with the existing infrastructure, gives it a long tail in residential networking even as fiber-to-the-home expands.</p>
+<p><strong>Wireless wins anywhere mobility, ad hoc deployment, or installation cost rules out cable.</strong> Phones, laptops in a coffee shop, sensors on a wind turbine, vehicles in motion — none of these can use cable. Wireless has worse bandwidth and worse BER than any wired medium of the same era, and that gap is the price of mobility. Engineers make wireless work by accepting these compromises and aggressively engineering around them: forward error correction, multiple antennas (MIMO), wider channels, higher-order modulation, dynamic adaptation. Chapter 8 develops the wireless layer in depth.</p>
+<p>A network engineer's job is to choose the right medium for each link in a topology. A datacenter spine is fiber. A datacenter rack-to-server drop is twisted pair (or short fiber for the highest-rate links). A residential connection is coax or fiber. A mobile device is wireless. A submarine cable across an ocean is fiber. Each choice is justified by the bandwidth-attenuation-cost-mobility trade-off the medium offers.</p>
+<div class="admonition mascot-encourage">
+<p class="admonition-title">If Shannon's theorem feels intimidating — that's reasonable</p>
+<p><img src="../../img/mascot/encouraging.png" class="mascot-admonition-img" alt="Buzz cheering you on">
+Most networking courses do not derive Shannon's theorem; this one does not either. What you need is the <em>consequence</em>: there is a hard ceiling on bit rate set by bandwidth and signal-to-noise ratio, and every higher layer respects it. <em>One hop at a time.</em> Every time you read a Wi-Fi spec ("up to 6.9 Gbps"), you are reading a number that came from a Shannon calculation.</p>
+</div>
+<h2 id="510-key-takeaways">5.10 Key Takeaways<a class="headerlink" href="#510-key-takeaways" title="Permanent link">&para;</a></h2>
+<p>The physical layer is where the network's promises meet physical reality. Before moving on, make sure you can answer the following without looking back:</p>
+<ul>
+<li>What is a signal? What is the difference between an analog and a digital signal?</li>
+<li>What is modulation? What is the difference between modulation and encoding?</li>
+<li>Compare NRZ and Manchester encoding. Why does Manchester always provide a transition per bit period? What does that buy?</li>
+<li>What is the difference between symbol rate (baud) and bit rate? When are they equal?</li>
+<li>State Shannon's theorem. What does it say is the maximum achievable bit rate on a channel of bandwidth (B) with signal-to-noise ratio (S/N)?</li>
+<li>Name the four transmission media and one application for each.</li>
+<li>Compare twisted pair, coaxial, fiber, and wireless on bandwidth, attenuation, mobility, and cost.</li>
+<li>Define attenuation, noise, and interference. Which of the three is reduced by shielding? Which by amplification?</li>
+<li>What is the bit error rate? Why is it the bottom-line measurement of physical-layer quality?</li>
+<li>Why do high-BER media (e.g., wireless) need link-layer retransmission while low-BER media (e.g., fiber) often do not?</li>
+</ul>
+<p>If any of those answers feel shaky, re-read the corresponding section before continuing to Chapter 6, where we move up one layer to the link layer — how bits are grouped into frames, how frames are addressed and error-checked, and how multiple devices share a single physical medium.</p>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Wires and waves — handled</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Buzz celebrating">
+You now know what bits <em>physically are</em>, what bounds their rate, and which medium fits which job. The rest of the textbook treats the physical layer as a pipe with a known bandwidth and BER — but underneath that pipe, the math you saw here is doing the work. <em>Follow the packet.</em></p>
+</div>
 
 
 
 
 
 
+
+  
+  
 
 
 
