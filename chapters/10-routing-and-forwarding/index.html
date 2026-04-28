@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An ABET CAC-aligned intelligent textbook covering the foundations of networking and communication — layered architecture, routing, reliable transport, wireless, network security, and modern programmable networks — aligned to the ACM/IEEE CS2023 Networking and Communication knowledge area.">
+        <meta name="description" content="How packets find their way — the forwarding/routing distinction, longest-prefix match, distance-vector and link-state algorithms (RIP, OSPF), path-vector routing (BGP) and autonomous systems, Internet topology, peering vs. transit, and multicast/anycast routing.">
       
       
         <meta name="author" content="Dan McCreary">
@@ -26,7 +26,7 @@
     
     
       
-        <title>10. Routing and Forwarding - Networking and Communication</title>
+        <title>Routing and Forwarding - Networking and Communication</title>
       
     
     
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              10. Routing and Forwarding
+              Routing and Forwarding
             
           </span>
         </div>
@@ -707,6 +707,144 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#101-forwarding-vs-routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.1 Forwarding vs. Routing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#102-longest-prefix-match" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.2 Longest-Prefix Match
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#103-the-routing-algorithm-families" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.3 The Routing Algorithm Families
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#104-distance-vector-routing-and-the-bellman-ford-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.4 Distance-Vector Routing and the Bellman-Ford Algorithm
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#105-count-to-infinity-split-horizon-and-poison-reverse" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.5 Count-to-Infinity, Split Horizon, and Poison Reverse
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#106-link-state-routing-and-dijkstras-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.6 Link-State Routing and Dijkstra's Algorithm
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10.6 Link-State Routing and Dijkstra&#39;s Algorithm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-distance-vector-vs-link-state-convergence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Distance-Vector vs. Link-State Convergence
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#107-path-vector-routing-and-bgp" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.7 Path-Vector Routing and BGP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#108-intradomain-vs-interdomain-routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.8 Intradomain vs. Interdomain Routing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#109-internet-topology-tier-1-isps-peering-and-transit" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.9 Internet Topology, Tier-1 ISPs, Peering, and Transit
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10.9 Internet Topology, Tier-1 ISPs, Peering, and Transit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-internet-topology-and-bgp-relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Internet Topology and BGP Relationships
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1010-multicast-and-anycast-routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.10 Multicast and Anycast Routing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1011-putting-it-together-tracing-a-packet-through-the-internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.11 Putting It Together: Tracing a Packet Through the Internet
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1012-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.12 Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1112,6 +1250,144 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#101-forwarding-vs-routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.1 Forwarding vs. Routing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#102-longest-prefix-match" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.2 Longest-Prefix Match
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#103-the-routing-algorithm-families" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.3 The Routing Algorithm Families
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#104-distance-vector-routing-and-the-bellman-ford-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.4 Distance-Vector Routing and the Bellman-Ford Algorithm
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#105-count-to-infinity-split-horizon-and-poison-reverse" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.5 Count-to-Infinity, Split Horizon, and Poison Reverse
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#106-link-state-routing-and-dijkstras-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.6 Link-State Routing and Dijkstra's Algorithm
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10.6 Link-State Routing and Dijkstra&#39;s Algorithm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-distance-vector-vs-link-state-convergence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Distance-Vector vs. Link-State Convergence
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#107-path-vector-routing-and-bgp" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.7 Path-Vector Routing and BGP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#108-intradomain-vs-interdomain-routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.8 Intradomain vs. Interdomain Routing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#109-internet-topology-tier-1-isps-peering-and-transit" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.9 Internet Topology, Tier-1 ISPs, Peering, and Transit
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10.9 Internet Topology, Tier-1 ISPs, Peering, and Transit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-internet-topology-and-bgp-relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Internet Topology and BGP Relationships
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1010-multicast-and-anycast-routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.10 Multicast and Anycast Routing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1011-putting-it-together-tracing-a-packet-through-the-internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.11 Putting It Together: Tracing a Packet Through the Internet
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1012-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.12 Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1180,13 +1456,348 @@
 <li><a href="../09-network-layer-and-ip/">Chapter 9: The Network Layer and IP Addressing</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Following the swarm-trail</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Buzz the bee waving welcome">
+Welcome back. When a forager finds a nectar source, the colony quickly converges on the best route to it — without any single bee knowing the whole map. Routers do something similar: each router knows only its neighbors, yet the network as a whole computes correct paths. <em>Let's trace the route!</em> This chapter is how that distributed magic works.</p>
+</div>
+<h2 id="101-forwarding-vs-routing">10.1 Forwarding vs. Routing<a class="headerlink" href="#101-forwarding-vs-routing" title="Permanent link">&para;</a></h2>
+<p>Two related but distinct activities happen at every router. <strong>Forwarding</strong> is the per-packet, fast-path operation: when a packet arrives, look up its destination address in a table, and send it out the corresponding interface. Forwarding happens at line rate — billions of packets per second on a backbone router — and is implemented in dedicated hardware (ASICs and TCAMs) so it can keep up.</p>
+<p><strong>Routing</strong> is the slower, control-plane operation that <em>builds</em> the table forwarding uses. Routing protocols exchange information among routers to compute, and re-compute, the right next hop for each destination. Routing happens on time scales of seconds to minutes; the table it produces feeds into forwarding's nanosecond-scale lookups.</p>
+<p>The two tables involved are sometimes confused. The <strong>routing table</strong> (the <strong>Routing Information Base</strong>, or RIB) is the control plane's view of all known routes, including alternates and metadata. The <strong>forwarding table</strong> (the <strong>Forwarding Information Base</strong>, or FIB) is the data plane's optimized view, derived from the RIB and tuned for fast lookup. On a small router the two are essentially the same; on a large backbone router they are different data structures in different parts of the system.</p>
+<table>
+<thead>
+<tr>
+<th>Activity</th>
+<th>Time scale</th>
+<th>Plane</th>
+<th>Implemented in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Forwarding</td>
+<td>Per-packet (ns)</td>
+<td>Data plane</td>
+<td>Hardware (ASIC, TCAM)</td>
+</tr>
+<tr>
+<td>Routing</td>
+<td>Per-event (s–min)</td>
+<td>Control plane</td>
+<td>Software (routing daemon)</td>
+</tr>
+<tr>
+<td>Routing table (RIB)</td>
+<td>Seconds to minutes</td>
+<td>Control plane</td>
+<td>RAM, complex data structure</td>
+</tr>
+<tr>
+<td>Forwarding table (FIB)</td>
+<td>Lookup-optimized</td>
+<td>Data plane</td>
+<td>TCAM or compressed trie</td>
+</tr>
+</tbody>
+</table>
+<h2 id="102-longest-prefix-match">10.2 Longest-Prefix Match<a class="headerlink" href="#102-longest-prefix-match" title="Permanent link">&para;</a></h2>
+<p>When a packet arrives, the router must find which forwarding-table entry applies to its destination address. The Internet's forwarding rule is <strong>longest-prefix match (LPM)</strong>: among all entries whose prefix the destination matches, choose the one with the longest prefix.</p>
+<p>LPM lets a router carry both general routes ("for anything in <code>10.0.0.0/8</code>, send out interface eth0") and specific overrides ("but for <code>10.0.5.0/24</code>, send out interface eth1"). A packet to <code>10.0.5.42</code> matches both entries, but the more-specific <code>/24</code> wins because its prefix is longer. This single rule is what makes CIDR (Chapter 9) interoperate cleanly with hierarchical routing — ISPs can advertise aggregated supernets and customers can override with specific subnets, and forwarding always does the right thing.</p>
+<p>Implementing LPM efficiently is one of the central engineering problems in router design. A small router can scan the table linearly. A large router must use a Patricia trie, a binary search on prefix length, or a TCAM (a memory chip that can search by prefix in one cycle) — and the techniques chosen determine the router's lookup performance and cost.</p>
+<p>A <strong>static route</strong> is a forwarding table entry configured manually by an operator, never updated by a routing protocol. A <strong>default route</strong> is a special static route written as <code>0.0.0.0/0</code> (in IPv4) or <code>::/0</code> (in IPv6) — a prefix that matches every destination. Because every other prefix is longer, the default route is used only when no more-specific entry matches. Home routers and stub networks typically have just one routed interface and a default route pointing at the ISP; the router has no idea what is "out there" and does not need to.</p>
+<h2 id="103-the-routing-algorithm-families">10.3 The Routing Algorithm Families<a class="headerlink" href="#103-the-routing-algorithm-families" title="Permanent link">&para;</a></h2>
+<p>Routers use <strong>routing algorithms</strong> — distributed protocols that exchange information so each router can build a consistent forwarding table. Three algorithm families dominate.</p>
+<ul>
+<li><strong>Distance vector</strong> algorithms compute shortest paths by having each router tell its neighbors what <em>distance</em> (cost) it has to each destination, and updating its own table based on what neighbors report.</li>
+<li><strong>Link state</strong> algorithms compute shortest paths by flooding the entire topology to every router, after which each router computes paths locally with Dijkstra's algorithm.</li>
+<li><strong>Path vector</strong> algorithms (used between organizations) extend distance vector by carrying the entire <em>path</em> (sequence of organizations) rather than just a numeric cost — supporting policy-based routing.</li>
+</ul>
+<p>Each family has different convergence behavior, scalability properties, and operational complexity. The Internet uses all three: link state (OSPF, IS-IS) inside an organization's network, path vector (BGP) between organizations, and small specialized networks still using distance vector (RIP) at the edges.</p>
+<h2 id="104-distance-vector-routing-and-the-bellman-ford-algorithm">10.4 Distance-Vector Routing and the Bellman-Ford Algorithm<a class="headerlink" href="#104-distance-vector-routing-and-the-bellman-ford-algorithm" title="Permanent link">&para;</a></h2>
+<p>A <strong>distance-vector</strong> routing algorithm asks every router to maintain a vector of distances — for each destination, the cost of reaching it and the next hop. Periodically, each router sends its current vector to its neighbors. When a neighbor receives a vector advertising a destination at cost <code>D</code>, the receiving router checks: is this better than my current cost? If so, update the table and remember that the next hop for this destination is the neighbor that sent the better path.</p>
+<p>The mathematical foundation is the <strong>Bellman-Ford algorithm</strong>. Each router applies the recursion</p>
+<p>[
+d_v(x) = \min_w \left{ c(v, w) + d_w(x) \right}
+]</p>
+<p>where (d_v(x)) is router (v)'s estimated distance to destination (x), (c(v, w)) is the cost of the link from (v) to neighbor (w), and (d_w(x)) is what neighbor (w) advertised. Repeated rounds of message exchange converge on the actual shortest paths in the network (when the topology is stable).</p>
+<p>The classical distance-vector protocol is <strong>RIP (Routing Information Protocol)</strong>, defined in RFC 2453. RIP is simple — easy to implement, easy to teach — and it was widely deployed in the 1980s and 1990s on small networks. Three properties of RIP show up in many homework problems:</p>
+<ul>
+<li><strong>Hop count metric.</strong> Every link has cost 1; total cost is just the number of hops. This ignores bandwidth, latency, and load.</li>
+<li><strong>30-second update interval.</strong> Routers exchange vectors every 30 seconds; missing six consecutive updates declares a route dead.</li>
+<li><strong>Maximum 15 hops.</strong> A path of 16 hops is treated as infinity (unreachable). This caps RIP's diameter.</li>
+</ul>
+<p>RIP is rarely deployed today on networks of any scale; OSPF replaced it for most use cases. But RIP is the archetypal distance-vector protocol and is essential for understanding the family.</p>
+<h2 id="105-count-to-infinity-split-horizon-and-poison-reverse">10.5 Count-to-Infinity, Split Horizon, and Poison Reverse<a class="headerlink" href="#105-count-to-infinity-split-horizon-and-poison-reverse" title="Permanent link">&para;</a></h2>
+<p>Distance vector has a famous failure mode: when a link goes down, routers can chase each other's stale information in a slow spiral that takes many rounds to terminate. The pattern is called <strong>count-to-infinity</strong>.</p>
+<p>Imagine routers A, B, and C in a line. C is connected to a destination network at distance 1; B learns from C that the destination is at distance 2; A learns from B that it is at distance 3. Now C's link to the destination fails. C marks the destination unreachable. But before C's update reaches B, A — which still thinks B has a path at distance 2 — sends an update saying it has a path at distance 3. B trusts A and updates its table: "the destination is reachable through A at distance 4." B then sends this to C, which updates to distance 5. Then A sees B's distance 4 and updates to distance 5. Then B updates to 6, A to 7, and so on, "counting to infinity" one step at a time until they hit RIP's 15-hop maximum.</p>
+<p>Two tricks dampen this failure mode:</p>
+<p><strong>Split horizon</strong> — when sending an update over interface (i), do not include any routes you learned from that same interface. This prevents A from telling B about a path that A only knows about because of B. Split horizon stops the simplest count-to-infinity loops.</p>
+<p><strong>Poison reverse</strong> is split horizon's stronger sibling: when sending an update over interface (i), include routes you learned from that interface, but advertise them with cost = infinity. This actively <em>kills</em> the route on the receiver rather than just omitting it. Poison reverse prevents some loops that split horizon alone misses.</p>
+<p>Even with these tricks, distance vector has more pathologies than link-state algorithms. The trade-off is that distance vector uses much less memory and CPU per router, which is why it survived in early networks.</p>
+<table>
+<thead>
+<tr>
+<th>Failure mode</th>
+<th>Cause</th>
+<th>Remedy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Slow convergence</td>
+<td>Iterative neighbor exchange</td>
+<td>Faster timers, triggered updates</td>
+</tr>
+<tr>
+<td>Count-to-infinity</td>
+<td>Stale information loops</td>
+<td>Split horizon, poison reverse</td>
+</tr>
+<tr>
+<td>Routing loops</td>
+<td>Inconsistent state during convergence</td>
+<td>Hold-down timers, route dampening</td>
+</tr>
+<tr>
+<td>Limited diameter</td>
+<td>Hop-count metric caps</td>
+<td>Use a different metric (OSPF)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="106-link-state-routing-and-dijkstras-algorithm">10.6 Link-State Routing and Dijkstra's Algorithm<a class="headerlink" href="#106-link-state-routing-and-dijkstras-algorithm" title="Permanent link">&para;</a></h2>
+<p>A <strong>link-state</strong> routing algorithm gives every router the full topology, then has each router run a shortest-path calculation locally. The procedure is roughly:</p>
+<ol>
+<li>Each router floods a <strong>Link State Advertisement (LSA)</strong> describing its local links and their costs.</li>
+<li>Every router collects LSAs from every other router, building a complete picture of the network graph.</li>
+<li>Each router runs <strong>Dijkstra's algorithm</strong> on this graph, computing the shortest path to every destination.</li>
+<li>The result populates the router's forwarding table.</li>
+</ol>
+<p>Dijkstra's algorithm starts from the local router and incrementally finds the shortest path to each other node. At each step it picks the unvisited node with the lowest tentative cost, marks it visited, and updates the tentative costs of its neighbors. The result is a tree of shortest paths from the local router to every destination.</p>
+<p>Link state has several advantages over distance vector:</p>
+<ul>
+<li><strong>Faster convergence.</strong> Topology changes propagate as one flooding wave rather than iteratively step by step. Networks converge in seconds, not minutes.</li>
+<li><strong>No count-to-infinity.</strong> Each router has the full topology and computes paths locally; stale neighbor information cannot cause loops the way it does in distance vector.</li>
+<li><strong>Richer metrics.</strong> Bandwidth, latency, and administrative weights can be encoded in link costs. Hop count is no longer the only choice.</li>
+</ul>
+<p>The dominant link-state protocol on the Internet is <strong>OSPF (Open Shortest Path First)</strong>, defined in RFC 2328 (OSPFv2 for IPv4) and RFC 5340 (OSPFv3 for IPv6). OSPF is used inside organizations as the <strong>interior gateway protocol (IGP)</strong> of choice; it is what most enterprise and ISP backbone networks run between their own routers. OSPF has features absent from RIP:</p>
+<ul>
+<li><strong>Areas</strong> — large networks are subdivided into areas, with backbone Area 0 and several non-backbone areas. LSAs are flooded only within the area; summarized information crosses area boundaries. Areas keep the LSA database manageable.</li>
+<li><strong>Hierarchical addressing</strong> — area design and CIDR cooperate to reduce LSA churn.</li>
+<li><strong>Authentication</strong> — neighbors authenticate each other to prevent rogue routers from injecting false LSAs.</li>
+<li><strong>Equal-cost multipath (ECMP)</strong> — when two paths to a destination have the same cost, OSPF can split traffic across both, doubling the available bandwidth.</li>
+</ul>
+<p>The other major link-state protocol is <strong>IS-IS (Intermediate System to Intermediate System)</strong>, originally defined for OSI networking and adapted for IP. IS-IS is similar in algorithm to OSPF but encodes its messages differently; it is widely used by tier-1 ISPs because of better scalability properties for very large networks. For most enterprise networks, OSPF is the default choice.</p>
+<h4 id="diagram-distance-vector-vs-link-state-convergence">Diagram: Distance-Vector vs. Link-State Convergence<a class="headerlink" href="#diagram-distance-vector-vs-link-state-convergence" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Side-by-side animation of RIP and OSPF converging on the same topology after a link failure</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> dv-vs-ls-convergence<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Build an interactive MicroSim that animates how a small network converges under distance-vector and link-state algorithms when a link fails.</p>
+<p>Canvas: 960 px wide by 620 px tall, responsive down to 360 px. A 100 px control panel sits below.</p>
+<p>Layout:</p>
+<ul>
+<li>A network of 6 routers arranged in a partial mesh, with link costs labeled.</li>
+<li>The canvas is split into two side-by-side mirrors of the same topology: left is "RIP (distance vector)", right is "OSPF (link state)".</li>
+<li>Each router displays its current routing table — destination, next hop, cost — updated as messages flow.</li>
+</ul>
+<p>Animation:</p>
+<ul>
+<li>Step 1: Both networks converge on identical routing tables.</li>
+<li>Step 2: A specific link fails (user clicks to choose).</li>
+<li>RIP side: routers exchange vectors round by round; count-to-infinity may visible appear and the update interval is shown as a slow tick.</li>
+<li>OSPF side: a flooding wave of LSAs propagates immediately; each router runs Dijkstra and updates within seconds.</li>
+<li>A side-by-side "convergence time" counter increments.</li>
+</ul>
+<p>Controls panel:</p>
+<ul>
+<li>Dropdown: link to fail.</li>
+<li>Buttons: Step / Play / Reset.</li>
+<li>Toggle: "Enable split horizon" (RIP side only) — turns on/off the loop-prevention.</li>
+<li>Toggle: "Enable poison reverse".</li>
+<li>Speed slider for RIP update interval.</li>
+</ul>
+<p>Visual style:</p>
+<ul>
+<li>Routers as rounded rectangles with router IDs.</li>
+<li>Active links: green; failed link: red dashed; flooding wave: pulsing blue.</li>
+<li>Routing table cells: highlight changed entries in honey amber.</li>
+</ul>
+<p>Learning objectives:</p>
+<ul>
+<li>(Bloom — Understanding) Students explain how each protocol family responds to a topology change.</li>
+<li>(Bloom — Analyzing) Students compare convergence time, message overhead, and CPU cost.</li>
+<li>(Bloom — Evaluating) Students judge which family is appropriate for a given network size.</li>
+</ul>
+<p>Implement in pure p5.js with the existing MicroSim CSS theme.</p>
+</details>
+<h2 id="107-path-vector-routing-and-bgp">10.7 Path-Vector Routing and BGP<a class="headerlink" href="#107-path-vector-routing-and-bgp" title="Permanent link">&para;</a></h2>
+<p>Distance vector and link state both work well <em>within</em> an organization. They do not scale to the whole Internet, and they do not respect the policy preferences that make Internet inter-connection work. <strong>Path-vector</strong> routing extends distance vector to handle both problems.</p>
+<p>A <strong>path vector</strong> is a route advertisement that lists the entire sequence of organizations the route traverses, not just the cost. When organization X advertises to organization Y, the message says "to reach destination D, you can go through me, then through me, then..., then to D" — the full path. The receiver knows exactly which organizations it would be relying on, can apply policy decisions ("avoid routes through organization Z"), and can detect loops by checking that its own organization is not already in the path.</p>
+<p>The path-vector protocol used between organizations on the Internet is <strong>BGP (Border Gateway Protocol)</strong>, currently at version 4 (RFC 4271). BGP is the protocol that holds the global Internet together. It is the <strong>interdomain routing</strong> protocol — running between <strong>autonomous systems</strong> rather than within them.</p>
+<p>An <strong>autonomous system (AS)</strong> is an organization that operates one or more networks under a single administrative routing policy. Each AS has a unique 32-bit AS number (originally 16-bit; expanded as exhaustion approached). Examples: Comcast (AS 7922), Google (AS 15169), Cloudflare (AS 13335), the home institution where you are reading this. BGP exchanges messages between routers at the boundaries of autonomous systems, advertising prefixes the AS can reach and listening to advertisements from neighbors.</p>
+<p>BGP is <em>not</em> a shortest-path protocol. It is a <em>policy</em> protocol. When AS X has multiple routes to AS Y, BGP picks among them based on a complex preference algorithm influenced by:</p>
+<ul>
+<li>Local preference (how much the AS values the route).</li>
+<li>AS path length (shorter paths preferred, all else equal).</li>
+<li>Origin type, MED, and several tiebreakers.</li>
+<li>Community tags (administrative metadata used to communicate policy intent).</li>
+</ul>
+<p>The result is that BGP routes do not always follow the geographically shortest or fastest path. They follow the path that satisfies the operator's commercial and policy preferences. Two ISPs that exchange traffic on a peering arrangement will route their customers' traffic to each other, but they will <em>not</em> route a third party's traffic between them — BGP policy enforces that.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Distance vector (RIP)</th>
+<th>Link state (OSPF)</th>
+<th>Path vector (BGP)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Information shared</td>
+<td>Distance vector</td>
+<td>Full topology (LSAs)</td>
+<td>AS path</td>
+</tr>
+<tr>
+<td>Convergence</td>
+<td>Slow, iterative</td>
+<td>Fast (seconds)</td>
+<td>Slow, policy-driven</td>
+</tr>
+<tr>
+<td>Loop prevention</td>
+<td>Split horizon, poison reverse</td>
+<td>Topology gives full picture</td>
+<td>AS path inspection</td>
+</tr>
+<tr>
+<td>Scope</td>
+<td>Small networks</td>
+<td>Within one organization</td>
+<td>Between organizations</td>
+</tr>
+<tr>
+<td>Metric</td>
+<td>Hop count</td>
+<td>Cost (configurable)</td>
+<td>Policy + path length</td>
+</tr>
+</tbody>
+</table>
+<h2 id="108-intradomain-vs-interdomain-routing">10.8 Intradomain vs. Interdomain Routing<a class="headerlink" href="#108-intradomain-vs-interdomain-routing" title="Permanent link">&para;</a></h2>
+<p>The split between routing inside and between organizations gives the Internet two routing scopes.</p>
+<p><strong>Intradomain routing</strong> (also called <strong>interior</strong> or <strong>IGP</strong>) operates within a single AS. The operator controls every router and can pick any algorithm they like. OSPF and IS-IS dominate; some networks still use RIP at the edges or for legacy reasons; some use proprietary protocols (Cisco's EIGRP) on equipment from a single vendor.</p>
+<p><strong>Interdomain routing</strong> (also called <strong>exterior</strong> or <strong>EGP</strong>) operates between ASes. There is no single operator; ASes have commercial relationships, policy preferences, and sometimes adversarial interests. BGP is the only practical protocol at this scope.</p>
+<p>The boundary between intradomain and interdomain is a <strong>border router</strong> that speaks BGP to neighbor ASes (an external BGP, or eBGP, session) and OSPF/IS-IS to its own AS (the IGP). The border router redistributes information between the two protocols carefully — too freely, and a routing loop is created; too restrictively, and reachability is lost. Designing this redistribution is one of the most consequential operational tasks in network engineering.</p>
+<h2 id="109-internet-topology-tier-1-isps-peering-and-transit">10.9 Internet Topology, Tier-1 ISPs, Peering, and Transit<a class="headerlink" href="#109-internet-topology-tier-1-isps-peering-and-transit" title="Permanent link">&para;</a></h2>
+<p>The Internet is not flat. It is structured as a hierarchy (more accurately, a partial hierarchy with substantial cross-connections) shaped by the commercial relationships among ASes.</p>
+<p>A <strong>tier-1 ISP</strong> is a network that can reach every destination on the Internet <em>without</em> paying any other network for transit. Tier-1 ISPs achieve this by peering with every other tier-1 ISP — exchanging routes for free, in roughly equal volume. There are perhaps a dozen tier-1 ISPs globally (AT&amp;T, Verizon, Lumen/CenturyLink, NTT, Telia, Tata, Deutsche Telekom, GTT, and a few others). They form the de facto core of the Internet.</p>
+<p>Below the tier-1s are <strong>tier-2 ISPs</strong> that pay one or more tier-1s for transit to destinations they cannot reach via peering. Tier-2 ISPs typically peer with one another regionally and serve large portions of a continent or a country. Below them are <strong>tier-3 ISPs</strong> (regional and local providers) that buy transit from tier-2s and serve end customers.</p>
+<p>Two commercial relationships structure the network:</p>
+<p><strong>Peering</strong> is a settlement-free exchange of routes between two ASes that exchange roughly comparable volumes of traffic. Each side advertises its own customers' prefixes to the other; neither side advertises a third party's prefixes (which would be free transit). Peering happens at <strong>Internet Exchange Points (IXPs)</strong> — physical facilities where many networks meet — and over private cross-connects. Major IXPs (DE-CIX in Frankfurt, AMS-IX in Amsterdam, LINX in London, Equinix Ashburn in Virginia) carry terabits per second of peering traffic and are essential infrastructure.</p>
+<p><strong>Transit</strong> is a paid relationship where one AS pays another to carry its traffic to and from any destination on the Internet. The customer pays per-megabit or per-95th-percentile-bandwidth. The provider advertises the customer's prefixes to the rest of the world and accepts the customer's outbound traffic. Transit prices have fallen dramatically over the past two decades; in many markets a gigabit of transit costs less than a dollar per Mbps per month.</p>
+<p>The interplay between peering and transit shapes BGP policy. An AS prefers to route traffic over peering links (free) rather than transit links (paid), and over its customers' links (revenue) above all. The standard preference order is <strong>customer &gt; peer &gt; transit</strong> for outbound traffic, with similar preferences applied symmetrically.</p>
+<h4 id="diagram-internet-topology-and-bgp-relationships">Diagram: Internet Topology and BGP Relationships<a class="headerlink" href="#diagram-internet-topology-and-bgp-relationships" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Interactive diagram of tier-1, tier-2, and tier-3 ASes with peering and transit links</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> internet-topology-bgp<br/>
+<strong>Library:</strong> vis-network<br/>
+<strong>Status:</strong> Specified</p>
+<p>Render an interactive node-link diagram of a small Internet showing autonomous systems and the BGP relationships between them.</p>
+<p>Canvas: 960 px wide by 620 px tall, responsive down to 360 px.</p>
+<p>Topology:</p>
+<ul>
+<li>4 tier-1 ISPs at the top, fully meshed with peering links.</li>
+<li>6 tier-2 ISPs in the middle, each connected to one or two tier-1s via transit, and to several other tier-2s via peering.</li>
+<li>8 tier-3 ISPs and content providers at the bottom, each with one or two transit providers.</li>
+<li>Special nodes: a tier-1 anchored CDN (e.g., Cloudflare, AS 13335) directly peering with most others; a major content network (e.g., Google, AS 15169) with many peering links.</li>
+</ul>
+<p>Edge styles:</p>
+<ul>
+<li>Transit links: thick honey-amber arrows pointing from customer to provider; transit traffic flows in both directions.</li>
+<li>Peering links: dashed slate edges, no arrow direction.</li>
+<li>Each link has a hover tooltip showing the relationship type and the typical traffic volume.</li>
+</ul>
+<p>Interactivity:</p>
+<ul>
+<li>Click any AS to see its full set of relationships and the AS path it would use to reach any other AS in the diagram.</li>
+<li>Click any pair of ASes (source and destination) to highlight the BGP-preferred path in green and other available paths in dim gray.</li>
+<li>Toggle "Hide transit relationships" to show only peering links — useful for understanding the dense peering mesh among large networks.</li>
+<li>"Add IXP" toggle introduces a virtual IXP node to which many ASes connect; demonstrate that one IXP can replace dozens of pairwise peering links.</li>
+</ul>
+<p>Visual style:</p>
+<ul>
+<li>Tier-1 ASes: rounded rectangles in deep slate.</li>
+<li>Tier-2 ASes: rounded rectangles in mid-slate.</li>
+<li>Tier-3 ASes / content: rounded rectangles in honey amber.</li>
+<li>Currently-selected path: green highlight.</li>
+</ul>
+<p>Learning objectives:</p>
+<ul>
+<li>(Bloom — Understanding) Students explain the difference between peering and transit relationships.</li>
+<li>(Bloom — Analyzing) Students decompose a BGP-preferred AS path into its commercial relationships.</li>
+<li>(Bloom — Evaluating) Students judge how IXPs and direct peering with content providers reduce transit costs and improve performance.</li>
+</ul>
+<p>Implement in vis-network with the existing learning-graph viewer styling.</p>
+</details>
+<h2 id="1010-multicast-and-anycast-routing">10.10 Multicast and Anycast Routing<a class="headerlink" href="#1010-multicast-and-anycast-routing" title="Permanent link">&para;</a></h2>
+<p>Two specialized routing modes complement the dominant unicast routing introduced above.</p>
+<p><strong>Multicast routing</strong> delivers a single packet to a <em>group</em> of receivers. The receivers join a multicast group identified by a multicast address; the sender transmits one copy and the network replicates the packet at branching points so that every group member receives it. The classical multicast routing protocols are <strong>PIM (Protocol Independent Multicast)</strong> in two flavors — PIM-DM (dense mode) for densely-populated groups, PIM-SM (sparse mode) for sparsely-populated groups. Multicast can deliver enormous bandwidth savings when one source has many receivers (live IPTV, live sports broadcast, financial market data feeds), but it has never become routine on the public Internet. Most multicast deployments are inside controlled networks (enterprises, ISPs, content delivery networks).</p>
+<p><strong>Anycast routing</strong> uses unicast addresses but advertises the same prefix from multiple geographic locations. Routing protocols select whichever advertisement they consider closest, and packets to that prefix go to the nearest copy. Anycast is invisible at the application layer — clients just send to a single address and the network does the rest — but it provides massive geographic distribution and DDoS resistance. The classic anycast deployments are the DNS root servers (each labeled <code>a.root-servers.net</code>, <code>b.root-servers.net</code>, etc., is actually hundreds of physical servers worldwide sharing one anycast address) and modern public DNS resolvers (<code>8.8.8.8</code>, <code>1.1.1.1</code>). CDNs use anycast at their edge to deliver content from the nearest of hundreds of points of presence.</p>
+<p>The difference between multicast and anycast is the receiver set. Multicast delivers to <em>many</em> receivers from one sender; anycast delivers to <em>one</em> receiver chosen from many candidates.</p>
+<h2 id="1011-putting-it-together-tracing-a-packet-through-the-internet">10.11 Putting It Together: Tracing a Packet Through the Internet<a class="headerlink" href="#1011-putting-it-together-tracing-a-packet-through-the-internet" title="Permanent link">&para;</a></h2>
+<p>Consider a packet sent from a laptop in Boston to a web server in Tokyo:</p>
+<ol>
+<li><strong>Local subnet.</strong> The laptop checks if the destination is on its own subnet. It is not, so the packet goes to the default gateway — the home router.</li>
+<li><strong>ISP edge router.</strong> The home router forwards to the ISP. The ISP's edge router consults its forwarding table and sends the packet up the ISP's hierarchy.</li>
+<li><strong>ISP core, OSPF.</strong> Within the ISP, OSPF computes shortest paths. The packet traverses several core routers, each looking up the destination prefix and forwarding to the next hop with the shortest OSPF cost.</li>
+<li><strong>AS boundary, BGP.</strong> The ISP's border router speaks BGP to a tier-1 transit provider. BGP-learned routes tell the border router that the destination prefix is reachable via this transit provider's AS path: e.g., <code>ISP → Tier-1 → Tier-1 (Asia) → Japanese ISP → AS 12345 (the destination AS)</code>.</li>
+<li><strong>Trans-Pacific transit.</strong> The packet crosses an undersea cable through the tier-1's network. At each AS boundary, BGP policy chose the next-hop AS. Within each AS, OSPF or IS-IS chose the path through that AS's routers.</li>
+<li><strong>Destination AS.</strong> The Japanese ISP's border router receives the packet, applies its local IGP, and forwards through its core network to the customer-facing edge.</li>
+<li><strong>Last hop.</strong> The customer-facing edge router forwards to the data center's network, where another IGP (OSPF, BGP, or a datacenter fabric protocol) takes over for the last few hops.</li>
+<li><strong>Destination link.</strong> The packet arrives on a switch port; the link layer delivers it to the web server's interface.</li>
+</ol>
+<p>Every step uses concepts from this chapter. Forwarding lookups happen at every router. OSPF or IS-IS computes paths inside each AS. BGP exchanges routes between ASes and applies policy at each boundary. The whole journey takes 100–200 ms and routes through perhaps 20 routers and 5–10 ASes — and as long as no link fails along the way, every packet of the conversation follows nearly the same path.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Why the Internet is hard to fix</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Buzz thinking carefully">
+BGP is the most consequential protocol on the Internet, and it has only weak built-in security. False route advertisements have caused multi-hour outages of major services more than once. Operators have responded with <strong>RPKI (Resource Public Key Infrastructure)</strong> — a cryptographic registry that says "AS X is authorized to originate prefix Y" — and route filtering at AS boundaries. Adoption is uneven; the Internet's routing system is still not as secure as a globally-critical system should be.</p>
+</div>
+<h2 id="1012-key-takeaways">10.12 Key Takeaways<a class="headerlink" href="#1012-key-takeaways" title="Permanent link">&para;</a></h2>
+<p>Routing is the discipline that makes a network of networks navigable. Before moving on, make sure you can answer the following without looking back:</p>
+<ul>
+<li>What is the difference between forwarding and routing?</li>
+<li>What is longest-prefix match? What is a default route?</li>
+<li>Compare distance vector and link state in convergence speed and information shared.</li>
+<li>Trace count-to-infinity by hand on a 3-router chain. What does split horizon do? What about poison reverse?</li>
+<li>What is OSPF? What does Dijkstra's algorithm compute, and what does it require as input?</li>
+<li>What is an autonomous system? What does AS-level routing add that intradomain routing does not?</li>
+<li>What does BGP compute that link-state cannot, and why does the Internet need it?</li>
+<li>Explain the difference between peering and transit.</li>
+<li>What is a tier-1 ISP, and what defines it?</li>
+<li>Compare unicast, multicast, and anycast routing.</li>
+</ul>
+<p>If any of those answers feel shaky, re-read the corresponding section before continuing to Chapter 11, where we move up to the transport layer — TCP and UDP, connection setup, sliding windows, congestion control, and the protocols that turn IP's best-effort delivery into reliable application-to-application byte streams.</p>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">From Boston to Tokyo, fully traced</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Buzz celebrating">
+You can now read a <code>traceroute</code> output and explain every hop. You know which routers belong to which AS, which protocols run between them, and why one path was preferred over another. The next chapter zooms in on what happens <em>between</em> the endpoints — TCP and UDP, the protocols that make the chaotic packet-by-packet network feel like a stable connection. <em>Follow the packet.</em></p>
+</div>
 
 
 
 
 
 
+
+  
+  
 
 
 
