@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An ABET CAC-aligned intelligent textbook covering the foundations of networking and communication — layered architecture, routing, reliable transport, wireless, network security, and modern programmable networks — aligned to the ACM/IEEE CS2023 Networking and Communication knowledge area.">
+        <meta name="description" content="The Internet's core design — IPv4 and IPv6 datagram services, header formats, address classes, CIDR, subnetting, IPv6 autoconfiguration, transition mechanisms (dual stack, tunneling, NAT64), control protocols (ICMP, ARP, NDP, ping, traceroute), NAT/PAT, and fragmentation.">
       
       
         <meta name="author" content="Dan McCreary">
@@ -26,7 +26,7 @@
     
     
       
-        <title>9. Network Layer and IP - Networking and Communication</title>
+        <title>The Network Layer and IP Addressing - Networking and Communication</title>
       
     
     
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              9. Network Layer and IP
+              The Network Layer and IP Addressing
             
           </span>
         </div>
@@ -684,6 +684,186 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#91-what-the-network-layer-does" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1 What the Network Layer Does
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#92-the-ipv4-datagram-and-header" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2 The IPv4 Datagram and Header
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.2 The IPv4 Datagram and Header">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-ipv4-vs-ipv6-header-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: IPv4 vs. IPv6 Header Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#93-ipv4-address-format-and-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.3 IPv4 Address Format and Classes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#94-cidr-subnets-and-subnet-masks" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4 CIDR, Subnets, and Subnet Masks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.4 CIDR, Subnets, and Subnet Masks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-cidr-subnet-calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: CIDR Subnet Calculator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#95-ipv4-address-exhaustion" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.5 IPv4 Address Exhaustion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#96-ipv6-a-larger-address-space-and-a-cleaner-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.6 IPv6: A Larger Address Space and a Cleaner Design
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#97-ipv6-address-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.7 IPv6 Address Types
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#98-ipv6-stateless-autoconfiguration-slaac" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.8 IPv6 Stateless Autoconfiguration (SLAAC)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#99-ipv4-ipv6-transition-mechanisms" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.9 IPv4 / IPv6 Transition Mechanisms
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#910-icmp-ping-and-traceroute" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.10 ICMP, Ping, and Traceroute
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#911-arp-and-ndp-mapping-ip-to-mac" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.11 ARP and NDP: Mapping IP to MAC
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#912-nat-and-port-address-translation" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.12 NAT and Port Address Translation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#913-fragmentation-and-reassembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.13 Fragmentation and Reassembly
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.13 Fragmentation and Reassembly">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-packet-fragmentation-walkthrough" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Packet Fragmentation Walkthrough
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#914-putting-it-together-a-packets-address-story" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.14 Putting It Together: A Packet's Address Story
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#915-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.15 Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1112,6 +1292,186 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#91-what-the-network-layer-does" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1 What the Network Layer Does
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#92-the-ipv4-datagram-and-header" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2 The IPv4 Datagram and Header
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.2 The IPv4 Datagram and Header">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-ipv4-vs-ipv6-header-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: IPv4 vs. IPv6 Header Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#93-ipv4-address-format-and-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.3 IPv4 Address Format and Classes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#94-cidr-subnets-and-subnet-masks" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4 CIDR, Subnets, and Subnet Masks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.4 CIDR, Subnets, and Subnet Masks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-cidr-subnet-calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: CIDR Subnet Calculator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#95-ipv4-address-exhaustion" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.5 IPv4 Address Exhaustion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#96-ipv6-a-larger-address-space-and-a-cleaner-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.6 IPv6: A Larger Address Space and a Cleaner Design
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#97-ipv6-address-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.7 IPv6 Address Types
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#98-ipv6-stateless-autoconfiguration-slaac" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.8 IPv6 Stateless Autoconfiguration (SLAAC)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#99-ipv4-ipv6-transition-mechanisms" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.9 IPv4 / IPv6 Transition Mechanisms
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#910-icmp-ping-and-traceroute" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.10 ICMP, Ping, and Traceroute
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#911-arp-and-ndp-mapping-ip-to-mac" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.11 ARP and NDP: Mapping IP to MAC
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#912-nat-and-port-address-translation" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.12 NAT and Port Address Translation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#913-fragmentation-and-reassembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.13 Fragmentation and Reassembly
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.13 Fragmentation and Reassembly">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-packet-fragmentation-walkthrough" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Packet Fragmentation Walkthrough
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#914-putting-it-together-a-packets-address-story" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.14 Putting It Together: A Packet's Address Story
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#915-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.15 Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1181,13 +1541,489 @@
 <li><a href="../04-performance-and-qos/">Chapter 4: Network Performance and Quality of Service</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Mapping the world</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Buzz the bee waving welcome">
+Welcome back. A forager bee returns home to a hive whose location every other forager already knows. The waggle dance gives directions in a coordinate system the colony shares. The Internet works the same way: every host has a globally-meaningful address, and routers everywhere share enough geometry to find any destination. <em>Let's trace the route!</em> This chapter is the address book and the map.</p>
+</div>
+<h2 id="91-what-the-network-layer-does">9.1 What the Network Layer Does<a class="headerlink" href="#91-what-the-network-layer-does" title="Permanent link">&para;</a></h2>
+<p>Every link layer in this textbook so far — Ethernet, Wi-Fi, fiber, cellular — delivers frames between <em>immediate neighbors</em>. The <strong>network layer</strong> is the layer that delivers data across many links from an original source to a final destination, possibly traversing dozens of routers along the way. Three jobs define the network layer:</p>
+<ul>
+<li><strong>Global addressing</strong> — every interface in the entire Internet has a unique address that any router anywhere can use to identify it.</li>
+<li><strong>Routing and forwarding</strong> — routers maintain tables that map destination addresses to next-hop neighbors, so each packet takes a sensible path toward its destination.</li>
+<li><strong>Best-effort packet delivery</strong> — packets travel independently across the network; loss, reordering, and corruption are tolerated by the layer above.</li>
+</ul>
+<p>The Internet Protocol — <strong>IP</strong> — is the network-layer protocol that defines all three. IP comes in two versions, <strong>IPv4</strong> (deployed since 1983) and <strong>IPv6</strong> (deployed slowly since the late 1990s). Both are alive on the public Internet today; many networks run them in parallel. This chapter explains both, the transition between them, and the supporting protocols (ICMP, ARP, NDP, NAT) that make IP work in practice. Routing itself — <em>how</em> routers compute their forwarding tables — is the subject of Chapter 10.</p>
+<h2 id="92-the-ipv4-datagram-and-header">9.2 The IPv4 Datagram and Header<a class="headerlink" href="#92-the-ipv4-datagram-and-header" title="Permanent link">&para;</a></h2>
+<p><strong>IPv4</strong> is the original Internet Protocol, defined in RFC 791 (1981) and still carrying the majority of public Internet traffic in 2026. Every IPv4 packet begins with a fixed 20-byte header (longer if options are present), followed by payload. Before we examine the header diagram, here is what each major field does, defined in plain language.</p>
+<ul>
+<li><strong>Version (4 bits)</strong> — always <code>4</code> for IPv4.</li>
+<li><strong>IHL — Internet Header Length (4 bits)</strong> — header length in 32-bit words; usually 5 (= 20 bytes) when no options are present.</li>
+<li><strong>DSCP / ECN (8 bits)</strong> — Differentiated Services Code Point (Chapter 4) and Explicit Congestion Notification.</li>
+<li><strong>Total Length (16 bits)</strong> — total packet length including header, in bytes (max 65,535).</li>
+<li><strong>Identification, Flags, Fragment Offset (32 bits combined)</strong> — used for fragmentation and reassembly (Section 9.13).</li>
+<li><strong>TTL — Time To Live (8 bits)</strong> — decremented at each router; packet discarded when it reaches 0. Prevents infinite forwarding loops.</li>
+<li><strong>Protocol (8 bits)</strong> — what kind of payload follows the IP header (6 = TCP, 17 = UDP, 1 = ICMP, 41 = IPv6 over IPv4 tunnel, etc.).</li>
+<li><strong>Header Checksum (16 bits)</strong> — Internet checksum over the IP header only (not payload).</li>
+<li><strong>Source IP Address (32 bits)</strong> — sender's IP address.</li>
+<li><strong>Destination IP Address (32 bits)</strong> — receiver's IP address.</li>
+<li><strong>Options (variable, rarely used)</strong> — for source routing, record route, and similar legacy features.</li>
+</ul>
+<p>The IPv4 header is compact (20 bytes) and historically has been processed in software at line rate; modern routers do so in hardware. Two of its design choices have aged poorly: the header checksum must be recomputed at every hop (because TTL changes), and fragmentation in transit creates well-known reliability problems (see Section 9.13). IPv6 fixes both.</p>
+<h4 id="diagram-ipv4-vs-ipv6-header-comparison">Diagram: IPv4 vs. IPv6 Header Comparison<a class="headerlink" href="#diagram-ipv4-vs-ipv6-header-comparison" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Side-by-side annotated header layouts for IPv4 and IPv6 with hover details</summary>
+<p>Type: infographic
+<strong>sim-id:</strong> ipv4-vs-ipv6-headers<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Render an interactive side-by-side comparison of the IPv4 and IPv6 fixed headers, with hoverable annotations explaining each field.</p>
+<p>Canvas: 940 px wide by 580 px tall, responsive down to 360 px.</p>
+<p>Layout:</p>
+<ul>
+<li>Two stacked headers, top is IPv4 (20 bytes), bottom is IPv6 (40 bytes).</li>
+<li>Each header is rendered as a grid: rows are 32 bits wide; each field is shown as a colored cell labeled with its name and bit width.</li>
+<li>A small "removed in IPv6" label appears on IPv4 fields that have no IPv6 counterpart (Header Checksum, Identification/Flags/Fragment Offset, IHL, Options).</li>
+<li>A small "new in IPv6" label appears on IPv6 fields that did not exist in IPv4 (Flow Label).</li>
+<li>IP addresses: IPv4 source/dest are 32 bits each; IPv6 source/dest are 128 bits each (rendered as four 32-bit rows for visual symmetry).</li>
+</ul>
+<p>Interactivity:</p>
+<ul>
+<li>Hover any cell raises a callout with the field's purpose, typical values, and relevant RFC.</li>
+<li>Toggle "Show example values" populates each field with a sample value (TTL = 64, Hop Limit = 64, Protocol/Next Header = 6 for TCP, etc.).</li>
+<li>Toggle "Show byte ruler" overlays a byte-position label below each row.</li>
+</ul>
+<p>Visual style:</p>
+<ul>
+<li>IPv4 fields: honey-amber palette.</li>
+<li>IPv6 fields: signal-blue palette.</li>
+<li>Removed fields: striped slate background.</li>
+<li>New fields: glowing green border.</li>
+</ul>
+<p>Learning objective (Bloom — Remembering and Understanding): Students recognize each IPv4 and IPv6 header field, can name what was removed, what was added, and what the redesign accomplished.</p>
+</details>
+<h2 id="93-ipv4-address-format-and-classes">9.3 IPv4 Address Format and Classes<a class="headerlink" href="#93-ipv4-address-format-and-classes" title="Permanent link">&para;</a></h2>
+<p>An <strong>IPv4 address</strong> is a 32-bit number, conventionally written as four decimal numbers (each 0–255) separated by dots — for example, <code>192.0.2.10</code>. This dotted-decimal notation is human-friendly; routers and operating systems work with the underlying 32-bit integer.</p>
+<p>The original IPv4 address scheme used <strong>address classes</strong>, defined in RFC 791. Each class fixed the boundary between the network-prefix bits (which all hosts on the same network share) and the host bits.</p>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Leading bits</th>
+<th>First octet range</th>
+<th>Network bits</th>
+<th>Host bits</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td><code>0</code></td>
+<td>1–126</td>
+<td>8</td>
+<td>24</td>
+<td><code>10.0.0.0/8</code></td>
+</tr>
+<tr>
+<td>B</td>
+<td><code>10</code></td>
+<td>128–191</td>
+<td>16</td>
+<td>16</td>
+<td><code>172.16.0.0/16</code></td>
+</tr>
+<tr>
+<td>C</td>
+<td><code>110</code></td>
+<td>192–223</td>
+<td>24</td>
+<td>8</td>
+<td><code>192.168.1.0/24</code></td>
+</tr>
+<tr>
+<td>D</td>
+<td><code>1110</code></td>
+<td>224–239</td>
+<td>(multicast)</td>
+<td>(group)</td>
+<td><code>239.0.0.1</code></td>
+</tr>
+<tr>
+<td>E</td>
+<td><code>1111</code></td>
+<td>240–255</td>
+<td>(reserved)</td>
+<td>—</td>
+<td><code>255.255.255.255</code></td>
+</tr>
+</tbody>
+</table>
+<p>Classes A, B, and C were used for unicast addresses; class D was multicast (Chapter 3); class E was reserved for future use and never deployed. The class boundary determined how many networks of each type existed and how many hosts each could hold: 128 class A networks (with 16 million hosts each), 16,384 class B networks (with 65,534 hosts each), and 2 million class C networks (with 254 hosts each). Within a few years it became clear that this allocation was wasteful — most organizations needed something between a class B and a class C — and the inflexibility was exhausting the address space prematurely. The classful scheme was retired in the early 1990s in favor of CIDR (Section 9.4).</p>
+<p>A handful of address ranges have special meanings and never leave the local host:</p>
+<ul>
+<li><strong>Loopback</strong> — the entire <code>127.0.0.0/8</code> block, but conventionally <code>127.0.0.1</code>, refers to the local host. Packets sent here never leave the machine; they are processed by the network stack and delivered locally.</li>
+<li><strong>Private IPv4 ranges</strong> — defined by RFC 1918 for use inside private networks: <code>10.0.0.0/8</code>, <code>172.16.0.0/12</code>, <code>192.168.0.0/16</code>. These addresses are not globally routable; they are reused by every home, office, and datacenter in the world. NAT (Section 9.12) bridges them to the public Internet.</li>
+<li><strong>Link-local</strong> — <code>169.254.0.0/16</code> is auto-assigned by hosts that cannot reach a DHCP server.</li>
+<li><strong>Limited broadcast</strong> — <code>255.255.255.255</code> is broadcast on the local link only.</li>
+</ul>
+<h2 id="94-cidr-subnets-and-subnet-masks">9.4 CIDR, Subnets, and Subnet Masks<a class="headerlink" href="#94-cidr-subnets-and-subnet-masks" title="Permanent link">&para;</a></h2>
+<p>The class-based scheme was replaced in 1993 by <strong>Classless Inter-Domain Routing (CIDR)</strong>, defined in RFCs 1518/1519. CIDR drops the fixed class boundaries and lets the network/host split fall at any bit position.</p>
+<p>A <strong>CIDR notation</strong> address consists of an IP address followed by a slash and a prefix length: <code>192.0.2.0/24</code>. The prefix length tells you how many leading bits identify the network; the remaining bits identify hosts within that network. So <code>192.0.2.0/24</code> is a network with 24 network bits and 8 host bits, yielding 256 addresses (254 usable for hosts, one reserved as the network address and one as the directed broadcast).</p>
+<p>A <strong>subnet</strong> is a contiguous range of IP addresses sharing the same prefix. A <strong>subnet mask</strong> is a 32-bit value that has 1s in the network-prefix positions and 0s in the host positions; for <code>/24</code> the mask is <code>255.255.255.0</code>. Hosts use the subnet mask to compute, by bitwise AND of an IP address with the mask, whether two addresses are on the same subnet.</p>
+<p><strong>Subnetting</strong> is the practice of dividing a larger address block into multiple smaller blocks. An organization assigned <code>10.0.0.0/16</code> (65,536 addresses) might subnet it into <code>10.0.0.0/24</code>, <code>10.0.1.0/24</code>, ..., <code>10.0.255.0/24</code> — 256 subnets of 256 addresses each — and assign one subnet to each VLAN, building, or department.</p>
+<p><strong>Supernetting</strong> is the inverse — combining many small adjacent blocks into one larger advertisement. ISPs supernet customer prefixes when announcing routes to other ISPs, so the global routing table sees one aggregated entry instead of hundreds of specific ones. Supernetting is the engine that keeps the Internet's routing tables tractable.</p>
+<p>A worked CIDR example. You are given the block <code>198.51.100.0/24</code> (256 addresses) and need to carve out four smaller subnets, one for each department. The natural partition is into four <code>/26</code> subnets (64 addresses each):</p>
+<table>
+<thead>
+<tr>
+<th>Subnet</th>
+<th>First address</th>
+<th>Last address</th>
+<th>Network bits</th>
+<th>Host bits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>198.51.100.0/26</code></td>
+<td><code>198.51.100.0</code></td>
+<td><code>198.51.100.63</code></td>
+<td>26</td>
+<td>6</td>
+</tr>
+<tr>
+<td><code>198.51.100.64/26</code></td>
+<td><code>198.51.100.64</code></td>
+<td><code>198.51.100.127</code></td>
+<td>26</td>
+<td>6</td>
+</tr>
+<tr>
+<td><code>198.51.100.128/26</code></td>
+<td><code>198.51.100.128</code></td>
+<td><code>198.51.100.191</code></td>
+<td>26</td>
+<td>6</td>
+</tr>
+<tr>
+<td><code>198.51.100.192/26</code></td>
+<td><code>198.51.100.192</code></td>
+<td><code>198.51.100.255</code></td>
+<td>26</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<p>Within each <code>/26</code>, the lowest address is the network address (cannot be assigned to a host), the highest is the broadcast address (also reserved), and the 62 in between are usable host addresses. Subnetting calculations show up everywhere in network design and on every networking certification exam.</p>
+<h4 id="diagram-cidr-subnet-calculator">Diagram: CIDR Subnet Calculator<a class="headerlink" href="#diagram-cidr-subnet-calculator" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Interactive subnet calculator that visualizes how a CIDR block splits into subnets</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> cidr-subnet-calculator<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Build an interactive MicroSim that lets students enter a CIDR block, choose a subnet prefix length, and see the resulting subnets visualized as colored bands on an address-space ruler.</p>
+<p>Canvas: 940 px wide by 540 px tall, responsive down to 360 px. A 120 px control panel sits below.</p>
+<p>Layout:</p>
+<ul>
+<li>A horizontal address-space ruler at the top showing the entire input CIDR block as a long colored bar with binary, dotted-decimal, and hexadecimal labels at each major boundary.</li>
+<li>Below the ruler, a stacked breakdown of the subnets — each subnet is a colored band labeled with its network address, broadcast address, usable host range, and number of usable hosts.</li>
+<li>A binary view of the network/host bit split: bits in the network portion shown in dark blue, host bits in pale yellow, with the slash position highlighted.</li>
+</ul>
+<p>Controls panel:</p>
+<ul>
+<li>Input box for the parent CIDR block (e.g., <code>198.51.100.0/24</code>).</li>
+<li>Dropdown for new subnet prefix length (must be ≥ parent's prefix).</li>
+<li>Toggle: "Show subnet mask in dotted decimal" alongside CIDR.</li>
+<li>Toggle: "Variable-length subnetting" — lets the user define mixed-size subnets (e.g., one <code>/25</code>, two <code>/26</code>s, four <code>/28</code>s) and shows how they tile the parent block.</li>
+</ul>
+<p>Interactivity:</p>
+<ul>
+<li>As the user changes inputs, the ruler updates live.</li>
+<li>Hover any subnet band to see its first/last addresses and host count.</li>
+<li>Clicking on a host bit toggles it, demonstrating how individual host addresses change while the subnet stays the same.</li>
+</ul>
+<p>Visual style:</p>
+<ul>
+<li>Network bits: dark blue.</li>
+<li>Host bits: pale yellow.</li>
+<li>Subnet bands: alternating honey amber and slate.</li>
+<li>Reserved network/broadcast addresses highlighted in red.</li>
+</ul>
+<p>Learning objectives:</p>
+<ul>
+<li>(Bloom — Applying) Students compute subnet boundaries given a CIDR block and a target subnet size.</li>
+<li>(Bloom — Analyzing) Students examine the bit-level structure of an address and identify network vs. host portions.</li>
+<li>(Bloom — Evaluating) Students judge whether a given subnetting plan efficiently uses the parent block.</li>
+</ul>
+<p>Implement in pure p5.js with the existing MicroSim CSS theme.</p>
+</details>
+<h2 id="95-ipv4-address-exhaustion">9.5 IPv4 Address Exhaustion<a class="headerlink" href="#95-ipv4-address-exhaustion" title="Permanent link">&para;</a></h2>
+<p>The 32-bit address space provides about 4.3 billion unique addresses, which seemed inexhaustible in 1981. By the 2010s, mobile phones, IoT devices, and growing Internet adoption had effectively exhausted IPv4. The five Regional Internet Registries (Chapter 2) progressively ran out of allocatable blocks; ARIN exhausted its general pool in 2015, RIPE NCC in 2019, APNIC and LACNIC even earlier. New address allocations now happen through transfers, leases, and a small reserved pool used for specific purposes.</p>
+<p>Two main responses to exhaustion have shaped the modern Internet. <strong>NAT</strong> (Section 9.12) lets many private IPv4 addresses share one public address, postponing exhaustion at the cost of breaking end-to-end addressability. <strong>IPv6</strong> is the long-term solution: a much larger address space designed to never run out.</p>
+<h2 id="96-ipv6-a-larger-address-space-and-a-cleaner-design">9.6 IPv6: A Larger Address Space and a Cleaner Design<a class="headerlink" href="#96-ipv6-a-larger-address-space-and-a-cleaner-design" title="Permanent link">&para;</a></h2>
+<p><strong>IPv6</strong>, defined in RFC 8200 (the current revision; the original was RFC 1883 in 1995), uses 128-bit addresses — (2^{128} \approx 3.4 \times 10^{38}) unique addresses, enough to give every star in every galaxy in the observable universe its own address several times over. IPv6 also takes the chance to clean up several IPv4 design choices that have aged poorly.</p>
+<p>The <strong>IPv6 header</strong> is fixed at 40 bytes (twice IPv4's, because addresses are four times as long but everything else got smaller). Compared to IPv4:</p>
+<ul>
+<li><strong>No header checksum.</strong> IPv6 routers do not compute a per-hop checksum; the link layer's CRC and the transport layer's checksum together cover it.</li>
+<li><strong>No Identification/Flags/Fragment Offset.</strong> Fragmentation is no longer done by routers in transit; only the source can fragment, using a Path-MTU Discovery mechanism.</li>
+<li><strong>No IHL.</strong> The header is always 40 bytes; extension headers, when present, chain via the Next Header field rather than expanding the fixed header.</li>
+<li><strong>New: Flow Label.</strong> A 20-bit field that lets a sender mark packets belonging to the same logical flow, so routers can apply per-flow QoS without examining transport-layer headers.</li>
+</ul>
+<p>The result is a header that routers can parse and forward more efficiently than IPv4, a critical property as link rates have grown into hundreds of gigabits per second.</p>
+<p>An <strong>IPv6 address</strong> is conventionally written as eight groups of four hexadecimal digits separated by colons: <code>2001:0db8:85a3:0000:0000:8a2e:0370:7334</code>. Two compression rules make these less verbose:</p>
+<ul>
+<li>Leading zeros within a group can be dropped: <code>2001:db8:85a3:0:0:8a2e:370:7334</code>.</li>
+<li>A single run of all-zero groups can be replaced with <code>::</code> (only one such replacement allowed per address): <code>2001:db8:85a3::8a2e:370:7334</code>.</li>
+</ul>
+<p>The leftmost 64 bits are typically the <strong>network prefix</strong>; the rightmost 64 bits are the <strong>interface identifier</strong>. This 64/64 split is conventional, not absolute — IPv6 supports any prefix length — but it is universal in practice and enables the autoconfiguration scheme below.</p>
+<h2 id="97-ipv6-address-types">9.7 IPv6 Address Types<a class="headerlink" href="#97-ipv6-address-types" title="Permanent link">&para;</a></h2>
+<p>IPv6 defines several <strong>address types</strong>, each scoped to a different range and used for different purposes:</p>
+<ul>
+<li><strong>Global unicast</strong> — globally routable, equivalent to a public IPv4 address. The block <code>2000::/3</code> is the unicast assignment region.</li>
+<li><strong>Link-local</strong> — automatically assigned to every interface from the <code>fe80::/10</code> block. Used for link-only communication (neighbor discovery, autoconfiguration). Not routed.</li>
+<li><strong>Unique local (ULA)</strong> — the IPv6 equivalent of RFC 1918 private addresses, from the <code>fc00::/7</code> block. Routable within an organization but not on the public Internet.</li>
+<li><strong>Multicast</strong> — <code>ff00::/8</code>. IPv6 has no broadcast address; what was broadcast in IPv4 is multicast in IPv6 (e.g., <code>ff02::1</code> is the all-nodes-on-this-link multicast).</li>
+<li><strong>Anycast</strong> — uses the same syntax as unicast; the network distinguishes anycast addresses by where they are advertised.</li>
+<li><strong>Loopback</strong> — <code>::1</code>.</li>
+<li><strong>Unspecified</strong> — <code>::</code>. Used as a source address before an interface has acquired any.</li>
+</ul>
+<p>Two special addresses worth knowing: <code>::1</code> is the IPv6 loopback (analogous to <code>127.0.0.1</code>), and the <code>2001:db8::/32</code> block is reserved for documentation — addresses you see in textbooks and tutorials.</p>
+<h2 id="98-ipv6-stateless-autoconfiguration-slaac">9.8 IPv6 Stateless Autoconfiguration (SLAAC)<a class="headerlink" href="#98-ipv6-stateless-autoconfiguration-slaac" title="Permanent link">&para;</a></h2>
+<p>IPv6 introduced a feature that fundamentally changes how hosts join networks: <strong>stateless autoconfiguration (SLAAC)</strong>, defined in RFC 4862. A host plugged into an IPv6 network needs no DHCP server to acquire an address. The procedure runs roughly:</p>
+<ol>
+<li>The host generates a tentative link-local address from <code>fe80::/10</code> plus an interface ID derived from its MAC (modified EUI-64) or randomly.</li>
+<li>The host performs <strong>Duplicate Address Detection (DAD)</strong> to make sure no one else on the link uses the same address.</li>
+<li>The host listens for <strong>Router Advertisements</strong> broadcast periodically by the local router, which include the network prefix in use.</li>
+<li>The host concatenates the prefix with its interface ID to form a global unicast address.</li>
+<li>The host repeats DAD on the new address, and once verified, starts using it.</li>
+</ol>
+<p>The whole sequence takes a few hundred milliseconds with no server, no broadcast lease negotiation, and no operational configuration on the network. SLAAC coexists with DHCPv6 (used when an organization wants a registry of every device's address); some networks use one, some use both.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>IPv4 (DHCP)</th>
+<th>IPv6 (SLAAC)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Server required</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Configuration time</td>
+<td>~hundreds of ms (broadcast + lease)</td>
+<td>~hundreds of ms (Router Advertisement)</td>
+</tr>
+<tr>
+<td>Per-device record</td>
+<td>Yes (lease database)</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>Address randomization</td>
+<td>No</td>
+<td>Privacy extensions randomize the interface ID</td>
+</tr>
+</tbody>
+</table>
+<h2 id="99-ipv4-ipv6-transition-mechanisms">9.9 IPv4 / IPv6 Transition Mechanisms<a class="headerlink" href="#99-ipv4-ipv6-transition-mechanisms" title="Permanent link">&para;</a></h2>
+<p>Because IPv4 and IPv6 are not interoperable on the wire — an IPv4 packet cannot be routed by an IPv6-only router and vice versa — the migration from one to the other has required transition mechanisms. Three approaches dominate.</p>
+<p><strong>Dual stack</strong> is the simplest: every host and router runs both IPv4 and IPv6 simultaneously, using whichever the destination supports. Most modern operating systems and home routers are dual-stack by default. Dual stack is operationally clean but requires every device to maintain two address families and uses both pools' addresses. It is a transition strategy, not an end state.</p>
+<p><strong>Tunneling</strong> carries IPv6 packets inside IPv4 packets (or vice versa), allowing one protocol's traffic to traverse a network that only natively supports the other. The original transition strategy, <strong>6to4</strong> (RFC 3056), automatically tunneled IPv6 over the IPv4 Internet using a special prefix; it is now mostly deprecated in favor of explicit operator-managed tunnels. Tunneling is a workaround, not a long-term plan.</p>
+<p><strong>NAT64</strong> (RFC 6146) lets IPv6-only clients reach IPv4-only servers through a translator that rewrites IPv6 addresses to IPv4 addresses (and back) at a network boundary. NAT64 is the strategy of choice for IPv6-only mobile networks (which include T-Mobile US and many European carriers): clients run only IPv6, and the carrier's NAT64 gateway translates to IPv4 for any destinations that haven't yet adopted IPv6. <strong>DNS64</strong> is the companion service that synthesizes IPv6 addresses for IPv4-only DNS records, so applications work transparently.</p>
+<p>The transition is slow but ongoing. As of 2026, roughly 45% of public Internet traffic is IPv6, with the rate continuing to climb. New networks (especially mobile and datacenter) often start IPv6-first; legacy networks (especially in the enterprise) remain dual-stack for years.</p>
+<h2 id="910-icmp-ping-and-traceroute">9.10 ICMP, Ping, and Traceroute<a class="headerlink" href="#910-icmp-ping-and-traceroute" title="Permanent link">&para;</a></h2>
+<p>The network layer needs a way to report errors and probe paths. The <strong>Internet Control Message Protocol (ICMP)</strong>, defined in RFC 792 for IPv4 and RFC 4443 for IPv6, is the network-layer signaling protocol. ICMP messages are encapsulated in IP packets and travel as ordinary network-layer traffic, but they carry network-layer control content rather than transport-layer data.</p>
+<p>ICMP message types include:</p>
+<ul>
+<li><strong>Destination Unreachable</strong> — a router cannot deliver a packet (no route, host down, port unreachable, fragmentation needed but DF set).</li>
+<li><strong>Time Exceeded</strong> — TTL reached zero in transit.</li>
+<li><strong>Echo Request / Echo Reply</strong> — used by <code>ping</code>.</li>
+<li><strong>Redirect</strong> — a router tells a host that it has chosen a suboptimal next hop and should use a different one.</li>
+<li><strong>Parameter Problem</strong> — a malformed header field.</li>
+</ul>
+<p>Two diagnostic tools make ICMP visible to ordinary users.</p>
+<p><strong><code>ping</code></strong> sends an ICMP Echo Request to a target and waits for an Echo Reply. The round-trip time of the reply is the path's RTT (Chapter 4); a missing reply suggests loss or unreachability. <code>ping</code> is the universal first-step diagnostic — "can I reach that host?" — and every networking student will run it thousands of times.</p>
+<p><strong><code>traceroute</code></strong> (or <code>tracert</code> on Windows, <code>traceroute6</code> for IPv6) discovers the routers along a path. It works by deliberately violating TTL: send a packet with TTL=1, which the first router decrements to 0 and discards while sending an ICMP Time Exceeded back. Then send a packet with TTL=2, eliciting a Time Exceeded from the second router. And so on, until the destination is reached. Each Time Exceeded reveals one hop's IP address; the running sequence reveals the path. <code>traceroute</code> is the universal "where does my packet go?" tool, and reading its output well is one of the small practical skills every network engineer needs.</p>
+<p>Real diagnostic chains often combine the two: run <code>ping</code> to confirm reachability, then <code>traceroute</code> to find where in the path latency or loss appears, then more specific tests on the suspect hop.</p>
+<h2 id="911-arp-and-ndp-mapping-ip-to-mac">9.11 ARP and NDP: Mapping IP to MAC<a class="headerlink" href="#911-arp-and-ndp-mapping-ip-to-mac" title="Permanent link">&para;</a></h2>
+<p>The network layer hands a packet to the link layer, but the link layer addresses by MAC, not IP. Some mechanism must translate "I want to send to IP <code>192.0.2.10</code>" into "the next hop is the device with MAC <code>f0:18:98:01:23:45</code>." Two protocols do this work, one for each address family.</p>
+<p>The <strong>Address Resolution Protocol (ARP)</strong>, defined in RFC 826, is IPv4's translator. When a host wants to send to a local IPv4 address whose MAC it does not know, it broadcasts an ARP request: "Who has IP <code>X</code>?" The host with that IP replies unicast: "I have IP <code>X</code>; my MAC is <code>Y</code>." Both sides cache the answer in an ARP table for several minutes. ARP runs only within a single broadcast domain — for off-subnet destinations, the host ARPs for its default gateway's MAC, and the gateway forwards.</p>
+<p>The <strong>Neighbor Discovery Protocol (NDP)</strong>, defined in RFC 4861, is IPv6's translator. NDP uses ICMPv6 multicast rather than broadcast (because IPv6 has no broadcast). The mechanism is otherwise similar: a Neighbor Solicitation message asks "who has IPv6 <code>X</code>?", and a Neighbor Advertisement carries the answer. NDP also handles router discovery, prefix advertisement (used by SLAAC), and duplicate address detection — features that IPv4 split across multiple separate protocols.</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>IPv4</th>
+<th>IPv6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Map IP → MAC</td>
+<td>ARP (broadcast request)</td>
+<td>NDP Neighbor Solicitation (multicast)</td>
+</tr>
+<tr>
+<td>Discover routers</td>
+<td>(DHCP option)</td>
+<td>NDP Router Advertisement</td>
+</tr>
+<tr>
+<td>Discover prefix</td>
+<td>DHCP</td>
+<td>NDP Router Advertisement</td>
+</tr>
+<tr>
+<td>Verify uniqueness</td>
+<td>(none)</td>
+<td>NDP Duplicate Address Detection</td>
+</tr>
+</tbody>
+</table>
+<h2 id="912-nat-and-port-address-translation">9.12 NAT and Port Address Translation<a class="headerlink" href="#912-nat-and-port-address-translation" title="Permanent link">&para;</a></h2>
+<p><strong>Network Address Translation (NAT)</strong> is a mechanism that lets many devices share one public IP address. A NAT device — typically a home router or carrier-grade NAT — sits between a private network (using RFC 1918 addresses) and the public Internet. It translates source addresses on outbound packets and destination addresses on inbound replies, maintaining a translation table that maps each active flow.</p>
+<p>The most common variant is <strong>Port Address Translation (PAT)</strong>, also called <strong>NAPT</strong> or simply "NAT overload," which uses transport-layer port numbers to disambiguate flows. When two private hosts both connect to the same external server, the NAT box assigns each a unique source port on the public address, so replies can be routed back to the right private host. A typical home router with one public IP can support tens of thousands of simultaneous flows from many private hosts using this trick.</p>
+<p>NAT has costs:</p>
+<ul>
+<li><strong>Breaks the end-to-end principle.</strong> A device behind NAT cannot be reached unsolicited from outside; only outbound-initiated flows work without help. This is a security feature and a feature limitation.</li>
+<li><strong>Breaks some protocols.</strong> Application protocols that embed IP addresses in their payload (FTP, SIP, some peer-to-peer protocols) need application-layer gateways to rewrite the addresses correctly.</li>
+<li><strong>Introduces state.</strong> The NAT box must track every active flow and time it out when idle.</li>
+<li><strong>Limits inbound services.</strong> Hosting a public service behind NAT requires explicit port forwarding configuration.</li>
+</ul>
+<p>Despite these costs, NAT is universal on consumer Internet connections because it postponed IPv4 address exhaustion by an order of magnitude. IPv6 was designed to remove the need for NAT, and IPv6-only networks generally do not use it. As IPv6 deployment grows, NAT's role will gradually shrink — but not for many years.</p>
+<h2 id="913-fragmentation-and-reassembly">9.13 Fragmentation and Reassembly<a class="headerlink" href="#913-fragmentation-and-reassembly" title="Permanent link">&para;</a></h2>
+<p>Sometimes a packet is too large for the next link's MTU. The network layer must do something — either split the packet into smaller pieces (<strong>fragmentation</strong>) and let the destination put them back together (<strong>reassembly</strong>), or drop the packet and signal the sender to send smaller ones.</p>
+<p>In <strong>IPv4</strong>, both options exist. A packet's Don't Fragment (DF) bit, if set, prevents in-transit routers from fragmenting; if a router cannot forward without fragmenting, it returns ICMP Destination Unreachable (Fragmentation Needed) with the link's MTU, and the sender retries with smaller packets. If DF is unset, in-transit routers may fragment freely. Reassembly happens at the destination: the destination buffers fragments by their (source, destination, protocol, ID) tuple and reassembles when all pieces have arrived.</p>
+<p>In-transit fragmentation is a well-known source of operational headaches: fragments can be lost (and must be retransmitted by the upper layer, since the network does not retransmit them); reassembly state at the destination consumes memory and is a denial-of-service vector; and security middleboxes have historically had bugs handling fragments. Modern IPv4 deployments almost always set DF and rely on Path-MTU Discovery instead.</p>
+<p>In <strong>IPv6</strong>, in-transit fragmentation is forbidden. Only the source can fragment, using an extension header. If a packet is too large for any link on the path, the router returns ICMPv6 Packet Too Big and the source retries. This eliminates the worst pathologies of IPv4 fragmentation and is one of the most concrete user-visible improvements IPv6 brings.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>IPv4</th>
+<th>IPv6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Who can fragment</td>
+<td>Source or any router (unless DF set)</td>
+<td>Source only</td>
+</tr>
+<tr>
+<td>MTU discovery</td>
+<td>Optional (Path-MTU Discovery)</td>
+<td>Effectively required</td>
+</tr>
+<tr>
+<td>Reassembly</td>
+<td>At destination</td>
+<td>At destination</td>
+</tr>
+<tr>
+<td>Header field</td>
+<td>Identification + Flags + Fragment Offset</td>
+<td>Fragment extension header</td>
+</tr>
+</tbody>
+</table>
+<h4 id="diagram-packet-fragmentation-walkthrough">Diagram: Packet Fragmentation Walkthrough<a class="headerlink" href="#diagram-packet-fragmentation-walkthrough" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Animation showing how a large packet fragments across hops with smaller MTUs</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> packet-fragmentation<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Build an interactive MicroSim that animates a packet traversing a multi-hop path with mismatched MTUs, showing fragmentation in IPv4 and Path-MTU Discovery in IPv6.</p>
+<p>Canvas: 940 px wide by 600 px tall, responsive down to 360 px. A 100 px control panel sits below.</p>
+<p>Layout:</p>
+<ul>
+<li>A horizontal path: Sender — Link 1 (MTU 9000) — Router R1 — Link 2 (MTU 1500) — Router R2 — Link 3 (MTU 576) — Receiver.</li>
+<li>A large packet (e.g., 4000 bytes) starts at the sender; the animation shows what happens at each MTU mismatch.</li>
+</ul>
+<p>Animation modes (selectable from a tab control):</p>
+<ul>
+<li><strong>IPv4 with DF=0 (legacy):</strong> the packet is fragmented at R1 (4000 → 2× 1500 + 1× 1000 + headers). Fragments reach R2 where each is again fragmented to fit MTU 576. Receiver buffers all fragments and reassembles. A counter tracks fragments and reassembly buffer use.</li>
+<li><strong>IPv4 with DF=1:</strong> R1 cannot fragment, returns ICMP "Fragmentation Needed" with MTU=1500. Sender retries with 1500-byte packet; R2 returns ICMP "Fragmentation Needed" with MTU=576. Sender retries with 576-byte packets; all reach the receiver intact. PMTU is now 576.</li>
+<li><strong>IPv6:</strong> sender starts at 4000 bytes; R1 returns ICMPv6 "Packet Too Big" with MTU=1500. Sender retries with 1500-byte packets using Fragment Extension Header (source-only fragmentation) chunks of 1500 bytes carried by the source. Same workflow for R2. PMTU converges to 576.</li>
+</ul>
+<p>Controls panel:</p>
+<ul>
+<li>Tab control for the three modes.</li>
+<li>Sliders: link MTU values (per-link).</li>
+<li>Buttons: Step / Play / Reset.</li>
+<li>Counters: fragments created, ICMP messages exchanged, total bytes on each link.</li>
+</ul>
+<p>Visual style:</p>
+<ul>
+<li>Original packet: large honey-amber rectangle.</li>
+<li>Fragments: smaller honey-amber rectangles labeled with offset.</li>
+<li>ICMP messages: red arrows traveling backward.</li>
+<li>MTU labels above each link.</li>
+</ul>
+<p>Learning objectives:</p>
+<ul>
+<li>(Bloom — Understanding) Students explain what happens at an MTU mismatch in each of the three modes.</li>
+<li>(Bloom — Analyzing) Students decompose the trade-offs between in-transit fragmentation and Path-MTU Discovery.</li>
+<li>(Bloom — Evaluating) Students judge why IPv6 deliberately removed in-transit fragmentation.</li>
+</ul>
+<p>Implement in pure p5.js with the existing MicroSim CSS theme.</p>
+</details>
+<h2 id="914-putting-it-together-a-packets-address-story">9.14 Putting It Together: A Packet's Address Story<a class="headerlink" href="#914-putting-it-together-a-packets-address-story" title="Permanent link">&para;</a></h2>
+<p>Imagine a laptop on a home network sending an HTTP request to <code>example.com</code>:</p>
+<ol>
+<li><strong>DNS resolution.</strong> The laptop asks its DNS resolver for <code>example.com</code>. The resolver returns both an IPv4 (<code>93.184.216.34</code>) and an IPv6 (<code>2606:2800:220:1:248:1893:25c8:1946</code>) address. The laptop's network stack picks IPv6 if both endpoints support it (the dual-stack default).</li>
+<li><strong>Subnet match.</strong> The laptop computes whether the destination is on its local subnet by AND-ing the destination IP with its subnet mask. It is not — the destination is far away.</li>
+<li><strong>Default gateway.</strong> The laptop sends the packet to its default gateway (the home router). For IPv6, it ARPs (NDP-equivalent) for the gateway's MAC; for IPv4, it ARPs.</li>
+<li><strong>Home router.</strong> The router receives the packet. If IPv4, the router performs NAT, rewriting the source IP from <code>192.168.1.42</code> to its public IP, and assigning a new source port. If IPv6, no NAT is needed; the laptop's address is already global.</li>
+<li><strong>Internet routers.</strong> Each router examines the destination IP, looks it up in its forwarding table (Chapter 10 covers how the table is built), decrements the TTL/Hop Limit, and forwards out the chosen next-hop interface. Each forward generates a fresh link-layer header with the next-hop MAC.</li>
+<li><strong>Destination network.</strong> The packet arrives at <code>example.com</code>'s ISP, then at the web server's edge router, then at the web server's link-layer segment. ARP (or NDP) maps the destination IP to the server's MAC, and the link layer delivers the frame.</li>
+<li><strong>Reverse path.</strong> The reply traverses a similar — but possibly different — path back. NAT rewrites are unwound on inbound traffic.</li>
+</ol>
+<p>Every concept in this chapter — addressing, CIDR, ARP/NDP, NAT, fragmentation, ICMP — is doing real work in this single transaction. The next chapter explains how the routers in step 5 know which interface to send each packet out.</p>
+<div class="admonition mascot-encourage">
+<p class="admonition-title">If subnetting feels like arithmetic homework — that's normal</p>
+<p><img src="../../img/mascot/encouraging.png" class="mascot-admonition-img" alt="Buzz cheering you on">
+Subnet masks, CIDR boundaries, prefix lengths — they all reduce to a few bit operations. <em>One hop at a time.</em> Every networking student computes a few hundred subnet examples before the patterns become muscle memory. The CIDR Subnet Calculator above is a friendly drilling tool. Spend an hour with it; you will not regret it.</p>
+</div>
+<h2 id="915-key-takeaways">9.15 Key Takeaways<a class="headerlink" href="#915-key-takeaways" title="Permanent link">&para;</a></h2>
+<p>The network layer is the heart of the Internet. Before moving on, make sure you can answer the following without looking back:</p>
+<ul>
+<li>What three jobs does the network layer do that the link layer cannot?</li>
+<li>Name the major fields of an IPv4 header. Which were removed in IPv6, and why?</li>
+<li>What is CIDR notation? How does a <code>/24</code> differ from a <code>/26</code>?</li>
+<li>Given <code>203.0.113.0/24</code>, partition it into four equal subnets and write each in CIDR notation.</li>
+<li>Why are private IPv4 ranges used? Name the three RFC 1918 ranges.</li>
+<li>What is the loopback address in IPv4? In IPv6?</li>
+<li>Compare IPv4 and IPv6 addressing: bit length, notation, and the major address types.</li>
+<li>What is SLAAC? How does it differ from DHCP?</li>
+<li>Compare dual stack, tunneling, and NAT64 as IPv4/IPv6 transition mechanisms.</li>
+<li>What does ICMP do? How do <code>ping</code> and <code>traceroute</code> use it?</li>
+<li>What does ARP do, and what is its IPv6 equivalent?</li>
+<li>Explain how NAT works and why PAT (port translation) extends it. What does NAT break?</li>
+<li>Why did IPv6 forbid in-transit fragmentation?</li>
+</ul>
+<p>If any of those answers feel shaky, re-read the corresponding section before continuing to Chapter 10, where we move from "what is an address" to "how do routers actually find each other" — distance vector, link state, BGP, and the practical realities of Internet routing.</p>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Addresses, masks, and the global map</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Buzz celebrating">
+You can now compute subnets, read an IPv6 address, trace a packet through NAT, and explain why IPv6 was worth the trouble. The next chapter is about the millions of routers that look at the destination address you just learned and pick the right next hop. <em>Follow the packet.</em></p>
+</div>
 
 
 
 
 
 
+
+  
+  
 
 
 
