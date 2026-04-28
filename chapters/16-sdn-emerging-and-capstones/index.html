@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An ABET CAC-aligned intelligent textbook covering the foundations of networking and communication — layered architecture, routing, reliable transport, wireless, network security, and modern programmable networks — aligned to the ACM/IEEE CS2023 Networking and Communication knowledge area.">
+        <meta name="description" content="Software-defined networking with control/data plane separation, OpenFlow and SDN controllers, NFV, service meshes, overlay networks (VXLAN), content delivery networks, edge and fog computing, post-quantum cryptography, low-latency and AI-workload networking, cloud VPCs and hybrid clouds — closing with seven capstone projects that integrate the whole textbook.">
       
       
         <meta name="author" content="Dan McCreary">
@@ -26,7 +26,7 @@
     
     
       
-        <title>16. SDN, Emerging, and Capstones - Networking and Communication</title>
+        <title>SDN, NFV, Emerging Topics, and Capstone Projects - Networking and Communication</title>
       
     
     
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              16. SDN, Emerging, and Capstones
+              SDN, NFV, Emerging Topics, and Capstone Projects
             
           </span>
         </div>
@@ -845,6 +845,216 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#161-the-decoupling-control-plane-vs-data-plane" class="md-nav__link">
+    <span class="md-ellipsis">
+      16.1 The Decoupling: Control Plane vs. Data Plane
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#162-openflow-and-the-sdn-controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      16.2 OpenFlow and the SDN Controller
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="16.2 OpenFlow and the SDN Controller">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-sdn-architecture-control-vs-data-plane" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: SDN Architecture: Control vs. Data Plane
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#163-network-function-virtualization-nfv" class="md-nav__link">
+    <span class="md-ellipsis">
+      16.3 Network Function Virtualization (NFV)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#164-service-meshes" class="md-nav__link">
+    <span class="md-ellipsis">
+      16.4 Service Meshes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#165-overlay-networks-and-vxlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      16.5 Overlay Networks and VXLAN
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#166-content-delivery-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      16.6 Content Delivery Networks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#167-edge-computing-and-fog-computing" class="md-nav__link">
+    <span class="md-ellipsis">
+      16.7 Edge Computing and Fog Computing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#168-post-quantum-cryptography" class="md-nav__link">
+    <span class="md-ellipsis">
+      16.8 Post-Quantum Cryptography
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#169-low-latency-and-ai-workload-networking" class="md-nav__link">
+    <span class="md-ellipsis">
+      16.9 Low-Latency and AI-Workload Networking
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1610-cloud-vpcs-and-hybrid-cloud-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      16.10 Cloud VPCs and Hybrid Cloud Networks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1611-capstone-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      16.11 Capstone Projects
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="16.11 Capstone Projects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#capstone-chat-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Capstone Chat Server
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capstone-mini-dns-resolver" class="md-nav__link">
+    <span class="md-ellipsis">
+      Capstone Mini DNS Resolver
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capstone-sdn-testbed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Capstone SDN Testbed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capstone-network-architecture-proposal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Capstone Network Architecture Proposal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capstone-peer-to-peer-file-share" class="md-nav__link">
+    <span class="md-ellipsis">
+      Capstone Peer-to-Peer File Share
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-benchmarking-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network Benchmarking Project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#incident-postmortem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Incident Postmortem
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1612-networks-of-the-next-decade" class="md-nav__link">
+    <span class="md-ellipsis">
+      16.12 Networks of the Next Decade
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1613-where-to-go-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      16.13 Where to Go Next
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1614-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      16.14 Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1112,6 +1322,216 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#161-the-decoupling-control-plane-vs-data-plane" class="md-nav__link">
+    <span class="md-ellipsis">
+      16.1 The Decoupling: Control Plane vs. Data Plane
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#162-openflow-and-the-sdn-controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      16.2 OpenFlow and the SDN Controller
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="16.2 OpenFlow and the SDN Controller">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-sdn-architecture-control-vs-data-plane" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: SDN Architecture: Control vs. Data Plane
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#163-network-function-virtualization-nfv" class="md-nav__link">
+    <span class="md-ellipsis">
+      16.3 Network Function Virtualization (NFV)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#164-service-meshes" class="md-nav__link">
+    <span class="md-ellipsis">
+      16.4 Service Meshes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#165-overlay-networks-and-vxlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      16.5 Overlay Networks and VXLAN
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#166-content-delivery-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      16.6 Content Delivery Networks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#167-edge-computing-and-fog-computing" class="md-nav__link">
+    <span class="md-ellipsis">
+      16.7 Edge Computing and Fog Computing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#168-post-quantum-cryptography" class="md-nav__link">
+    <span class="md-ellipsis">
+      16.8 Post-Quantum Cryptography
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#169-low-latency-and-ai-workload-networking" class="md-nav__link">
+    <span class="md-ellipsis">
+      16.9 Low-Latency and AI-Workload Networking
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1610-cloud-vpcs-and-hybrid-cloud-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      16.10 Cloud VPCs and Hybrid Cloud Networks
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1611-capstone-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      16.11 Capstone Projects
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="16.11 Capstone Projects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#capstone-chat-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Capstone Chat Server
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capstone-mini-dns-resolver" class="md-nav__link">
+    <span class="md-ellipsis">
+      Capstone Mini DNS Resolver
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capstone-sdn-testbed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Capstone SDN Testbed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capstone-network-architecture-proposal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Capstone Network Architecture Proposal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capstone-peer-to-peer-file-share" class="md-nav__link">
+    <span class="md-ellipsis">
+      Capstone Peer-to-Peer File Share
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-benchmarking-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network Benchmarking Project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#incident-postmortem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Incident Postmortem
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1612-networks-of-the-next-decade" class="md-nav__link">
+    <span class="md-ellipsis">
+      16.12 Networks of the Next Decade
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1613-where-to-go-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      16.13 Where to Go Next
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1614-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      16.14 Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1182,13 +1602,220 @@
 <li><a href="../15-network-operations/">Chapter 15: Network Operations and Measurement</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">The horizon</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Buzz the bee waving welcome">
+Welcome to the last chapter. Hives are not static — they swarm, build new colonies, and adapt to new pressures (mites, climate, urbanization). Networks adapt too: new architectures arrive every decade, and the protocols you've learned must compose with the next generation. <em>Let's trace the route!</em> This chapter looks forward — and then sets you up to integrate everything you've learned into capstone projects.</p>
+</div>
+<h2 id="161-the-decoupling-control-plane-vs-data-plane">16.1 The Decoupling: Control Plane vs. Data Plane<a class="headerlink" href="#161-the-decoupling-control-plane-vs-data-plane" title="Permanent link">&para;</a></h2>
+<p>The single most consequential idea in modern networking is the separation of the <strong>control plane</strong> from the <strong>data plane</strong>. The data plane is the high-speed forwarding logic that handles every packet at line rate — typically implemented in dedicated hardware (ASICs, NPUs, TCAMs). The control plane is the software that decides <em>what</em> the data plane should do — building forwarding tables, running routing protocols, applying access control rules.</p>
+<p>Historically, the two planes lived inside every router and switch as inseparable software. Each device ran its own routing protocols (OSPF, BGP), made its own decisions, and pushed those decisions into its own forwarding hardware. <strong>Software-defined networking (SDN)</strong> takes the controversial step of moving the control plane <em>out</em> of the device entirely, into a centralized controller that programs many forwarding devices remotely.</p>
+<p>The implications are large. Centralization gives the controller a global view of the network and lets it apply network-wide optimization that no individual router can match. Decoupling lets devices be cheap forwarding boxes (white-box switches) controlled by software running on commodity servers. The data plane and control plane can evolve independently — new control-plane logic can be deployed without touching the data plane, and vice versa.</p>
+<p>The cost is that SDN introduces a new failure mode: the controller can fail, lose connectivity to the devices it manages, or simply make wrong decisions at scale. Modern SDN deployments invest heavily in controller redundancy and in fall-back behavior for the data plane when the controller is unreachable.</p>
+<h2 id="162-openflow-and-the-sdn-controller">16.2 OpenFlow and the SDN Controller<a class="headerlink" href="#162-openflow-and-the-sdn-controller" title="Permanent link">&para;</a></h2>
+<p>The first widely-deployed SDN protocol was <strong>OpenFlow</strong>, originally designed at Stanford in 2008 and standardized through the Open Networking Foundation. OpenFlow defines a protocol between an <strong>SDN controller</strong> running on a server and the OpenFlow switches that make up the data plane. The controller installs <em>flow rules</em> into each switch's forwarding table; flows match on header fields (any combination of MAC, IP, port, VLAN, etc.) and produce actions (forward to port, drop, modify, send to controller).</p>
+<p>OpenFlow's power is its expressiveness. Traditional routers and switches forward based on a fixed set of decisions (destination MAC at Layer 2, longest-prefix match at Layer 3); OpenFlow lets the controller install rules that match on essentially any combination of header fields. A single OpenFlow switch can be programmed to behave as a Layer-2 switch, a Layer-3 router, a load balancer, a firewall, or a custom protocol terminator.</p>
+<p>OpenFlow's commercial adoption has been mixed. Pure OpenFlow deployments dominate datacenter networks at major cloud providers (Google's B4 backbone, internal Microsoft and Facebook fabrics) but have struggled to gain traction in enterprise networking. The successor protocols — <strong>P4</strong>, a higher-level data-plane programming language; <strong>gNMI/gRPC</strong> management interfaces; <strong>OpenConfig</strong> vendor-neutral data models — have become the operational layer most organizations actually deploy. The <em>idea</em> of SDN (centralized control, programmable data planes) has won; the specific protocol called OpenFlow has been less universal.</p>
+<p>Modern SDN deployments commonly use one of:</p>
+<ul>
+<li><strong>Open-source controllers</strong> — ONOS, OpenDaylight, Faucet.</li>
+<li><strong>Commercial controllers</strong> — Cisco DNA Center, Arista CloudVision, VMware NSX.</li>
+<li><strong>Hyperscale custom controllers</strong> — Google's, Facebook's, AWS's internal SDN systems.</li>
+</ul>
+<p>A typical SDN architecture has three layers: the <strong>forwarding devices</strong> at the bottom; a <strong>controller</strong> in the middle that programs them; and <strong>applications</strong> on top of the controller that express network-wide policy (network slicing, traffic engineering, intrusion detection, etc.).</p>
+<h4 id="diagram-sdn-architecture-control-vs-data-plane">Diagram: SDN Architecture: Control vs. Data Plane<a class="headerlink" href="#diagram-sdn-architecture-control-vs-data-plane" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Visualization of an SDN deployment showing control plane, data plane, and northbound application APIs</summary>
+<p>Type: infographic
+<strong>sim-id:</strong> sdn-architecture-overview<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Render an interactive infographic of an SDN architecture with three vertically-stacked planes and the boundary protocols between them.</p>
+<p>Canvas: 940 px wide by 600 px tall, responsive down to 360 px.</p>
+<p>Layout:</p>
+<ul>
+<li>Top: "Application plane" — three rounded rectangles labeled "Traffic engineering", "Security policy", "Network monitoring".</li>
+<li>Middle: "Control plane" — a single rounded rectangle labeled "SDN Controller" (e.g., ONOS or OpenDaylight) with smaller boxes inside for "Topology", "Routing", "Policy".</li>
+<li>Bottom: "Data plane" — five forwarding devices (switches) connected in a partial mesh.</li>
+<li>Northbound API: arrows from applications down to the controller, labeled "REST / gRPC".</li>
+<li>Southbound API: arrows from controller to switches, labeled "OpenFlow / P4 / gNMI".</li>
+</ul>
+<p>Interactivity:</p>
+<ul>
+<li>Click any plane to see a side-panel description and example components.</li>
+<li>Click any switch to see its installed flow table (a simplified list of match-action rules).</li>
+<li>Toggle "Failure mode: controller unreachable" — switches fall back to local default behavior; some functions degrade.</li>
+<li>Toggle "Inject application: load balance" — installs flow rules that hash specific fields and forward to the chosen back-end.</li>
+</ul>
+<p>Visual style:</p>
+<ul>
+<li>Application plane: light yellow.</li>
+<li>Control plane: honey amber.</li>
+<li>Data plane: slate.</li>
+<li>Northbound and southbound APIs: dashed arrows in distinct colors.</li>
+</ul>
+<p>Learning objective (Bloom — Understanding): Students explain the three-layer SDN architecture and the role of northbound and southbound APIs.</p>
+</details>
+<h2 id="163-network-function-virtualization-nfv">16.3 Network Function Virtualization (NFV)<a class="headerlink" href="#163-network-function-virtualization-nfv" title="Permanent link">&para;</a></h2>
+<p>Closely related to SDN but distinct, <strong>Network Function Virtualization (NFV)</strong> moves traditionally-hardware functions (firewalls, load balancers, intrusion detection, WAN optimizers, session border controllers) into software running on commodity servers. Instead of buying a dedicated firewall appliance for every site, you run a virtual firewall on standard server hardware — typically as a virtual machine or container.</p>
+<p>NFV's value is operational. Software functions can be deployed, updated, scaled, and removed by operating cloud-style infrastructure. A new branch office no longer needs a shipment of physical appliances; it gets a small server box that downloads its NFV image and joins the management plane. NFV is foundational to <strong>5G core network</strong> deployments, where every traditional cellular network function (HSS, MME, SGW, PGW, the new 5G UPF and SMF) is implemented as software microservices on a Kubernetes-based cloud platform.</p>
+<p>Open-source NFV ecosystems include <strong>OPNFV</strong>, <strong>OSM</strong>, and increasingly Kubernetes-native tooling. Commercial NFV is dominated by VMware Telco Cloud, Red Hat, Cisco, and the major cloud providers' telco offerings.</p>
+<h2 id="164-service-meshes">16.4 Service Meshes<a class="headerlink" href="#164-service-meshes" title="Permanent link">&para;</a></h2>
+<p>In application networking, the SDN-and-NFV pattern shows up as the <strong>service mesh</strong> — a dedicated infrastructure layer that handles all the cross-service communication in a microservice-based application. Common service-mesh products include Istio, Linkerd, Consul Connect, and AWS App Mesh.</p>
+<p>A service mesh deploys a small proxy (often Envoy) alongside every application instance — the <strong>sidecar pattern</strong> — and routes all of that instance's network traffic through the proxy. The proxies form a data plane; a separate control plane (Istio's <code>istiod</code>, Linkerd's control plane) tells them what to do. The mesh provides:</p>
+<ul>
+<li><strong>Mutual TLS</strong> between every service, even on a private internal network.</li>
+<li><strong>Traffic shifting</strong> for canary deployments and A/B testing.</li>
+<li><strong>Rate limiting and circuit breaking</strong> to prevent cascading failures.</li>
+<li><strong>Observability</strong> — every cross-service call is logged with timing and result.</li>
+<li><strong>Identity-based access control</strong> at the service level.</li>
+</ul>
+<p>Service meshes are SDN's spiritual heir at the application layer: they decouple the control plane (which the operator programs) from the data plane (which transparently handles every connection). The pattern adds complexity but pays off in observability and security at the scale of hundreds of microservices.</p>
+<h2 id="165-overlay-networks-and-vxlan">16.5 Overlay Networks and VXLAN<a class="headerlink" href="#165-overlay-networks-and-vxlan" title="Permanent link">&para;</a></h2>
+<p>A traditional Ethernet network has rigid scaling limits: 4094 VLANs (Chapter 7), one broadcast domain per VLAN, and the spanning-tree protocol's bandwidth inefficiency. <strong>Overlay networks</strong> solve this by encapsulating Layer-2 frames inside Layer-3 packets, so an arbitrary Layer-2 topology can be tunneled across an underlying IP network.</p>
+<p>The dominant Layer-2 overlay is <strong>VXLAN (Virtual Extensible LAN)</strong>, defined in RFC 7348. VXLAN encapsulates Ethernet frames in UDP packets with a 24-bit VXLAN Network Identifier (VNI), giving 16 million distinct virtual networks instead of the 4094 supported by 802.1Q. The encapsulation is done at the network's edges (the <strong>VTEPs</strong> — VXLAN tunnel endpoints), often inside hypervisor virtual switches or top-of-rack switches.</p>
+<p>VXLAN's payoff is substantial. A datacenter operator can give every tenant their own Layer-2 network, all running over a shared Layer-3 fabric, without any spanning-tree blocking and with full ECMP load balancing across the fabric's links. AWS VPCs, Azure virtual networks, and most modern Kubernetes networking implementations use VXLAN or a close variant (Geneve, NVGRE).</p>
+<p>The control plane for VXLAN is typically <strong>EVPN (Ethernet VPN)</strong> running over MP-BGP. EVPN distributes the MAC-to-VTEP mappings between VTEPs efficiently, replacing the flood-and-learn behavior of traditional Ethernet with a control-plane-driven approach.</p>
+<h2 id="166-content-delivery-networks">16.6 Content Delivery Networks<a class="headerlink" href="#166-content-delivery-networks" title="Permanent link">&para;</a></h2>
+<p>A <strong>content delivery network (CDN)</strong> is a globally-distributed system of caching servers that stores copies of static content close to users, dramatically reducing latency and offloading origin servers. The largest CDNs (Cloudflare, Akamai, Fastly, AWS CloudFront, Google's Cloud CDN) operate hundreds of points of presence (PoPs) in cities worldwide.</p>
+<p>A typical CDN flow:</p>
+<ol>
+<li>A user requests <code>https://example.com/large-image.jpg</code>.</li>
+<li>DNS resolves <code>example.com</code> to an <em>anycast</em> IP that routes to the nearest CDN PoP (Chapter 10).</li>
+<li>The PoP either serves the file from cache or fetches it from the origin server, then caches it for future requests.</li>
+<li>The user sees a much shorter RTT and faster download than they would going to the origin.</li>
+</ol>
+<p>CDNs add many features beyond simple caching:</p>
+<ul>
+<li><strong>TLS termination</strong> at the edge, with automatic certificate management.</li>
+<li><strong>DDoS scrubbing</strong> — large CDNs absorb attacks measured in terabits per second.</li>
+<li><strong>Web application firewall</strong> functionality.</li>
+<li><strong>Image optimization, video transcoding, JavaScript optimization</strong>.</li>
+<li><strong>Edge compute</strong> — running custom code at the edge for personalized responses (Cloudflare Workers, Fastly Compute, AWS Lambda@Edge).</li>
+</ul>
+<p>For most modern websites, the CDN is the <em>real</em> user-facing infrastructure; the origin server is just a slow back-end the CDN consults occasionally. CDN routing, caching policy, and edge compute have become a substantial part of "running a website" that did not exist a decade ago.</p>
+<h2 id="167-edge-computing-and-fog-computing">16.7 Edge Computing and Fog Computing<a class="headerlink" href="#167-edge-computing-and-fog-computing" title="Permanent link">&para;</a></h2>
+<p>The CDN model — pushing computation closer to users — generalizes to <strong>edge computing</strong>: the practice of running application logic on infrastructure positioned near the user or the data source rather than in distant central datacenters. Edge computing matters for two reasons: latency (every millisecond counts in interactive applications, especially AR/VR and autonomous vehicles) and bandwidth (sending raw video from a security camera to the cloud is expensive; running analysis at the camera and sending only events is cheap).</p>
+<p><strong>Fog computing</strong> is a related term, popularized by Cisco, that emphasizes a continuum from the cloud through intermediate gateways down to the edge devices themselves. Fog computing distributes processing across this continuum, with the appropriate fraction running at each level depending on latency, bandwidth, and computation requirements.</p>
+<p>Major edge computing platforms include AWS Outposts, Azure Edge Zones, Google Distributed Cloud, and the open-source KubeEdge / OpenYurt projects that extend Kubernetes to edge sites. Telecom operators are increasingly major edge providers: 5G base stations now host compute resources just one network hop from the user, enabling latencies well below 10 ms.</p>
+<h2 id="168-post-quantum-cryptography">16.8 Post-Quantum Cryptography<a class="headerlink" href="#168-post-quantum-cryptography" title="Permanent link">&para;</a></h2>
+<p>Cryptography rests on the assumption that certain mathematical problems are computationally hard. Sufficiently large quantum computers will break two of those assumptions: integer factorization (the basis of RSA) and discrete logarithm (the basis of Diffie-Hellman and ECDSA). When that happens, the public-key cryptography that secures every TLS connection becomes vulnerable.</p>
+<p><strong>Post-quantum cryptography (PQC)</strong> is the family of algorithms designed to resist quantum attack. NIST ran a multi-year competition culminating in 2024 standards: <strong>CRYSTALS-Kyber</strong> for key encapsulation (replacing RSA / ECDH key exchange), <strong>CRYSTALS-Dilithium</strong> and <strong>FALCON</strong> for digital signatures, and <strong>SPHINCS+</strong> as a hash-based fallback signature.</p>
+<p>Deployment is underway. TLS 1.3 specifications now define hybrid key exchange combining a classical ECDH with a post-quantum KEM (Kyber); Cloudflare, Google, and AWS have all enabled hybrid Kyber experimentally on their edge networks. The motivation for early deployment is the <strong>harvest-now, decrypt-later</strong> threat: an attacker recording today's encrypted traffic could decrypt it years later when quantum computers exist. For long-secret data (medical records, government communications), the urgency is now.</p>
+<p>Symmetric cryptography (AES, SHA-256) is much less affected by quantum attack — Grover's algorithm gives a quadratic speedup, so doubling key sizes (AES-256 instead of AES-128) restores security. The post-quantum transition is mostly about replacing public-key primitives.</p>
+<h2 id="169-low-latency-and-ai-workload-networking">16.9 Low-Latency and AI-Workload Networking<a class="headerlink" href="#169-low-latency-and-ai-workload-networking" title="Permanent link">&para;</a></h2>
+<p>Modern computing has produced two networking workloads with extreme requirements that traditional Internet protocols don't quite serve.</p>
+<p><strong>Low-latency networking</strong> appears in financial trading, multiplayer gaming, augmented reality, and industrial control. Microseconds matter; the standard TCP-with-congestion-control model is too slow. Specialized solutions include:</p>
+<ul>
+<li><strong>Kernel bypass</strong> (DPDK, Solarflare Onload) that lets applications send and receive packets without going through the kernel.</li>
+<li><strong>RDMA (Remote Direct Memory Access)</strong> that lets one machine read or write another's memory directly without involving the remote CPU.</li>
+<li><strong>Hardware-accelerated stacks</strong> in SmartNICs and FPGA NICs that offload protocol processing from the host.</li>
+<li><strong>Tight QoS</strong> with hardware-enforced priority queues in low-latency switches.</li>
+</ul>
+<p>For trading networks, microwave links across long distances actually beat fiber because microwaves through air are faster than light through fiber. The state of the art in low-latency networking is its own specialized field.</p>
+<p><strong>AI workload networking</strong> is a relatively new category. Training large neural networks involves clusters of thousands of GPUs exchanging gradient updates in tight all-to-all patterns at multi-terabit-per-second aggregate rates. Standard TCP collapses under these conditions. Solutions include:</p>
+<ul>
+<li><strong>RDMA over Converged Ethernet (RoCE)</strong> for low-overhead datacenter networking.</li>
+<li><strong>InfiniBand</strong>, a separate networking technology dominant in HPC clusters.</li>
+<li><strong>Lossless Ethernet</strong> with priority-flow control to avoid the packet loss that would devastate RDMA.</li>
+<li><strong>Topology-aware collective communication libraries</strong> (NCCL, RCCL, OneCCL) that schedule traffic to minimize hot spots.</li>
+<li><strong>Optical circuit switching</strong> experiments that reconfigure topology to match the current training step's communication pattern.</li>
+</ul>
+<p>The AI training boom has reshaped datacenter networking budgets at hyperscalers, with the network fabric now a substantial fraction of GPU-cluster cost.</p>
+<h2 id="1610-cloud-vpcs-and-hybrid-cloud-networks">16.10 Cloud VPCs and Hybrid Cloud Networks<a class="headerlink" href="#1610-cloud-vpcs-and-hybrid-cloud-networks" title="Permanent link">&para;</a></h2>
+<p>A <strong>cloud VPC (Virtual Private Cloud)</strong> is a logically isolated network within a cloud provider's infrastructure. Each AWS, Azure, GCP, or Oracle Cloud account can create one or more VPCs, each with its own IP address space, subnets, route tables, and access control. VPCs use overlay networking (typically VXLAN or proprietary equivalents) to provide tenant isolation on shared physical infrastructure.</p>
+<p>A typical cloud VPC includes:</p>
+<ul>
+<li>One or more <strong>subnets</strong>, often spanning multiple availability zones for fault tolerance.</li>
+<li><strong>Internet gateways</strong> for outbound connectivity.</li>
+<li><strong>NAT gateways</strong> for outbound connections from private subnets.</li>
+<li><strong>VPN gateways</strong> or <strong>direct-connect</strong> circuits for connectivity to on-premises networks.</li>
+<li><strong>Peering</strong> connections to other VPCs (in the same or different accounts).</li>
+<li><strong>Security groups</strong> (stateful firewalls) and <strong>network ACLs</strong> (stateless filters) for access control.</li>
+<li><strong>Endpoint services</strong> (PrivateLink, Private Service Connect) for accessing managed services without traversing the public Internet.</li>
+</ul>
+<p>A <strong>hybrid cloud network</strong> connects on-premises networks to one or more cloud providers, presenting a unified addressing and routing scheme across both. Hybrid setups typically use:</p>
+<ul>
+<li><strong>Site-to-site VPN</strong> over the public Internet (cheapest, modest performance).</li>
+<li><strong>Dedicated private connections</strong> like AWS Direct Connect, Azure ExpressRoute, or Google Cloud Interconnect (better latency and bandwidth, fixed monthly fee).</li>
+<li><strong>SD-WAN appliances</strong> that abstract underlying connectivity and apply business policies.</li>
+</ul>
+<p>Multi-cloud architectures (using two or more cloud providers) layer additional complexity: each cloud has its own VPC abstractions, and unifying them often requires third-party orchestration (Aviatrix, Megaport, or hand-rolled BGP-over-IPsec configurations).</p>
+<h2 id="1611-capstone-projects">16.11 Capstone Projects<a class="headerlink" href="#1611-capstone-projects" title="Permanent link">&para;</a></h2>
+<p>The course material concludes with several integrative <strong>capstone projects</strong>. Each draws on multiple chapters and produces an artifact a student can show in interviews or use as a portfolio piece. Choose one (or more, for ambitious students):</p>
+<h3 id="capstone-chat-server">Capstone Chat Server<a class="headerlink" href="#capstone-chat-server" title="Permanent link">&para;</a></h3>
+<p>Build a multi-room, multi-user <strong>chat server</strong> with custom binary or text framing, authentication, history, presence, and graceful failure handling. Drawing on Chapter 14 (sockets), Chapter 12 (TLS), and Chapter 13 (application-layer design), this project produces a fully-functional chat application. Stretch goals: HA failover, end-to-end encryption between clients (not just transport TLS), federation between separate servers.</p>
+<h3 id="capstone-mini-dns-resolver">Capstone Mini DNS Resolver<a class="headerlink" href="#capstone-mini-dns-resolver" title="Permanent link">&para;</a></h3>
+<p>Implement a recursive DNS resolver that walks the hierarchy from root to authoritative servers, caches with proper TTL handling, and validates DNSSEC for at least a subset of record types. Draws on Chapter 13 (DNS hierarchy and caching) and Chapter 12 (cryptographic verification). Stretch goals: DNS over TLS (DoT), DNS over HTTPS (DoH), prefetching popular records, full DNSSEC chain validation.</p>
+<h3 id="capstone-sdn-testbed">Capstone SDN Testbed<a class="headerlink" href="#capstone-sdn-testbed" title="Permanent link">&para;</a></h3>
+<p>Build a software-defined network testbed using <strong>Mininet</strong> (a Linux network-namespace-based emulator) and an OpenFlow controller (Faucet, ONOS, or your own). Implement a custom application that demonstrates dynamic flow installation, link failover, or load balancing across multiple paths. Draws on Chapter 7 (switching), Chapter 10 (routing), Chapter 15 (operations), and this chapter's SDN sections.</p>
+<h3 id="capstone-network-architecture-proposal">Capstone Network Architecture Proposal<a class="headerlink" href="#capstone-network-architecture-proposal" title="Permanent link">&para;</a></h3>
+<p>Design a complete network architecture for a fictional small business or campus. Deliverables include an IP plan, VLAN segmentation, security zone diagram, monitoring strategy, change-control process, and budget estimate. This is a written project that exercises every chapter — it is the closest a student gets to professional network architecture work. Stretch goals: present to a panel; defend the design under questioning; document a phased implementation plan.</p>
+<h3 id="capstone-peer-to-peer-file-share">Capstone Peer-to-Peer File Share<a class="headerlink" href="#capstone-peer-to-peer-file-share" title="Permanent link">&para;</a></h3>
+<p>Build a P2P file-sharing application with chunked transfer, integrity verification, and NAT traversal. Draws on Chapter 14 (sockets, peer-to-peer, STUN/TURN), Chapter 12 (cryptographic hashing), and Chapter 13 (application protocols). Stretch goals: distributed hash table for peer discovery, swarm download from multiple peers like BitTorrent, Sybil-resistance via per-peer reputation.</p>
+<h3 id="network-benchmarking-project">Network Benchmarking Project<a class="headerlink" href="#network-benchmarking-project" title="Permanent link">&para;</a></h3>
+<p>Conduct a <strong>network benchmarking</strong> study comparing two algorithms or configurations under controlled conditions (using Linux network namespaces and <code>tc netem</code>, Chapter 15). Examples: TCP CUBIC vs. BBR on a long-fat-network; OSPF vs. IS-IS convergence; Wi-Fi 6 vs. Wi-Fi 6E in a congested band. The deliverable is a written report with methodology, results, and statistical analysis. Stretch goals: a reproducible test harness; community publication.</p>
+<h3 id="incident-postmortem">Incident Postmortem<a class="headerlink" href="#incident-postmortem" title="Permanent link">&para;</a></h3>
+<p>Practice writing an <strong>incident postmortem</strong> for a simulated network outage. Given a detailed scenario (a packet capture, log excerpts, a timeline of customer reports, change-control records), produce a written postmortem identifying root cause, contributing factors, detection gaps, and remediations. The postmortem should be blameless and constructive. Draws on every chapter. The outcome is a writing skill that is valuable in every operations role.</p>
+<h2 id="1612-networks-of-the-next-decade">16.12 Networks of the Next Decade<a class="headerlink" href="#1612-networks-of-the-next-decade" title="Permanent link">&para;</a></h2>
+<p>The textbook closes by looking forward. A few themes will shape networks over the coming years:</p>
+<ul>
+<li><strong>More software, less hardware.</strong> SDN, NFV, and service meshes have steadily moved network functions from purpose-built hardware to commodity servers running open-source software. The trend continues.</li>
+<li><strong>More AI, more bandwidth.</strong> Training and serving large neural networks consume an increasing fraction of datacenter network capacity. The fabrics, transports, and cooling all evolve to match.</li>
+<li><strong>More edge.</strong> Latency-sensitive applications drive computation closer to users. 5G and 6G base stations become compute hosts.</li>
+<li><strong>More zero trust.</strong> Implicit trust in network locations has aged out. Identity-based authorization, mTLS everywhere, and continuous verification become baseline.</li>
+<li><strong>More post-quantum.</strong> TLS, IPsec, and SSH all migrate to hybrid post-quantum key exchange in the late 2020s.</li>
+<li><strong>More IPv6.</strong> The transition continues, and IPv6-only networks are increasingly common — especially in mobile and new datacenter buildouts.</li>
+<li><strong>More observability.</strong> Distributed tracing, eBPF-based observability, and AI-assisted log analysis change the operator's daily experience.</li>
+<li><strong>More automation, more discipline.</strong> "Click-ops" yields to "infrastructure as code"; mature operations teams treat the network like software.</li>
+</ul>
+<p>Many of these themes interact. The post-quantum migration must compose with TLS 1.3, with IPsec, with QUIC. The growth of AI workloads must compose with low-latency networking and with optical-fabric experiments. Service meshes must compose with cloud VPCs and with regulatory zero-trust requirements. Networking has always been a discipline of careful protocol composition; that does not change.</p>
+<h2 id="1613-where-to-go-next">16.13 Where to Go Next<a class="headerlink" href="#1613-where-to-go-next" title="Permanent link">&para;</a></h2>
+<p>This is the end of the textbook but not of the subject. Suggested next steps for students who want to go deeper:</p>
+<ul>
+<li><strong>Read RFCs.</strong> Pick three protocols from Chapters 11–13 and read their RFCs end to end. Notice the engineering trade-offs and the historical context of each design choice.</li>
+<li><strong>Get hands-on with packet captures.</strong> Spend an hour with Wireshark on your home network; analyze what every flow is doing.</li>
+<li><strong>Build a virtual network lab.</strong> Use Linux namespaces or Mininet to build the topologies in Chapters 7, 10, and 16.</li>
+<li><strong>Read modern systems papers.</strong> Google B4, Facebook's F4, AWS's network architecture, and Microsoft's network failures are all richly documented in publicly-available papers.</li>
+<li><strong>Specialize.</strong> Choose a depth direction — security, datacenter networking, wireless, programmable data planes, network operations — and read a graduate-level textbook in that area.</li>
+<li><strong>Contribute.</strong> Open-source networking projects (the Linux kernel networking subsystem, Faucet, Open vSwitch, ONOS, Suricata) welcome new contributors.</li>
+</ul>
+<p>The networking field rewards depth in any direction. A career in any computing discipline benefits from grounded networking knowledge; a career in networking specifically requires lifelong learning because the field moves fast.</p>
+<div class="admonition mascot-encourage">
+<p class="admonition-title">If the horizon feels wide — that's because it is</p>
+<p><img src="../../img/mascot/encouraging.png" class="mascot-admonition-img" alt="Buzz cheering you on">
+Networking touches every part of computing — security, distributed systems, applications, hardware, operations. You do not need to master all of it. <em>One hop at a time.</em> Pick the part that excites you most and dig in. Whatever direction you go, the foundation you've built here will carry you.</p>
+</div>
+<h2 id="1614-key-takeaways">16.14 Key Takeaways<a class="headerlink" href="#1614-key-takeaways" title="Permanent link">&para;</a></h2>
+<p>The final chapter looked forward. Before closing the textbook, make sure you can answer the following without looking back:</p>
+<ul>
+<li>What is the difference between the control plane and the data plane?</li>
+<li>What is SDN, and what problem does it solve?</li>
+<li>What is OpenFlow? What is an SDN controller?</li>
+<li>What is NFV, and how does it relate to SDN?</li>
+<li>What is a service mesh? Name two services it provides automatically.</li>
+<li>What is VXLAN, and why is it needed in modern datacenters?</li>
+<li>What does a content delivery network do? Why does anycast routing fit it well?</li>
+<li>Compare edge computing and fog computing.</li>
+<li>Why does post-quantum cryptography matter today, even before quantum computers exist?</li>
+<li>Compare low-latency networking (financial trading) with AI-workload networking (GPU clusters).</li>
+<li>What is a cloud VPC? What is a hybrid cloud network?</li>
+</ul>
+<p>If any of those answers feel shaky, re-read the corresponding section.</p>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">End of the trail — for now</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Buzz celebrating">
+You've followed the packet from a single bit on a wire all the way to globally-distributed cloud architectures. Every layer, every protocol, every operational discipline has its place — and you can see how they fit together. Pick a capstone, build something real, and keep going. The network is bigger than any one course can cover, but you now have the map. <em>Follow the packet.</em> Always.</p>
+</div>
 
 
 
 
 
 
+
+  
+  
 
 
 
