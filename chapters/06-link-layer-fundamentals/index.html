@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An ABET CAC-aligned intelligent textbook covering the foundations of networking and communication — layered architecture, routing, reliable transport, wireless, network security, and modern programmable networks — aligned to the ACM/IEEE CS2023 Networking and Communication knowledge area.">
+        <meta name="description" content="Reliable transfer over a single link — framing (bit and byte stuffing), error detection (parity, checksum, CRC), forward error correction, ARQ variants (stop-and-wait, sliding window, Go-Back-N, selective repeat), and media access control protocols (ALOHA, CSMA, CSMA/CD, CSMA/CA, token passing).">
       
       
         <meta name="author" content="Dan McCreary">
@@ -26,7 +26,7 @@
     
     
       
-        <title>6. Link Layer Fundamentals - Networking and Communication</title>
+        <title>Link Layer Fundamentals and Reliable Transfer - Networking and Communication</title>
       
     
     
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              6. Link Layer Fundamentals
+              Link Layer Fundamentals and Reliable Transfer
             
           </span>
         </div>
@@ -610,6 +610,150 @@
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#61-what-the-link-layer-adds" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 What the Link Layer Adds
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#62-framing-where-does-one-message-end-and-the-next-begin" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Framing: Where Does One Message End and the Next Begin?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#63-error-detection-was-the-frame-damaged-in-flight" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 Error Detection: Was the Frame Damaged in Flight?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.3 Error Detection: Was the Frame Damaged in Flight?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-error-detection-in-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Error Detection in Action
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#64-forward-error-correction-repair-without-retransmission" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.4 Forward Error Correction: Repair Without Retransmission
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#65-automatic-repeat-request-detect-and-retransmit" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.5 Automatic Repeat Request: Detect and Retransmit
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.5 Automatic Repeat Request: Detect and Retransmit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-sliding-window-animation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Sliding Window Animation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#66-media-access-control-sharing-the-wire" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.6 Media Access Control: Sharing the Wire
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#67-random-access-aloha" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.7 Random Access: ALOHA
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#68-carrier-sense-multiple-access-csma-and-its-variants" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.8 Carrier-Sense Multiple Access (CSMA) and Its Variants
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#69-reservation-based-access-token-passing" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.9 Reservation-Based Access: Token Passing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.9 Reservation-Based Access: Token Passing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-mac-protocol-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: MAC Protocol Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#610-putting-it-together-a-frames-life-story" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.10 Putting It Together: A Frame's Life Story
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#611-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.11 Key Takeaways
     </span>
   </a>
   
@@ -1112,6 +1256,150 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#61-what-the-link-layer-adds" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 What the Link Layer Adds
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#62-framing-where-does-one-message-end-and-the-next-begin" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Framing: Where Does One Message End and the Next Begin?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#63-error-detection-was-the-frame-damaged-in-flight" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 Error Detection: Was the Frame Damaged in Flight?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.3 Error Detection: Was the Frame Damaged in Flight?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-error-detection-in-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Error Detection in Action
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#64-forward-error-correction-repair-without-retransmission" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.4 Forward Error Correction: Repair Without Retransmission
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#65-automatic-repeat-request-detect-and-retransmit" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.5 Automatic Repeat Request: Detect and Retransmit
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.5 Automatic Repeat Request: Detect and Retransmit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-sliding-window-animation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Sliding Window Animation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#66-media-access-control-sharing-the-wire" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.6 Media Access Control: Sharing the Wire
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#67-random-access-aloha" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.7 Random Access: ALOHA
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#68-carrier-sense-multiple-access-csma-and-its-variants" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.8 Carrier-Sense Multiple Access (CSMA) and Its Variants
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#69-reservation-based-access-token-passing" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.9 Reservation-Based Access: Token Passing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.9 Reservation-Based Access: Token Passing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-mac-protocol-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: MAC Protocol Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#610-putting-it-together-a-frames-life-story" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.10 Putting It Together: A Frame's Life Story
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#611-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.11 Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1170,13 +1458,381 @@
 <li><a href="../05-physical-layer/">Chapter 5: The Physical Layer</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Sharing the dance floor</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Buzz the bee waving welcome">
+Welcome back. Inside the hive, only one forager performs at a time on the dance floor; the others watch and wait. If two danced at once, no one could read the directions. <em>Let's trace the route!</em> This chapter is about how computers — many of them sharing the same wire or radio channel — take turns, frame their messages, catch errors, and recover from collisions. It's the social protocol of the link.</p>
+</div>
+<h2 id="61-what-the-link-layer-adds">6.1 What the Link Layer Adds<a class="headerlink" href="#61-what-the-link-layer-adds" title="Permanent link">&para;</a></h2>
+<p>Chapter 5 ended with a noisy, finite-bandwidth channel that delivers raw bits with some bit error rate. The <strong>link layer</strong> sits directly on top, and its job is to turn that lumpy bit-pipe into something useful for the network layer above. Three responsibilities define the link layer:</p>
+<ul>
+<li><strong>Framing</strong> — group bits into discrete units (frames) with clear boundaries.</li>
+<li><strong>Error detection and recovery</strong> — find bits that arrived corrupted and either fix them or arrange a retransmission.</li>
+<li><strong>Media access control</strong> — decide which device gets to transmit when many share the same medium.</li>
+</ul>
+<p>The first two are present on every link, even point-to-point fiber connections. The third is present whenever more than two devices share a medium — Ethernet hubs, Wi-Fi networks, satellite uplinks, and the bus topologies that started LAN networking. Together, the three functions transform a noisy bit channel into a service that delivers labeled, error-checked frames between immediate neighbors.</p>
+<p>This chapter develops each of the three responsibilities in turn, finishing with a comparison of the classic media-access protocols. Chapter 7 then specializes the link-layer story to Ethernet and switched LANs, and Chapter 8 specializes it to wireless.</p>
+<h2 id="62-framing-where-does-one-message-end-and-the-next-begin">6.2 Framing: Where Does One Message End and the Next Begin?<a class="headerlink" href="#62-framing-where-does-one-message-end-and-the-next-begin" title="Permanent link">&para;</a></h2>
+<p>The physical layer hands the link layer a continuous stream of bits with no inherent structure. <strong>Framing</strong> is the link layer's first job: marking where one frame starts and the next begins, so the receiver can pull discrete units out of the bit stream. Framing has to handle two cases — the start of a transmission after silence, and the boundary between back-to-back frames — and it must work even when the contents of the frame happen to look like a frame boundary.</p>
+<p>The most common framing approaches are:</p>
+<ul>
+<li><strong>Length-prefix framing</strong> — the frame begins with a fixed-size length field saying how many bytes follow. The receiver reads the length, then reads exactly that many bytes. Simple and efficient, but vulnerable to a corrupted length field, which can desynchronize the receiver until the connection is reset.</li>
+<li><strong>Delimiter framing</strong> — a special bit pattern marks the start and/or end of every frame. Ethernet, HDLC, and PPP all use a flag pattern (<code>01111110</code> for HDLC, a longer preamble plus <code>10101011</code> start-of-frame delimiter for Ethernet). Easy to resynchronize after a glitch — the receiver just hunts for the next delimiter.</li>
+<li><strong>Idle gap framing</strong> — the medium goes silent between frames. Used in protocols where the underlying channel naturally pauses, including some wireless variants.</li>
+</ul>
+<p>Delimiter framing leads to a problem: what if the user data happens to contain the delimiter pattern? The link layer must transform user data so that the delimiter cannot appear by accident inside a frame. Two transformations solve this.</p>
+<p><strong>Byte stuffing</strong> is used when the link operates on bytes. The transmitter scans outgoing data and, whenever it encounters the delimiter byte (or a designated escape byte), inserts an escape byte before it. The receiver scans incoming data and removes the escape byte, recovering the original. PPP uses byte stuffing with <code>0x7E</code> as the flag and <code>0x7D</code> as the escape byte; on transmission, every <code>0x7E</code> in the data becomes <code>0x7D 0x5E</code>, and every <code>0x7D</code> becomes <code>0x7D 0x5D</code>.</p>
+<p><strong>Bit stuffing</strong> is used when the link operates at the bit level. HDLC's flag byte is <code>01111110</code>, which is six 1-bits in a row. To prevent this pattern from appearing in user data, the transmitter inserts a 0 bit after every five consecutive 1 bits in the payload. The receiver removes any 0 bit that follows five consecutive 1s. The result is that the flag pattern can never appear in payload — only as a deliberate frame boundary.</p>
+<table>
+<thead>
+<tr>
+<th>Technique</th>
+<th>Operates on</th>
+<th>Example</th>
+<th>What it inserts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Byte stuffing</td>
+<td>Bytes</td>
+<td>PPP</td>
+<td>An escape byte before any byte that matches a special value</td>
+</tr>
+<tr>
+<td>Bit stuffing</td>
+<td>Bits</td>
+<td>HDLC</td>
+<td>A 0 bit after every five consecutive 1 bits in the payload</td>
+</tr>
+<tr>
+<td>Length prefix</td>
+<td>Bytes</td>
+<td>Ethernet (length variant), TLS records</td>
+<td>No insertion — count bytes literally</td>
+</tr>
+</tbody>
+</table>
+<p>Modern Ethernet sidesteps the stuffing problem entirely by using a fixed preamble plus a frame-length-from-context approach: the receiver stops reading at the end of the carrier signal. Bit and byte stuffing remain in PPP, HDLC, USB, and many specialized protocols.</p>
+<h2 id="63-error-detection-was-the-frame-damaged-in-flight">6.3 Error Detection: Was the Frame Damaged in Flight?<a class="headerlink" href="#63-error-detection-was-the-frame-damaged-in-flight" title="Permanent link">&para;</a></h2>
+<p>Even on a low-BER medium, occasional bit errors slip through. The link layer must detect them so that it can either fix the frame or discard it. Three error-detection schemes are essential, and each is a trade-off between strength and cost.</p>
+<p><strong>Parity check</strong> is the simplest. The transmitter computes one parity bit — the XOR of all the data bits — and appends it to the frame. The receiver recomputes the parity from the received data and compares. A single-bit error flips the parity bit's expected value and is detected; an even number of bit errors cancels out and is not detected. Parity is cheap (one bit of overhead) but weak (catches only odd-bit-count errors). Parity is rarely used alone in modern networks; it shows up inside RAM systems and as part of stronger codes.</p>
+<p>A <strong>checksum</strong> treats the data as a sequence of fixed-size words (often 16 bits) and computes their sum, with various schemes for carrying overflow back into the result. The Internet checksum, defined in RFC 1071, is a 16-bit one's-complement sum used by IP, TCP, and UDP. Checksums are stronger than parity — they catch all single-bit errors and most multi-bit errors — and they are cheap enough to compute in software at line rate. Their main weakness is that certain rearrangements of data (a swap of two equal words) leave the checksum unchanged.</p>
+<p>A <strong>cyclic redundancy check (CRC)</strong> treats the data as a polynomial over GF(2), divides it by a fixed generator polynomial, and uses the remainder as the error-detection code. CRCs are computationally heavier than checksums but vastly stronger. A CRC-32, used by Ethernet, catches all errors of up to 32 bits in length, all odd numbers of bit errors, and (for a well-chosen polynomial) the overwhelming majority of longer error bursts. CRC-32 is computed efficiently in hardware via shift registers, which is why Ethernet, Wi-Fi, USB, and Bluetooth all use CRCs at the link layer.</p>
+<p>The three schemes form a clear hierarchy: parity is weakest, CRC is strongest, and checksum sits in between. The choice depends on where the code is computed (hardware can afford CRC; software-only might prefer checksum) and on the medium's BER (higher-BER media justify stronger codes).</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Bits of overhead (typical)</th>
+<th>Strength</th>
+<th>Computation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Parity</td>
+<td>1</td>
+<td>Catches odd-bit errors only</td>
+<td>Trivial</td>
+</tr>
+<tr>
+<td>Internet checksum</td>
+<td>16</td>
+<td>Catches single and most multi-bit errors</td>
+<td>Fast software</td>
+</tr>
+<tr>
+<td>CRC-32</td>
+<td>32</td>
+<td>Catches all errors up to 32 bits, plus most bursts</td>
+<td>Fast hardware</td>
+</tr>
+</tbody>
+</table>
+<h4 id="diagram-error-detection-in-action">Diagram: Error Detection in Action<a class="headerlink" href="#diagram-error-detection-in-action" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Interactive demonstration of parity, checksum, and CRC catching different error patterns</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> error-detection-comparison<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Build an interactive MicroSim that lets students inject bit errors into a frame and watch which of three error-detection codes catch them.</p>
+<p>Canvas: 920 px wide by 580 px tall, responsive down to 360 px. A 120 px control panel sits below.</p>
+<p>Layout:</p>
+<ul>
+<li>A frame display at the top: 32 bits of data shown as a row of small squares, one bit per square, with a small label above each indicating its bit position.</li>
+<li>Three trailing fields shown to the right of the frame:</li>
+<li>1-bit parity (computed from the data).</li>
+<li>16-bit Internet checksum (computed from the data).</li>
+<li>32-bit CRC-32 (computed from the data using polynomial <code>0xEDB88320</code>).</li>
+<li>Below the frame, a "received" copy initially identical to the sent frame.</li>
+</ul>
+<p>Interactivity:</p>
+<ul>
+<li>Clicking any bit in the received copy flips it (toggles 0/1). The display recomputes the receiver's parity, checksum, and CRC values.</li>
+<li>Each of the three checks shows a green "OK" or red "FAIL" indicator depending on whether the recomputed value matches the original.</li>
+<li>"Inject N random errors" buttons (1, 2, 4, 8 errors) flip random bits and update the indicators.</li>
+<li>"Burst error" toggle: flip a contiguous block of bits.</li>
+<li>A counter tracks how many of the test cases each code caught.</li>
+</ul>
+<p>Visual style:</p>
+<ul>
+<li>Sent frame in honey amber.</li>
+<li>Received frame in slate.</li>
+<li>Flipped bits highlighted in red.</li>
+<li>Pass/fail indicators in green/red.</li>
+</ul>
+<p>Learning objectives:</p>
+<ul>
+<li>(Bloom — Understanding) Students explain why parity catches only odd-bit-count errors.</li>
+<li>(Bloom — Analyzing) Students decompose an error pattern into the contributions caught by each code.</li>
+<li>(Bloom — Evaluating) Students judge which error-detection code is strong enough for a given application.</li>
+</ul>
+<p>Implement in pure p5.js using the existing MicroSim CSS theme.</p>
+</details>
+<h2 id="64-forward-error-correction-repair-without-retransmission">6.4 Forward Error Correction: Repair Without Retransmission<a class="headerlink" href="#64-forward-error-correction-repair-without-retransmission" title="Permanent link">&para;</a></h2>
+<p>Detection alone is not enough when the cost of asking for a retransmission is high. <strong>Forward error correction (FEC)</strong> adds enough redundancy to the transmitted bits that the receiver can not only detect but <em>correct</em> a bounded number of errors without contacting the sender. FEC is essential on any link with high latency (satellite links: a single round-trip retransmission costs hundreds of milliseconds), high BER (wireless: errors are common), or no return channel at all (one-way broadcast systems).</p>
+<p>FEC schemes vary widely in strength and complexity:</p>
+<ul>
+<li><strong>Hamming codes</strong> add a few parity bits in clever positions and can correct any single-bit error in a code word. Used in RAM error correction and a few short-message protocols.</li>
+<li><strong>Reed-Solomon codes</strong> treat the data as polynomials over a finite field and can correct burst errors up to a known size. Used in CDs, DVDs, QR codes, and many satellite links.</li>
+<li><strong>LDPC and turbo codes</strong> approach Shannon's bound for capacity within a small fraction of a dB. Used in modern Wi-Fi, 4G/5G cellular, and satellite networks.</li>
+</ul>
+<p>Every FEC scheme costs bandwidth — the redundancy bits take up space that could have carried payload. The <strong>rate</strong> of a code is the ratio of payload bits to total transmitted bits. A rate-1/2 code transmits two bits for every one bit of useful data. Higher-rate codes (closer to 1) leave less room for correction; lower-rate codes (closer to 0) correct more errors but waste more bandwidth. Modern protocols often pick the rate adaptively based on observed channel conditions.</p>
+<p>FEC and detection coexist. A typical wireless link uses FEC at the physical layer to repair most errors, then a CRC at the link layer to catch the rare uncorrected ones, then ARQ to retransmit any frame whose CRC fails. The combination delivers near-zero residual error rate while keeping retransmissions rare.</p>
+<h2 id="65-automatic-repeat-request-detect-and-retransmit">6.5 Automatic Repeat Request: Detect and Retransmit<a class="headerlink" href="#65-automatic-repeat-request-detect-and-retransmit" title="Permanent link">&para;</a></h2>
+<p>When a frame fails its error check, the receiver discards it. Recovery happens through <strong>Automatic Repeat Request (ARQ)</strong> — a family of protocols in which the receiver acknowledges good frames and the sender retransmits any frame whose acknowledgment fails to arrive within a timeout. Three ARQ variants dominate the literature, and each makes a different throughput-vs-complexity trade-off.</p>
+<p>The simplest is <strong>stop-and-wait</strong>. The sender transmits one frame, then waits for an acknowledgment (ACK) before sending the next. If no ACK arrives within a timeout, the sender retransmits. Stop-and-wait is trivial to implement and impossible to overflow the receiver. Its weakness is that the sender is idle for one round-trip time after every frame, regardless of bandwidth — exactly the inefficiency the bandwidth-delay product (Chapter 4) warned about. On a long-haul link, stop-and-wait wastes 99% of the available capacity.</p>
+<p>A <strong>sliding window</strong> protocol fixes the stop-and-wait inefficiency by allowing the sender to have multiple frames outstanding at once. The sender maintains a <em>window</em> of frames it has transmitted but not yet had acknowledged; as ACKs arrive, the window slides forward and new frames can be sent. The window size determines how many frames can be in flight: a window of W frames can fully utilize a link as long as ( W \times \text{frame size} \ge \text{BDP} ).</p>
+<p>Sliding window leaves one design question open: what should the sender do when one frame in the window is lost? Two answers exist.</p>
+<p><strong>Go-Back-N</strong> retransmits the lost frame <em>and every frame sent after it</em> — even those that arrived correctly. The receiver discards anything received out of order. Go-Back-N is simple (the receiver tracks only the next expected sequence number) but wasteful on high-BER links: a single error triggers many retransmissions.</p>
+<p><strong>Selective repeat</strong> retransmits <em>only</em> the lost frame. The receiver buffers out-of-order arrivals and delivers them to the upper layer when the missing frame finally arrives. Selective repeat requires more state on the receiver but uses bandwidth more efficiently. Modern reliable protocols (TCP with selective acknowledgments, link-layer ARQ in cellular networks) almost always use selective repeat.</p>
+<table>
+<thead>
+<tr>
+<th>Protocol</th>
+<th>Sender state</th>
+<th>Receiver state</th>
+<th>Bandwidth efficiency on lossy link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stop-and-Wait</td>
+<td>One outstanding frame</td>
+<td>One expected sequence</td>
+<td>Poor — one frame per RTT</td>
+</tr>
+<tr>
+<td>Sliding Window (Go-Back-N)</td>
+<td>Window of N</td>
+<td>Next expected sequence</td>
+<td>Good when BER low; poor when BER high</td>
+</tr>
+<tr>
+<td>Sliding Window (Selective Repeat)</td>
+<td>Window of N</td>
+<td>Buffer of out-of-order frames</td>
+<td>Best on lossy links</td>
+</tr>
+</tbody>
+</table>
+<h4 id="diagram-sliding-window-animation">Diagram: Sliding Window Animation<a class="headerlink" href="#diagram-sliding-window-animation" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Animated comparison of stop-and-wait, Go-Back-N, and selective repeat under packet loss</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> arq-protocols-comparison<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Build an interactive MicroSim that animates three ARQ protocols side by side, sending the same sequence of frames over a lossy link, so students can compare bandwidth efficiency.</p>
+<p>Canvas: 940 px wide by 620 px tall, responsive down to 360 px. A 120 px control panel sits below.</p>
+<p>Layout:</p>
+<ul>
+<li>Three vertical lanes side by side, each ~300 px wide.</li>
+<li>Left lane: Stop-and-Wait.</li>
+<li>Middle lane: Go-Back-N (with configurable window size).</li>
+<li>Right lane: Selective Repeat (with configurable window size).</li>
+<li>Each lane shows a sender on the left, a receiver on the right, and a horizontal time axis flowing downward.</li>
+<li>Frames are drawn as colored arrows from sender to receiver; ACKs as arrows from receiver to sender.</li>
+<li>Lost frames are crossed out in red; retransmissions are drawn in a darker shade of the original color.</li>
+</ul>
+<p>Animation:</p>
+<ul>
+<li>Each lane processes the same input: 10 frames numbered 0-9.</li>
+<li>A "loss profile" controls which frames are dropped: e.g., frame 3 lost, all others delivered.</li>
+<li>Time runs simultaneously across the three lanes so students can directly compare elapsed time to deliver all frames.</li>
+<li>A real-time counter in each lane shows total time, retransmissions used, and effective throughput.</li>
+</ul>
+<p>Controls panel:</p>
+<ul>
+<li>Sliders: window size (for Go-Back-N and Selective Repeat, 1–8), loss profile (predefined set of patterns or random with a probability slider), RTT (10–500 ms).</li>
+<li>Buttons: Step / Play / Reset.</li>
+<li>Toggle: "Stress test" — runs many random loss patterns and plots a histogram of completion times across the three protocols.</li>
+</ul>
+<p>Visual style:</p>
+<ul>
+<li>Frames in honey amber; retransmissions in deeper amber; lost frames crossed out in red.</li>
+<li>ACKs in slate.</li>
+<li>Sender / receiver as rounded rectangles.</li>
+</ul>
+<p>Learning objectives:</p>
+<ul>
+<li>(Bloom — Understanding) Students explain how each ARQ variant handles a lost frame.</li>
+<li>(Bloom — Analyzing) Students compare the bandwidth and time costs of Go-Back-N vs. selective repeat under varying loss rates.</li>
+<li>(Bloom — Evaluating) Students choose an ARQ variant for a deployment based on RTT, BER, and receiver-buffer constraints.</li>
+</ul>
+<p>Implement in pure p5.js with the existing MicroSim CSS theme.</p>
+</details>
+<h2 id="66-media-access-control-sharing-the-wire">6.6 Media Access Control: Sharing the Wire<a class="headerlink" href="#66-media-access-control-sharing-the-wire" title="Permanent link">&para;</a></h2>
+<p>Framing, error detection, and ARQ all assume that the sender has the channel to itself. On a point-to-point link (a single fiber from one end to the other) that is true. On a shared medium — a bus, a coaxial Ethernet segment, a wireless channel — it is not. <strong>Media access control (MAC)</strong> is the link layer's third major responsibility: arbitrating which device transmits when many devices share one medium.</p>
+<p>The basic problem is collisions. If two devices transmit simultaneously, their signals overlap and neither is correctly received. The MAC protocol's job is to make collisions either impossible (by scheduling) or rare (by listening before transmitting). Three families of MAC protocol have shaped networking history: random access, carrier-sensing, and reservation-based.</p>
+<h2 id="67-random-access-aloha">6.7 Random Access: ALOHA<a class="headerlink" href="#67-random-access-aloha" title="Permanent link">&para;</a></h2>
+<p>The original random-access protocol, <strong>ALOHA</strong>, was developed in 1971 to network the University of Hawaii's campuses across a packet radio system. Pure ALOHA's rule is breathtakingly simple: <em>send whenever you want; if you don't receive an ACK within a timeout, wait a random interval and retransmit.</em> No coordination, no listening, no agreed-upon time slots.</p>
+<p>Pure ALOHA is wasteful — even at low loads, the chance that two transmissions overlap is significant. Mathematical analysis shows that pure ALOHA's maximum throughput is only (1/(2e) \approx 18.4\%) of the channel capacity. Slotted ALOHA, a refinement, divides time into discrete slots and requires devices to begin transmissions only at slot boundaries. This halves the collision window and doubles the throughput to (1/e \approx 36.8\%). Both numbers are bad by modern standards, but ALOHA's simplicity and the absence of any centralized scheduling made it the foundation for everything that followed.</p>
+<p>ALOHA's intellectual descendants are everywhere: Ethernet's CSMA/CD, Wi-Fi's CSMA/CA, and the random-access channels in cellular protocols all build on the random-access idea. The pure-ALOHA throughput numbers are the baseline that every later protocol improves upon by adding a single ingredient: listening.</p>
+<h2 id="68-carrier-sense-multiple-access-csma-and-its-variants">6.8 Carrier-Sense Multiple Access (CSMA) and Its Variants<a class="headerlink" href="#68-carrier-sense-multiple-access-csma-and-its-variants" title="Permanent link">&para;</a></h2>
+<p><strong>Carrier-sense multiple access (CSMA)</strong> improves on ALOHA by requiring devices to listen for an existing transmission before sending. If the channel is busy, the device defers; if it is idle, the device transmits. Listening before sending dramatically reduces collisions: collisions happen only when two devices both observe an idle channel and begin transmitting at almost the same instant, before each detects the other's signal. The window of vulnerability shrinks from one full frame transmission (in ALOHA) to roughly one propagation delay (in CSMA).</p>
+<p>Pure CSMA still suffers from collisions when the propagation delay is large relative to the frame transmission time. Two refinements address what to do <em>during</em> and <em>after</em> a collision.</p>
+<p><strong>CSMA/CD (CSMA with Collision Detection)</strong> is the algorithm used by classic shared-medium Ethernet (10BASE-2, 10BASE-5, 10BASE-T on hubs). After a device begins transmitting, it continues to listen on the same wire. If it hears its own transmission garbled by another's, a collision has occurred; the device aborts the transmission, sends a brief "jam" signal so all other devices also notice, and waits a random interval — chosen by <strong>binary exponential backoff</strong> — before trying again. After the n-th consecutive collision the device picks a random number from ([0, 2^n - 1]) slot times to wait, doubling the maximum wait each time, up to a cap. Binary exponential backoff means lightly-loaded networks recover quickly while heavily-loaded networks gracefully throttle themselves.</p>
+<p>CSMA/CD requires the medium to allow the sender to detect collisions while transmitting. Wired Ethernet on a shared bus permits this. Wireless does not — at radio frequencies, a transmitter cannot reliably listen to the same channel it is using because its own signal swamps everyone else's. Wireless networks therefore use a different variant.</p>
+<p><strong>CSMA/CA (CSMA with Collision Avoidance)</strong> is the Wi-Fi family's MAC protocol. Instead of detecting collisions during transmission, CSMA/CA tries to <em>avoid</em> them in advance: it adds an interframe gap, an explicit positive acknowledgment for every successful frame, and a random backoff <em>before</em> every transmission (not just after collisions). An optional RTS/CTS handshake further reduces collisions in dense networks by reserving the channel before sending data. CSMA/CA is more conservative than CSMA/CD — it serializes more carefully and uses more overhead per frame — but it works on a medium where collision detection is impossible.</p>
+<table>
+<thead>
+<tr>
+<th>Protocol</th>
+<th>Listen before?</th>
+<th>Detect collisions?</th>
+<th>Used by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pure ALOHA</td>
+<td>No</td>
+<td>After-the-fact (timeout)</td>
+<td>Early packet radio</td>
+</tr>
+<tr>
+<td>Slotted ALOHA</td>
+<td>No (slotted timing)</td>
+<td>After-the-fact</td>
+<td>RFID, sensor networks</td>
+</tr>
+<tr>
+<td>CSMA</td>
+<td>Yes</td>
+<td>After-the-fact</td>
+<td>Building block, rarely deployed alone</td>
+</tr>
+<tr>
+<td>CSMA/CD</td>
+<td>Yes</td>
+<td>During transmission</td>
+<td>Classic shared Ethernet</td>
+</tr>
+<tr>
+<td>CSMA/CA</td>
+<td>Yes</td>
+<td>Avoid via ACK + backoff</td>
+<td>Wi-Fi (802.11)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="69-reservation-based-access-token-passing">6.9 Reservation-Based Access: Token Passing<a class="headerlink" href="#69-reservation-based-access-token-passing" title="Permanent link">&para;</a></h2>
+<p>A different family of MAC protocols eliminates collisions entirely by <em>scheduling</em> who transmits. <strong>Token passing</strong> designates one device at a time as the holder of a special control message — the <strong>token</strong>. Only the token holder may transmit; when it has nothing more to send, it passes the token to the next device. With only one transmitter at a time, collisions are impossible.</p>
+<p>Two classical token-passing networks are worth knowing. <strong>Token Ring (IEEE 802.5)</strong> arranged devices in a logical ring; the token circulated around the ring, and each device held it briefly to transmit before forwarding it to the next. <strong>Fiber Distributed Data Interface (FDDI)</strong> used a similar approach over fiber-optic media at 100 Mbps and was popular in 1990s campus backbones. Both networks delivered predictable, deterministic access time — a property that real-time and industrial applications still value.</p>
+<p>Token passing has two big problems in practice. First, the token can be lost (if the holding device crashes), requiring a complex recovery protocol. Second, a device must wait for the token even when no one else wants to transmit, which is wasted time. CSMA/CD and CSMA/CA dominate today partly because their statistical multiplexing is more efficient under bursty workloads. Token passing survives in industrial protocols (PROFIBUS, EtherCAT) and a handful of specialized systems where determinism trumps efficiency.</p>
+<h4 id="diagram-mac-protocol-comparison">Diagram: MAC Protocol Comparison<a class="headerlink" href="#diagram-mac-protocol-comparison" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Animation comparing ALOHA, CSMA/CD, CSMA/CA, and Token Passing on the same shared medium</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> mac-protocols-comparison<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Build an interactive MicroSim that animates four MAC protocols on a single shared medium with several competing devices, so students can compare collision rates, fairness, and efficiency.</p>
+<p>Canvas: 960 px wide by 600 px tall, responsive down to 360 px. A 120 px control panel sits below.</p>
+<p>Layout:</p>
+<ul>
+<li>A long horizontal "shared medium" rectangle in the middle of the canvas, with 5 devices attached above and below.</li>
+<li>Four protocol modes selectable by tabs at the top: Pure ALOHA / CSMA/CD / CSMA/CA / Token Passing.</li>
+<li>A timeline at the bottom shows transmissions per device color-coded by success (green), collision (red), or backoff/wait (gray).</li>
+</ul>
+<p>Animation per mode:</p>
+<ul>
+<li>Pure ALOHA: devices transmit at random times regardless of channel state; collisions are common.</li>
+<li>CSMA/CD: devices sense the channel before transmitting; collisions detected mid-frame, jam pulse, exponential backoff visualized.</li>
+<li>CSMA/CA: devices wait an interframe gap, perform random backoff before transmitting; explicit ACK after each frame.</li>
+<li>Token Passing: a token icon visibly circulates among devices; only the token holder may transmit.</li>
+</ul>
+<p>Controls panel:</p>
+<ul>
+<li>Sliders: number of devices (2–8), per-device offered load (low / medium / high), propagation delay (small / large).</li>
+<li>Buttons: Play / Pause / Reset.</li>
+<li>Live readouts: throughput, collision rate, fairness index across devices.</li>
+<li>"Compare side by side" mode: splits the canvas into a 2×2 grid running all four protocols simultaneously on the same workload.</li>
+</ul>
+<p>Visual style:</p>
+<ul>
+<li>Devices as honey-amber rounded rectangles.</li>
+<li>Successful transmissions: green.</li>
+<li>Collisions: red bursts.</li>
+<li>Backoff / wait: dim gray.</li>
+<li>Token: a glowing circle that visibly moves between devices.</li>
+</ul>
+<p>Learning objectives:</p>
+<ul>
+<li>(Bloom — Understanding) Students explain why CSMA/CD reduces collisions compared to ALOHA, and why CSMA/CA further sacrifices efficiency for predictability on wireless.</li>
+<li>(Bloom — Analyzing) Students compare throughput, fairness, and worst-case access time across the four protocols.</li>
+<li>(Bloom — Evaluating) Students judge which MAC protocol fits a deployment based on medium type, device count, and load.</li>
+</ul>
+<p>Implement in pure p5.js with the existing MicroSim CSS theme.</p>
+</details>
+<h2 id="610-putting-it-together-a-frames-life-story">6.10 Putting It Together: A Frame's Life Story<a class="headerlink" href="#610-putting-it-together-a-frames-life-story" title="Permanent link">&para;</a></h2>
+<p>Imagine a Wi-Fi laptop sending an HTTP request to a web server. The frame's journey across a single 802.11 link involves every concept in this chapter:</p>
+<ol>
+<li><strong>Framing.</strong> The 802.11 MAC builds a frame: preamble, MAC header, payload (which contains the IP packet), and a CRC-32 trailer. The frame's start and end are unambiguously marked by the preamble and frame length.</li>
+<li><strong>MAC protocol.</strong> Before transmitting, the laptop's radio uses CSMA/CA: it senses the channel, waits an interframe gap, performs a random backoff, and only then transmits.</li>
+<li><strong>Forward error correction.</strong> The physical layer adds an LDPC code that lets the receiver repair a few bit errors without retransmission.</li>
+<li><strong>Error detection.</strong> The CRC-32 in the frame trailer catches any residual errors after FEC.</li>
+<li><strong>ARQ.</strong> If the access point successfully receives and decodes the frame, it sends a positive ACK. If no ACK arrives at the laptop within a timeout, the laptop retransmits — selective repeat at the link layer.</li>
+<li><strong>Hand-off to the network layer.</strong> The access point strips the 802.11 header and trailer, examines the IP packet inside, and forwards it across the wired backbone to the next router.</li>
+</ol>
+<p>The same conceptual journey happens on every link the packet crosses, with different specifics — Ethernet uses CSMA/CD on classic shared media (or has no MAC contention at all on switched links), fiber backbones use no MAC protocol because they are point-to-point, satellite uplinks may use slotted ALOHA on the random-access channel and TDMA on the data channel. The link layer's universal vocabulary — framing, error detection, ARQ, MAC — applies everywhere; the specifics are negotiated per link technology.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Why do we trust frames at all?</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Buzz thinking carefully">
+The link layer's job is to make the bit pipe look reliable enough for the network layer to ignore most errors. A combination of FEC, CRC, ARQ, and careful MAC reduces the residual frame error rate by orders of magnitude. By the time a frame reaches the network layer, it has typically survived multiple checks. The Internet's success rests partly on the link layer doing this dirty work invisibly, link by link.</p>
+</div>
+<h2 id="611-key-takeaways">6.11 Key Takeaways<a class="headerlink" href="#611-key-takeaways" title="Permanent link">&para;</a></h2>
+<p>The link layer is the first layer where the abstractions of networking start to feel concrete. Before moving on, make sure you can answer the following without looking back:</p>
+<ul>
+<li>What three jobs does the link layer do that the physical layer below it cannot?</li>
+<li>What is framing? What problem do bit stuffing and byte stuffing solve?</li>
+<li>Compare parity, checksum, and CRC for error detection. Which is strongest? Which is cheapest?</li>
+<li>What is forward error correction? When is FEC essential vs. optional?</li>
+<li>What is ARQ? Compare stop-and-wait, Go-Back-N, and selective repeat in throughput efficiency on a lossy link.</li>
+<li>Why must the sender's sliding window be at least as large as the bandwidth-delay product?</li>
+<li>What is media access control, and when is it necessary?</li>
+<li>Compare ALOHA, CSMA/CD, CSMA/CA, and token passing on collision behavior, throughput, and fairness.</li>
+<li>Why does Wi-Fi use CSMA/CA instead of CSMA/CD?</li>
+<li>What is binary exponential backoff, and why is it a good fit for shared-medium networks?</li>
+</ul>
+<p>If any of those answers feel shaky, re-read the corresponding section before continuing to Chapter 7, where we specialize the link layer to Ethernet and to the switched LANs that make up nearly every modern wired network — including the Spanning Tree Protocol, VLANs, and the broadcast domains that bind it all together.</p>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">One link, fully understood</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Buzz celebrating">
+You can now read a single link end-to-end: the medium, the MAC, the framing, the error checks, the retransmissions. The next chapter zooms out to a <em>network</em> of links, where switches and VLANs replace the shared bus. <em>Follow the packet.</em></p>
+</div>
 
 
 
 
 
 
+
+  
+  
 
 
 
