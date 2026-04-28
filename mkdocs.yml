@@ -72,6 +72,7 @@ markdown_extensions:
 # Custom CSS
 extra_css:
   - css/extra.css
+  - css/mascot.css
 
 # Extra
 extra:
@@ -94,6 +95,7 @@ nav:
     - Graph Quality Analysis: learning-graph/quality-metrics.md
     - Concept Taxonomy: learning-graph/concept-taxonomy.md
     - Taxonomy Distribution Report: learning-graph/taxonomy-distribution.md
+    - Mascot Style Guide: learning-graph/mascot-test.md
   - MicroSims:
     - Learning Graph Viewer: sims/graph-viewer/index.md
   - Glossary: glossary.md
