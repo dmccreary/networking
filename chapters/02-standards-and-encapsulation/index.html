@@ -1,0 +1,1904 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="The standards bodies that govern interoperability (IETF, IEEE, ISO, ICANN) and the universal vocabulary of bits, bytes, frames, packets, segments, datagrams, headers, payloads, and trailers, with a careful walkthrough of encapsulation and decapsulation.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/networking/chapters/02-standards-and-encapsulation/">
+      
+      
+        <link rel="prev" href="../01-intro-to-networks/">
+      
+      
+        <link rel="next" href="../03-architecture-and-layering/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+    
+    
+      
+        <title>Standards, Data Units, and Encapsulation - Networking and Communication</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2afb09e1.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-2-standards-data-units-and-encapsulation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Networking and Communication" class="md-header__button md-logo" aria-label="Networking and Communication" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Networking and Communication
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Standards, Data Units, and Encapsulation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/networking" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Networking and Communication" class="md-nav__button md-logo" aria-label="Networking and Communication" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Networking and Communication
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/networking" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Course Description
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Chapters
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-intro-to-networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Introduction to Networks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    2. Standards and Encapsulation
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Standards and Encapsulation
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-what-is-a-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 What Is a Protocol?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-standards-and-why-they-exist" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Standards and Why They Exist
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-the-ietf-and-the-rfc-document" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 The IETF and the RFC Document
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-the-ieee-and-hardware-level-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 The IEEE and Hardware-Level Standards
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25-iso-and-the-reference-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 ISO and the Reference Models
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26-icann-and-the-internets-unique-identifiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6 ICANN and the Internet's Unique Identifiers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.6 ICANN and the Internet&#39;s Unique Identifiers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-standards-bodies-and-what-they-govern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Standards Bodies and What They Govern
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#27-the-vocabulary-of-data-bits-and-bytes" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7 The Vocabulary of Data: Bits and Bytes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#28-data-units-at-each-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.8 Data Units at Each Layer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#29-headers-payloads-and-trailers" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.9 Headers, Payloads, and Trailers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#210-encapsulation-how-layers-stack-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.10 Encapsulation: How Layers Stack Data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.10 Encapsulation: How Layers Stack Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-encapsulation-walkthrough" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Encapsulation Walkthrough
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-the-nesting-envelope-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: The Nesting Envelope Model
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#211-putting-it-together-reading-a-frame" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.11 Putting It Together: Reading a Frame
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#212-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.12 Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-architecture-and-layering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Architecture and Layering
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-performance-and-qos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Performance and QoS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-physical-layer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5. The Physical Layer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-link-layer-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6. Link Layer Fundamentals
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-ethernet-and-vlans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7. Ethernet and VLANs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-wireless-and-mobility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8. Wireless and Mobility
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-network-layer-and-ip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    9. Network Layer and IP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-routing-and-forwarding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    10. Routing and Forwarding
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-transport-layer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    11. The Transport Layer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-network-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    12. Network Security
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-application-layer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    13. Application Layer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-network-programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14. Network Programming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-network-operations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    15. Network Operations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-sdn-emerging-and-capstones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    16. SDN, Emerging, and Capstones
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Learning Graph
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/graph-viewer/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    MicroSims
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Glossary
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    References
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    License
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contact
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-what-is-a-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 What Is a Protocol?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-standards-and-why-they-exist" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Standards and Why They Exist
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-the-ietf-and-the-rfc-document" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 The IETF and the RFC Document
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-the-ieee-and-hardware-level-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 The IEEE and Hardware-Level Standards
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25-iso-and-the-reference-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 ISO and the Reference Models
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26-icann-and-the-internets-unique-identifiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6 ICANN and the Internet's Unique Identifiers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.6 ICANN and the Internet&#39;s Unique Identifiers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-standards-bodies-and-what-they-govern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Standards Bodies and What They Govern
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#27-the-vocabulary-of-data-bits-and-bytes" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7 The Vocabulary of Data: Bits and Bytes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#28-data-units-at-each-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.8 Data Units at Each Layer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#29-headers-payloads-and-trailers" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.9 Headers, Payloads, and Trailers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#210-encapsulation-how-layers-stack-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.10 Encapsulation: How Layers Stack Data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.10 Encapsulation: How Layers Stack Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-encapsulation-walkthrough" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Encapsulation Walkthrough
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-the-nesting-envelope-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: The Nesting Envelope Model
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#211-putting-it-together-reading-a-frame" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.11 Putting It Together: Reading a Frame
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#212-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.12 Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/dmccreary/networking/blob/main/docs/chapters/02-standards-and-encapsulation/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="chapter-2-standards-data-units-and-encapsulation">Chapter 2: Standards, Data Units, and Encapsulation<a class="headerlink" href="#chapter-2-standards-data-units-and-encapsulation" title="Permanent link">&para;</a></h1>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>This chapter introduces the standards bodies that govern interoperability (IETF, IEEE, ISO, ICANN) and the universal vocabulary of bits, bytes, frames, packets, segments, datagrams, headers, payloads, and trailers. Students will see how encapsulation and decapsulation move data through a protocol stack. This chapter sets up the layered worldview that the rest of the book builds upon.</p>
+<h2 id="concepts-covered">Concepts Covered<a class="headerlink" href="#concepts-covered" title="Permanent link">&para;</a></h2>
+<p>This chapter covers the following 19 concepts from the learning graph:</p>
+<ol>
+<li>Protocol</li>
+<li>Standard</li>
+<li>RFC Document</li>
+<li>IEEE Standard</li>
+<li>IETF</li>
+<li>ISO</li>
+<li>ICANN</li>
+<li>Bit</li>
+<li>Byte</li>
+<li>Frame</li>
+<li>Packet</li>
+<li>Segment</li>
+<li>Datagram</li>
+<li>Message</li>
+<li>Header</li>
+<li>Payload</li>
+<li>Trailer</li>
+<li>Encapsulation</li>
+<li>Decapsulation</li>
+</ol>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<p>This chapter builds on concepts from:</p>
+<ul>
+<li><a href="../01-intro-to-networks/">Chapter 1: Introduction to Networks and Communication</a></li>
+</ul>
+<hr />
+<div class="admonition mascot-welcome">
+<p class="admonition-title">How bees agree on a dance</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Buzz the bee waving welcome">
+Hi again, I'm <strong>Buzz</strong>. A waggle dance only works because every forager in the hive interprets the wiggles the same way — direction, distance, quality. That's a <em>protocol</em>. Networks need the same kind of agreement, written down in documents anyone can read. <em>Let's trace the route!</em> This chapter teaches you the standards behind those agreements and the vocabulary every later chapter assumes.</p>
+</div>
+<h2 id="21-what-is-a-protocol">2.1 What Is a Protocol?<a class="headerlink" href="#21-what-is-a-protocol" title="Permanent link">&para;</a></h2>
+<p>Chapter 1 ended with three identifiers — MAC, IP, port — that locate where data should go. This chapter answers a different question: once data arrives, what do the bits <em>mean</em>? The answer is a <strong>protocol</strong> — a precise, agreed-upon set of rules that governs the format, ordering, and timing of messages exchanged between two or more network entities. Without a shared protocol, two devices on the same link can pass bits back and forth and learn nothing from each other; with one, the same bits become a request, a response, an acknowledgment, or an error. Protocols are the meaning layered on top of the medium.</p>
+<p>A protocol specifies three things at minimum. First, <strong>syntax</strong> — what bits go where, how long each field is, what values are valid. Second, <strong>semantics</strong> — what each field <em>means</em>, including how a receiver should react to it. Third, <strong>timing</strong> — when a message may be sent, how long the sender waits for a response, and what happens if the response never arrives. A protocol that pins all three down lets two independently written programs interoperate even though they were built by people who never met.</p>
+<p>Real networks rely on dozens of protocols working together. HTTP defines how a browser asks a web server for a page; TCP defines how the bytes of that request get delivered reliably; IP defines how each packet finds its way across the Internet; Ethernet defines how the bits travel across one specific link along the way. Each of these is a separate document, written by a separate working group, governing a separate concern — and that separation only works because of an even more fundamental agreement called a <strong>standard</strong>.</p>
+<h2 id="22-standards-and-why-they-exist">2.2 Standards and Why They Exist<a class="headerlink" href="#22-standards-and-why-they-exist" title="Permanent link">&para;</a></h2>
+<p>A <strong>standard</strong> is a published, formally-reviewed specification that any vendor or developer can implement to produce a compatible product. The crucial word is <em>published</em>. A protocol invented by one company and kept secret can still work, but only between systems that company controls. A protocol written down as a public standard becomes a contract: anyone can build hardware or software that conforms to it and expect their implementation to interoperate with everyone else's. The Internet works <em>because</em> its core protocols are open standards, free for anyone to read and implement without paying a license fee.</p>
+<p>Standards exist because the alternative — every vendor inventing its own incompatible variant — has been tried and produces small, brittle, expensive networks. The 1970s saw a flowering of proprietary networking systems: IBM's SNA, DEC's DECnet, Apple's AppleTalk, Novell's IPX/SPX. Each worked beautifully <em>within</em> its own ecosystem and miserably across ecosystems. The TCP/IP protocols won out partly because they were technically capable, and partly because they were free and openly documented from the start. By the 1990s the lesson was clear: in networking, openness compounds.</p>
+<p>Standards are written and maintained by <strong>standards bodies</strong> — organizations whose job is to convene experts, debate proposals, run trials, and publish the results. The next four sections introduce the four standards bodies that matter most for this textbook. We'll define each in prose first, then summarize them in a table.</p>
+<h2 id="23-the-ietf-and-the-rfc-document">2.3 The IETF and the RFC Document<a class="headerlink" href="#23-the-ietf-and-the-rfc-document" title="Permanent link">&para;</a></h2>
+<p>The <strong>Internet Engineering Task Force (IETF)</strong> is the standards body responsible for the core protocols of the Internet — IP, TCP, UDP, HTTP, TLS, DNS, BGP, and several hundred more. The IETF is unusual among standards bodies because it has no formal membership: anyone can join a working group, propose a draft, comment on a specification, or attend a meeting. Decisions are made by what the IETF calls "rough consensus and running code" — proposals that gather broad agreement among engineers and that have been demonstrated to work in practice.</p>
+<p>The IETF publishes its standards as <strong>RFC documents</strong> (Request for Comments). The name reflects the IETF's collaborative origins in the 1960s, when the earliest network designers circulated draft documents inviting discussion. Despite the tentative-sounding name, an RFC is the authoritative published form of an Internet standard once it has worked its way through the standards track. Each RFC has a number assigned in publication order — RFC 791 defines IPv4, RFC 793 defines TCP, RFC 8446 defines TLS 1.3, RFC 9114 defines HTTP/3. Once published, an RFC is never edited; if a standard needs changes, a new RFC is written that <em>obsoletes</em> or <em>updates</em> the old one, and the old one stays online forever as a historical record.</p>
+<p>Not every RFC is a standard. The IETF assigns each document a status: <em>Standards Track</em> documents progress through the stages Proposed Standard, Internet Standard, and (rarely) full Standard. <em>Informational</em> RFCs document existing practice without standardizing it. <em>Experimental</em> RFCs describe protocols being trialed. <em>Best Current Practice (BCP)</em> RFCs codify operational guidance. And every April 1, the IETF publishes humorous <em>April Fools' RFCs</em> that are not standards in any sense — RFC 1149, "A Standard for the Transmission of IP Datagrams on Avian Carriers," is a famous example. Knowing which kind of RFC you are reading prevents a great deal of confusion.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">Where to find an RFC</p>
+<p><img src="../../img/mascot/tip.png" class="mascot-admonition-img" alt="Buzz with a tip">
+Every RFC ever published is free at <code>https://www.rfc-editor.org/rfc/rfcNNNN</code>, where <code>NNNN</code> is the RFC number. When this textbook cites a protocol, the canonical RFC is the source of truth — not the Wikipedia article, not a vendor whitepaper. Get comfortable reading RFCs early. They are dense, but they are the document the engineers writing your operating system's network stack are reading too.</p>
+</div>
+<h2 id="24-the-ieee-and-hardware-level-standards">2.4 The IEEE and Hardware-Level Standards<a class="headerlink" href="#24-the-ieee-and-hardware-level-standards" title="Permanent link">&para;</a></h2>
+<p>The <strong>Institute of Electrical and Electronics Engineers (IEEE)</strong> is a global professional organization that publishes standards covering electrical engineering, computing, and communications. Its 802 series, maintained by the IEEE 802 LAN/MAN Standards Committee, defines the protocols that govern most local-area networks. An <strong>IEEE standard</strong> is a numbered document such as IEEE 802.3 (Ethernet), IEEE 802.11 (Wi-Fi), IEEE 802.1Q (VLAN tagging), or IEEE 802.1D (Spanning Tree Protocol).</p>
+<p>Where IETF standards mostly govern the network and transport layers and above, IEEE 802 standards govern the link and physical layers — the actual wires, radios, and frame formats that carry bits between neighbors. The split is no accident. The link layer is where the standard has to specify physical phenomena: voltage levels, pulse shapes, radio frequencies, modulation schemes, antenna requirements. The IEEE has the engineering culture for that work; the IETF has the engineering culture for higher-layer software protocols. The two organizations cooperate where their territories meet, and they generally stay out of each other's way.</p>
+<p>A practical detail: IEEE standards are <em>not</em> free in the same way RFCs are. A finished IEEE 802 standard typically costs several hundred dollars to download from the IEEE store. The IEEE has, since 2007, made many 802 standards freely available through a "Get IEEE 802" program after a six-month embargo, but the most current revisions are usually paywalled. This is one of several practical differences between the IETF model and the IEEE model.</p>
+<h2 id="25-iso-and-the-reference-models">2.5 ISO and the Reference Models<a class="headerlink" href="#25-iso-and-the-reference-models" title="Permanent link">&para;</a></h2>
+<p>The <strong>International Organization for Standardization (ISO)</strong> is a worldwide federation of national standards bodies. ISO publishes standards for everything from screw threads to medical devices to country codes; in networking, its most influential contribution is the <strong>OSI Reference Model</strong>, ISO 7498, published in 1984. The OSI model defines seven layers — Physical, Data Link, Network, Transport, Session, Presentation, Application — each with a clearly defined responsibility.</p>
+<p>The OSI <em>protocols</em> never won market adoption. Today's Internet runs on the simpler four-or-five-layer TCP/IP model, not on the seven-layer OSI stack. But the OSI <em>vocabulary</em> is everywhere. When network engineers casually refer to a "Layer 2 problem" or a "Layer 7 load balancer," they are using the OSI numbering even when the underlying protocols are TCP/IP. ISO 7498 is one of those rare standards whose conceptual contribution outlived its technical contribution. Chapter 3 develops the layered architecture in full; this chapter only introduces ISO so the reference is in place.</p>
+<p>ISO works through national standards bodies — ANSI in the United States, BSI in the United Kingdom, DIN in Germany, JISC in Japan, and so on. Each national body sends delegates to ISO technical committees, where standards are debated, drafted, voted on, and ultimately published. The process is slower and more formal than the IETF's, with explicit voting at multiple stages. ISO and IEEE often co-publish a standard — the same Ethernet specification appears as both IEEE 802.3 and ISO/IEC 8802-3.</p>
+<h2 id="26-icann-and-the-internets-unique-identifiers">2.6 ICANN and the Internet's Unique Identifiers<a class="headerlink" href="#26-icann-and-the-internets-unique-identifiers" title="Permanent link">&para;</a></h2>
+<p>The <strong>Internet Corporation for Assigned Names and Numbers (ICANN)</strong> is the nonprofit organization that coordinates the Internet's globally unique identifiers — the domain name system root, IP address allocations, and protocol parameter assignments. Where the IETF <em>defines</em> protocols and the IEEE <em>defines</em> physical-layer standards, ICANN <em>administers</em> the namespaces those protocols use. If two organizations both claimed the domain <code>example.com</code>, or both used the same IP address block, the network would break; ICANN's job is to make sure that does not happen.</p>
+<p>ICANN delegates much of the actual day-to-day work. The <strong>Internet Assigned Numbers Authority (IANA)</strong>, operated under ICANN, maintains the registries of port numbers (port 80 for HTTP, port 443 for HTTPS), the top-level domains in the DNS root (<code>.com</code>, <code>.org</code>, <code>.us</code>, <code>.io</code>), and the assignment of IP address blocks to the five <strong>Regional Internet Registries</strong> — ARIN (North America), RIPE NCC (Europe), APNIC (Asia-Pacific), LACNIC (Latin America), and AFRINIC (Africa) — which in turn assign smaller blocks to ISPs and end-user organizations.</p>
+<p>The four standards bodies introduced above each occupy a distinct niche. The following table summarizes them — but only as a recap of what the prose above already explained.</p>
+<table>
+<thead>
+<tr>
+<th>Body</th>
+<th>Founded</th>
+<th>Scope</th>
+<th>Output</th>
+<th>Free to read?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>IETF</strong></td>
+<td>1986</td>
+<td>Internet protocols (network layer and above)</td>
+<td>RFC documents</td>
+<td>Yes — all RFCs are free</td>
+</tr>
+<tr>
+<td><strong>IEEE</strong></td>
+<td>1963 (802 committee)</td>
+<td>Local-area network and physical-layer standards</td>
+<td>IEEE 802.x standards</td>
+<td>Mostly paywalled; "Get IEEE 802" releases after 6 months</td>
+</tr>
+<tr>
+<td><strong>ISO</strong></td>
+<td>1947</td>
+<td>Cross-industry international standards, including the OSI reference model</td>
+<td>ISO/IEC numbered standards</td>
+<td>Paywalled</td>
+</tr>
+<tr>
+<td><strong>ICANN</strong></td>
+<td>1998</td>
+<td>Coordination of unique Internet identifiers (names, numbers, parameters)</td>
+<td>Policy documents and registry data</td>
+<td>Yes — registries are public</td>
+</tr>
+</tbody>
+</table>
+<h4 id="diagram-standards-bodies-and-what-they-govern">Diagram: Standards Bodies and What They Govern<a class="headerlink" href="#diagram-standards-bodies-and-what-they-govern" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Map showing which standards body governs which part of the network stack</summary>
+<p>Type: infographic
+<strong>sim-id:</strong> standards-bodies-map<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Render an infographic that maps the four standards bodies introduced in this chapter to the parts of the network they govern.</p>
+<p>Canvas: 900 px wide by 540 px tall, responsive down to 360 px wide.</p>
+<p>Layout:</p>
+<ul>
+<li>Render five horizontal layer bands stacked vertically, top to bottom: "Application", "Transport", "Network", "Link", "Physical". Color the bands in graduated honey amber (lightest at top, darkest at bottom). Each band fills the full canvas width and is roughly 70 px tall. Place a band label on the left edge.</li>
+<li>On the right side of each band, render colored badges showing which standards body governs that layer. Badges should overlap layers vertically when a body's scope spans multiple layers.</li>
+<li>IETF badge: signal blue (#1976D2). Spans the top three bands (Application, Transport, Network).</li>
+<li>IEEE badge: deep hive brown (#5D4037). Spans the bottom two bands (Link, Physical).</li>
+<li>ISO badge: slate gray (#546e7a). A vertical badge on the far right that spans all five bands, labeled "OSI reference model — vocabulary".</li>
+<li>ICANN badge: forest green (#2e7d32). A separate horizontal badge floated above the canvas labeled "Names, numbers, ports — across all layers".</li>
+</ul>
+<p>Interactivity:</p>
+<ul>
+<li>Hover on a body's badge raises a callout listing 2-3 example outputs (e.g., IETF: "RFC 791 IPv4, RFC 9114 HTTP/3"; IEEE: "802.3 Ethernet, 802.11 Wi-Fi"; ISO: "ISO 7498 OSI model"; ICANN: ".com domain, port 443 registry").</li>
+<li>Hover on a layer band raises a callout naming the data unit at that layer (Application: message, Transport: segment/datagram, Network: packet, Link: frame, Physical: bit).</li>
+</ul>
+<p>Use the existing MicroSim CSS theme. The infographic should have a 1 px slate border between bands. No text overlaps badges.</p>
+<p>Learning objective (Bloom — Understanding): Students explain which standards body to consult when researching a specific networking concern, and which layer of the stack that concern belongs to.</p>
+</details>
+<h2 id="27-the-vocabulary-of-data-bits-and-bytes">2.7 The Vocabulary of Data: Bits and Bytes<a class="headerlink" href="#27-the-vocabulary-of-data-bits-and-bytes" title="Permanent link">&para;</a></h2>
+<p>Standards specify what bits <em>do</em>. To talk about that, we need a precise vocabulary for the bits themselves. A <strong>bit</strong> is the smallest unit of digital information — a single binary value, either 0 or 1. Every signal that travels across a wire, a fiber, or a radio link can be reduced to a sequence of bits, and every protocol's specification ultimately tells you what each bit means in context. When a network engineer says "the destination address field is 32 bits long" or "the link runs at 10 gigabits per second," each of those bits is one of these elementary 0-or-1 values.</p>
+<p>A <strong>byte</strong> is a group of eight contiguous bits, treated as a single unit by virtually all modern computers and network protocols. Eight bits can encode 256 distinct values ((2^8 = 256)), enough to represent every character in early text encodings and a wide range of small integers. Almost every protocol field length is a multiple of 8 bits, partly for historical reasons and partly because computer memory and CPU instructions naturally manipulate data in byte-sized chunks. The IETF community uses the more precise term <strong>octet</strong> in its standards — an octet is exactly eight bits, even on hypothetical machines where a "byte" might mean something else — but in everyday networking conversation, "byte" and "octet" are synonymous.</p>
+<p>Two consequences of byte-sized fields show up constantly in protocol specifications. First, addresses and counts are usually quoted as multiples of bytes: an IPv4 address is 4 bytes (32 bits), a MAC address is 6 bytes (48 bits), an IPv6 address is 16 bytes (128 bits). Second, the units used to describe link speed and data quantity differ in important ways. <strong>Link speeds are quoted in bits per second</strong> (10 Mbps, 1 Gbps, 100 Gbps), because the physical layer transmits one bit at a time. <strong>Storage and file sizes are quoted in bytes</strong> (a 12 MB photograph). A 1 Gbps link can therefore transfer roughly 125 megabytes per second — eight times less than a careless reading of the units would suggest. Whenever you compare a link speed to a file size, multiply or divide by eight.</p>
+<table>
+<thead>
+<tr>
+<th>Quantity</th>
+<th>Unit</th>
+<th>Where you see it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Single binary digit</td>
+<td>bit</td>
+<td>Field lengths, link speeds</td>
+</tr>
+<tr>
+<td>Eight bits</td>
+<td>byte (octet)</td>
+<td>Memory, file sizes, protocol field counts</td>
+</tr>
+<tr>
+<td>Bits per second</td>
+<td>bps, Kbps, Mbps, Gbps</td>
+<td>Link bandwidth</td>
+</tr>
+<tr>
+<td>Bytes per second</td>
+<td>B/s, KB/s, MB/s, GB/s</td>
+<td>File transfer speeds, application throughput</td>
+</tr>
+</tbody>
+</table>
+<h2 id="28-data-units-at-each-layer">2.8 Data Units at Each Layer<a class="headerlink" href="#28-data-units-at-each-layer" title="Permanent link">&para;</a></h2>
+<p>Different protocol layers have different names for the chunks of data they handle, even though all those chunks are ultimately just sequences of bytes. The naming is not arbitrary: each name tells you which layer is responsible for that chunk and what kind of formatting it has. Five names are essential, and we'll define each one before showing how they fit together.</p>
+<p>A <strong>frame</strong> is the data unit at the <strong>link layer</strong>. A frame is a sequence of bytes shaped to travel across exactly one link — for example, the unit of transmission across an Ethernet cable or a Wi-Fi channel. Every frame begins with a link-layer header that names the immediate sender and receiver by their MAC addresses, and most frames end with a link-layer trailer carrying an error-check value. A frame never crosses a router; once a router receives a frame, it strips the link-layer header and trailer, processes the contents, and constructs a <em>new</em> frame for the next link.</p>
+<p>A <strong>packet</strong> is the data unit at the <strong>network layer</strong>. A packet is a sequence of bytes carrying a network-layer header (most importantly the source and destination IP addresses) followed by a payload. The defining property of a packet is that it is <em>routable end-to-end</em>: the same packet, or a faithful copy of its contents, can travel from the original sender to the final receiver across many links and many routers. The link-layer header changes at every hop; the packet's IP header (mostly) does not.</p>
+<p>A <strong>segment</strong> is the data unit at the <strong>transport layer</strong> when the transport protocol is <strong>TCP</strong>. A segment carries a TCP header (source port, destination port, sequence number, acknowledgment number, flags, window size, checksum) followed by application payload. Segments are reliable and ordered: the transport layer guarantees that what one application writes arrives in order at the other application, even if the underlying packets are lost, reordered, or corrupted.</p>
+<p>A <strong>datagram</strong> is the data unit at the <strong>transport layer</strong> when the transport protocol is <strong>UDP</strong>. A datagram carries a much smaller UDP header (source port, destination port, length, checksum) followed by application payload. Datagrams are unreliable and unordered: each datagram is delivered independently, with no retransmission, no acknowledgment, and no ordering guarantee. Some texts use "datagram" loosely to mean any standalone, self-contained packet; in this textbook we reserve the word for UDP, and we use "packet" only at the network layer.</p>
+<p>A <strong>message</strong> is the data unit at the <strong>application layer</strong>. The contents and structure of a message depend entirely on the application protocol — an HTTP message is a request line, headers, and a body; an SMTP message is an envelope plus a MIME-formatted email; a DNS message is a query or response with question and answer sections. The transport layer treats every application message as a sequence of bytes to be carried; only the application understands what those bytes mean.</p>
+<p>The five terms relate to each other in a strict hierarchy. The table below summarizes — but only as a recap of the prose definitions above.</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Data unit</th>
+<th>Header you'll see</th>
+<th>Travels across</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Application</td>
+<td>Message</td>
+<td>Application-specific (HTTP, SMTP, DNS, etc.)</td>
+<td>End-to-end (logically)</td>
+</tr>
+<tr>
+<td>Transport (TCP)</td>
+<td>Segment</td>
+<td>TCP header</td>
+<td>End-to-end</td>
+</tr>
+<tr>
+<td>Transport (UDP)</td>
+<td>Datagram</td>
+<td>UDP header</td>
+<td>End-to-end</td>
+</tr>
+<tr>
+<td>Network</td>
+<td>Packet</td>
+<td>IP header</td>
+<td>End-to-end across routers</td>
+</tr>
+<tr>
+<td>Link</td>
+<td>Frame</td>
+<td>Ethernet, Wi-Fi, or other link header (and trailer)</td>
+<td>One link only</td>
+</tr>
+</tbody>
+</table>
+<h2 id="29-headers-payloads-and-trailers">2.9 Headers, Payloads, and Trailers<a class="headerlink" href="#29-headers-payloads-and-trailers" title="Permanent link">&para;</a></h2>
+<p>Every data unit, at every layer, has a small number of structural parts. A <strong>header</strong> is the prefix of bytes at the front of a data unit that carries the protocol's control information — addresses, sequence numbers, flags, lengths, checksums, type fields. Headers are how a protocol communicates <em>about</em> the data without modifying it. Each layer adds its own header when sending and consumes its own header when receiving.</p>
+<p>A <strong>payload</strong> is the body of bytes that the data unit carries on behalf of the layer above. A payload is opaque to the layer carrying it: an Ethernet frame's payload is an entire IP packet, but the Ethernet hardware does not look inside that payload to interpret the IP fields. This opacity is what lets each layer evolve independently — a new application protocol does not require any change to the network or link layers, because those layers see only an opaque payload either way.</p>
+<p>A <strong>trailer</strong> is a suffix of bytes at the end of a data unit that carries information that can only be computed <em>after</em> the payload is finalized. The most common reason for a trailer is an error-check value that must cover the entire data unit, including the header — by definition, that value cannot be placed in the header itself. Ethernet frames carry a 4-byte <strong>Frame Check Sequence (FCS)</strong> trailer; most other protocols put their checksum in the header (where the checksum is computed over the rest of the data unit and the checksum field itself is set to zero during the calculation). Whether a protocol uses a trailer or a header-only checksum is a design choice with engineering consequences we'll revisit in Chapter 6.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">Why bother with three names?</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Buzz thinking carefully">
+The header–payload–trailer split is the <em>single most important pattern</em> in networking. Every layer follows it. Once you see this shape, you can read any protocol specification quickly: the header is where you look for "who, what, and how long," the payload is where you look for "what's the layer above doing," and the trailer (when present) is where you look for "did anything get corrupted?" Three jobs, three regions of bytes — every time.</p>
+</div>
+<h2 id="210-encapsulation-how-layers-stack-data">2.10 Encapsulation: How Layers Stack Data<a class="headerlink" href="#210-encapsulation-how-layers-stack-data" title="Permanent link">&para;</a></h2>
+<p>We now have all the vocabulary needed to describe the central operation of a layered network: encapsulation. <strong>Encapsulation</strong> is the process by which each layer, on the sending side, takes the data unit handed down from the layer above, adds its own header (and optionally trailer), and hands the larger result down to the next layer. The result is that by the time a single byte of application data reaches the wire, it is sandwiched between several headers and trailers, each addressing a different concern.</p>
+<p>To see encapsulation concretely, follow a single HTTP request as it leaves your laptop. The browser builds an HTTP <strong>message</strong> — a request line, some headers, an empty body. It hands that message to the operating system's TCP implementation, which adds a TCP header (with source port, destination port, sequence number) on the front, producing a TCP <strong>segment</strong> whose payload is the HTTP message. The TCP segment is handed to the IP implementation, which adds an IP header (source IP, destination IP, protocol number) on the front, producing an IP <strong>packet</strong> whose payload is the TCP segment. The IP packet is handed to the Ethernet driver, which adds an Ethernet header (source MAC, destination MAC, EtherType) on the front and a Frame Check Sequence trailer on the back, producing an Ethernet <strong>frame</strong> whose payload is the IP packet. The frame's bits then go out the network interface as electrical signals on copper or radio symbols on Wi-Fi.</p>
+<p>Each header is opaque to the layers below it. The Ethernet driver does not care that the bytes it is wrapping happen to contain a TCP segment containing an HTTP request; it sees only an opaque sequence of bytes and a length. This opacity is what allows the same Ethernet hardware to carry IPv4, IPv6, ARP, and any future network-layer protocol with no changes — Ethernet does not look above its own layer.</p>
+<p>The reverse process happens on the receiving side. <strong>Decapsulation</strong> is the process by which each layer, on the receiving side, removes its own header (and trailer, if present) from the front (and back) of the data unit it receives, and hands the remaining payload up to the layer above. The receiving Ethernet driver verifies the FCS trailer, strips the Ethernet header and trailer, and hands the remaining IP packet up to the IP implementation. IP strips the IP header and hands the remaining TCP segment up to TCP. TCP strips the TCP header and hands the remaining HTTP message up to the web server application. Each layer performs its checks (address matches my own? checksum valid? sequence number expected?) and either passes the payload up or drops the data unit.</p>
+<h4 id="diagram-encapsulation-walkthrough">Diagram: Encapsulation Walkthrough<a class="headerlink" href="#diagram-encapsulation-walkthrough" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Animated stack of headers added on the sender and removed on the receiver</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> encapsulation-walkthrough<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Build an interactive MicroSim that animates the encapsulation of an HTTP request from sender to receiver and back up the stack at the destination, with a Step / Play / Reset controller.</p>
+<p>Canvas: 960 px wide by 600 px tall, responsive down to 360 px wide. A 100 px control panel sits below the canvas.</p>
+<p>Layout:</p>
+<ul>
+<li>The canvas is divided into three vertical regions: Sender (left third), Wire (middle third), Receiver (right third).</li>
+<li>Each side stacks four protocol layers vertically, top to bottom: Application, Transport, Network, Link. Use the same color coding as the standards-bodies infographic (gradient honey amber).</li>
+<li>The Wire region is a horizontal line in the middle of the canvas labeled "Communication Link". A small packet glyph travels left-to-right along this line during playback.</li>
+</ul>
+<p>Animation steps (one step per click of "Step", or auto-advanced by "Play"):</p>
+<ol>
+<li>The Application layer on the sender shows a small rectangle labeled "HTTP message" (yellow).</li>
+<li>Transport layer on the sender adds a "TCP header" (blue) on the left, producing a "TCP segment".</li>
+<li>Network layer on the sender adds an "IP header" (green) on the left, producing an "IP packet".</li>
+<li>Link layer on the sender adds an "Ethernet header" (brown) on the left and a "FCS trailer" (brown) on the right, producing an "Ethernet frame".</li>
+<li>The frame slides into the Wire region as a sequence of bits and travels left to right.</li>
+<li>The frame arrives at the Receiver Link layer, which strips the Ethernet header and FCS trailer, leaving an IP packet.</li>
+<li>The Network layer on the receiver strips the IP header, leaving a TCP segment.</li>
+<li>The Transport layer on the receiver strips the TCP header, leaving an HTTP message.</li>
+<li>The Application layer on the receiver displays the HTTP message and labels it "Delivered".</li>
+</ol>
+<p>Each header rectangle should display its layer name and a sample value (e.g., the IP header rectangle shows "src 192.0.2.10 → dst 198.51.100.5"). Hovering on a header reveals an info tooltip listing 2-3 of its key fields.</p>
+<p>Controls panel:</p>
+<ul>
+<li>Step button — advance one step at a time</li>
+<li>Play button — auto-advance with adjustable speed slider (0.5×, 1×, 2×, 4×)</li>
+<li>Reset button — return to step 0</li>
+<li>Layer toggle — checkboxes to skip animation of any layer (useful for showing what UDP looks like with only Transport-Network-Link, or for highlighting the link layer alone)</li>
+<li>"Show byte counts" toggle — when enabled, each header rectangle shows its size in bytes (HTTP message: variable; TCP header: 20 bytes; IP header: 20 bytes; Ethernet header: 14 bytes; FCS trailer: 4 bytes)</li>
+</ul>
+<p>Visual style:</p>
+<ul>
+<li>Honey-amber background gradient for layer bands.</li>
+<li>Header rectangles use distinct colors per layer (per the color codes above) with a subtle drop shadow.</li>
+<li>Wire bits should briefly twinkle as the frame travels.</li>
+</ul>
+<p>Learning objectives:</p>
+<ul>
+<li>(Bloom — Understanding) Students explain how each layer wraps the layer above and unwraps on receipt.</li>
+<li>(Bloom — Analyzing) Students decompose a frame on the wire into its constituent headers and identify the original application payload.</li>
+<li>(Bloom — Evaluating) Students judge how skipping a layer (e.g., switching TCP for UDP, or running over Wi-Fi rather than Ethernet) changes the encapsulation diagram.</li>
+</ul>
+<p>The MicroSim should be implemented in pure p5.js with no external dependencies, using the existing MicroSim CSS theme. All controls must be touch-friendly and keyboard-accessible.</p>
+</details>
+<p>A useful mental image: encapsulation is like nesting envelopes. The application's data is a letter. The transport layer puts the letter in an envelope addressed by port number. The network layer puts that envelope inside a larger envelope addressed by IP. The link layer puts that envelope inside a still larger envelope addressed by MAC. At the destination, each envelope is opened in turn — the link layer's envelope first, then the network layer's, then the transport layer's — until the original letter is read by the application. The letter itself never changes; only the wrappings around it.</p>
+<h4 id="diagram-the-nesting-envelope-model">Diagram: The Nesting Envelope Model<a class="headerlink" href="#diagram-the-nesting-envelope-model" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Concentric rectangles showing how each protocol's data unit nests inside the next</summary>
+<p>Type: diagram
+<strong>sim-id:</strong> encapsulation-envelope-model<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Render a static diagram that visualizes encapsulation as a series of concentric rectangles, one per layer.</p>
+<p>Canvas: 800 px wide by 480 px tall, responsive to container width down to 360 px.</p>
+<p>Layout:</p>
+<ul>
+<li>Five concentric rectangles centered on the canvas, drawn from outside to inside:</li>
+<li>Outermost (largest): Ethernet Frame, brown border (#5D4037), with a small "Header" tab on the left and "Trailer (FCS)" tab on the right.</li>
+<li>Next: IP Packet, green border (#2e7d32), with a "Header" tab on the left.</li>
+<li>Next: TCP Segment, blue border (#1976D2), with a "Header" tab on the left.</li>
+<li>Next: HTTP Message, amber background (#F5A623), labeled "Application Payload".</li>
+<li>The innermost region is the actual payload bytes (e.g., "GET /index.html HTTP/1.1").</li>
+<li>To the left of the diagram, render a vertical legend listing each layer name, the data unit at that layer, and the typical header size: Application (message, variable); Transport TCP (segment, 20-byte header); Network (packet, 20-byte IPv4 header); Link (frame, 14-byte Ethernet header + 4-byte FCS).</li>
+<li>Below the diagram, render a single horizontal byte ruler showing the running total of header bytes added by each layer — this lets students see the per-layer overhead concretely.</li>
+</ul>
+<p>Interactivity:</p>
+<ul>
+<li>Hover on any concentric rectangle's border highlights that layer in the legend and pops a tooltip with the header's most important fields.</li>
+<li>A toggle button at the top labeled "TCP / UDP" switches the second-innermost rectangle between TCP segment (blue, 20 bytes) and UDP datagram (purple, 8 bytes), updating the byte ruler accordingly.</li>
+</ul>
+<p>The diagram should be implemented in p5.js using the existing MicroSim styling. Use a 2 px border for each layer rectangle and a 6 px gap between layers so the nesting is visually unambiguous.</p>
+<p>Learning objective (Bloom — Remembering and Understanding): Students recognize the canonical encapsulation order and recall the typical header size at each layer.</p>
+</details>
+<p>Two practical consequences of encapsulation are worth pinning down. First, <strong>per-packet overhead is not free</strong>. A short HTTP request might be 100 bytes of actual application data, but adding a 20-byte TCP header, a 20-byte IP header, and an 18-byte Ethernet header-plus-trailer brings the total to 158 bytes on the wire — almost 60% overhead. For protocols carrying small messages (DNS queries, ACK-only TCP segments, voice over IP frames), header overhead dominates. Designers of efficient protocols spend serious effort minimizing header bytes — IPv6 added a fixed 40-byte header partly to make hardware processing faster, and HTTP/2 introduced header compression specifically because HTTP headers had grown disproportionately large.</p>
+<p>Second, <strong>each layer's header is independent of the others</strong>. You can replace TCP with UDP without touching the IP or Ethernet code. You can replace Ethernet with Wi-Fi without touching IP or TCP. You can replace IPv4 with IPv6, and as long as the transport layer asks IP "please carry these bytes," the transport layer code does not need to know which IP version is underneath. This independence is the engineering payoff that makes the layered model worth the per-packet overhead cost. Chapter 3 makes that argument explicitly.</p>
+<h2 id="211-putting-it-together-reading-a-frame">2.11 Putting It Together: Reading a Frame<a class="headerlink" href="#211-putting-it-together-reading-a-frame" title="Permanent link">&para;</a></h2>
+<p>Imagine a packet capture tool such as Wireshark shows you a single Ethernet frame on the wire. Reading from left to right (which is how the bytes arrive at the receiver), you would see:</p>
+<ol>
+<li><strong>14 bytes</strong> of Ethernet header — destination MAC address, source MAC address, and a 2-byte EtherType field announcing what kind of payload follows. If EtherType is <code>0x0800</code>, the payload is an IPv4 packet; if <code>0x86DD</code>, IPv6; if <code>0x0806</code>, ARP.</li>
+<li><strong>20 bytes</strong> of IPv4 header (or 40 bytes for IPv6) — version, header length, total length, source IP address, destination IP address, and a Protocol field announcing what kind of transport-layer payload follows. If Protocol is 6, the payload is TCP; if 17, UDP; if 1, ICMP.</li>
+<li><strong>20 bytes</strong> of TCP header (or 8 bytes for UDP) — source port, destination port, sequence and acknowledgment numbers (TCP only), flags, window size, checksum.</li>
+<li><strong>The application message</strong> — for HTTP, the request or response bytes themselves, starting with <code>GET /…</code> or <code>HTTP/1.1 200 OK</code>.</li>
+<li><strong>4 bytes</strong> of Ethernet FCS trailer at the very end.</li>
+</ol>
+<p>This is a complete recipe for decoding any packet capture you will see in this course. The fields named here are governed by RFCs (IETF) for everything except the Ethernet header and trailer, which are governed by IEEE 802.3. The port numbers are administered by IANA (under ICANN). Every standards body introduced in this chapter is doing real work in this single 158-byte sequence.</p>
+<div class="admonition mascot-encourage">
+<p class="admonition-title">If this still feels overwhelming — that's normal</p>
+<p><img src="../../img/mascot/encouraging.png" class="mascot-admonition-img" alt="Buzz cheering you on">
+Encapsulation is the single most important idea in this textbook, and you do not have to memorize every header field today. What matters is that you can see the <em>shape</em> of a frame on the wire — header, header, header, payload, trailer — and know which layer each piece belongs to. <em>One hop at a time.</em> Every later chapter zooms in on one of these headers and explains it in detail.</p>
+</div>
+<h2 id="212-key-takeaways">2.12 Key Takeaways<a class="headerlink" href="#212-key-takeaways" title="Permanent link">&para;</a></h2>
+<p>The vocabulary in this chapter is the running glossary for the rest of the book. Before moving on, make sure you can answer the following without looking back:</p>
+<ul>
+<li>What three things does a protocol specify? Why does each matter?</li>
+<li>What is a standard, and why does the Internet rely on open standards rather than proprietary ones?</li>
+<li>What does the IETF produce, and where can you read it for free?</li>
+<li>What does the IEEE 802 committee govern, and at which layers of the network stack?</li>
+<li>What is the OSI Reference Model, who published it, and why is its vocabulary still used?</li>
+<li>What does ICANN coordinate? What does IANA do under ICANN?</li>
+<li>What is a bit? What is a byte? Why are link speeds in bits per second but file sizes in bytes?</li>
+<li>Name the data unit at each of the five layers — application, transport (TCP), transport (UDP), network, link.</li>
+<li>What are the three structural parts of a data unit? Which one carries control information, which one carries the layer above, and which one carries values that can only be computed last?</li>
+<li>What is encapsulation? What is decapsulation? Why does each layer's header stay opaque to the layers below?</li>
+</ul>
+<p>If any of those answers feel shaky, re-read the corresponding section before continuing to Chapter 3, where we use the vocabulary from this chapter to develop the layered architecture itself — explaining <em>why</em> the OSI seven-layer model and the TCP/IP four-layer model split responsibilities the way they do, and what design principles those splits embody.</p>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">Vocabulary locked in</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Buzz celebrating">
+You now know the words every later chapter assumes. Frames, packets, segments, datagrams, messages, headers, payloads, trailers — and the four standards bodies that publish the documents defining them. Encapsulation is the move you'll see, in some form, in every chapter that follows. <em>Follow the packet.</em> Onward to Chapter 3 and the layered architecture.</p>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../01-intro-to-networks/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 1. Introduction to Networks">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                1. Introduction to Networks
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../03-architecture-and-layering/" class="md-footer__link md-footer__link--next" aria-label="Next: 3. Architecture and Layering">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                3. Architecture and Layering
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Dan McCreary
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/dmccreary/networking" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>

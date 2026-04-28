@@ -1,0 +1,1814 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="The foundational vocabulary of networking — hosts, end systems, network nodes, edge versus core, communication links, network interfaces, and the three identifiers (MAC, IP, port) that locate every endpoint.">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+        <link rel="canonical" href="https://dmccreary.github.io/networking/chapters/01-intro-to-networks/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../02-standards-and-encapsulation/">
+      
+      
+      <link rel="icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+    
+    
+      
+        <title>Introduction to Networks and Communication - Networking and Communication</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2afb09e1.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+      <link rel="stylesheet" href="../../css/mascot.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-1-introduction-to-networks-and-communication" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Networking and Communication" class="md-header__button md-logo" aria-label="Networking and Communication" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Networking and Communication
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introduction to Networks and Communication
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dmccreary/networking" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Networking and Communication" class="md-nav__button md-logo" aria-label="Networking and Communication" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Networking and Communication
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dmccreary/networking" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Repo
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course-description/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Course Description
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Chapters
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Chapters
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    1. Introduction to Networks
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Introduction to Networks
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-what-is-a-computer-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 What Is a Computer Network?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-the-cast-nodes-hosts-and-end-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 The Cast: Nodes, Hosts, and End Systems
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-two-roles-for-end-systems-clients-and-servers" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Two Roles for End Systems: Clients and Servers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-where-the-action-happens-the-edge-and-the-core" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 Where the Action Happens: The Edge and the Core
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4 Where the Action Happens: The Edge and the Core">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-edge-versus-core-in-a-small-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Edge versus Core in a Small Network
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-what-connects-everything-communication-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.5 What Connects Everything: Communication Links
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-where-the-host-meets-the-wire-the-network-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.6 Where the Host Meets the Wire: The Network Interface
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-three-identifiers-three-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.7 Three Identifiers, Three Layers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.7 Three Identifiers, Three Layers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-the-three-identifiers-across-the-protocol-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: The Three Identifiers Across the Protocol Stack
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18-putting-it-all-together-a-walkthrough" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.8 Putting It All Together: A Walkthrough
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.8 Putting It All Together: A Walkthrough">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-interactive-network-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Interactive Network Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.9 Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-standards-and-encapsulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Standards and Encapsulation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-architecture-and-layering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Architecture and Layering
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-performance-and-qos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Performance and QoS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-physical-layer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5. The Physical Layer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-link-layer-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6. Link Layer Fundamentals
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-ethernet-and-vlans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7. Ethernet and VLANs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-wireless-and-mobility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8. Wireless and Mobility
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-network-layer-and-ip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    9. Network Layer and IP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-routing-and-forwarding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    10. Routing and Forwarding
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-transport-layer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    11. The Transport Layer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-network-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    12. Network Security
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-application-layer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    13. Application Layer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-network-programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14. Network Programming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-network-operations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    15. Network Operations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16-sdn-emerging-and-capstones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    16. SDN, Emerging, and Capstones
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../learning-graph/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Learning Graph
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../sims/graph-viewer/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    MicroSims
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Glossary
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    References
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    License
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contact
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concepts Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-what-is-a-computer-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 What Is a Computer Network?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-the-cast-nodes-hosts-and-end-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 The Cast: Nodes, Hosts, and End Systems
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-two-roles-for-end-systems-clients-and-servers" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Two Roles for End Systems: Clients and Servers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-where-the-action-happens-the-edge-and-the-core" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 Where the Action Happens: The Edge and the Core
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4 Where the Action Happens: The Edge and the Core">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-edge-versus-core-in-a-small-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Edge versus Core in a Small Network
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-what-connects-everything-communication-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.5 What Connects Everything: Communication Links
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-where-the-host-meets-the-wire-the-network-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.6 Where the Host Meets the Wire: The Network Interface
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-three-identifiers-three-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.7 Three Identifiers, Three Layers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.7 Three Identifiers, Three Layers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-the-three-identifiers-across-the-protocol-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: The Three Identifiers Across the Protocol Stack
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18-putting-it-all-together-a-walkthrough" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.8 Putting It All Together: A Walkthrough
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.8 Putting It All Together: A Walkthrough">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-interactive-network-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: Interactive Network Explorer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.9 Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/dmccreary/networking/blob/main/docs/chapters/01-intro-to-networks/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="chapter-1-introduction-to-networks-and-communication">Chapter 1: Introduction to Networks and Communication<a class="headerlink" href="#chapter-1-introduction-to-networks-and-communication" title="Permanent link">&para;</a></h1>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>This chapter introduces the foundational vocabulary of networking — the participants in any network (hosts, clients, servers, edges, cores), the physical and logical links that connect them, and the addresses and ports that identify endpoints. Students will build a working mental model of what a network is and recognize the standard identifiers used at every layer above. By the end, students can describe what every device on a network is doing and why.</p>
+<h2 id="concepts-covered">Concepts Covered<a class="headerlink" href="#concepts-covered" title="Permanent link">&para;</a></h2>
+<p>This chapter covers the following 13 concepts from the learning graph:</p>
+<ol>
+<li>Computer Network</li>
+<li>Host</li>
+<li>End System</li>
+<li>Server</li>
+<li>Client</li>
+<li>Network Node</li>
+<li>Network Edge</li>
+<li>Network Core</li>
+<li>Communication Link</li>
+<li>Network Interface</li>
+<li>MAC Address</li>
+<li>IP Address</li>
+<li>Port Number</li>
+</ol>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<p>This chapter assumes only the prerequisites listed in the <a href="../../course-description/">course description</a>.</p>
+<hr />
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Welcome to the Hive</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Buzz the bee waving welcome">
+Hi, I'm <strong>Buzz</strong>. Networks move information between agents — bees, routers, servers, your phone — and the words we use to describe those agents matter more than you'd think. <em>Let's trace the route!</em> By the end of this chapter you'll know what every device on a network is doing and exactly how to point at it.</p>
+</div>
+<h2 id="11-what-is-a-computer-network">1.1 What Is a Computer Network?<a class="headerlink" href="#11-what-is-a-computer-network" title="Permanent link">&para;</a></h2>
+<p>A <strong>computer network</strong> is a collection of independent computing devices that exchange data through shared communication channels using agreed-upon rules. The definition is intentionally broad: two laptops connected by a single Wi-Fi router form a network, and so do the billions of devices that together form the global Internet. What every network has in common is three ingredients — devices that want to communicate, links that carry signals between them, and rules that let the devices interpret what they receive.</p>
+<p>The simplest mental model treats a network as a graph. Devices sit at the vertices. Links sit on the edges. Data moves from one vertex to another by following one or more edges, and along the way other devices may forward it on its behalf. A great deal of the rest of this textbook elaborates on each of those words — what counts as a vertex, what kinds of links exist, who decides where to forward data, and how devices agree on the format of the messages they exchange. This first chapter pins down the cast of characters so the later chapters have something concrete to talk about.</p>
+<p>Three properties separate computer networks from earlier communication systems:</p>
+<ul>
+<li><strong>Digital</strong> — information is encoded as discrete bits, not continuous analog waveforms, which makes the same data perfectly reproducible and freely composable.</li>
+<li><strong>Packet-switched</strong> — messages are broken into small units called packets that travel independently and are reassembled at the destination, instead of holding a dedicated end-to-end circuit open for the duration of a conversation.</li>
+<li><strong>Layered</strong> — different concerns (signaling, addressing, reliability, application meaning) are separated into stacked protocols, so each layer can evolve independently.</li>
+</ul>
+<p>We will treat layering formally in Chapter 3. For now, just notice that the network is engineered as a stack of cooperating mechanisms rather than a single monolithic system.</p>
+<h2 id="12-the-cast-nodes-hosts-and-end-systems">1.2 The Cast: Nodes, Hosts, and End Systems<a class="headerlink" href="#12-the-cast-nodes-hosts-and-end-systems" title="Permanent link">&para;</a></h2>
+<p>Three closely related words name the things that participate in a network. Distinguishing them carefully now will save confusion in every later chapter.</p>
+<p>A <strong>network node</strong> is any device that the network treats as an addressable participant — anything that can send, receive, or forward data over the network. Routers, switches, laptops, smartphones, web servers, smart thermostats, and the load balancers in front of a cloud service are all network nodes. The word <em>node</em> is deliberately broad: it does not say what the device does, only that the network sees it.</p>
+<p>A <strong>host</strong> is a network node that runs the <em>applications</em> people care about — the browser you're reading this in, the database serving your school's registration system, the chat server your group uses. A host is the place where user-facing software actually executes. A router or a switch, by contrast, is a network node but not a host: it forwards data on behalf of others rather than running applications itself.</p>
+<p>An <strong>end system</strong> is a host viewed from a particular vantage point. Specifically, it is a host that sits at one <em>end</em> of a communication, originating or terminating data flows rather than relaying them. The terms <em>host</em> and <em>end system</em> are often used interchangeably in informal writing, and we will follow that convention. The distinction matters when a single physical box does both jobs — for example, a Linux server that runs a database (acting as a host) while also forwarding packets between two interfaces (acting as an intermediate node). In this chapter and most of the rest of the book, "host" and "end system" mean the same thing: a device whose job is to be one end of a conversation.</p>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">A node is a role, not a thing</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Buzz thinking carefully">
+A laptop with two network cards plugged into two different networks is <em>one host</em> but <em>two nodes</em>, because each interface is separately addressable. A router with twelve ports is one device but participates as twelve nodes from the network's point of view. Always ask: who is the network <em>talking to</em> — the box, or one of its connections?</p>
+</div>
+<p>The list below summarizes the three terms in pedagogical order, narrowest at the top:</p>
+<ul>
+<li><strong>End system</strong> — a host considered as the source or destination of data; the human-visible endpoint of a conversation.</li>
+<li><strong>Host</strong> — a network node that runs application software for users.</li>
+<li><strong>Network node</strong> — any addressable participant in the network, including routers and switches that move data on behalf of others.</li>
+</ul>
+<p>Every end system is a host, and every host is a network node, but the reverse is not true.</p>
+<h2 id="13-two-roles-for-end-systems-clients-and-servers">1.3 Two Roles for End Systems: Clients and Servers<a class="headerlink" href="#13-two-roles-for-end-systems-clients-and-servers" title="Permanent link">&para;</a></h2>
+<p>End systems play one of two roles during a given communication. A <strong>client</strong> is an end system that <em>initiates</em> a request. A <strong>server</strong> is an end system that <em>waits</em> for requests, processes them, and returns a response. The roles describe behavior in a single exchange, not the hardware itself: the same laptop can act as an HTTP client when you load a web page and as an SSH server when a colleague connects to it remotely. Most production systems are designed around this asymmetry — large server farms wait quietly until clients ask for something, then handle a flood of small, simultaneous requests.</p>
+<p>Before the comparison table below, note what we are comparing: each row of the table contrasts a single property (who initiates, how many sit behind one address, whether the public can reach them) between the two roles, using the definitions we just established. Tables in this textbook always summarize material the prose has already covered.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Client</th>
+<th>Server</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Initiates the conversation?</td>
+<td>Yes — sends the first message</td>
+<td>No — waits to be contacted</td>
+</tr>
+<tr>
+<td>Typical scale</td>
+<td>One per user</td>
+<td>One serving many users</td>
+</tr>
+<tr>
+<td>Network reachability</td>
+<td>Often behind NAT, may have no public address</td>
+<td>Usually has a stable, publicly reachable address</td>
+</tr>
+<tr>
+<td>Lifetime of a connection</td>
+<td>Short — opened for one task</td>
+<td>Long — process runs continuously</td>
+</tr>
+<tr>
+<td>Identification on the wire</td>
+<td>Ephemeral port numbers</td>
+<td>Well-known port numbers (e.g., 80, 443)</td>
+</tr>
+<tr>
+<td>Failure tolerance</td>
+<td>One client failure affects one user</td>
+<td>One server failure can affect thousands</td>
+</tr>
+</tbody>
+</table>
+<p>A small but important refinement: in a <strong>peer-to-peer (P2P)</strong> architecture, end systems play <em>both</em> roles — each peer is both a client (asking other peers for data) and a server (answering requests from other peers). BitTorrent and many video-conferencing protocols use this model. Chapter 14 develops the P2P architecture in detail; for now, simply remember that "client" and "server" are roles in a conversation, not labels glued to hardware.</p>
+<h2 id="14-where-the-action-happens-the-edge-and-the-core">1.4 Where the Action Happens: The Edge and the Core<a class="headerlink" href="#14-where-the-action-happens-the-edge-and-the-core" title="Permanent link">&para;</a></h2>
+<p>It is helpful to imagine a network as having two distinct regions. The <strong>network edge</strong> is where end systems live — the laptops, phones, IoT sensors, and servers that originate and consume data. The <strong>network core</strong> is the interior — the mesh of switches, routers, and high-bandwidth links that move data between edges. End systems are guests at the edge of the network; routers and switches are full-time residents of the core.</p>
+<p>The edge and the core have different design priorities. Edge devices optimize for the experience of a single user or single application: latency, battery life, security, ease of configuration. Core devices optimize for the <em>aggregate</em> — the highest possible throughput, the lowest possible per-packet processing cost, the smallest possible chance of dropping traffic on the floor when the network is busy. Understanding which side of this divide a particular concept lives on tells you a great deal about the engineering trade-offs that drove its design.</p>
+<h4 id="diagram-edge-versus-core-in-a-small-network">Diagram: Edge versus Core in a Small Network<a class="headerlink" href="#diagram-edge-versus-core-in-a-small-network" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Edge and core regions of a network with end systems, links, and interior nodes</summary>
+<p>Type: diagram
+<strong>sim-id:</strong> edge-vs-core-topology<br/>
+<strong>Library:</strong> vis-network<br/>
+<strong>Status:</strong> Specified</p>
+<p>Render a node-link diagram of a small network showing the edge–core distinction.</p>
+<p>Layout:</p>
+<ul>
+<li>A horizontal canvas, 900 px wide by 500 px tall, responsive (scale to container width).</li>
+<li>Two visual zones with subtle background tints: a pale honey-amber band on the left and right thirds (the edges) and a pale slate band in the middle third (the core). Label the bands with large semi-transparent text "Network Edge", "Network Core", "Network Edge".</li>
+</ul>
+<p>Nodes:</p>
+<ul>
+<li>Left edge: 4 end systems labeled "Laptop", "Phone", "Desktop", "IoT Sensor". Use a simple device icon (circle with a small monitor glyph) in honey amber (#F5A623).</li>
+<li>Right edge: 3 servers labeled "Web Server", "DNS Server", "Database". Use a server-rack glyph in honey amber.</li>
+<li>Core: 5 router nodes labeled "R1" through "R5", arranged in a partial mesh. Use a hexagonal glyph in slate (#546e7a).</li>
+</ul>
+<p>Edges:</p>
+<ul>
+<li>Each end system on the left connects to either R1 or R2. Each server on the right connects to R4 or R5. The five core routers form a partial mesh: R1–R2, R1–R3, R2–R3, R3–R4, R3–R5, R4–R5.</li>
+<li>Style edge links (end-system-to-router) as thin honey-amber lines and core links (router-to-router) as thicker slate lines, to communicate that the core typically uses higher-bandwidth links.</li>
+</ul>
+<p>Interactivity:</p>
+<ul>
+<li>Hover on any node shows a tooltip with the node's role: "End System (host)" for left/right edge devices, "Network Node (router)" for core devices.</li>
+<li>Hover on any edge shows a tooltip "Communication Link".</li>
+</ul>
+<p>The diagram should be implemented with vis-network. Use the existing learning-graph viewer styling (rounded boxes, soft shadows). Disable physics-based jitter; lay out the graph deterministically.</p>
+</details>
+<p>The transition from edge to core is not a sharp line in real deployments — your home router, for example, sits at the very last hop of the core for an ISP and also at the first hop of your home edge. The distinction is conceptual but useful: it predicts which kinds of decisions a device is built to make.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Edge</th>
+<th>Core</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Who lives here</td>
+<td>End systems (hosts)</td>
+<td>Routers and switches</td>
+</tr>
+<tr>
+<td>Primary job</td>
+<td>Run applications</td>
+<td>Forward data on behalf of others</td>
+</tr>
+<tr>
+<td>Optimized for</td>
+<td>Per-user experience</td>
+<td>Aggregate throughput</td>
+</tr>
+<tr>
+<td>Typical link speed</td>
+<td>1 Gbps Ethernet, Wi-Fi, cellular</td>
+<td>10 Gbps and up, increasingly 100/400 Gbps fiber</td>
+</tr>
+<tr>
+<td>State stored per flow</td>
+<td>A lot (sockets, connection state)</td>
+<td>Very little (just enough to forward)</td>
+</tr>
+<tr>
+<td>Who pays for outages</td>
+<td>The user whose app broke</td>
+<td>Everyone whose traffic crosses the failed device</td>
+</tr>
+</tbody>
+</table>
+<h2 id="15-what-connects-everything-communication-links">1.5 What Connects Everything: Communication Links<a class="headerlink" href="#15-what-connects-everything-communication-links" title="Permanent link">&para;</a></h2>
+<p>A <strong>communication link</strong> is the physical or logical channel that carries bits between two network nodes. It can be a length of copper twisted-pair cable, a fiber-optic strand, a radio channel between a Wi-Fi client and an access point, or even a virtual tunnel running over another network. From the perspective of the nodes at the two ends, the link delivers a stream of bits and provides certain measurable properties — bandwidth, latency, error rate, and so on.</p>
+<p>Every link has two important attributes you should keep in mind from the start:</p>
+<ul>
+<li><strong>Direction</strong> — most links carry data in both directions, either simultaneously (full duplex) or one direction at a time (half duplex). A few specialized links are inherently one-way.</li>
+<li><strong>Sharing</strong> — some links connect exactly two nodes (point-to-point), while others carry traffic for many nodes that share access through a contention protocol (broadcast or multi-access links, like classic Ethernet or Wi-Fi).</li>
+</ul>
+<p>We treat the engineering of links — the signaling techniques, the encoding schemes, the physical media — formally in Chapters 5 and 6. For this chapter you only need the abstraction: a link is a pipe between two nodes that delivers bits with some bandwidth, some delay, and occasional errors.</p>
+<h2 id="16-where-the-host-meets-the-wire-the-network-interface">1.6 Where the Host Meets the Wire: The Network Interface<a class="headerlink" href="#16-where-the-host-meets-the-wire-the-network-interface" title="Permanent link">&para;</a></h2>
+<p>A host does not connect to a link directly; it connects through a <strong>network interface</strong>. A network interface is the hardware component on a host (a Wi-Fi radio, an Ethernet card, a cellular modem) plus the operating-system software that drives it. The interface is the doorway between the host's CPU-and-memory world and the link's physical signals. Every interface has its own independent identifiers and its own independent queue of pending packets.</p>
+<p>A single host can have many interfaces. Your laptop has at least two — Wi-Fi and Bluetooth — and probably more if you count the loopback interface, virtual interfaces created by VPN software, and any wired Ethernet ports. A datacenter server may have four high-speed network interfaces bonded together for redundancy and bandwidth. From the network's perspective, <em>each interface is a separate network node</em>, even when they all live inside the same physical box.</p>
+<div class="admonition mascot-tip">
+<p class="admonition-title">One host, many doors</p>
+<p><img src="../../img/mascot/tip.png" class="mascot-admonition-img" alt="Buzz with a tip">
+When you read a packet capture and see traffic to or from "your computer," remember that the operating system chose <em>one specific interface</em> to send it through. Two interfaces on the same machine usually have different addresses, different speeds, and different failure modes. Always ask which interface a problem is happening on before assuming the host as a whole is at fault.</p>
+</div>
+<p>Unique identifiers attach to interfaces, not to hosts. That is why the next section talks about how each interface is named at three different layers of the protocol stack.</p>
+<h2 id="17-three-identifiers-three-layers">1.7 Three Identifiers, Three Layers<a class="headerlink" href="#17-three-identifiers-three-layers" title="Permanent link">&para;</a></h2>
+<p>To send data to "the right place," the network needs to name <em>what</em> the right place is. Modern networks use three different identifiers at three different layers, and each one answers a different question about the destination. The three are the <strong>MAC address</strong>, the <strong>IP address</strong>, and the <strong>port number</strong>. Together, they form an address triple that locates a specific application running on a specific interface on a specific machine.</p>
+<p>Before we examine the diagram below, here is what each identifier names, defined in plain language so the diagram has nothing left to introduce.</p>
+<p>A <strong>MAC address</strong> (Media Access Control address) is a 48-bit number burned into a network interface at the factory. It identifies the <em>interface</em> uniquely on a local link. Every Ethernet card and every Wi-Fi radio in the world carries a MAC address, conventionally written as six hexadecimal pairs separated by colons — for example, <code>f0:18:98:01:23:45</code>. MAC addresses are used by the link layer to deliver frames between neighbors on the same physical or virtual link. They do not travel beyond a single link; once a packet crosses a router, the MAC addresses are rewritten.</p>
+<p>An <strong>IP address</strong> is a numerical label assigned to a network interface for the purpose of <em>internetwork</em> delivery. IP addresses come in two versions: IPv4 (32 bits, written as four decimal numbers, e.g., <code>192.0.2.10</code>) and IPv6 (128 bits, written as eight hexadecimal groups, e.g., <code>2001:db8::1</code>). Unlike MAC addresses, IP addresses are <em>routable</em> — routers anywhere in the world can use them to forward a packet toward its destination. IP addresses are typically assigned by the network operator and may change over time, especially on mobile devices.</p>
+<p>A <strong>port number</strong> is a 16-bit integer that identifies a specific <em>application or service</em> on a host. A host might be running dozens of network applications simultaneously — a browser, an email client, a chat application, a remote-desktop server. Each is identified by a port number on its host's IP address. Common services use <strong>well-known ports</strong>: port 80 for HTTP, port 443 for HTTPS, port 22 for SSH, port 53 for DNS. Outgoing connections from clients use <strong>ephemeral ports</strong>, drawn from a high-numbered range that the operating system assigns automatically and reuses after the connection closes.</p>
+<p>The combination of an IP address and a port number is called a <strong>socket</strong> — the unique name of one end of an active conversation. Sockets get their own chapter (Chapter 14), but the term is worth knowing now.</p>
+<h4 id="diagram-the-three-identifiers-across-the-protocol-stack">Diagram: The Three Identifiers Across the Protocol Stack<a class="headerlink" href="#diagram-the-three-identifiers-across-the-protocol-stack" title="Permanent link">&para;</a></h4>
+<details>
+<summary>How MAC, IP, and port locate an application across the link, network, and transport layers</summary>
+<p>Type: infographic
+<strong>sim-id:</strong> address-triple-stack<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Render an infographic that visually stacks the three identifiers against the three lower protocol layers they belong to.</p>
+<p>Canvas: 800 px wide by 520 px tall, responsive to container width down to 360 px.</p>
+<p>Layout:</p>
+<ul>
+<li>Three horizontal bands stacked vertically. From top to bottom: "Transport Layer (port number)", "Network Layer (IP address)", "Link Layer (MAC address)". Each band fills the full canvas width and is roughly 140 px tall.</li>
+<li>Color-code each band: transport in honey amber (#F5A623), network in signal blue (#1976D2), link in deep hive brown (#5D4037). Each band has a contrasting white label on the left edge.</li>
+<li>On the right side of each band, render an example value in large monospace font: <code>443</code> for transport, <code>2001:db8::1</code> for network, <code>f0:18:98:01:23:45</code> for link.</li>
+<li>On the left side of each band, render a one-sentence plain-English description: "Which application?" for transport, "Which host on the Internet?" for network, "Which neighbor on this link?" for link.</li>
+</ul>
+<p>Interactivity:</p>
+<ul>
+<li>Hover on a band raises a callout that explains what the identifier looks like and gives a second example value.</li>
+<li>A small toggle button at the top labeled "IPv4 / IPv6" switches the network band's example between <code>192.0.2.10</code> and <code>2001:db8::1</code>.</li>
+</ul>
+<p>The infographic should be implemented in p5.js using the existing MicroSim styling. Use a 1 px slate border between bands. Ensure the toggle is touch-friendly on mobile.</p>
+<p>Learning objective (Bloom — Understanding): Students explain why three different identifiers are used together and which question each one answers.</p>
+</details>
+<p>The reason the network needs three identifiers — instead of one universal address — comes from the layered design. The link layer needs to deliver frames between neighbors; it does not need to know about the global Internet. The network layer needs to deliver packets across many links worldwide; it does not need to care which specific application on the destination host the data is for. The transport layer needs to deliver bytes to the right application on the destination host; it does not need to redo the routing work the network layer already did. Each layer keeps its own identifier and ignores the others.</p>
+<div class="admonition mascot-encourage">
+<p class="admonition-title">If three identifiers feels like a lot — that's normal</p>
+<p><img src="../../img/mascot/encouraging.png" class="mascot-admonition-img" alt="Buzz cheering you on">
+Most networking confusion comes from blurring the three identifiers together. Whenever something seems mysterious — a connection that "should work but doesn't" — the first move is to ask which identifier is wrong: the MAC, the IP, or the port. <em>One hop at a time.</em> By the end of the book you will recognize each one on sight in a packet capture.</p>
+</div>
+<h2 id="18-putting-it-all-together-a-walkthrough">1.8 Putting It All Together: A Walkthrough<a class="headerlink" href="#18-putting-it-all-together-a-walkthrough" title="Permanent link">&para;</a></h2>
+<p>Imagine you open your browser and type <code>https://example.com</code>. Tracing the sentence we just wrote against the vocabulary of this chapter:</p>
+<ol>
+<li>Your laptop is an <strong>end system</strong> (a host playing the client role).</li>
+<li>Your laptop has at least one <strong>network interface</strong> — say, a Wi-Fi radio — with its own MAC address.</li>
+<li>That interface is connected by a <strong>communication link</strong> (a Wi-Fi channel) to your home router, which is a <strong>network node</strong> sitting at the boundary of your home edge and your ISP's core.</li>
+<li>Your laptop's IP address gets the request from the local network out to the broader Internet.</li>
+<li>The packet traverses several router-to-router links in the <strong>network core</strong>, hopping from one network node to the next.</li>
+<li>It reaches the <strong>server</strong> for <code>example.com</code>, another end system, sitting at the edge of a datacenter network.</li>
+<li>The packet's destination IP address picks the right server interface; the destination <strong>port number</strong> (443) picks the right application — the web server software listening for HTTPS connections.</li>
+</ol>
+<p>Every chapter that follows refines a piece of this story. Chapter 3 explains the layered architecture that made each step possible. Chapter 5 explains the physical signals on the Wi-Fi link. Chapter 9 explains how IP addresses are assigned and structured. Chapter 11 explains what HTTPS-over-TCP actually does on top of all this. The vocabulary in <em>this</em> chapter is the scaffolding everything else is built on.</p>
+<h4 id="diagram-interactive-network-explorer">Diagram: Interactive Network Explorer<a class="headerlink" href="#diagram-interactive-network-explorer" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Click on hosts, links, and routers in a small network to inspect their identifiers</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> network-explorer<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Build an interactive MicroSim that lets students click on elements of a small network and see their identifiers and role.</p>
+<p>Canvas: 900 px wide by 600 px tall (responsive), with a 120 px control panel below the canvas.</p>
+<p>Topology:</p>
+<ul>
+<li>3 client end systems on the left (a laptop, a phone, a tablet), each with one labeled interface.</li>
+<li>1 home router in the lower-left core, connected to all three clients.</li>
+<li>2 ISP routers in the middle (R-ISP-1 and R-ISP-2) connected by core links.</li>
+<li>1 web server on the right with two interfaces (one to the public network, one to a private backend).</li>
+</ul>
+<p>Initial state: every node and link is rendered, but only the labels "Click an element to inspect" appear in the side panel.</p>
+<p>Interactivity:</p>
+<ul>
+<li>Click on a host: the side panel shows "Role: End System (Host, Client)" and lists the host's interface(s), each with a generated MAC, IP, and one example port (80, 443, or an ephemeral 50000-range port for the client).</li>
+<li>Click on a router: the side panel shows "Role: Network Node (Router)", lists each interface with its MAC and IP, and notes "No port numbers — routers don't run user applications."</li>
+<li>Click on a link: the side panel shows "Communication Link", lists the two interfaces it connects, and indicates whether it is a wired Ethernet or Wi-Fi link.</li>
+<li>Click on the server: the side panel shows "Role: End System (Host, Server)" and lists the listening ports (80, 443) plus the IP and MAC of each interface.</li>
+<li>A "Reset" button clears the selection.</li>
+<li>A "Quiz Me" button enters a quiz mode: a question appears ("Which element here is a network node but not a host?") and the student must click the correct element to advance.</li>
+</ul>
+<p>Visual styling:</p>
+<ul>
+<li>End systems: honey-amber circles with a device glyph.</li>
+<li>Routers: slate hexagons.</li>
+<li>Links: thin slate lines for wired, dashed honey-amber lines for Wi-Fi.</li>
+<li>Selected element: highlighted with a thick deep-purple border (#4a148c) and the side panel updates immediately.</li>
+</ul>
+<p>Learning objectives:</p>
+<ul>
+<li>(Bloom — Remembering) Identify which devices in a topology are hosts, end systems, and network nodes.</li>
+<li>(Bloom — Understanding) Explain which identifiers (MAC, IP, port) belong to which kind of device.</li>
+<li>(Bloom — Applying) Distinguish a client port number from a server port number in a sample socket pair.</li>
+</ul>
+<p>The MicroSim should be implemented in p5.js with no external dependencies. Use the existing MicroSim CSS theme. The side panel must remain visible on screens 480 px wide or wider; on narrower screens it stacks below the canvas.</p>
+</details>
+<h2 id="19-key-takeaways">1.9 Key Takeaways<a class="headerlink" href="#19-key-takeaways" title="Permanent link">&para;</a></h2>
+<p>The vocabulary in this chapter is the scaffolding for every later chapter. Before moving on, make sure you can answer the following without looking back:</p>
+<ul>
+<li>What three ingredients does <em>every</em> computer network have?</li>
+<li>What is the difference between a network node, a host, and an end system?</li>
+<li>In a single conversation, what role does a client play and what role does a server play?</li>
+<li>Where does the network edge end and the core begin? Why is the distinction useful?</li>
+<li>A communication link connects what to what? What two attributes does every link have?</li>
+<li>Why is a network interface a more useful unit of address than a whole host?</li>
+<li>Of the three identifiers — MAC, IP, port — which one identifies a neighbor on a link? Which one identifies a host on the Internet? Which one identifies an application on a host?</li>
+</ul>
+<p>If any of those answers feel shaky, re-read the corresponding section before continuing to Chapter 2, where we add the next layer of vocabulary — the standards bodies that govern interoperability, and the data units (bits, bytes, frames, packets, segments, datagrams) that move through every network.</p>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">First flight complete</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Buzz celebrating">
+You now have the complete cast of characters. Every later chapter will refer back to <em>hosts</em>, <em>interfaces</em>, <em>links</em>, and the three identifiers — so the vocabulary you just learned is doing real work from this point forward. Onward to Chapter 2 and the standards that make all of this interoperable. <em>Follow the packet.</em></p>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: List of Chapters">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                List of Chapters
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../02-standards-and-encapsulation/" class="md-footer__link md-footer__link--next" aria-label="Next: 2. Standards and Encapsulation">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                2. Standards and Encapsulation
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Dan McCreary
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/dmccreary/networking" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.action.edit", "navigation.expand", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>

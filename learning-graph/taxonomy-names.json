@@ -1,0 +1,18 @@
+{
+  "FOUND": "Foundation Concepts",
+  "ARCH": "Architecture and Layering",
+  "PERF": "Performance and Quality of Service",
+  "PHYS": "Physical Layer",
+  "LINK": "Link Layer and LAN Switching",
+  "WIRE": "Wireless and Mobility",
+  "NET": "Network Layer and Addressing",
+  "ROUT": "Routing and Forwarding",
+  "TRANS": "Transport Layer",
+  "APP": "Application Layer Protocols",
+  "SEC": "Network Security",
+  "PROG": "Network Programming",
+  "OPS": "Network Operations and Measurement",
+  "SDN": "SDN, NFV, and Emerging Topics",
+  "CAP": "Capstone Projects",
+  "MISC": "Miscellaneous Concepts"
+}

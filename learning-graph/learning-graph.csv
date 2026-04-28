@@ -1,0 +1,339 @@
+ConceptID,ConceptLabel,Dependencies,TaxonomyID
+1,Computer Network,,FOUND
+2,Host,1,FOUND
+3,End System,2,FOUND
+4,Server,3,FOUND
+5,Client,3,FOUND
+6,Network Node,1,FOUND
+7,Network Edge,2|6,FOUND
+8,Network Core,6,FOUND
+9,Communication Link,1|6,FOUND
+10,Network Interface,2|9,FOUND
+11,MAC Address,10,FOUND
+12,IP Address,10,FOUND
+13,Port Number,2|10,FOUND
+14,Protocol,1,FOUND
+15,Standard,,FOUND
+16,RFC Document,14|15,FOUND
+17,IEEE Standard,15,FOUND
+18,IETF,14|16,FOUND
+19,ISO,15,FOUND
+20,ICANN,12|15,FOUND
+21,Bit,,FOUND
+22,Byte,21,FOUND
+23,Frame,22,FOUND
+24,Packet,22,FOUND
+25,Segment,22,FOUND
+26,Datagram,22,FOUND
+27,Message,22,FOUND
+28,Header,22,FOUND
+29,Payload,22,FOUND
+30,Trailer,22,FOUND
+31,Encapsulation,28|29,FOUND
+32,Decapsulation,31,FOUND
+33,Layered Architecture,14|31,ARCH
+34,OSI Reference Model,33,ARCH
+35,TCP IP Model,33,ARCH
+36,Physical Layer,34|35,ARCH
+37,Data Link Layer,34|35,ARCH
+38,Network Layer,34|35,ARCH
+39,Transport Layer,34|35,ARCH
+40,Session Layer,34,ARCH
+41,Presentation Layer,34,ARCH
+42,Application Layer,34|35,ARCH
+43,End To End Principle,33|35,ARCH
+44,Separation Of Concerns,33,ARCH
+45,Service Model,14,ARCH
+46,Connection Oriented,39|45,ARCH
+47,Connectionless,39|45,ARCH
+48,Best Effort Delivery,47,ARCH
+49,Reliable Delivery,46,ARCH
+50,Stateful Protocol,14|46,ARCH
+51,Stateless Protocol,14|47,ARCH
+52,In Band Signaling,14,ARCH
+53,Out Of Band Signaling,14,ARCH
+54,Unicast,12|38,ARCH
+55,Multicast,12|38,ARCH
+56,Broadcast,12|38,ARCH
+57,Anycast,12|38,ARCH
+58,Bandwidth,9,PERF
+59,Throughput,58,PERF
+60,Goodput,59,PERF
+61,Latency,9,PERF
+62,Propagation Delay,9|61,PERF
+63,Transmission Delay,58|61,PERF
+64,Queuing Delay,61,PERF
+65,Processing Delay,61,PERF
+66,Round Trip Time,61,PERF
+67,Jitter,61,PERF
+68,Packet Loss,24,PERF
+69,MTU,9|24,PERF
+70,Bandwidth Delay Product,58|66,PERF
+71,Signal,,PHYS
+72,Analog Signal,71,PHYS
+73,Digital Signal,21|71,PHYS
+74,Modulation,72|73,PHYS
+75,Demodulation,74,PHYS
+76,Encoding,73,PHYS
+77,Decoding,76,PHYS
+78,Manchester Encoding,76,PHYS
+79,NRZ Encoding,76,PHYS
+80,Symbol Rate,74,PHYS
+81,Baud Rate,80,PHYS
+82,Channel Capacity,58|71,PHYS
+83,Shannon Theorem,82,PHYS
+84,Twisted Pair Cable,36,PHYS
+85,Coaxial Cable,36,PHYS
+86,Fiber Optic Cable,36,PHYS
+87,Wireless Medium,36|71,PHYS
+88,Attenuation,9|71,PHYS
+89,Noise,71,PHYS
+90,Interference,71|89,PHYS
+91,Bit Error Rate,21|68,PHYS
+92,Framing,23|37,LINK
+93,Bit Stuffing,92,LINK
+94,Byte Stuffing,92,LINK
+95,Parity Check,21,LINK
+96,Checksum,22|28,LINK
+97,CRC,96,LINK
+98,Forward Error Correction,91|97,LINK
+99,Automatic Repeat Request,49|91,LINK
+100,Stop And Wait Protocol,99,LINK
+101,Sliding Window,99,LINK
+102,Go Back N,101,LINK
+103,Selective Repeat,101,LINK
+104,Media Access Control,11|37,LINK
+105,ALOHA Protocol,104,LINK
+106,CSMA,104,LINK
+107,CSMA CD,106,LINK
+108,CSMA CA,106,LINK
+109,Token Passing,104,LINK
+110,Ethernet,17|107,LINK
+111,Ethernet Frame,23|110,LINK
+112,Ethernet Switch,110,LINK
+113,Hub,110,LINK
+114,Bridge,110,LINK
+115,Learning Switch,11|112,LINK
+116,Spanning Tree Protocol,17|114,LINK
+117,Broadcast Domain,56|112,LINK
+118,Collision Domain,107|113,LINK
+119,VLAN,17|112,LINK
+120,VLAN Tagging,111|119,LINK
+121,Trunk Port,119,LINK
+122,Access Port,119,LINK
+123,Link Aggregation,9|110,LINK
+124,Wireless LAN,37|87,WIRE
+125,Wi Fi,17|124,WIRE
+126,Access Point,125,WIRE
+127,SSID,125,WIRE
+128,BSS,126|127,WIRE
+129,ESS,128,WIRE
+130,Wi Fi Channel,87|125,WIRE
+131,RTS CTS,108|125,WIRE
+132,Wi Fi Roaming,126|138,WIRE
+133,Bluetooth,87,WIRE
+134,Cellular Network,87,WIRE
+135,4G LTE,134,WIRE
+136,5G NR,134|135,WIRE
+137,Mobile IP,12|134,WIRE
+138,Handoff,134,WIRE
+139,Link Adaptation,87|134,WIRE
+140,IPv4,12|38,NET
+141,IPv4 Header,28|140,NET
+142,IPv4 Address Format,140,NET
+143,IPv4 Address Class,142,NET
+144,Private IPv4 Range,16|142,NET
+145,Loopback Address,142,NET
+146,CIDR Notation,142|148,NET
+147,Subnet,142,NET
+148,Subnet Mask,147,NET
+149,Subnetting,147|148,NET
+150,Supernetting,146,NET
+151,Longest Prefix Match,146|170,NET
+152,IPv6,12|38,NET
+153,IPv6 Header,28|152,NET
+154,IPv6 Address Format,152,NET
+155,IPv6 Address Type,154,NET
+156,IPv6 Autoconfiguration,154,NET
+157,IPv4 IPv6 Transition,140|152,NET
+158,Dual Stack,157,NET
+159,Tunneling,157,NET
+160,NAT64,157|166,NET
+161,ICMP,16|38,NET
+162,Ping,161,NET
+163,Traceroute,161,NET
+164,ARP,11|12,NET
+165,NDP,152|164,NET
+166,NAT,140|144,NET
+167,Port Address Translation,13|166,NET
+168,Fragmentation,24|69,NET
+169,Reassembly,168,NET
+170,Forwarding,24|38,ROUT
+171,Routing,38,ROUT
+172,Forwarding Table,170,ROUT
+173,Routing Table,171,ROUT
+174,Static Route,173,ROUT
+175,Default Route,173,ROUT
+176,Routing Algorithm,171,ROUT
+177,Distance Vector Routing,176,ROUT
+178,Bellman Ford Algorithm,177,ROUT
+179,RIP Protocol,16|177,ROUT
+180,Count To Infinity,177,ROUT
+181,Split Horizon,180,ROUT
+182,Poison Reverse,180,ROUT
+183,Link State Routing,176,ROUT
+184,Dijkstra Algorithm,183,ROUT
+185,OSPF Protocol,16|183,ROUT
+186,Path Vector Routing,176,ROUT
+187,BGP Protocol,16|186,ROUT
+188,Autonomous System,187,ROUT
+189,Intradomain Routing,179|185,ROUT
+190,Interdomain Routing,187|188,ROUT
+191,Internet Topology,1|188,ROUT
+192,Tier 1 ISP,191,ROUT
+193,Peering,188|190,ROUT
+194,Transit Provider,188|190,ROUT
+195,Multicast Routing,55|176,ROUT
+196,Anycast Routing,57|176,ROUT
+197,UDP,16|39|47,TRANS
+198,UDP Datagram,26|197,TRANS
+199,TCP,16|39|46,TRANS
+200,TCP Segment,25|199,TRANS
+201,TCP Three Way Handshake,199,TRANS
+202,TCP Termination,199,TRANS
+203,Sequence Number,200,TRANS
+204,Acknowledgment,49|199,TRANS
+205,TCP Window,101|199,TRANS
+206,Flow Control,205,TRANS
+207,Congestion Control,68|199,TRANS
+208,Slow Start,207,TRANS
+209,Congestion Avoidance,207,TRANS
+210,Fast Retransmit,204|207,TRANS
+211,Fast Recovery,210,TRANS
+212,TCP Reno,208|209|210|211,TRANS
+213,TCP CUBIC,212,TRANS
+214,TCP BBR,207,TRANS
+215,Retransmission Timer,66|199,TRANS
+216,Karn Algorithm,215,TRANS
+217,Nagle Algorithm,67|199,TRANS
+218,SACK Option,103|204,TRANS
+219,QUIC Protocol,16|197,TRANS
+220,Multipath TCP,199,TRANS
+221,Quality Of Service,39,PERF
+222,Traffic Shaping,221,PERF
+223,Token Bucket,222,PERF
+224,Leaky Bucket,222,PERF
+225,Fair Queuing,64|221,PERF
+226,Scheduling Discipline,225,PERF
+227,Admission Control,221,PERF
+228,Differentiated Services,221,PERF
+229,Integrated Services,221,PERF
+230,Net Neutrality,221,PERF
+231,DNS,16|42,APP
+232,DNS Hierarchy,231,APP
+233,DNS Record Type,231,APP
+234,Recursive Resolver,232,APP
+235,Authoritative Server,232,APP
+236,Root Name Server,232,APP
+237,DNS Caching,231,APP
+238,DNSSEC,231|264,APP
+239,HTTP Protocol,16|42|199,APP
+240,HTTP Methods,239,APP
+241,HTTP Status Code,239,APP
+242,HTTP Headers,28|239,APP
+243,Cookie,239|242,APP
+244,HTTP One One,239,APP
+245,HTTP Two,244,APP
+246,HTTP Three,219|245,APP
+247,HTTPS,239|267,APP
+248,REST Architecture,239|240,APP
+249,WebSocket,239,APP
+250,GRPC,245,APP
+251,SMTP,16|42|199,APP
+252,IMAP,42|251,APP
+253,POP3,42|251,APP
+254,FTP,16|42|199,APP
+255,SSH Protocol,16|42|199|260,APP
+256,Telnet,42|199,APP
+257,DHCP,42|148|166,APP
+258,SNMP,16|42,APP
+259,NTP,16|42,APP
+260,Cryptography Basics,21,SEC
+261,Symmetric Encryption,260,SEC
+262,Public Key Cryptography,260,SEC
+263,Hash Function,260,SEC
+264,Digital Signature,262|263,SEC
+265,Certificate Authority,264,SEC
+266,X509 Certificate,15|265,SEC
+267,TLS Protocol,16|199|261|262|266,SEC
+268,TLS Handshake,267,SEC
+269,Cipher Suite,261|267,SEC
+270,IPsec,16|38|261|262,SEC
+271,VPN,270,SEC
+272,Firewall,13|38,SEC
+273,Stateful Firewall,50|272,SEC
+274,Intrusion Detection,272,SEC
+275,Intrusion Prevention,274,SEC
+276,Spoofing Attack,11|12,SEC
+277,Man In The Middle,14|267,SEC
+278,DDoS Attack,1|68,SEC
+279,Replay Attack,14,SEC
+280,SYN Flood,201|278,SEC
+281,ARP Spoofing,164|276,SEC
+282,DNS Cache Poisoning,237|276,SEC
+283,Defense In Depth,272,SEC
+284,Zero Trust Network,267|283,SEC
+285,Berkeley Sockets API,42|197|199,PROG
+286,TCP Socket,199|285,PROG
+287,UDP Socket,197|285,PROG
+288,Socket Address,12|13|285,PROG
+289,Bind Operation,286|288,PROG
+290,Listen Operation,286,PROG
+291,Accept Operation,290,PROG
+292,Connect Operation,286|288,PROG
+293,Send Receive Operation,286|287,PROG
+294,Blocking IO,285,PROG
+295,Non Blocking IO,285,PROG
+296,Asynchronous IO,295,PROG
+297,Select And Poll,295,PROG
+298,Epoll And Kqueue,297,PROG
+299,Client Server Model,4|5,PROG
+300,Peer To Peer Model,2,PROG
+301,NAT Traversal,166|300,PROG
+302,STUN And TURN,301,PROG
+303,Wire Protocol Design,14|33,OPS
+304,Protocol Versioning,303,OPS
+305,Wireshark,24|42,OPS
+306,Tcpdump,24|42,OPS
+307,Packet Capture,305|306,OPS
+308,Iperf,59,OPS
+309,Network Namespace,1,OPS
+310,Linux Bridge,114|309,OPS
+311,Tc Netem,61|68|309,OPS
+312,Network Logging,1,OPS
+313,Change Control,312,OPS
+314,Configuration Management,313,OPS
+315,SDN,38,SDN
+316,Control Plane,171,SDN
+317,Data Plane,170,SDN
+318,OpenFlow,315|316,SDN
+319,SDN Controller,318,SDN
+320,Network Function Virtualization,315,SDN
+321,Service Mesh,42|320,SDN
+322,Overlay Network,38,SDN
+323,VXLAN,322,SDN
+324,Content Delivery Network,42|191,SDN
+325,Edge Computing,8|324,SDN
+326,Fog Computing,325,SDN
+327,Post Quantum Cryptography,260|267,SDN
+328,Low Latency Networking,61|67,SDN
+329,AI Workload Networking,8|328,SDN
+330,Cloud VPC,38|322,SDN
+331,Hybrid Cloud Network,271|330,SDN
+332,Capstone Chat Server,286|289|290|291|303,CAP
+333,Capstone Mini DNS,231|234|237|238,CAP
+334,Capstone SDN Testbed,309|318|319,CAP
+335,Capstone Network Design,119|148|272|283,CAP
+336,Capstone P2P File Share,263|300|301|302,CAP
+337,Incident Postmortem,307|312,CAP
+338,Network Benchmarking,59|67|308,CAP
