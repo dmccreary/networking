@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An ABET CAC-aligned intelligent textbook covering the foundations of networking and communication — layered architecture, routing, reliable transport, wireless, network security, and modern programmable networks — aligned to the ACM/IEEE CS2023 Networking and Communication knowledge area.">
+        <meta name="description" content="Building networked applications — the Berkeley sockets API, TCP and UDP sockets, the bind/listen/accept/connect lifecycle, blocking and non-blocking I/O, asynchronous patterns (select, poll, epoll, kqueue), client-server and peer-to-peer architectures, and NAT traversal (STUN, TURN).">
       
       
         <meta name="author" content="Dan McCreary">
@@ -26,7 +26,7 @@
     
     
       
-        <title>14. Network Programming - Networking and Communication</title>
+        <title>Network Programming with Sockets - Networking and Communication</title>
       
     
     
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              14. Network Programming
+              Network Programming with Sockets
             
           </span>
         </div>
@@ -799,6 +799,171 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#141-the-berkeley-sockets-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.1 The Berkeley Sockets API
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#142-socket-addresses" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.2 Socket Addresses
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#143-tcp-sockets-the-server-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.3 TCP Sockets: The Server Lifecycle
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#144-tcp-sockets-the-client-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.4 TCP Sockets: The Client Lifecycle
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#145-udp-sockets-connectionless-programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.5 UDP Sockets: Connectionless Programming
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#146-the-sendreceive-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.6 The Send/Receive Operations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14.6 The Send/Receive Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-tcp-and-udp-socket-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: TCP and UDP Socket Lifecycle
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#147-blocking-io-the-default-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.7 Blocking I/O: The Default Mode
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#148-non-blocking-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.8 Non-Blocking I/O
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#149-the-event-loop-pattern-select-poll-epoll-kqueue" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.9 The Event-Loop Pattern: select, poll, epoll, kqueue
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1410-asynchronous-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.10 Asynchronous I/O
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1411-client-server-and-peer-to-peer-architectures" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.11 Client-Server and Peer-to-Peer Architectures
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1412-nat-traversal-stun-and-turn" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.12 NAT Traversal: STUN and TURN
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14.12 NAT Traversal: STUN and TURN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-nat-traversal-with-stun-and-turn" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: NAT Traversal with STUN and TURN
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1413-putting-it-together-a-multi-user-chat-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.13 Putting It Together: A Multi-User Chat Server
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1414-practical-tips-for-production-networking-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.14 Practical Tips for Production Networking Code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1415-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.15 Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1112,6 +1277,171 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#141-the-berkeley-sockets-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.1 The Berkeley Sockets API
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#142-socket-addresses" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.2 Socket Addresses
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#143-tcp-sockets-the-server-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.3 TCP Sockets: The Server Lifecycle
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#144-tcp-sockets-the-client-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.4 TCP Sockets: The Client Lifecycle
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#145-udp-sockets-connectionless-programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.5 UDP Sockets: Connectionless Programming
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#146-the-sendreceive-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.6 The Send/Receive Operations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14.6 The Send/Receive Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-tcp-and-udp-socket-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: TCP and UDP Socket Lifecycle
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#147-blocking-io-the-default-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.7 Blocking I/O: The Default Mode
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#148-non-blocking-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.8 Non-Blocking I/O
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#149-the-event-loop-pattern-select-poll-epoll-kqueue" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.9 The Event-Loop Pattern: select, poll, epoll, kqueue
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1410-asynchronous-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.10 Asynchronous I/O
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1411-client-server-and-peer-to-peer-architectures" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.11 Client-Server and Peer-to-Peer Architectures
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1412-nat-traversal-stun-and-turn" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.12 NAT Traversal: STUN and TURN
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14.12 NAT Traversal: STUN and TURN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-nat-traversal-with-stun-and-turn" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagram: NAT Traversal with STUN and TURN
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1413-putting-it-together-a-multi-user-chat-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.13 Putting It Together: A Multi-User Chat Server
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1414-practical-tips-for-production-networking-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.14 Practical Tips for Production Networking Code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1415-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.15 Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1170,13 +1500,355 @@
 <li><a href="../11-transport-layer/">Chapter 11: The Transport Layer</a></li>
 </ul>
 <hr />
-<p>TODO: Generate Chapter Content</p>
+<div class="admonition mascot-welcome">
+<p class="admonition-title">Now you write the code</p>
+<p><img src="../../img/mascot/welcome.png" class="mascot-admonition-img" alt="Buzz the bee waving welcome">
+Welcome back. The previous chapters explained how the network <em>works</em>. This chapter is how <em>you</em> talk to it. Every networked application — your browser, your editor's syntax server, the chat client you used yesterday — sits on top of the same Berkeley sockets API that has been more or less stable since 1983. <em>Let's trace the route!</em> By the end of this chapter you can write a working TCP server in any language.</p>
+</div>
+<h2 id="141-the-berkeley-sockets-api">14.1 The Berkeley Sockets API<a class="headerlink" href="#141-the-berkeley-sockets-api" title="Permanent link">&para;</a></h2>
+<p>The <strong>Berkeley sockets API</strong> is the system-call interface every modern operating system provides for network programming. It originated in BSD Unix at UC Berkeley in 1983 and has been faithfully reimplemented or wrapped in essentially every language and runtime since: C, C++, Python, Java, Go, Rust, Node.js, .NET, and many more. The vocabulary is universal — even when the syntax differs, the operations are the same.</p>
+<p>The core abstraction is the <strong>socket</strong> — an operating system handle that represents one endpoint of a network conversation. A socket has a type (TCP or UDP, plus a few less-common ones), an address family (IPv4 or IPv6), and, once active, a bound or connected pair of socket addresses (local and remote). The OS manages the protocol state machine; the application reads and writes bytes through the socket as if it were a file.</p>
+<p>Socket programming has the same shape in every language. The differences are syntactic; the underlying behavior is governed by the OS. If you can write a Python TCP server, you can read a C TCP server, and vice versa. The function names line up almost exactly: <code>socket()</code>, <code>bind()</code>, <code>listen()</code>, <code>accept()</code>, <code>connect()</code>, <code>send()</code>, <code>recv()</code>, <code>close()</code>.</p>
+<h2 id="142-socket-addresses">14.2 Socket Addresses<a class="headerlink" href="#142-socket-addresses" title="Permanent link">&para;</a></h2>
+<p>A <strong>socket address</strong> identifies one endpoint of a connection. For IPv4 sockets, the socket address is a <code>(host_ip, port)</code> pair packed into a <code>struct sockaddr_in</code>. For IPv6, it is <code>(host_ip, port, flow_info, scope_id)</code> in a <code>struct sockaddr_in6</code>. The two structures share a common prefix (the address family) so generic socket calls can take either kind of address.</p>
+<p>Every operating system provides helper functions to convert between human-readable strings and packed <code>sockaddr</code> structures: <code>inet_pton</code>, <code>inet_ntop</code>, <code>getaddrinfo</code>. Modern code uses <code>getaddrinfo</code> exclusively because it handles both IPv4 and IPv6 transparently and resolves DNS names along the way.</p>
+<p>Two key socket addresses appear at every endpoint:</p>
+<ul>
+<li><strong>Local socket address</strong> — the IP and port the socket is bound to on this host.</li>
+<li><strong>Remote socket address</strong> — the IP and port of the other end (set by <code>connect()</code> on a client, or by <code>accept()</code> on a server).</li>
+</ul>
+<p>A connected TCP socket is uniquely identified by the 4-tuple <code>(local IP, local port, remote IP, remote port)</code>. The OS uses this 4-tuple to route incoming packets to the right socket.</p>
+<h2 id="143-tcp-sockets-the-server-lifecycle">14.3 TCP Sockets: The Server Lifecycle<a class="headerlink" href="#143-tcp-sockets-the-server-lifecycle" title="Permanent link">&para;</a></h2>
+<p>A <strong>TCP socket</strong> carries the reliable byte-stream service introduced in Chapter 11. Server-side TCP socket programming follows a well-defined lifecycle:</p>
+<ol>
+<li><code>socket()</code> — create a fresh socket, specifying TCP and an address family.</li>
+<li><code>bind()</code> — associate the socket with a specific local address (typically <code>0.0.0.0</code> for "any interface" plus a chosen port).</li>
+<li><code>listen()</code> — mark the socket as a listening socket and set the backlog (queue depth for incoming connections waiting to be accepted).</li>
+<li><code>accept()</code> — block until an incoming connection arrives; return a new socket representing that connection plus the client's remote address. The original listening socket continues to listen for more connections.</li>
+<li><code>recv()</code> and <code>send()</code> (or <code>read()</code> / <code>write()</code>) — read incoming bytes and write outgoing bytes on the per-connection socket.</li>
+<li><code>close()</code> — close the per-connection socket when the conversation ends.</li>
+</ol>
+<p>Below is a minimal Python TCP server. Before reading the code, here is what each part does in plain language: the server creates a listening socket on port 8080, accepts one connection at a time, echoes any received bytes back to the client, and closes when the client disconnects.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">socket</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">server</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">server</span><span class="o">.</span><span class="n">setsockopt</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">SOL_SOCKET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SO_REUSEADDR</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">server</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">))</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">server</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Listening on port 8080&quot;</span><span class="p">)</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="n">client</span><span class="p">,</span> <span class="n">addr</span> <span class="o">=</span> <span class="n">server</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Connected: </span><span class="si">{</span><span class="n">addr</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>        <span class="n">data</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">4096</span><span class="p">)</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">:</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>            <span class="k">break</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>        <span class="n">client</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    <span class="n">client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></code></pre></div>
+<p>The <code>SO_REUSEADDR</code> socket option lets the server restart immediately after a previous instance crashed, even if the port is still in TIME_WAIT (Chapter 11). Without it, you would have to wait for the kernel to clear the TIME_WAIT state before the bind succeeds.</p>
+<h2 id="144-tcp-sockets-the-client-lifecycle">14.4 TCP Sockets: The Client Lifecycle<a class="headerlink" href="#144-tcp-sockets-the-client-lifecycle" title="Permanent link">&para;</a></h2>
+<p>Client-side TCP is simpler:</p>
+<ol>
+<li><code>socket()</code> — create a socket.</li>
+<li><code>connect()</code> — initiate a TCP handshake with a remote address. The OS sends SYN, waits for SYN+ACK, sends ACK, and returns when the connection is established (or fails).</li>
+<li><code>send()</code> and <code>recv()</code> — exchange bytes.</li>
+<li><code>close()</code> — close.</li>
+</ol>
+<p>A matching Python TCP client to talk to the server above:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span> <span class="nn">socket</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">client</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">client</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">))</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">client</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;hello, server</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">4096</span><span class="p">)</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Server replied: </span><span class="si">{</span><span class="n">response</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></code></pre></div>
+<p>The <code>connect()</code> call hides the entire three-way handshake. The OS does the SYN, SYN+ACK, ACK exchange, sets up the connection state, and returns once <code>ESTABLISHED</code>. The application never sees the handshake itself.</p>
+<h2 id="145-udp-sockets-connectionless-programming">14.5 UDP Sockets: Connectionless Programming<a class="headerlink" href="#145-udp-sockets-connectionless-programming" title="Permanent link">&para;</a></h2>
+<p>A <strong>UDP socket</strong> is even simpler because there is no connection to set up. The lifecycle:</p>
+<ol>
+<li><code>socket()</code> — create a UDP socket.</li>
+<li><code>bind()</code> — associate with a local address (servers; clients can skip this and let the OS pick).</li>
+<li><code>sendto()</code> — send a datagram to a specified destination address.</li>
+<li><code>recvfrom()</code> — receive a datagram and learn its source address.</li>
+<li><code>close()</code> — close.</li>
+</ol>
+<p>A minimal Python UDP server:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span> <span class="nn">socket</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">server</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_DGRAM</span><span class="p">)</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">server</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">))</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="n">data</span><span class="p">,</span> <span class="n">addr</span> <span class="o">=</span> <span class="n">server</span><span class="o">.</span><span class="n">recvfrom</span><span class="p">(</span><span class="mi">4096</span><span class="p">)</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Received </span><span class="si">{</span><span class="n">data</span><span class="si">!r}</span><span class="s2"> from </span><span class="si">{</span><span class="n">addr</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    <span class="n">server</span><span class="o">.</span><span class="n">sendto</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">addr</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Notice the absence of <code>listen()</code>, <code>accept()</code>, and per-client sockets — UDP has no connection state, so a single socket handles all clients. UDP servers typically include the client's address with each datagram and respond to whatever address sent the request. UDP-server design is structurally simpler than TCP-server design but pushes more responsibility (reliability, ordering, framing) into the application.</p>
+<h2 id="146-the-sendreceive-operations">14.6 The Send/Receive Operations<a class="headerlink" href="#146-the-sendreceive-operations" title="Permanent link">&para;</a></h2>
+<p>The <strong>send/receive operations</strong> look simple — pass a buffer of bytes — but several subtleties matter in production code.</p>
+<p>For <strong>TCP</strong>, <code>send()</code> may not transfer all the bytes you ask. It returns the number actually sent, and your application must loop until everything has been written. The <code>sendall()</code> convenience function (in Python; equivalent to a loop in C) does this automatically. Similarly, <code>recv()</code> may return fewer bytes than the buffer size — TCP is a <em>byte stream</em>, not a message protocol, so the application must define its own message framing (length prefix, delimiter, fixed-size record). Treating each <code>recv()</code> as one application message is a classic networking-newcomer bug.</p>
+<p>For <strong>UDP</strong>, <code>sendto()</code> either delivers a whole datagram or fails. Datagrams that exceed the path's MTU may be fragmented (IPv4) or rejected (IPv6 without source fragmentation). <code>recvfrom()</code> returns one whole datagram at a time, never split or merged. UDP message boundaries are preserved; TCP's are not.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>TCP <code>send()</code></th>
+<th>UDP <code>sendto()</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Atomic with respect to message boundaries</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Partial transfer possible</td>
+<td>Yes</td>
+<td>No (whole datagram or failure)</td>
+</tr>
+<tr>
+<td>Application-level framing required</td>
+<td>Yes (length prefix, delimiter, etc.)</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Maximum message size</td>
+<td>Effectively unlimited (byte stream)</td>
+<td>Path MTU minus overhead</td>
+</tr>
+</tbody>
+</table>
+<h4 id="diagram-tcp-and-udp-socket-lifecycle">Diagram: TCP and UDP Socket Lifecycle<a class="headerlink" href="#diagram-tcp-and-udp-socket-lifecycle" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Side-by-side state diagrams of the TCP server, TCP client, and UDP socket lifecycles</summary>
+<p>Type: infographic
+<strong>sim-id:</strong> socket-lifecycle-diagram<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Render an interactive infographic that shows the system-call sequence for TCP server, TCP client, and UDP socket programs side by side, with arrows indicating the cross-process synchronization points (e.g., the SYN exchange between TCP client connect and TCP server accept).</p>
+<p>Canvas: 960 px wide by 640 px tall, responsive down to 360 px.</p>
+<p>Layout:</p>
+<ul>
+<li>Three vertical lanes labeled "TCP Server", "TCP Client", and "UDP (peer)".</li>
+<li>Each lane lists system calls in order from top to bottom: TCP Server (<code>socket → bind → listen → accept → recv/send → close</code>), TCP Client (<code>socket → connect → send/recv → close</code>), UDP peer (<code>socket → bind (optional) → sendto/recvfrom → close</code>).</li>
+<li>Synchronization arrows: dashed arrows between the TCP client <code>connect</code> and the TCP server <code>accept</code> indicating the three-way handshake. Smaller arrows between client <code>send</code> and server <code>recv</code> indicating data flow.</li>
+</ul>
+<p>Interactivity:</p>
+<ul>
+<li>Click any system call in any lane to see a side panel with: the C function signature, the Python equivalent, what the call blocks on (if anything), and what error conditions to handle.</li>
+<li>Toggle "Show non-blocking variants" inserts the <code>O_NONBLOCK</code> versions and the <code>EAGAIN</code>/<code>EWOULDBLOCK</code> error path for each blocking call.</li>
+<li>Toggle "Show kernel state machine" overlays the TCP state transitions (CLOSED → LISTEN → SYN_RCVD → ESTABLISHED → CLOSE_WAIT → ...) on the TCP server lane.</li>
+</ul>
+<p>Visual style:</p>
+<ul>
+<li>Each system call as a labeled rounded rectangle.</li>
+<li>Synchronization arrows in honey amber (TCP) and slate (UDP).</li>
+<li>Side panel with monospace function signatures.</li>
+</ul>
+<p>Learning objective (Bloom — Understanding): Students explain the order of system calls for TCP and UDP and identify which calls block on network events.</p>
+</details>
+<h2 id="147-blocking-io-the-default-mode">14.7 Blocking I/O: The Default Mode<a class="headerlink" href="#147-blocking-io-the-default-mode" title="Permanent link">&para;</a></h2>
+<p>By default, socket operations are <strong>blocking</strong>: they suspend the calling thread until the operation completes. <code>accept()</code> blocks until a connection arrives. <code>recv()</code> blocks until at least one byte is available. <code>connect()</code> blocks until the handshake completes (or fails). <code>send()</code> blocks if the kernel's send buffer is full.</p>
+<p>Blocking I/O is the simplest programming model. Each thread handles one connection from <code>accept()</code> to <code>close()</code>, calling <code>recv()</code> and <code>send()</code> in straightforward sequence. The downside is one thread per connection — fine for a chat server with 10 concurrent users, expensive for a web server with 10,000.</p>
+<p>The traditional solution to blocking-IO scaling is the <strong>thread-per-connection</strong> model: spawn a new thread (or reuse one from a thread pool) for each accepted connection, so each connection's blocking calls only block its own thread. Apache HTTP Server's classic prefork and worker MPMs work this way. Modern operating systems can scale to thousands of threads, but each thread has memory and scheduling overhead, and locking overhead grows with thread count.</p>
+<h2 id="148-non-blocking-io">14.8 Non-Blocking I/O<a class="headerlink" href="#148-non-blocking-io" title="Permanent link">&para;</a></h2>
+<p>A <strong>non-blocking</strong> socket operation returns immediately, even if it would have blocked: <code>recv()</code> returns <code>EAGAIN</code> / <code>EWOULDBLOCK</code> if no data is yet available, <code>connect()</code> returns <code>EINPROGRESS</code> if the handshake is still in flight, <code>send()</code> returns the number of bytes that could be queued without waiting (which may be zero). The application is responsible for retrying when the socket becomes ready.</p>
+<p>To put a socket in non-blocking mode in C, set the <code>O_NONBLOCK</code> flag with <code>fcntl()</code>. In Python, call <code>sock.setblocking(False)</code>. The socket's behavior on every subsequent operation is now non-blocking until the flag is cleared.</p>
+<p>Non-blocking I/O is rarely useful by itself — repeatedly retrying a non-blocking <code>recv()</code> in a loop just busy-waits. It becomes useful when combined with an <em>event notification</em> mechanism that tells the application when to retry.</p>
+<h2 id="149-the-event-loop-pattern-select-poll-epoll-kqueue">14.9 The Event-Loop Pattern: select, poll, epoll, kqueue<a class="headerlink" href="#149-the-event-loop-pattern-select-poll-epoll-kqueue" title="Permanent link">&para;</a></h2>
+<p>The classic high-performance server pattern is the <strong>event loop</strong>: maintain a set of sockets, ask the OS which ones are ready for I/O, do work on those, and repeat. Four mechanisms have been used over the years.</p>
+<p><strong><code>select</code></strong> is the original POSIX event-notification call. The application passes three sets of file descriptors (read-ready, write-ready, exception) plus a timeout; <code>select()</code> blocks until any descriptor is ready or the timeout expires, then returns which ones. <code>select()</code> is portable and simple but has well-known limits: the maximum descriptor number is small (typically 1024), and the entire set must be passed and re-walked on every call, so cost grows linearly with the number of watched descriptors.</p>
+<p><strong><code>poll</code></strong> is <code>select</code>'s improved cousin. The application passes an array of <code>pollfd</code> structures, each specifying a descriptor and the events of interest. <code>poll</code> has no fixed maximum descriptor and is slightly more efficient than <code>select</code>, but still re-walks the array each call.</p>
+<p><strong><code>epoll</code></strong> (Linux-specific) is the modern high-performance event-notification mechanism. The application registers descriptors of interest once, then calls <code>epoll_wait()</code> to receive only the events that have occurred since the last call. <code>epoll</code> cost scales with the number of <em>active</em> descriptors, not the total set, making it suitable for servers with hundreds of thousands of mostly-idle connections. Most modern Linux servers (nginx, HAProxy, Node.js, Redis) use <code>epoll</code> underneath.</p>
+<p><strong><code>kqueue</code></strong> is the BSD/macOS equivalent of <code>epoll</code>, with similar scalability properties and a slightly different API. Like <code>epoll</code>, it provides edge-triggered or level-triggered notification.</p>
+<table>
+<thead>
+<tr>
+<th>Mechanism</th>
+<th>Platform</th>
+<th>Cost per call</th>
+<th>Edge-triggered?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>select</code></td>
+<td>All POSIX</td>
+<td>O(N) where N is set size</td>
+<td>Level-triggered only</td>
+</tr>
+<tr>
+<td><code>poll</code></td>
+<td>All POSIX</td>
+<td>O(N) where N is array size</td>
+<td>Level-triggered only</td>
+</tr>
+<tr>
+<td><code>epoll</code></td>
+<td>Linux</td>
+<td>O(active events)</td>
+<td>Both supported</td>
+</tr>
+<tr>
+<td><code>kqueue</code></td>
+<td>BSD, macOS</td>
+<td>O(active events)</td>
+<td>Both supported</td>
+</tr>
+<tr>
+<td><code>io_uring</code></td>
+<td>Linux (modern)</td>
+<td>O(active events)</td>
+<td>Asynchronous I/O completion</td>
+</tr>
+</tbody>
+</table>
+<p>Most languages and frameworks abstract these mechanisms. Python's <code>asyncio</code>, Node.js's libuv, Go's runtime scheduler, and Rust's tokio all build on one or more of them. Application code uses higher-level constructs (<code>async</code>/<code>await</code>, channels) and the runtime translates to the right OS mechanism for the platform.</p>
+<h2 id="1410-asynchronous-io">14.10 Asynchronous I/O<a class="headerlink" href="#1410-asynchronous-io" title="Permanent link">&para;</a></h2>
+<p><strong>Asynchronous I/O</strong> is a more aggressive programming model: instead of polling for <em>readiness</em> and then doing the I/O yourself, the application <em>initiates</em> an I/O operation and is later notified of its <em>completion</em>. The kernel does the buffer copying in the background. Linux's recent <code>io_uring</code> interface and Windows IOCP (I/O Completion Ports) implement this model.</p>
+<p>Asynchronous I/O reduces context switches and avoids small, fragmented reads. It is increasingly the foundation for high-performance networking on Linux and Windows; macOS still relies primarily on <code>kqueue</code> readiness notification. The line between non-blocking I/O with event notification and true asynchronous I/O is blurring as <code>io_uring</code> adoption grows.</p>
+<h2 id="1411-client-server-and-peer-to-peer-architectures">14.11 Client-Server and Peer-to-Peer Architectures<a class="headerlink" href="#1411-client-server-and-peer-to-peer-architectures" title="Permanent link">&para;</a></h2>
+<p>The dominant architectural pattern for networked applications is the <strong>client-server model</strong>: clients initiate requests; servers wait for them and respond. The pattern's strengths are operational (servers run on infrastructure that can be monitored, scaled, and secured) and architectural (any client can reach any server through standard naming and routing). HTTP, DNS, SMTP, and most Internet services are client-server.</p>
+<p>The alternative is the <strong>peer-to-peer (P2P) model</strong>: every node is both a client and a server, exchanging data with other peers without a central authority. P2P shines when:</p>
+<ul>
+<li>The data being shared is too large for a single server to deliver economically (BitTorrent, video distribution).</li>
+<li>No central authority is desired (cryptocurrencies, decentralized chat).</li>
+<li>Network reach to peers is sometimes better than to a centralized server (peer-discovery in local mesh networks).</li>
+</ul>
+<p>The technical challenge of P2P is that any two peers need to find each other and connect. On the public Internet, that means traversing NATs.</p>
+<h2 id="1412-nat-traversal-stun-and-turn">14.12 NAT Traversal: STUN and TURN<a class="headerlink" href="#1412-nat-traversal-stun-and-turn" title="Permanent link">&para;</a></h2>
+<p>Recall from Chapter 9 that NAT translates private addresses to a single public address, and that incoming connections to private hosts are typically blocked. Two peers, each behind their own NAT, cannot simply <code>connect()</code> to each other — neither has a routable address the other can reach. <strong>NAT traversal</strong> is the family of techniques that let them establish a connection anyway.</p>
+<p><strong>STUN (Session Traversal Utilities for NAT)</strong>, RFC 8489, lets a peer discover its public-facing IP and port as seen by the outside world. The peer sends a STUN request to a public STUN server; the STUN server replies with the source address it observed. The peer now knows its own external address and can publish it to a coordination service for the other peer to find. Modern WebRTC, VoIP, and many P2P games use STUN.</p>
+<p>Once both peers know each other's external addresses, they perform <strong>hole punching</strong>: each peer sends UDP packets toward the other's external address simultaneously. Each peer's NAT, seeing the outbound packet, opens a temporary mapping. Inbound packets from the other peer arrive on this mapping and are delivered. Hole punching works for most NAT types, but not all.</p>
+<p><strong>TURN (Traversal Using Relays around NAT)</strong>, RFC 8656, is the fallback when hole punching fails (e.g., behind symmetric NATs, which assign different external ports for each destination). TURN routes traffic through a public relay server, so each peer connects outbound to the relay and the relay forwards. TURN works in essentially every NAT scenario but doubles bandwidth costs (every byte traverses the relay twice) and adds latency.</p>
+<p>Most production systems combine STUN and TURN: try STUN-mediated direct connection first; fall back to TURN if direct doesn't work. The combination is usually orchestrated by a signaling service (typically over WebSocket) that helps peers exchange their candidate addresses. WebRTC's ICE (Interactive Connectivity Establishment) framework wraps all of this into a single API.</p>
+<h4 id="diagram-nat-traversal-with-stun-and-turn">Diagram: NAT Traversal with STUN and TURN<a class="headerlink" href="#diagram-nat-traversal-with-stun-and-turn" title="Permanent link">&para;</a></h4>
+<details>
+<summary>Animated demonstration of two peers establishing a connection through NAT using STUN and TURN</summary>
+<p>Type: microsim
+<strong>sim-id:</strong> nat-traversal-stun-turn<br/>
+<strong>Library:</strong> p5.js<br/>
+<strong>Status:</strong> Specified</p>
+<p>Build an interactive MicroSim that shows two peers, each behind their own NAT, discovering each other's external addresses via STUN and falling back to TURN when hole punching fails.</p>
+<p>Canvas: 960 px wide by 600 px tall, responsive down to 360 px. A 100 px control panel sits below.</p>
+<p>Topology:</p>
+<ul>
+<li>Peer A (left): private IP <code>10.0.0.5:50001</code>, behind NAT-A with public IP <code>203.0.113.1</code>.</li>
+<li>Peer B (right): private IP <code>192.168.1.10:50002</code>, behind NAT-B with public IP <code>198.51.100.1</code>.</li>
+<li>STUN server in the middle-top with public address <code>stun.example.com:3478</code>.</li>
+<li>TURN relay in the middle-bottom with public address <code>turn.example.com:3478</code>.</li>
+<li>Signaling service (small box top-center) carries candidate addresses between peers.</li>
+</ul>
+<p>Animation modes (selectable from a tab control):</p>
+<ul>
+<li><strong>STUN successful (cone NAT)</strong>: Each peer sends a STUN binding request; the server replies with the observed external address. Peers exchange candidates via signaling. Each peer sends a probe to the other's external address; both NATs open mappings; direct UDP flow established.</li>
+<li><strong>STUN fails, TURN required (symmetric NAT)</strong>: STUN returns an external address, but the symmetric NAT changes ports per destination, so the address is useless for B → A. TURN: peer A allocates a relay binding on the TURN server. Peer B connects to the relay address. Traffic flows through the relay.</li>
+</ul>
+<p>Controls panel:</p>
+<ul>
+<li>Mode tabs: Cone NAT (STUN) / Symmetric NAT (TURN).</li>
+<li>Buttons: Step / Play / Reset.</li>
+<li>Toggle: "Show signaling messages" reveals the candidate-exchange flow.</li>
+<li>Toggle: "Visualize bandwidth path" shows how TURN doubles bytes-on-wire compared to direct STUN.</li>
+</ul>
+<p>Visual style:</p>
+<ul>
+<li>Peers: rounded rectangles with laptop icons.</li>
+<li>NATs: hexagons with translation tables visible.</li>
+<li>STUN/TURN servers: rounded rectangles with cloud icons.</li>
+<li>Successful path: green; relay path: amber.</li>
+</ul>
+<p>Learning objectives:</p>
+<ul>
+<li>(Bloom — Understanding) Students explain how STUN discovers external addresses.</li>
+<li>(Bloom — Analyzing) Students compare the bandwidth and latency cost of STUN-direct vs. TURN-relayed connections.</li>
+<li>(Bloom — Evaluating) Students judge when TURN is required given NAT type.</li>
+</ul>
+<p>Implement in pure p5.js with the existing MicroSim CSS theme.</p>
+</details>
+<h2 id="1413-putting-it-together-a-multi-user-chat-server">14.13 Putting It Together: A Multi-User Chat Server<a class="headerlink" href="#1413-putting-it-together-a-multi-user-chat-server" title="Permanent link">&para;</a></h2>
+<p>A small chat server brings together every concept in this chapter:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span> <span class="nn">asyncio</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">clients</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">handle_client</span><span class="p">(</span><span class="n">reader</span><span class="p">,</span> <span class="n">writer</span><span class="p">):</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="n">addr</span> <span class="o">=</span> <span class="n">writer</span><span class="o">.</span><span class="n">get_extra_info</span><span class="p">(</span><span class="s1">&#39;peername&#39;</span><span class="p">)</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="n">clients</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">writer</span><span class="p">)</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>            <span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4096</span><span class="p">)</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>            <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">:</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>                <span class="k">break</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>            <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">clients</span><span class="p">:</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>                <span class="k">if</span> <span class="n">w</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">writer</span><span class="p">:</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>                    <span class="n">w</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>                    <span class="k">await</span> <span class="n">w</span><span class="o">.</span><span class="n">drain</span><span class="p">()</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>    <span class="k">finally</span><span class="p">:</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>        <span class="n">clients</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="n">writer</span><span class="p">)</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>        <span class="n">writer</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>        <span class="k">await</span> <span class="n">writer</span><span class="o">.</span><span class="n">wait_closed</span><span class="p">()</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>    <span class="n">server</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">start_server</span><span class="p">(</span><span class="n">handle_client</span><span class="p">,</span> <span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Chat server on port 8080&quot;</span><span class="p">)</span>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>    <span class="k">async</span> <span class="k">with</span> <span class="n">server</span><span class="p">:</span>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>        <span class="k">await</span> <span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</span></code></pre></div>
+<p>The server uses Python's <code>asyncio</code> framework — which is built on top of <code>epoll</code> on Linux, <code>kqueue</code> on macOS — so a single thread efficiently handles thousands of concurrent connections. Each connection's <code>handle_client</code> coroutine is suspended at every <code>await</code> until the OS reports the relevant event (data ready, send buffer drained, connection closed). When the OS notifies, the runtime resumes the coroutine, processes the event, and yields again.</p>
+<p>This 20-line server demonstrates the full pattern: accept connections, read messages, broadcast to all other connected clients, clean up on disconnect — all without any explicit threads or callbacks.</p>
+<h2 id="1414-practical-tips-for-production-networking-code">14.14 Practical Tips for Production Networking Code<a class="headerlink" href="#1414-practical-tips-for-production-networking-code" title="Permanent link">&para;</a></h2>
+<p>A few hard-won pieces of advice that show up in every networking codebase:</p>
+<ul>
+<li><strong>Always handle short reads and short writes.</strong> Wrap <code>recv()</code> and <code>send()</code> in framing logic that reads/writes the exact byte count you need.</li>
+<li><strong>Set TCP keepalive for long-lived connections.</strong> Without it, a network outage may go undetected for hours; with it, idle connections are probed periodically and broken connections are detected.</li>
+<li><strong>Set timeouts on every blocking call.</strong> A socket with no timeout can hang forever if the peer disappears silently.</li>
+<li><strong>Close sockets in <code>finally</code> blocks.</strong> Leaked sockets exhaust file-descriptor limits and break servers in subtle ways.</li>
+<li><strong>Use <code>SO_REUSEADDR</code> (and on Linux, <code>SO_REUSEPORT</code>) carefully.</strong> They simplify restarts and load balancing but have non-obvious semantics.</li>
+<li><strong>Always validate untrusted data.</strong> Network input comes from untrusted sources; assume it is malicious until proven otherwise.</li>
+<li><strong>Profile under load.</strong> Many networking bugs (lock contention, wakeup storms, allocator pressure) appear only at high load. Always test with realistic concurrency.</li>
+</ul>
+<div class="admonition mascot-thinking">
+<p class="admonition-title">TCP is harder than it looks</p>
+<p><img src="../../img/mascot/thinking.png" class="mascot-admonition-img" alt="Buzz thinking carefully">
+The first networked program a student writes "works" in the simple case but breaks under realistic conditions: long messages get split across <code>recv()</code> calls, slow senders cause <code>send()</code> to block, the kernel's send buffer fills under load. Production-quality network code is mostly about handling those <em>edge</em> cases gracefully. The 20-line chat server above is correct because it relies on <code>asyncio</code> to handle them; a from-scratch C version of the same server would be hundreds of lines.</p>
+</div>
+<h2 id="1415-key-takeaways">14.15 Key Takeaways<a class="headerlink" href="#1415-key-takeaways" title="Permanent link">&para;</a></h2>
+<p>Network programming is the bridge between protocol theory and working code. Before moving on, make sure you can answer the following without looking back:</p>
+<ul>
+<li>Walk through the system-call sequence for a TCP server.</li>
+<li>Walk through the system-call sequence for a TCP client.</li>
+<li>How does UDP socket programming differ from TCP?</li>
+<li>Why must application code handle short reads and short writes on TCP?</li>
+<li>Compare blocking, non-blocking, and asynchronous I/O.</li>
+<li>Compare <code>select</code>, <code>poll</code>, <code>epoll</code>, and <code>kqueue</code> on portability and scaling behavior.</li>
+<li>What is the client-server model? When does a peer-to-peer model fit better?</li>
+<li>What is NAT traversal, and why is it harder than ordinary connection establishment?</li>
+<li>Compare STUN and TURN. When is TURN required?</li>
+<li>Why does production networking code need timeouts on every blocking call?</li>
+</ul>
+<p>If any of those answers feel shaky, re-read the corresponding section before continuing to Chapter 15, where we move to network operations — the day-to-day work of running networks at scale: monitoring, configuration management, change control, packet capture, and incident response.</p>
+<div class="admonition mascot-celebration">
+<p class="admonition-title">You can write the code now</p>
+<p><img src="../../img/mascot/celebration.png" class="mascot-admonition-img" alt="Buzz celebrating">
+The Berkeley sockets API has carried the Internet for forty years. You now know enough to build a server, debug it under load, and make it survive a hostile network. <em>Follow the packet.</em></p>
+</div>
 
 
 
 
 
 
+
+  
+  
 
 
 
