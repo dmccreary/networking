@@ -1,0 +1,14 @@
+{
+  "sim_id": "cidr-subnet-calculator",
+  "diagram_name": "CIDR Subnet Calculator",
+  "chapter_number": 9,
+  "chapter_title": "The Network Layer and IP Addressing",
+  "chapter_dir": "09-network-layer-and-ip",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-06-04",
+  "specification": "Type: microsim\n**sim-id:** cidr-subnet-calculator<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nBuild an interactive MicroSim that lets students enter a CIDR block, choose a subnet prefix length, and see the resulting subnets visualized as colored bands on an address-space ruler.\n\nCanvas: 940 px wide by 540 px tall, responsive down to 360 px. A 120 px control panel sits below.\n\nLayout:\n\n- A horizontal address-space ruler at the top showing the entire input CIDR block as a long colored bar with binary, dotted-decimal, and hexadecimal labels at each major boundary.\n- Below the ruler, a stacked breakdown of the subnets — each subnet is a colored band labeled with its network address, broadcast address, usable host range, and number of usable hosts.\n- A binary view of the network/host bit split: bits in the network portion shown in dark blue, host bits in pale yellow, with the slash position highlighted.\n\nControls panel:\n\n- Input box for the parent CIDR block (e.g., `198.51.100.0/24`).\n- Dropdown for new subnet prefix length (must be ≥ parent's prefix).\n- Toggle: \"Show subnet mask in dotted decimal\" alongside CIDR.\n- Toggle: \"Variable-length subnetting\" — lets the user define mixed-size subnets (e.g., one `/25`, two `/26`s, four `/28`s) and shows how they tile the parent block.\n\nInteractivity:\n\n- As the user changes inputs, the ruler updates live.\n- Hover any subnet band to see its first/last addresses and host count.\n- Clicking on a host bit toggles it, demonstrating how individual host addresses change while the subnet stays the same.\n\nVisual style:\n\n- Network bits: dark blue.\n- Host bits: pale yellow.\n- Subnet bands: alternating honey amber and slate.\n- Reserved network/broadcast addresses highlighted in red.\n\nLearning objectives:\n\n- (Bloom — Applying) Students compute subnet boundaries given a CIDR block and a target subnet size.\n- (Bloom — Analyzing) Students examine the bit-level structure of an address and identify network vs. host portions.\n- (Bloom — Evaluating) Students judge whether a given subnetting plan efficiently uses the parent block.\n\nImplement in pure p5.js with the existing MicroSim CSS theme."
+}

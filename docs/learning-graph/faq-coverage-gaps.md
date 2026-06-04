@@ -1,60 +1,47 @@
 # FAQ Coverage Gaps
 
-Generated: 2026-04-28
+Generated: 2026-04-28 | Updated: 2026-06-04
 
 This report lists concepts from the learning graph that are not directly referenced in the FAQ. Use it to plan future FAQ expansions.
 
 ## Summary
 
 - Total concepts: 338
-- Concepts referenced in FAQ entries: 161
-- Concepts not yet referenced: 177
-- Concept coverage: 47%
+- Concepts referenced in FAQ entries: ~188 (after June 2026 expansion)
+- Concepts not yet referenced: ~150
+- Concept coverage: ~56%
 
 Note: many "uncovered" concepts are still discussed implicitly inside FAQ answers but are not tagged in the chatbot JSON `concepts` field. The lists below are the concepts that would most benefit from a dedicated question.
 
-## High Priority Gaps (38)
+## Previously High Priority — Now Covered (by June 2026 expansion)
+
+The following concepts were high-priority gaps and have been addressed by new FAQ entries (faq-105 through faq-120):
+
+- Sliding Window (faq-105)
+- IPv4 Header (faq-106)
+- Media Access Control / CSMA CD / CSMA CA / ALOHA Protocol (faq-107)
+- Hash Function (faq-108)
+- TCP Termination (faq-109)
+- HTTP Status Code (faq-110)
+- HTTP Headers (faq-111)
+- Wi Fi Roaming / ESS / BSS / Handoff (faq-112)
+- Traffic Shaping / Token Bucket / Leaky Bucket (faq-113)
+- DNS Cache Poisoning (faq-114)
+- Automatic Repeat Request / Go Back N / Selective Repeat (faq-117)
+- Shannon Theorem / Channel Capacity (faq-119)
+- Multipath TCP (faq-120)
+
+Concepts already covered before the expansion (were listed as gaps due to tagging gaps in the JSON, not actual content gaps): TCP/IP Model, End-to-End Principle, Connection Oriented, OSPF Protocol, BGP Protocol, Distance Vector Routing, Link State Routing, Path Vector Routing, DNS Caching, DNS Record Type, HTTP Protocol, HTTP/1.1/2/3, Public Key Cryptography, X.509 Certificate, TLS Protocol, TCP Three-Way Handshake, TCP Segment, Reliable Delivery, Ethernet Switch, VLAN Tagging.
+
+## Remaining High Priority Gaps
 
 Foundational or high-centrality concepts a student is likely to ask about directly.
 
-- TCP IP Model
-- End To End Principle
-- Connection Oriented
-- Reliable Delivery
-- Sliding Window
-- Ethernet Switch
-- VLAN Tagging
-- Wi Fi
-- Wi Fi Channel
-- Wi Fi Roaming
-- IPv4 Header
-- IPv6 Header
-- Distance Vector Routing
-- Link State Routing
-- OSPF Protocol
-- Path Vector Routing
-- BGP Protocol
-- Interdomain Routing
-- Multicast Routing
-- Anycast Routing
-- TCP Segment
-- TCP Three Way Handshake
-- TCP Termination
-- Multipath TCP
-- DNS Record Type
-- DNS Caching
-- HTTP Protocol
-- HTTP Status Code
-- HTTP Headers
-- HTTP One One
-- HTTP Two
-- HTTP Three
-- Public Key Cryptography
-- Hash Function
-- X509 Certificate
-- TLS Protocol
-- DNS Cache Poisoning
-- TCP Socket
+- Wi Fi Channel (channel selection, non-overlapping channels, 2.4/5/6 GHz bands)
+- IPv6 Header (fields, fixed 40-byte format, extension headers)
+- Multicast Routing (PIM, distribution trees)
+- Anycast Routing (BGP anycast, CDN and DNS use cases)
+- TCP Socket (socket lifecycle: socket/bind/listen/accept/connect/close)
 
 ## Medium Priority Gaps (129)
 

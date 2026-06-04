@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sliding Window Animation</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            color: #212529;
+        }
+        #container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+        h1 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #1a3a6c;
+        }
+        .placeholder {
+            border: 2px dashed #adb5bd;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            color: #6c757d;
+            margin: 20px 0;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .placeholder .badge {
+            display: inline-block;
+            background: #ffc107;
+            color: #212529;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .placeholder h2 {
+            font-size: 18px;
+            color: #495057;
+            margin-bottom: 8px;
+        }
+        .placeholder p {
+            font-size: 14px;
+            max-width: 480px;
+        }
+        .meta {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #6c757d;
+            border-top: 1px solid #dee2e6;
+            padding-top: 12px;
+        }
+        .meta strong { color: #495057; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Sliding Window Animation</h1>
+        <div class="placeholder">
+            <span class="badge">SCAFFOLD</span>
+            <h2>MicroSim Not Yet Implemented</h2>
+            <p>This MicroSim has been scaffolded from its specification but the
+            interactive content has not been built yet. See the chapter source
+            and the <code>index.md</code> in this directory for the full spec.</p>
+        </div>
+        <div class="meta">
+            <p><strong>Sim ID:</strong> arq-protocols-comparison</p>
+            <p><strong>Library:</strong> p5.js</p>
+            <p><strong>Bloom Level:</strong> TBD</p>
+            <p><strong>Learning Objective:</strong> TBD</p>
+        </div>
+    </div>
+
+    <!--
+    SPECIFICATION (from chapter index.md):
+
+    Type: microsim
+    **sim-id:** arq-protocols-comparison<br/>
+    **Library:** p5.js<br/>
+    **Status:** Specified
+    
+    Build an interactive MicroSim that animates three ARQ protocols side by side, sending the same sequence of frames over a lossy link, so students can compare bandwidth efficiency.
+    
+    Canvas: 940 px wide by 620 px tall, responsive down to 360 px. A 120 px control panel sits below.
+    
+    Layout:
+    
+    - Three vertical lanes side by side, each ~300 px wide.
+      - Left lane: Stop-and-Wait.
+      - Middle lane: Go-Back-N (with configurable window size).
+      - Right lane: Selective Repeat (with configurable window size).
+    - Each lane shows a sender on the left, a receiver on the right, and a horizontal time axis flowing downward.
+    - Frames are drawn as colored arrows from sender to receiver; ACKs as arrows from receiver to sender.
+    - Lost frames are crossed out in red; retransmissions are drawn in a darker shade of the original color.
+    
+    Animation:
+    
+    - Each lane processes the same input: 10 frames numbered 0-9.
+    - A "loss profile" controls which frames are dropped: e.g., frame 3 lost, all others delivered.
+    - Time runs simultaneously across the three lanes so students can directly compare elapsed time to deliver all frames.
+    - A real-time counter in each lane shows total time, retransmissions used, and effective throughput.
+    
+    Controls panel:
+    
+    - Sliders: window size (for Go-Back-N and Selective Repeat, 1–8), loss profile (predefined set of patterns or random with a probability slider), RTT (10–500 ms).
+    - Buttons: Step / Play / Reset.
+    - Toggle: "Stress test" — runs many random loss patterns and plots a histogram of completion times across the three protocols.
+    
+    Visual style:
+    
+    - Frames in honey amber; retransmissions in deeper amber; lost frames crossed out in red.
+    - ACKs in slate.
+    - Sender / receiver as rounded rectangles.
+    
+    Learning objectives:
+    
+    - (Bloom — Understanding) Students explain how each ARQ variant handles a lost frame.
+    - (Bloom — Analyzing) Students compare the bandwidth and time costs of Go-Back-N vs. selective repeat under varying loss rates.
+    - (Bloom — Evaluating) Students choose an ARQ variant for a deployment based on RTT, BER, and receiver-buffer constraints.
+    
+    Implement in pure p5.js with the existing MicroSim CSS theme.
+    -->
+</body>
+</html>

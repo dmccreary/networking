@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Nesting Envelope Model</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            color: #212529;
+        }
+        #container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+        h1 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #1a3a6c;
+        }
+        .placeholder {
+            border: 2px dashed #adb5bd;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            color: #6c757d;
+            margin: 20px 0;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .placeholder .badge {
+            display: inline-block;
+            background: #ffc107;
+            color: #212529;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .placeholder h2 {
+            font-size: 18px;
+            color: #495057;
+            margin-bottom: 8px;
+        }
+        .placeholder p {
+            font-size: 14px;
+            max-width: 480px;
+        }
+        .meta {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #6c757d;
+            border-top: 1px solid #dee2e6;
+            padding-top: 12px;
+        }
+        .meta strong { color: #495057; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>The Nesting Envelope Model</h1>
+        <div class="placeholder">
+            <span class="badge">SCAFFOLD</span>
+            <h2>MicroSim Not Yet Implemented</h2>
+            <p>This MicroSim has been scaffolded from its specification but the
+            interactive content has not been built yet. See the chapter source
+            and the <code>index.md</code> in this directory for the full spec.</p>
+        </div>
+        <div class="meta">
+            <p><strong>Sim ID:</strong> encapsulation-envelope-model</p>
+            <p><strong>Library:</strong> p5.js</p>
+            <p><strong>Bloom Level:</strong> TBD</p>
+            <p><strong>Learning Objective:</strong> TBD</p>
+        </div>
+    </div>
+
+    <!--
+    SPECIFICATION (from chapter index.md):
+
+    Type: diagram
+    **sim-id:** encapsulation-envelope-model<br/>
+    **Library:** p5.js<br/>
+    **Status:** Specified
+    
+    Render a static diagram that visualizes encapsulation as a series of concentric rectangles, one per layer.
+    
+    Canvas: 800 px wide by 480 px tall, responsive to container width down to 360 px.
+    
+    Layout:
+    
+    - Five concentric rectangles centered on the canvas, drawn from outside to inside:
+      - Outermost (largest): Ethernet Frame, brown border (#5D4037), with a small "Header" tab on the left and "Trailer (FCS)" tab on the right.
+      - Next: IP Packet, green border (#2e7d32), with a "Header" tab on the left.
+      - Next: TCP Segment, blue border (#1976D2), with a "Header" tab on the left.
+      - Next: HTTP Message, amber background (#F5A623), labeled "Application Payload".
+      - The innermost region is the actual payload bytes (e.g., "GET /index.html HTTP/1.1").
+    - To the left of the diagram, render a vertical legend listing each layer name, the data unit at that layer, and the typical header size: Application (message, variable); Transport TCP (segment, 20-byte header); Network (packet, 20-byte IPv4 header); Link (frame, 14-byte Ethernet header + 4-byte FCS).
+    - Below the diagram, render a single horizontal byte ruler showing the running total of header bytes added by each layer — this lets students see the per-layer overhead concretely.
+    
+    Interactivity:
+    
+    - Hover on any concentric rectangle's border highlights that layer in the legend and pops a tooltip with the header's most important fields.
+    - A toggle button at the top labeled "TCP / UDP" switches the second-innermost rectangle between TCP segment (blue, 20 bytes) and UDP datagram (purple, 8 bytes), updating the byte ruler accordingly.
+    
+    The diagram should be implemented in p5.js using the existing MicroSim styling. Use a 2 px border for each layer rectangle and a 6 px gap between layers so the nesting is visually unambiguous.
+    
+    Learning objective (Bloom — Remembering and Understanding): Students recognize the canonical encapsulation order and recall the typical header size at each layer.
+    -->
+</body>
+</html>

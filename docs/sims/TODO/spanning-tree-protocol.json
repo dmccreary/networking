@@ -1,0 +1,14 @@
+{
+  "sim_id": "spanning-tree-protocol",
+  "diagram_name": "Spanning Tree in Action",
+  "chapter_number": 7,
+  "chapter_title": "Ethernet, Switching, and VLANs",
+  "chapter_dir": "07-ethernet-and-vlans",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-06-04",
+  "specification": "Type: microsim\n**sim-id:** spanning-tree-protocol<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nBuild an interactive MicroSim that animates the Spanning Tree Protocol building a loop-free tree from a redundant switch topology.\n\nCanvas: 940 px wide by 600 px tall, responsive down to 360 px. A 120 px control panel sits below.\n\nTopology:\n\n- 5 switches arranged in a partial mesh with redundant links (e.g., a triangle with a tail and a diagonal). Each switch is labeled S1–S5 with a small bridge ID (priority + MAC).\n- Hosts are not shown; this is a switch-only topology.\n\nAnimation steps:\n\n1. All ports start in a \"listening\" state, drawn in yellow.\n2. Each switch begins emitting BPDUs. The animation shows pulses traveling along each link.\n3. Switches compare bridge IDs and elect the lowest-ID switch as root (highlighted with a crown icon).\n4. Each non-root switch computes its shortest path to the root; ports on the path are turned green (forwarding), ports that would create loops are turned red (blocking).\n5. A scenario button \"Link failure\" lets students click any link to disable it; the simulation re-runs RSTP and shows convergence as a previously-blocked port turns green.\n\nControls panel:\n\n- Buttons: Step / Play / Reset.\n- Toggle: \"Show BPDU contents\" — clicking a BPDU pulse displays the proposed root bridge ID and root path cost.\n- Buttons: \"Inject failure\" (random link fails), \"Inject root failure\" (root bridge goes down).\n- Speed slider.\n\nVisual style:\n\n- Switches: rounded rectangles in slate.\n- Root bridge: highlighted with a crown icon and honey-amber border.\n- Forwarding ports: green dots at link endpoints.\n- Blocked ports: red dots.\n- BPDUs: small pulsing circles traveling along links.\n\nLearning objectives:\n\n- (Bloom — Understanding) Students explain how STP elects a root and decides which ports to block.\n- (Bloom — Analyzing) Students examine convergence behavior under link or root failure.\n- (Bloom — Evaluating) Students judge the trade-off between STP simplicity and the bandwidth-efficient alternatives used in modern datacenter fabrics.\n\nImplement in pure p5.js with the existing MicroSim CSS theme."
+}

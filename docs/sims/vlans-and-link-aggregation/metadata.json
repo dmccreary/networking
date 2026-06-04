@@ -1,0 +1,21 @@
+{
+  "title": "VLANs and Link Aggregation Together",
+  "description": "VLANs and Link Aggregation Together",
+  "creator": "Dementia Education Project",
+  "date": "2026-06-04",
+  "subject": [
+    "dementia"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY 4.0",
+  "identifier": "vlans-and-link-aggregation",
+  "library": "p5.js",
+  "bloomLevel": "TBD",
+  "bloomVerb": "TBD",
+  "completion_status": "scaffold",
+  "chapter_number": 7,
+  "chapter_title": "Ethernet, Switching, and VLANs",
+  "chapter_dir": "07-ethernet-and-vlans"
+}

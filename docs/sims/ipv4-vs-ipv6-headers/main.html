@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPv4 vs. IPv6 Header Comparison</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            color: #212529;
+        }
+        #container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+        h1 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #1a3a6c;
+        }
+        .placeholder {
+            border: 2px dashed #adb5bd;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            color: #6c757d;
+            margin: 20px 0;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .placeholder .badge {
+            display: inline-block;
+            background: #ffc107;
+            color: #212529;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .placeholder h2 {
+            font-size: 18px;
+            color: #495057;
+            margin-bottom: 8px;
+        }
+        .placeholder p {
+            font-size: 14px;
+            max-width: 480px;
+        }
+        .meta {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #6c757d;
+            border-top: 1px solid #dee2e6;
+            padding-top: 12px;
+        }
+        .meta strong { color: #495057; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>IPv4 vs. IPv6 Header Comparison</h1>
+        <div class="placeholder">
+            <span class="badge">SCAFFOLD</span>
+            <h2>MicroSim Not Yet Implemented</h2>
+            <p>This MicroSim has been scaffolded from its specification but the
+            interactive content has not been built yet. See the chapter source
+            and the <code>index.md</code> in this directory for the full spec.</p>
+        </div>
+        <div class="meta">
+            <p><strong>Sim ID:</strong> ipv4-vs-ipv6-headers</p>
+            <p><strong>Library:</strong> p5.js</p>
+            <p><strong>Bloom Level:</strong> TBD</p>
+            <p><strong>Learning Objective:</strong> TBD</p>
+        </div>
+    </div>
+
+    <!--
+    SPECIFICATION (from chapter index.md):
+
+    Type: infographic
+    **sim-id:** ipv4-vs-ipv6-headers<br/>
+    **Library:** p5.js<br/>
+    **Status:** Specified
+    
+    Render an interactive side-by-side comparison of the IPv4 and IPv6 fixed headers, with hoverable annotations explaining each field.
+    
+    Canvas: 940 px wide by 580 px tall, responsive down to 360 px.
+    
+    Layout:
+    
+    - Two stacked headers, top is IPv4 (20 bytes), bottom is IPv6 (40 bytes).
+    - Each header is rendered as a grid: rows are 32 bits wide; each field is shown as a colored cell labeled with its name and bit width.
+    - A small "removed in IPv6" label appears on IPv4 fields that have no IPv6 counterpart (Header Checksum, Identification/Flags/Fragment Offset, IHL, Options).
+    - A small "new in IPv6" label appears on IPv6 fields that did not exist in IPv4 (Flow Label).
+    - IP addresses: IPv4 source/dest are 32 bits each; IPv6 source/dest are 128 bits each (rendered as four 32-bit rows for visual symmetry).
+    
+    Interactivity:
+    
+    - Hover any cell raises a callout with the field's purpose, typical values, and relevant RFC.
+    - Toggle "Show example values" populates each field with a sample value (TTL = 64, Hop Limit = 64, Protocol/Next Header = 6 for TCP, etc.).
+    - Toggle "Show byte ruler" overlays a byte-position label below each row.
+    
+    Visual style:
+    
+    - IPv4 fields: honey-amber palette.
+    - IPv6 fields: signal-blue palette.
+    - Removed fields: striped slate background.
+    - New fields: glowing green border.
+    
+    Learning objective (Bloom — Remembering and Understanding): Students recognize each IPv4 and IPv6 header field, can name what was removed, what was added, and what the redesign accomplished.
+    -->
+</body>
+</html>

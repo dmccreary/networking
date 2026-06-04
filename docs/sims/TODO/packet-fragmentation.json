@@ -1,0 +1,14 @@
+{
+  "sim_id": "packet-fragmentation",
+  "diagram_name": "Packet Fragmentation Walkthrough",
+  "chapter_number": 9,
+  "chapter_title": "The Network Layer and IP Addressing",
+  "chapter_dir": "09-network-layer-and-ip",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-06-04",
+  "specification": "Type: microsim\n**sim-id:** packet-fragmentation<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nBuild an interactive MicroSim that animates a packet traversing a multi-hop path with mismatched MTUs, showing fragmentation in IPv4 and Path-MTU Discovery in IPv6.\n\nCanvas: 940 px wide by 600 px tall, responsive down to 360 px. A 100 px control panel sits below.\n\nLayout:\n\n- A horizontal path: Sender — Link 1 (MTU 9000) — Router R1 — Link 2 (MTU 1500) — Router R2 — Link 3 (MTU 576) — Receiver.\n- A large packet (e.g., 4000 bytes) starts at the sender; the animation shows what happens at each MTU mismatch.\n\nAnimation modes (selectable from a tab control):\n\n- **IPv4 with DF=0 (legacy):** the packet is fragmented at R1 (4000 → 2× 1500 + 1× 1000 + headers). Fragments reach R2 where each is again fragmented to fit MTU 576. Receiver buffers all fragments and reassembles. A counter tracks fragments and reassembly buffer use.\n- **IPv4 with DF=1:** R1 cannot fragment, returns ICMP \"Fragmentation Needed\" with MTU=1500. Sender retries with 1500-byte packet; R2 returns ICMP \"Fragmentation Needed\" with MTU=576. Sender retries with 576-byte packets; all reach the receiver intact. PMTU is now 576.\n- **IPv6:** sender starts at 4000 bytes; R1 returns ICMPv6 \"Packet Too Big\" with MTU=1500. Sender retries with 1500-byte packets using Fragment Extension Header (source-only fragmentation) chunks of 1500 bytes carried by the source. Same workflow for R2. PMTU converges to 576.\n\nControls panel:\n\n- Tab control for the three modes.\n- Sliders: link MTU values (per-link).\n- Buttons: Step / Play / Reset.\n- Counters: fragments created, ICMP messages exchanged, total bytes on each link.\n\nVisual style:\n\n- Original packet: large honey-amber rectangle.\n- Fragments: smaller honey-amber rectangles labeled with offset.\n- ICMP messages: red arrows traveling backward.\n- MTU labels above each link.\n\nLearning objectives:\n\n- (Bloom — Understanding) Students explain what happens at an MTU mismatch in each of the three modes.\n- (Bloom — Analyzing) Students decompose the trade-offs between in-transit fragmentation and Path-MTU Discovery.\n- (Bloom — Evaluating) Students judge why IPv6 deliberately removed in-transit fragmentation.\n\nImplement in pure p5.js with the existing MicroSim CSS theme."
+}

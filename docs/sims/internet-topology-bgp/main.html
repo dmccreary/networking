@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internet Topology and BGP Relationships</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            color: #212529;
+        }
+        #container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+        h1 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #1a3a6c;
+        }
+        .placeholder {
+            border: 2px dashed #adb5bd;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            color: #6c757d;
+            margin: 20px 0;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .placeholder .badge {
+            display: inline-block;
+            background: #ffc107;
+            color: #212529;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .placeholder h2 {
+            font-size: 18px;
+            color: #495057;
+            margin-bottom: 8px;
+        }
+        .placeholder p {
+            font-size: 14px;
+            max-width: 480px;
+        }
+        .meta {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #6c757d;
+            border-top: 1px solid #dee2e6;
+            padding-top: 12px;
+        }
+        .meta strong { color: #495057; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Internet Topology and BGP Relationships</h1>
+        <div class="placeholder">
+            <span class="badge">SCAFFOLD</span>
+            <h2>MicroSim Not Yet Implemented</h2>
+            <p>This MicroSim has been scaffolded from its specification but the
+            interactive content has not been built yet. See the chapter source
+            and the <code>index.md</code> in this directory for the full spec.</p>
+        </div>
+        <div class="meta">
+            <p><strong>Sim ID:</strong> internet-topology-bgp</p>
+            <p><strong>Library:</strong> vis-network</p>
+            <p><strong>Bloom Level:</strong> TBD</p>
+            <p><strong>Learning Objective:</strong> TBD</p>
+        </div>
+    </div>
+
+    <!--
+    SPECIFICATION (from chapter index.md):
+
+    Type: microsim
+    **sim-id:** internet-topology-bgp<br/>
+    **Library:** vis-network<br/>
+    **Status:** Specified
+    
+    Render an interactive node-link diagram of a small Internet showing autonomous systems and the BGP relationships between them.
+    
+    Canvas: 960 px wide by 620 px tall, responsive down to 360 px.
+    
+    Topology:
+    
+    - 4 tier-1 ISPs at the top, fully meshed with peering links.
+    - 6 tier-2 ISPs in the middle, each connected to one or two tier-1s via transit, and to several other tier-2s via peering.
+    - 8 tier-3 ISPs and content providers at the bottom, each with one or two transit providers.
+    - Special nodes: a tier-1 anchored CDN (e.g., Cloudflare, AS 13335) directly peering with most others; a major content network (e.g., Google, AS 15169) with many peering links.
+    
+    Edge styles:
+    
+    - Transit links: thick honey-amber arrows pointing from customer to provider; transit traffic flows in both directions.
+    - Peering links: dashed slate edges, no arrow direction.
+    - Each link has a hover tooltip showing the relationship type and the typical traffic volume.
+    
+    Interactivity:
+    
+    - Click any AS to see its full set of relationships and the AS path it would use to reach any other AS in the diagram.
+    - Click any pair of ASes (source and destination) to highlight the BGP-preferred path in green and other available paths in dim gray.
+    - Toggle "Hide transit relationships" to show only peering links — useful for understanding the dense peering mesh among large networks.
+    - "Add IXP" toggle introduces a virtual IXP node to which many ASes connect; demonstrate that one IXP can replace dozens of pairwise peering links.
+    
+    Visual style:
+    
+    - Tier-1 ASes: rounded rectangles in deep slate.
+    - Tier-2 ASes: rounded rectangles in mid-slate.
+    - Tier-3 ASes / content: rounded rectangles in honey amber.
+    - Currently-selected path: green highlight.
+    
+    Learning objectives:
+    
+    - (Bloom — Understanding) Students explain the difference between peering and transit relationships.
+    - (Bloom — Analyzing) Students decompose a BGP-preferred AS path into its commercial relationships.
+    - (Bloom — Evaluating) Students judge how IXPs and direct peering with content providers reduce transit costs and improve performance.
+    
+    Implement in vis-network with the existing learning-graph viewer styling.
+    -->
+</body>
+</html>

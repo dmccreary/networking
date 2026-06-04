@@ -1,0 +1,14 @@
+{
+  "sim_id": "tls-handshake-walkthrough",
+  "diagram_name": "TLS 1.3 Handshake Walkthrough",
+  "chapter_number": 12,
+  "chapter_title": "Network Security",
+  "chapter_dir": "12-network-security",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-06-04",
+  "specification": "Type: microsim\n**sim-id:** tls-handshake-walkthrough<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nBuild an interactive MicroSim that animates the TLS 1.3 handshake step by step, showing each message and the keys derived at each stage.\n\nCanvas: 940 px wide by 640 px tall, responsive down to 360 px. A 120 px control panel sits below.\n\nLayout:\n\n- Two vertical timelines: Client (left) and Server (right). Time flows top to bottom.\n- Each TLS message is drawn as an arrow with a labeled box showing the message type and key contents (e.g., \"ClientHello: supported_versions, cipher_suites, key_share, client_random\").\n- A \"key derivation\" panel between the timelines updates as each step completes, showing which keys are now derived (early secret, handshake secret, master secret).\n\nAnimation phases:\n\n1. ClientHello sent.\n2. ServerHello + Certificate + signed transcript sent. Highlight: client now verifies cert chain against preinstalled CAs.\n3. Both sides compute DH shared secret. Highlight: forward secrecy because the DH key shares are ephemeral.\n4. Client and server derive matching session keys via HKDF.\n5. Application data flows, encrypted.\n\nControls panel:\n\n- Buttons: Step / Play / Reset.\n- Toggle: \"Show TLS 1.2 (compare)\" splits the canvas to also show the older 2-RTT handshake.\n- Toggle: \"0-RTT mode\" replays the handshake using a session ticket; data flows immediately on the first message.\n- Toggle: \"Compromised CA\" injects a malicious cert and shows the verification failure.\n\nVisual style:\n\n- Client messages in honey amber.\n- Server messages in slate.\n- Encrypted messages drawn with a small lock icon.\n- Key-derivation panel with each derived key fading in as it becomes available.\n\nLearning objectives:\n\n- (Bloom — Understanding) Students explain each step of the TLS 1.3 handshake.\n- (Bloom — Analyzing) Students compare TLS 1.3 with TLS 1.2 in round trips and security guarantees.\n- (Bloom — Evaluating) Students judge when 0-RTT is appropriate and what its limitations are.\n\nImplement in pure p5.js with the existing MicroSim CSS theme."
+}

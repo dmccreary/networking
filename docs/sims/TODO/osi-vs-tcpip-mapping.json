@@ -1,0 +1,14 @@
+{
+  "sim_id": "osi-vs-tcpip-mapping",
+  "diagram_name": "OSI vs. TCP/IP Layer Mapping",
+  "chapter_number": 3,
+  "chapter_title": "Network Architecture and Layered Models",
+  "chapter_dir": "03-architecture-and-layering",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-06-04",
+  "specification": "Type: infographic\n**sim-id:** osi-vs-tcpip-mapping<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nRender an infographic that places the OSI seven-layer stack and the TCP/IP four/five-layer stack side by side, with bracket lines showing how OSI layers collapse into TCP/IP layers.\n\nCanvas: 900 px wide by 620 px tall, responsive down to 360 px.\n\nLayout:\n\n- Two vertical stacks separated by a 200 px gap. Left stack labeled \"OSI Reference Model\" with seven horizontal bands stacked top to bottom: Application (7), Presentation (6), Session (5), Transport (4), Network (3), Data Link (2), Physical (1). Right stack labeled \"TCP/IP Model (5-layer view)\" with five bands: Application, Transport, Internet, Link, Physical.\n- Color-code matching layers identically across both stacks (e.g., transport in honey amber on both sides).\n- Draw thick translucent bracket lines from the right edge of each OSI layer to the corresponding TCP/IP layer. The OSI Application, Presentation, and Session layers all bracket together to the TCP/IP Application layer; the Transport, Network, Data Link, and Physical map one-to-one (with the slight wrinkle that some 4-layer presentations of TCP/IP merge Link and Physical).\n\nInteractivity:\n\n- Hover on any layer (either stack) raises a callout listing 2-3 example protocols that operate at that layer.\n- A toggle \"5-layer / 4-layer\" view at the top compresses or separates the link and physical layers in the right-hand stack.\n- A second toggle \"Highlight: HTTP request\" overlays an animation showing where each protocol of an HTTP-over-TLS-over-TCP-over-IPv6 stack lands on each model.\n\nVisual style:\n\n- 1 px slate borders between bands; rounded 6 px corners on each band.\n- Bracket lines should be honey-amber with 30% transparency.\n\nLearning objective (Bloom — Understanding): Students explain why OSI's seven layers map to TCP/IP's four or five and which OSI layers have no dedicated counterpart in the Internet stack."
+}

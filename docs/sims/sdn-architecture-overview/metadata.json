@@ -1,0 +1,21 @@
+{
+  "title": "SDN Architecture: Control vs. Data Plane",
+  "description": "SDN Architecture: Control vs. Data Plane",
+  "creator": "Dementia Education Project",
+  "date": "2026-06-04",
+  "subject": [
+    "dementia"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY 4.0",
+  "identifier": "sdn-architecture-overview",
+  "library": "p5.js",
+  "bloomLevel": "TBD",
+  "bloomVerb": "TBD",
+  "completion_status": "scaffold",
+  "chapter_number": 16,
+  "chapter_title": "SDN, NFV, Emerging Topics, and Capstone Projects",
+  "chapter_dir": "16-sdn-emerging-and-capstones"
+}

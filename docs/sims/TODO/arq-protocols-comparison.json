@@ -1,0 +1,14 @@
+{
+  "sim_id": "arq-protocols-comparison",
+  "diagram_name": "Sliding Window Animation",
+  "chapter_number": 6,
+  "chapter_title": "Link Layer Fundamentals and Reliable Transfer",
+  "chapter_dir": "06-link-layer-fundamentals",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-06-04",
+  "specification": "Type: microsim\n**sim-id:** arq-protocols-comparison<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nBuild an interactive MicroSim that animates three ARQ protocols side by side, sending the same sequence of frames over a lossy link, so students can compare bandwidth efficiency.\n\nCanvas: 940 px wide by 620 px tall, responsive down to 360 px. A 120 px control panel sits below.\n\nLayout:\n\n- Three vertical lanes side by side, each ~300 px wide.\n  - Left lane: Stop-and-Wait.\n  - Middle lane: Go-Back-N (with configurable window size).\n  - Right lane: Selective Repeat (with configurable window size).\n- Each lane shows a sender on the left, a receiver on the right, and a horizontal time axis flowing downward.\n- Frames are drawn as colored arrows from sender to receiver; ACKs as arrows from receiver to sender.\n- Lost frames are crossed out in red; retransmissions are drawn in a darker shade of the original color.\n\nAnimation:\n\n- Each lane processes the same input: 10 frames numbered 0-9.\n- A \"loss profile\" controls which frames are dropped: e.g., frame 3 lost, all others delivered.\n- Time runs simultaneously across the three lanes so students can directly compare elapsed time to deliver all frames.\n- A real-time counter in each lane shows total time, retransmissions used, and effective throughput.\n\nControls panel:\n\n- Sliders: window size (for Go-Back-N and Selective Repeat, 1–8), loss profile (predefined set of patterns or random with a probability slider), RTT (10–500 ms).\n- Buttons: Step / Play / Reset.\n- Toggle: \"Stress test\" — runs many random loss patterns and plots a histogram of completion times across the three protocols.\n\nVisual style:\n\n- Frames in honey amber; retransmissions in deeper amber; lost frames crossed out in red.\n- ACKs in slate.\n- Sender / receiver as rounded rectangles.\n\nLearning objectives:\n\n- (Bloom — Understanding) Students explain how each ARQ variant handles a lost frame.\n- (Bloom — Analyzing) Students compare the bandwidth and time costs of Go-Back-N vs. selective repeat under varying loss rates.\n- (Bloom — Evaluating) Students choose an ARQ variant for a deployment based on RTT, BER, and receiver-buffer constraints.\n\nImplement in pure p5.js with the existing MicroSim CSS theme."
+}

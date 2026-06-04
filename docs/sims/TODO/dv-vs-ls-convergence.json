@@ -1,0 +1,14 @@
+{
+  "sim_id": "dv-vs-ls-convergence",
+  "diagram_name": "Distance-Vector vs. Link-State Convergence",
+  "chapter_number": 10,
+  "chapter_title": "Routing and Forwarding",
+  "chapter_dir": "10-routing-and-forwarding",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-06-04",
+  "specification": "Type: microsim\n**sim-id:** dv-vs-ls-convergence<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nBuild an interactive MicroSim that animates how a small network converges under distance-vector and link-state algorithms when a link fails.\n\nCanvas: 960 px wide by 620 px tall, responsive down to 360 px. A 100 px control panel sits below.\n\nLayout:\n\n- A network of 6 routers arranged in a partial mesh, with link costs labeled.\n- The canvas is split into two side-by-side mirrors of the same topology: left is \"RIP (distance vector)\", right is \"OSPF (link state)\".\n- Each router displays its current routing table — destination, next hop, cost — updated as messages flow.\n\nAnimation:\n\n- Step 1: Both networks converge on identical routing tables.\n- Step 2: A specific link fails (user clicks to choose).\n- RIP side: routers exchange vectors round by round; count-to-infinity may visible appear and the update interval is shown as a slow tick.\n- OSPF side: a flooding wave of LSAs propagates immediately; each router runs Dijkstra and updates within seconds.\n- A side-by-side \"convergence time\" counter increments.\n\nControls panel:\n\n- Dropdown: link to fail.\n- Buttons: Step / Play / Reset.\n- Toggle: \"Enable split horizon\" (RIP side only) — turns on/off the loop-prevention.\n- Toggle: \"Enable poison reverse\".\n- Speed slider for RIP update interval.\n\nVisual style:\n\n- Routers as rounded rectangles with router IDs.\n- Active links: green; failed link: red dashed; flooding wave: pulsing blue.\n- Routing table cells: highlight changed entries in honey amber.\n\nLearning objectives:\n\n- (Bloom — Understanding) Students explain how each protocol family responds to a topology change.\n- (Bloom — Analyzing) Students compare convergence time, message overhead, and CPU cost.\n- (Bloom — Evaluating) Students judge which family is appropriate for a given network size.\n\nImplement in pure p5.js with the existing MicroSim CSS theme."
+}

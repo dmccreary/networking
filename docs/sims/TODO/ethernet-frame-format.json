@@ -1,0 +1,14 @@
+{
+  "sim_id": "ethernet-frame-format",
+  "diagram_name": "Ethernet Frame Format",
+  "chapter_number": 7,
+  "chapter_title": "Ethernet, Switching, and VLANs",
+  "chapter_dir": "07-ethernet-and-vlans",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-06-04",
+  "specification": "Type: infographic\n**sim-id:** ethernet-frame-format<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nRender an interactive infographic that shows the byte-level layout of an Ethernet frame, with hoverable annotations explaining each field.\n\nCanvas: 920 px wide by 480 px tall, responsive down to 360 px.\n\nLayout:\n\n- A horizontal \"byte ruler\" at the top shows positions 0-1517 (with breaks for the variable payload).\n- Below the ruler, a frame is rendered as a series of color-coded blocks, each labeled with its field name and size:\n  - Preamble (7 bytes) — pale gray\n  - SFD (1 byte) — slate\n  - Destination MAC (6 bytes) — honey amber\n  - Source MAC (6 bytes) — honey amber\n  - EtherType / Length (2 bytes) — green\n  - Payload (46–1500 bytes) — light blue (variable width)\n  - FCS (4 bytes) — brown\n- Each block has a small label above showing field name and offset; below, an example value (e.g., `f0:18:98:01:23:45` for source MAC, `0x0800` for EtherType).\n\nInteractivity:\n\n- Hover any block raises a callout with a one-paragraph explanation of the field's purpose, the values commonly seen, and the standard reference (IEEE 802.3 section).\n- A toggle \"Add 802.1Q tag\" inserts a 4-byte VLAN tag between source MAC and EtherType, with explanatory text — preview for the VLAN section later in the chapter.\n- A toggle \"Show pad bytes\" highlights the padding bytes added when payload is below the 46-byte minimum.\n- A toggle \"Jumbo frame\" extends the payload field up to 9000 bytes and adjusts the byte ruler accordingly.\n\nVisual style:\n\n- Blocks share rounded corners and a subtle drop shadow.\n- Hovered block: 2 px deep purple border (#4a148c).\n- The byte ruler uses a fixed-width font.\n\nLearning objective (Bloom — Remembering and Understanding): Students recall the byte layout of an Ethernet frame and explain the purpose of each field."
+}

@@ -1,0 +1,14 @@
+{
+  "sim_id": "error-detection-comparison",
+  "diagram_name": "Error Detection in Action",
+  "chapter_number": 6,
+  "chapter_title": "Link Layer Fundamentals and Reliable Transfer",
+  "chapter_dir": "06-link-layer-fundamentals",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-06-04",
+  "specification": "Type: microsim\n**sim-id:** error-detection-comparison<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nBuild an interactive MicroSim that lets students inject bit errors into a frame and watch which of three error-detection codes catch them.\n\nCanvas: 920 px wide by 580 px tall, responsive down to 360 px. A 120 px control panel sits below.\n\nLayout:\n\n- A frame display at the top: 32 bits of data shown as a row of small squares, one bit per square, with a small label above each indicating its bit position.\n- Three trailing fields shown to the right of the frame:\n  - 1-bit parity (computed from the data).\n  - 16-bit Internet checksum (computed from the data).\n  - 32-bit CRC-32 (computed from the data using polynomial `0xEDB88320`).\n- Below the frame, a \"received\" copy initially identical to the sent frame.\n\nInteractivity:\n\n- Clicking any bit in the received copy flips it (toggles 0/1). The display recomputes the receiver's parity, checksum, and CRC values.\n- Each of the three checks shows a green \"OK\" or red \"FAIL\" indicator depending on whether the recomputed value matches the original.\n- \"Inject N random errors\" buttons (1, 2, 4, 8 errors) flip random bits and update the indicators.\n- \"Burst error\" toggle: flip a contiguous block of bits.\n- A counter tracks how many of the test cases each code caught.\n\nVisual style:\n\n- Sent frame in honey amber.\n- Received frame in slate.\n- Flipped bits highlighted in red.\n- Pass/fail indicators in green/red.\n\nLearning objectives:\n\n- (Bloom — Understanding) Students explain why parity catches only odd-bit-count errors.\n- (Bloom — Analyzing) Students decompose an error pattern into the contributions caught by each code.\n- (Bloom — Evaluating) Students judge which error-detection code is strong enough for a given application.\n\nImplement in pure p5.js using the existing MicroSim CSS theme."
+}

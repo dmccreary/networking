@@ -1,0 +1,14 @@
+{
+  "sim_id": "standards-bodies-map",
+  "diagram_name": "Standards Bodies and What They Govern",
+  "chapter_number": 2,
+  "chapter_title": "Standards, Data Units, and Encapsulation",
+  "chapter_dir": "02-standards-and-encapsulation",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-06-04",
+  "specification": "Type: infographic\n**sim-id:** standards-bodies-map<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nRender an infographic that maps the four standards bodies introduced in this chapter to the parts of the network they govern.\n\nCanvas: 900 px wide by 540 px tall, responsive down to 360 px wide.\n\nLayout:\n\n- Render five horizontal layer bands stacked vertically, top to bottom: \"Application\", \"Transport\", \"Network\", \"Link\", \"Physical\". Color the bands in graduated honey amber (lightest at top, darkest at bottom). Each band fills the full canvas width and is roughly 70 px tall. Place a band label on the left edge.\n- On the right side of each band, render colored badges showing which standards body governs that layer. Badges should overlap layers vertically when a body's scope spans multiple layers.\n  - IETF badge: signal blue (#1976D2). Spans the top three bands (Application, Transport, Network).\n  - IEEE badge: deep hive brown (#5D4037). Spans the bottom two bands (Link, Physical).\n  - ISO badge: slate gray (#546e7a). A vertical badge on the far right that spans all five bands, labeled \"OSI reference model — vocabulary\".\n  - ICANN badge: forest green (#2e7d32). A separate horizontal badge floated above the canvas labeled \"Names, numbers, ports — across all layers\".\n\nInteractivity:\n\n- Hover on a body's badge raises a callout listing 2-3 example outputs (e.g., IETF: \"RFC 791 IPv4, RFC 9114 HTTP/3\"; IEEE: \"802.3 Ethernet, 802.11 Wi-Fi\"; ISO: \"ISO 7498 OSI model\"; ICANN: \".com domain, port 443 registry\").\n- Hover on a layer band raises a callout naming the data unit at that layer (Application: message, Transport: segment/datagram, Network: packet, Link: frame, Physical: bit).\n\nUse the existing MicroSim CSS theme. The infographic should have a 1 px slate border between bands. No text overlaps badges.\n\nLearning objective (Bloom — Understanding): Students explain which standards body to consult when researching a specific networking concern, and which layer of the stack that concern belongs to."
+}

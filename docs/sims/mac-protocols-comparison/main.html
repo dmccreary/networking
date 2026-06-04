@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAC Protocol Comparison</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            color: #212529;
+        }
+        #container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+        h1 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #1a3a6c;
+        }
+        .placeholder {
+            border: 2px dashed #adb5bd;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            color: #6c757d;
+            margin: 20px 0;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .placeholder .badge {
+            display: inline-block;
+            background: #ffc107;
+            color: #212529;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .placeholder h2 {
+            font-size: 18px;
+            color: #495057;
+            margin-bottom: 8px;
+        }
+        .placeholder p {
+            font-size: 14px;
+            max-width: 480px;
+        }
+        .meta {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #6c757d;
+            border-top: 1px solid #dee2e6;
+            padding-top: 12px;
+        }
+        .meta strong { color: #495057; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>MAC Protocol Comparison</h1>
+        <div class="placeholder">
+            <span class="badge">SCAFFOLD</span>
+            <h2>MicroSim Not Yet Implemented</h2>
+            <p>This MicroSim has been scaffolded from its specification but the
+            interactive content has not been built yet. See the chapter source
+            and the <code>index.md</code> in this directory for the full spec.</p>
+        </div>
+        <div class="meta">
+            <p><strong>Sim ID:</strong> mac-protocols-comparison</p>
+            <p><strong>Library:</strong> p5.js</p>
+            <p><strong>Bloom Level:</strong> TBD</p>
+            <p><strong>Learning Objective:</strong> TBD</p>
+        </div>
+    </div>
+
+    <!--
+    SPECIFICATION (from chapter index.md):
+
+    Type: microsim
+    **sim-id:** mac-protocols-comparison<br/>
+    **Library:** p5.js<br/>
+    **Status:** Specified
+    
+    Build an interactive MicroSim that animates four MAC protocols on a single shared medium with several competing devices, so students can compare collision rates, fairness, and efficiency.
+    
+    Canvas: 960 px wide by 600 px tall, responsive down to 360 px. A 120 px control panel sits below.
+    
+    Layout:
+    
+    - A long horizontal "shared medium" rectangle in the middle of the canvas, with 5 devices attached above and below.
+    - Four protocol modes selectable by tabs at the top: Pure ALOHA / CSMA/CD / CSMA/CA / Token Passing.
+    - A timeline at the bottom shows transmissions per device color-coded by success (green), collision (red), or backoff/wait (gray).
+    
+    Animation per mode:
+    
+    - Pure ALOHA: devices transmit at random times regardless of channel state; collisions are common.
+    - CSMA/CD: devices sense the channel before transmitting; collisions detected mid-frame, jam pulse, exponential backoff visualized.
+    - CSMA/CA: devices wait an interframe gap, perform random backoff before transmitting; explicit ACK after each frame.
+    - Token Passing: a token icon visibly circulates among devices; only the token holder may transmit.
+    
+    Controls panel:
+    
+    - Sliders: number of devices (2–8), per-device offered load (low / medium / high), propagation delay (small / large).
+    - Buttons: Play / Pause / Reset.
+    - Live readouts: throughput, collision rate, fairness index across devices.
+    - "Compare side by side" mode: splits the canvas into a 2×2 grid running all four protocols simultaneously on the same workload.
+    
+    Visual style:
+    
+    - Devices as honey-amber rounded rectangles.
+    - Successful transmissions: green.
+    - Collisions: red bursts.
+    - Backoff / wait: dim gray.
+    - Token: a glowing circle that visibly moves between devices.
+    
+    Learning objectives:
+    
+    - (Bloom — Understanding) Students explain why CSMA/CD reduces collisions compared to ALOHA, and why CSMA/CA further sacrifices efficiency for predictability on wireless.
+    - (Bloom — Analyzing) Students compare throughput, fairness, and worst-case access time across the four protocols.
+    - (Bloom — Evaluating) Students judge which MAC protocol fits a deployment based on medium type, device count, and load.
+    
+    Implement in pure p5.js with the existing MicroSim CSS theme.
+    -->
+</body>
+</html>

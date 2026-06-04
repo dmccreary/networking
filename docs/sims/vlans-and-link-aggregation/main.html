@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VLANs and Link Aggregation Together</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            color: #212529;
+        }
+        #container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+        h1 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #1a3a6c;
+        }
+        .placeholder {
+            border: 2px dashed #adb5bd;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            color: #6c757d;
+            margin: 20px 0;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .placeholder .badge {
+            display: inline-block;
+            background: #ffc107;
+            color: #212529;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .placeholder h2 {
+            font-size: 18px;
+            color: #495057;
+            margin-bottom: 8px;
+        }
+        .placeholder p {
+            font-size: 14px;
+            max-width: 480px;
+        }
+        .meta {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #6c757d;
+            border-top: 1px solid #dee2e6;
+            padding-top: 12px;
+        }
+        .meta strong { color: #495057; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>VLANs and Link Aggregation Together</h1>
+        <div class="placeholder">
+            <span class="badge">SCAFFOLD</span>
+            <h2>MicroSim Not Yet Implemented</h2>
+            <p>This MicroSim has been scaffolded from its specification but the
+            interactive content has not been built yet. See the chapter source
+            and the <code>index.md</code> in this directory for the full spec.</p>
+        </div>
+        <div class="meta">
+            <p><strong>Sim ID:</strong> vlans-and-link-aggregation</p>
+            <p><strong>Library:</strong> p5.js</p>
+            <p><strong>Bloom Level:</strong> TBD</p>
+            <p><strong>Learning Objective:</strong> TBD</p>
+        </div>
+    </div>
+
+    <!--
+    SPECIFICATION (from chapter index.md):
+
+    Type: microsim
+    **sim-id:** vlans-and-link-aggregation<br/>
+    **Library:** p5.js<br/>
+    **Status:** Specified
+    
+    Build an interactive MicroSim that visualizes a small enterprise switching topology with VLANs and link aggregation, letting students click frames to trace their paths.
+    
+    Canvas: 980 px wide by 620 px tall, responsive down to 360 px. A 120 px control panel sits below.
+    
+    Topology:
+    
+    - Two switches, S1 and S2, connected by a 4-port LAG (drawn as four parallel lines bundled together).
+    - 4 hosts attached to S1: H1 in VLAN 10, H2 in VLAN 20, H3 in VLAN 10, H4 in VLAN 30.
+    - 4 hosts attached to S2: H5 in VLAN 10, H6 in VLAN 20, H7 in VLAN 30, H8 in VLAN 10.
+    - A router R connects to S1 via a trunk port carrying VLANs 10, 20, and 30, providing inter-VLAN routing.
+    
+    Animation:
+    
+    - Click on any host to send a frame from that host to a chosen destination.
+    - The frame is rendered as a colored rectangle traveling along links; its color reflects its source VLAN.
+    - When the frame crosses the LAG, it follows one of the four physical members based on a hash of source/destination — the chosen member is highlighted.
+    - When the frame arrives at a trunk port, an "802.1Q tag" badge appears on it; the badge disappears when the frame egresses on an access port.
+    - Inter-VLAN frames (e.g., H1 → H6) route through R; the frame is shown changing VLAN tag at the router.
+    
+    Controls panel:
+    
+    - Source / destination dropdowns.
+    - "Send broadcast" button — shows the frame flooding only within its VLAN.
+    - "Disable LAG member" button — fails one of the four physical links and shows that the LAG keeps working at reduced capacity.
+    - VLAN visibility toggles.
+    
+    Visual style:
+    
+    - VLAN 10: amber. VLAN 20: blue. VLAN 30: green.
+    - Trunk links: thicker, dashed.
+    - LAG members: drawn as four parallel lines with a "LAG" label.
+    
+    Learning objectives:
+    
+    - (Bloom — Understanding) Students explain how 802.1Q tagging keeps multiple VLANs on one trunk link.
+    - (Bloom — Applying) Students predict which physical LAG member a given flow will traverse based on a hash function.
+    - (Bloom — Analyzing) Students decompose an inter-VLAN flow into its access, trunk, and routed segments.
+    
+    Implement in pure p5.js with the existing MicroSim CSS theme.
+    -->
+</body>
+</html>

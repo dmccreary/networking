@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Three Identifiers Across the Protocol Stack</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            color: #212529;
+        }
+        #container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+        h1 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #1a3a6c;
+        }
+        .placeholder {
+            border: 2px dashed #adb5bd;
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            color: #6c757d;
+            margin: 20px 0;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .placeholder .badge {
+            display: inline-block;
+            background: #ffc107;
+            color: #212529;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .placeholder h2 {
+            font-size: 18px;
+            color: #495057;
+            margin-bottom: 8px;
+        }
+        .placeholder p {
+            font-size: 14px;
+            max-width: 480px;
+        }
+        .meta {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #6c757d;
+            border-top: 1px solid #dee2e6;
+            padding-top: 12px;
+        }
+        .meta strong { color: #495057; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>The Three Identifiers Across the Protocol Stack</h1>
+        <div class="placeholder">
+            <span class="badge">SCAFFOLD</span>
+            <h2>MicroSim Not Yet Implemented</h2>
+            <p>This MicroSim has been scaffolded from its specification but the
+            interactive content has not been built yet. See the chapter source
+            and the <code>index.md</code> in this directory for the full spec.</p>
+        </div>
+        <div class="meta">
+            <p><strong>Sim ID:</strong> address-triple-stack</p>
+            <p><strong>Library:</strong> p5.js</p>
+            <p><strong>Bloom Level:</strong> TBD</p>
+            <p><strong>Learning Objective:</strong> TBD</p>
+        </div>
+    </div>
+
+    <!--
+    SPECIFICATION (from chapter index.md):
+
+    Type: infographic
+    **sim-id:** address-triple-stack<br/>
+    **Library:** p5.js<br/>
+    **Status:** Specified
+    
+    Render an infographic that visually stacks the three identifiers against the three lower protocol layers they belong to.
+    
+    Canvas: 800 px wide by 520 px tall, responsive to container width down to 360 px.
+    
+    Layout:
+    
+    - Three horizontal bands stacked vertically. From top to bottom: "Transport Layer (port number)", "Network Layer (IP address)", "Link Layer (MAC address)". Each band fills the full canvas width and is roughly 140 px tall.
+    - Color-code each band: transport in honey amber (#F5A623), network in signal blue (#1976D2), link in deep hive brown (#5D4037). Each band has a contrasting white label on the left edge.
+    - On the right side of each band, render an example value in large monospace font: `443` for transport, `2001:db8::1` for network, `f0:18:98:01:23:45` for link.
+    - On the left side of each band, render a one-sentence plain-English description: "Which application?" for transport, "Which host on the Internet?" for network, "Which neighbor on this link?" for link.
+    
+    Interactivity:
+    
+    - Hover on a band raises a callout that explains what the identifier looks like and gives a second example value.
+    - A small toggle button at the top labeled "IPv4 / IPv6" switches the network band's example between `192.0.2.10` and `2001:db8::1`.
+    
+    The infographic should be implemented in p5.js using the existing MicroSim styling. Use a 1 px slate border between bands. Ensure the toggle is touch-friendly on mobile.
+    
+    Learning objective (Bloom — Understanding): Students explain why three different identifiers are used together and which question each one answers.
+    -->
+</body>
+</html>

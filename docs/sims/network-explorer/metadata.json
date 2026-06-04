@@ -1,0 +1,21 @@
+{
+  "title": "Interactive Network Explorer",
+  "description": "Interactive Network Explorer",
+  "creator": "Dementia Education Project",
+  "date": "2026-06-04",
+  "subject": [
+    "dementia"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY 4.0",
+  "identifier": "network-explorer",
+  "library": "p5.js",
+  "bloomLevel": "TBD",
+  "bloomVerb": "TBD",
+  "completion_status": "scaffold",
+  "chapter_number": 1,
+  "chapter_title": "Introduction to Networks and Communication",
+  "chapter_dir": "01-intro-to-networks"
+}

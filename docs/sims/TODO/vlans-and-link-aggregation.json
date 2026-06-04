@@ -1,0 +1,14 @@
+{
+  "sim_id": "vlans-and-link-aggregation",
+  "diagram_name": "VLANs and Link Aggregation Together",
+  "chapter_number": 7,
+  "chapter_title": "Ethernet, Switching, and VLANs",
+  "chapter_dir": "07-ethernet-and-vlans",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-06-04",
+  "specification": "Type: microsim\n**sim-id:** vlans-and-link-aggregation<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nBuild an interactive MicroSim that visualizes a small enterprise switching topology with VLANs and link aggregation, letting students click frames to trace their paths.\n\nCanvas: 980 px wide by 620 px tall, responsive down to 360 px. A 120 px control panel sits below.\n\nTopology:\n\n- Two switches, S1 and S2, connected by a 4-port LAG (drawn as four parallel lines bundled together).\n- 4 hosts attached to S1: H1 in VLAN 10, H2 in VLAN 20, H3 in VLAN 10, H4 in VLAN 30.\n- 4 hosts attached to S2: H5 in VLAN 10, H6 in VLAN 20, H7 in VLAN 30, H8 in VLAN 10.\n- A router R connects to S1 via a trunk port carrying VLANs 10, 20, and 30, providing inter-VLAN routing.\n\nAnimation:\n\n- Click on any host to send a frame from that host to a chosen destination.\n- The frame is rendered as a colored rectangle traveling along links; its color reflects its source VLAN.\n- When the frame crosses the LAG, it follows one of the four physical members based on a hash of source/destination — the chosen member is highlighted.\n- When the frame arrives at a trunk port, an \"802.1Q tag\" badge appears on it; the badge disappears when the frame egresses on an access port.\n- Inter-VLAN frames (e.g., H1 → H6) route through R; the frame is shown changing VLAN tag at the router.\n\nControls panel:\n\n- Source / destination dropdowns.\n- \"Send broadcast\" button — shows the frame flooding only within its VLAN.\n- \"Disable LAG member\" button — fails one of the four physical links and shows that the LAG keeps working at reduced capacity.\n- VLAN visibility toggles.\n\nVisual style:\n\n- VLAN 10: amber. VLAN 20: blue. VLAN 30: green.\n- Trunk links: thicker, dashed.\n- LAG members: drawn as four parallel lines with a \"LAG\" label.\n\nLearning objectives:\n\n- (Bloom — Understanding) Students explain how 802.1Q tagging keeps multiple VLANs on one trunk link.\n- (Bloom — Applying) Students predict which physical LAG member a given flow will traverse based on a hash function.\n- (Bloom — Analyzing) Students decompose an inter-VLAN flow into its access, trunk, and routed segments.\n\nImplement in pure p5.js with the existing MicroSim CSS theme."
+}

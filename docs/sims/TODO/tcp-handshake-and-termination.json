@@ -1,0 +1,14 @@
+{
+  "sim_id": "tcp-handshake-and-termination",
+  "diagram_name": "TCP Three-Way Handshake and Termination",
+  "chapter_number": 11,
+  "chapter_title": "The Transport Layer",
+  "chapter_dir": "11-transport-layer",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-06-04",
+  "specification": "Type: microsim\n**sim-id:** tcp-handshake-and-termination<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nBuild an interactive MicroSim that animates TCP connection setup, data exchange, and termination as a labeled sequence diagram.\n\nCanvas: 940 px wide by 640 px tall, responsive down to 360 px. A 100 px control panel sits below.\n\nLayout:\n\n- Two vertical timelines (Client on the left, Server on the right) running top to bottom.\n- Each segment is drawn as a labeled arrow between the timelines, with sequence and acknowledgment numbers shown.\n- A current-state label appears beside each timeline at every step (CLOSED → SYN_SENT → ESTABLISHED → FIN_WAIT_1 → FIN_WAIT_2 → TIME_WAIT → CLOSED).\n\nAnimation phases:\n\n1. **Handshake**: Client sends SYN(Cseq=100), Server replies SYN+ACK(Sseq=500, ack=101), Client sends ACK(ack=501).\n2. **Data exchange**: Client sends DATA(seq=101, len=200), Server ACKs. Server sends DATA(seq=501, len=300), Client ACKs.\n3. **Termination**: Client sends FIN(seq=301), Server ACKs. Server sends FIN(seq=801), Client ACKs. Client enters TIME_WAIT.\n\nControls panel:\n\n- Buttons: Step / Play / Reset.\n- Toggle: \"Show TCP states\" overlays the state machine on the side.\n- Toggle: \"Drop a packet\" causes one of the segments to be lost; show retransmission and timer behavior.\n- Toggle: \"Half-close\" pauses the termination after the first FIN, so students see a half-closed connection.\n\nVisual style:\n\n- Segments: arrows colored by direction (client→server in honey amber, server→client in slate).\n- SYN/FIN flags: highlighted with a small badge.\n- ACK numbers and sequence numbers in monospace labels.\n\nLearning objectives:\n\n- (Bloom — Understanding) Students explain each step of the three-way handshake and the four-way termination.\n- (Bloom — Analyzing) Students decompose a captured TCP exchange into its phases and state transitions.\n- (Bloom — Evaluating) Students judge when half-close is useful and why TIME_WAIT exists.\n\nImplement in pure p5.js with the existing MicroSim CSS theme."
+}

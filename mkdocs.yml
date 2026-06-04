@@ -41,6 +41,7 @@ nav:
     - Mascot Rendering Test: learning-graph/mascot-render-test.md
   - MicroSims:
     - Learning Graph Viewer: sims/graph-viewer/index.md
+  - FAQ: faq.md
   - Glossary: glossary.md
   - References: references.md
   - License: license.md

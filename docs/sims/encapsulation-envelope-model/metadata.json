@@ -1,0 +1,21 @@
+{
+  "title": "The Nesting Envelope Model",
+  "description": "The Nesting Envelope Model",
+  "creator": "Dementia Education Project",
+  "date": "2026-06-04",
+  "subject": [
+    "dementia"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY 4.0",
+  "identifier": "encapsulation-envelope-model",
+  "library": "p5.js",
+  "bloomLevel": "TBD",
+  "bloomVerb": "TBD",
+  "completion_status": "scaffold",
+  "chapter_number": 2,
+  "chapter_title": "Standards, Data Units, and Encapsulation",
+  "chapter_dir": "02-standards-and-encapsulation"
+}

@@ -1,0 +1,21 @@
+{
+  "title": "Network Lab Topology with Namespaces and netem",
+  "description": "Network Lab Topology with Namespaces and netem",
+  "creator": "Dementia Education Project",
+  "date": "2026-06-04",
+  "subject": [
+    "dementia"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY 4.0",
+  "identifier": "virtual-network-lab",
+  "library": "p5.js",
+  "bloomLevel": "TBD",
+  "bloomVerb": "TBD",
+  "completion_status": "scaffold",
+  "chapter_number": 15,
+  "chapter_title": "Network Operations and Measurement",
+  "chapter_dir": "15-network-operations"
+}

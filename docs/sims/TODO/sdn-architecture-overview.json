@@ -1,0 +1,14 @@
+{
+  "sim_id": "sdn-architecture-overview",
+  "diagram_name": "SDN Architecture: Control vs. Data Plane",
+  "chapter_number": 16,
+  "chapter_title": "SDN, NFV, Emerging Topics, and Capstone Projects",
+  "chapter_dir": "16-sdn-emerging-and-capstones",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-06-04",
+  "specification": "Type: infographic\n**sim-id:** sdn-architecture-overview<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nRender an interactive infographic of an SDN architecture with three vertically-stacked planes and the boundary protocols between them.\n\nCanvas: 940 px wide by 600 px tall, responsive down to 360 px.\n\nLayout:\n\n- Top: \"Application plane\" — three rounded rectangles labeled \"Traffic engineering\", \"Security policy\", \"Network monitoring\".\n- Middle: \"Control plane\" — a single rounded rectangle labeled \"SDN Controller\" (e.g., ONOS or OpenDaylight) with smaller boxes inside for \"Topology\", \"Routing\", \"Policy\".\n- Bottom: \"Data plane\" — five forwarding devices (switches) connected in a partial mesh.\n- Northbound API: arrows from applications down to the controller, labeled \"REST / gRPC\".\n- Southbound API: arrows from controller to switches, labeled \"OpenFlow / P4 / gNMI\".\n\nInteractivity:\n\n- Click any plane to see a side-panel description and example components.\n- Click any switch to see its installed flow table (a simplified list of match-action rules).\n- Toggle \"Failure mode: controller unreachable\" — switches fall back to local default behavior; some functions degrade.\n- Toggle \"Inject application: load balance\" — installs flow rules that hash specific fields and forward to the chosen back-end.\n\nVisual style:\n\n- Application plane: light yellow.\n- Control plane: honey amber.\n- Data plane: slate.\n- Northbound and southbound APIs: dashed arrows in distinct colors.\n\nLearning objective (Bloom — Understanding): Students explain the three-layer SDN architecture and the role of northbound and southbound APIs."
+}

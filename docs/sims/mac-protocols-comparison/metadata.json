@@ -1,0 +1,21 @@
+{
+  "title": "MAC Protocol Comparison",
+  "description": "MAC Protocol Comparison",
+  "creator": "Dementia Education Project",
+  "date": "2026-06-04",
+  "subject": [
+    "dementia"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY 4.0",
+  "identifier": "mac-protocols-comparison",
+  "library": "p5.js",
+  "bloomLevel": "TBD",
+  "bloomVerb": "TBD",
+  "completion_status": "scaffold",
+  "chapter_number": 6,
+  "chapter_title": "Link Layer Fundamentals and Reliable Transfer",
+  "chapter_dir": "06-link-layer-fundamentals"
+}

@@ -1,0 +1,14 @@
+{
+  "sim_id": "wireless-link-adaptation",
+  "diagram_name": "Wireless Performance vs. Distance",
+  "chapter_number": 8,
+  "chapter_title": "Wireless and Mobile Networking",
+  "chapter_dir": "08-wireless-and-mobility",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-06-04",
+  "specification": "Type: microsim\n**sim-id:** wireless-link-adaptation<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nBuild an interactive MicroSim that visualizes how link adaptation steps Wi-Fi modulation down as distance from the access point increases, and how interference further degrades the choice.\n\nCanvas: 940 px wide by 600 px tall, responsive down to 360 px. A 120 px control panel sits below.\n\nLayout:\n\n- Top: a horizontal floor plan with an AP on the left and a draggable client device. The line between them is annotated with current SNR (dB) computed from a path-loss model.\n- Middle: a stepped data-rate plot vs. distance, showing the discrete modulation/coding-scheme (MCS) steps as the client moves further from the AP.\n- Bottom: a constellation diagram showing the currently-active modulation (BPSK / QPSK / 16-QAM / 64-QAM / 256-QAM / 1024-QAM / 4096-QAM) with noise-induced jitter on the constellation points.\n\nInteractivity:\n\n- Drag the client to change distance; the SNR, modulation, and data rate update live.\n- Add walls (drag from a \"wall\" palette) between AP and client to simulate attenuation.\n- Inject interference (slider for interference power) and see modulation step down accordingly.\n- \"Compare Wi-Fi 5 / Wi-Fi 6 / Wi-Fi 7\" toggle changes the modulation set and recomputes data rates at the same SNRs.\n\nControls panel:\n\n- Distance display (live).\n- SNR display.\n- Active MCS index and name.\n- \"Show Shannon limit\" toggle that overlays the Shannon-bound capacity curve on the data-rate plot, showing the gap to optimal.\n- \"Add neighbor AP\" button that introduces co-channel interference and shows further degradation.\n\nVisual style:\n\n- AP: amber rounded rectangle.\n- Client: laptop icon.\n- Constellation diagram: classic circular layout with constellation points and noise clouds.\n- Data-rate plot: stepped staircase with each step labeled by modulation name.\n\nLearning objectives:\n\n- (Bloom — Understanding) Students explain how link adaptation chooses a modulation based on channel quality.\n- (Bloom — Analyzing) Students decompose a real-world Wi-Fi connection's effective rate into the SNR, modulation, and coding contributions.\n- (Bloom — Evaluating) Students judge how AP placement decisions affect effective data rate across a building.\n\nImplement in pure p5.js with the existing MicroSim CSS theme."
+}
