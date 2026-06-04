@@ -3,133 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TLS 1.3 Handshake Walkthrough</title>
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>TLS 1.3 Handshake Walkthrough using p5.js</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
-            color: #212529;
-        }
-        #container {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background: white;
-        }
-        h1 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #1a3a6c;
-        }
-        .placeholder {
-            border: 2px dashed #adb5bd;
-            border-radius: 8px;
-            padding: 40px 20px;
-            text-align: center;
-            color: #6c757d;
-            margin: 20px 0;
-            min-height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .placeholder .badge {
-            display: inline-block;
-            background: #ffc107;
-            color: #212529;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        .placeholder h2 {
-            font-size: 18px;
-            color: #495057;
-            margin-bottom: 8px;
-        }
-        .placeholder p {
-            font-size: 14px;
-            max-width: 480px;
-        }
-        .meta {
-            margin-top: 20px;
-            font-size: 13px;
-            color: #6c757d;
-            border-top: 1px solid #dee2e6;
-            padding-top: 12px;
-        }
-        .meta strong { color: #495057; }
+        body { margin: 0px; padding: 0px; font-family: Arial, Helvetica, sans-serif; }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script src="tls-handshake-walkthrough.js"></script>
 </head>
 <body>
-    <div id="container">
-        <h1>TLS 1.3 Handshake Walkthrough</h1>
-        <div class="placeholder">
-            <span class="badge">SCAFFOLD</span>
-            <h2>MicroSim Not Yet Implemented</h2>
-            <p>This MicroSim has been scaffolded from its specification but the
-            interactive content has not been built yet. See the chapter source
-            and the <code>index.md</code> in this directory for the full spec.</p>
-        </div>
-        <div class="meta">
-            <p><strong>Sim ID:</strong> tls-handshake-walkthrough</p>
-            <p><strong>Library:</strong> p5.js</p>
-            <p><strong>Bloom Level:</strong> TBD</p>
-            <p><strong>Learning Objective:</strong> TBD</p>
-        </div>
-    </div>
-
-    <!--
-    SPECIFICATION (from chapter index.md):
-
-    Type: microsim
-    **sim-id:** tls-handshake-walkthrough<br/>
-    **Library:** p5.js<br/>
-    **Status:** Specified
-    
-    Build an interactive MicroSim that animates the TLS 1.3 handshake step by step, showing each message and the keys derived at each stage.
-    
-    Canvas: 940 px wide by 640 px tall, responsive down to 360 px. A 120 px control panel sits below.
-    
-    Layout:
-    
-    - Two vertical timelines: Client (left) and Server (right). Time flows top to bottom.
-    - Each TLS message is drawn as an arrow with a labeled box showing the message type and key contents (e.g., "ClientHello: supported_versions, cipher_suites, key_share, client_random").
-    - A "key derivation" panel between the timelines updates as each step completes, showing which keys are now derived (early secret, handshake secret, master secret).
-    
-    Animation phases:
-    
-    1. ClientHello sent.
-    2. ServerHello + Certificate + signed transcript sent. Highlight: client now verifies cert chain against preinstalled CAs.
-    3. Both sides compute DH shared secret. Highlight: forward secrecy because the DH key shares are ephemeral.
-    4. Client and server derive matching session keys via HKDF.
-    5. Application data flows, encrypted.
-    
-    Controls panel:
-    
-    - Buttons: Step / Play / Reset.
-    - Toggle: "Show TLS 1.2 (compare)" splits the canvas to also show the older 2-RTT handshake.
-    - Toggle: "0-RTT mode" replays the handshake using a session ticket; data flows immediately on the first message.
-    - Toggle: "Compromised CA" injects a malicious cert and shows the verification failure.
-    
-    Visual style:
-    
-    - Client messages in honey amber.
-    - Server messages in slate.
-    - Encrypted messages drawn with a small lock icon.
-    - Key-derivation panel with each derived key fading in as it becomes available.
-    
-    Learning objectives:
-    
-    - (Bloom — Understanding) Students explain each step of the TLS 1.3 handshake.
-    - (Bloom — Analyzing) Students compare TLS 1.3 with TLS 1.2 in round trips and security guarantees.
-    - (Bloom — Evaluating) Students judge when 0-RTT is appropriate and what its limitations are.
-    
-    Implement in pure p5.js with the existing MicroSim CSS theme.
-    -->
+    <main></main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
 </body>
 </html>

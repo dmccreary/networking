@@ -1,25 +1,42 @@
 ---
-title: IPv4 vs. IPv6 Header Comparison
-description: IPv4 vs. IPv6 Header Comparison
-status: scaffold
+title: "IPv4 vs. IPv6 Header Comparison"
+description: "Interactive p5.js MicroSim: ipv4 vs. ipv6 header comparison."
+image: /sims/ipv4-vs-ipv6-headers/ipv4-vs-ipv6-headers.png
+og:image: /sims/ipv4-vs-ipv6-headers/ipv4-vs-ipv6-headers.png
+twitter:image: /sims/ipv4-vs-ipv6-headers/ipv4-vs-ipv6-headers.png
+social:
+   cards: false
+status: implemented
 library: p5.js
-bloom_level: TBD
+bloom_level: Remember
+quality_score: 0
 ---
 
 # IPv4 vs. IPv6 Header Comparison
 
+<iframe src="main.html" height="582" width="100%" scrolling="no"></iframe>
 
+[Run the IPv4 vs. IPv6 Header Comparison MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+## About This MicroSim
 
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
+(Bloom — Remembering and Understanding): Students recognize each IPv4 and IPv6 header field, can name what was removed, what was added, and what the redesign accomplished.
+
+This MicroSim is built with p5.js and is width-responsive, so it adapts to
+the width of the page or container it is embedded in.
+
+## How to Use
+
+Use the controls in the panel below the drawing area to explore the concept.
+Adjust the sliders, toggle the options, and step through the stages to see how
+each change affects what is shown.
 
 ## Specification
 
 The full specification below is extracted from
 [Chapter 9: The Network Layer and IP Addressing](../../chapters/09-network-layer-and-ip/index.md).
 
-```text
+```
 Type: infographic
 **sim-id:** ipv4-vs-ipv6-headers<br/>
 **Library:** p5.js<br/>
@@ -53,6 +70,35 @@ Visual style:
 Learning objective (Bloom — Remembering and Understanding): Students recognize each IPv4 and IPv6 header field, can name what was removed, what was added, and what the redesign accomplished.
 ```
 
-## Related Resources
+## Iframe Embed Code
+
+You can add this MicroSim to any web page by adding this HTML:
+
+```html
+<iframe src="https://dmccreary.github.io/networking/sims/ipv4-vs-ipv6-headers/main.html"
+        height="502px"
+        width="100%"
+        scrolling="no"></iframe>
+```
+
+## Lesson Plan
+
+### Learning Objective
+
+(Bloom — Remembering and Understanding): Students recognize each IPv4 and IPv6 header field, can name what was removed, what was added, and what the redesign accomplished.
+
+### Bloom Taxonomy Level
+
+**Remember**
+
+### Suggested Classroom Use
+
+1. **Predict** — Ask students to predict the behavior before they interact.
+2. **Explore** — Have students manipulate the controls and observe the results.
+3. **Explain** — Ask students to explain, in their own words, what they observed
+   and how it connects to the network layer and ip addressing.
+
+## References
 
 - [Chapter 9: The Network Layer and IP Addressing](../../chapters/09-network-layer-and-ip/index.md)
+- [ACM/IEEE CS2023 Networking and Communication Knowledge Area](https://csed.acm.org/)

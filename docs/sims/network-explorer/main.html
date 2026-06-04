@@ -3,130 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Network Explorer</title>
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Interactive Network Explorer using p5.js</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
-            color: #212529;
-        }
-        #container {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background: white;
-        }
-        h1 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #1a3a6c;
-        }
-        .placeholder {
-            border: 2px dashed #adb5bd;
-            border-radius: 8px;
-            padding: 40px 20px;
-            text-align: center;
-            color: #6c757d;
-            margin: 20px 0;
-            min-height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .placeholder .badge {
-            display: inline-block;
-            background: #ffc107;
-            color: #212529;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        .placeholder h2 {
-            font-size: 18px;
-            color: #495057;
-            margin-bottom: 8px;
-        }
-        .placeholder p {
-            font-size: 14px;
-            max-width: 480px;
-        }
-        .meta {
-            margin-top: 20px;
-            font-size: 13px;
-            color: #6c757d;
-            border-top: 1px solid #dee2e6;
-            padding-top: 12px;
-        }
-        .meta strong { color: #495057; }
+        body { margin: 0px; padding: 0px; font-family: Arial, Helvetica, sans-serif; }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script src="network-explorer.js"></script>
 </head>
 <body>
-    <div id="container">
-        <h1>Interactive Network Explorer</h1>
-        <div class="placeholder">
-            <span class="badge">SCAFFOLD</span>
-            <h2>MicroSim Not Yet Implemented</h2>
-            <p>This MicroSim has been scaffolded from its specification but the
-            interactive content has not been built yet. See the chapter source
-            and the <code>index.md</code> in this directory for the full spec.</p>
-        </div>
-        <div class="meta">
-            <p><strong>Sim ID:</strong> network-explorer</p>
-            <p><strong>Library:</strong> p5.js</p>
-            <p><strong>Bloom Level:</strong> TBD</p>
-            <p><strong>Learning Objective:</strong> TBD</p>
-        </div>
-    </div>
-
-    <!--
-    SPECIFICATION (from chapter index.md):
-
-    Type: microsim
-    **sim-id:** network-explorer<br/>
-    **Library:** p5.js<br/>
-    **Status:** Specified
-    
-    Build an interactive MicroSim that lets students click on elements of a small network and see their identifiers and role.
-    
-    Canvas: 900 px wide by 600 px tall (responsive), with a 120 px control panel below the canvas.
-    
-    Topology:
-    
-    - 3 client end systems on the left (a laptop, a phone, a tablet), each with one labeled interface.
-    - 1 home router in the lower-left core, connected to all three clients.
-    - 2 ISP routers in the middle (R-ISP-1 and R-ISP-2) connected by core links.
-    - 1 web server on the right with two interfaces (one to the public network, one to a private backend).
-    
-    Initial state: every node and link is rendered, but only the labels "Click an element to inspect" appear in the side panel.
-    
-    Interactivity:
-    
-    - Click on a host: the side panel shows "Role: End System (Host, Client)" and lists the host's interface(s), each with a generated MAC, IP, and one example port (80, 443, or an ephemeral 50000-range port for the client).
-    - Click on a router: the side panel shows "Role: Network Node (Router)", lists each interface with its MAC and IP, and notes "No port numbers — routers don't run user applications."
-    - Click on a link: the side panel shows "Communication Link", lists the two interfaces it connects, and indicates whether it is a wired Ethernet or Wi-Fi link.
-    - Click on the server: the side panel shows "Role: End System (Host, Server)" and lists the listening ports (80, 443) plus the IP and MAC of each interface.
-    - A "Reset" button clears the selection.
-    - A "Quiz Me" button enters a quiz mode: a question appears ("Which element here is a network node but not a host?") and the student must click the correct element to advance.
-    
-    Visual styling:
-    
-    - End systems: honey-amber circles with a device glyph.
-    - Routers: slate hexagons.
-    - Links: thin slate lines for wired, dashed honey-amber lines for Wi-Fi.
-    - Selected element: highlighted with a thick deep-purple border (#4a148c) and the side panel updates immediately.
-    
-    Learning objectives:
-    
-    - (Bloom — Remembering) Identify which devices in a topology are hosts, end systems, and network nodes.
-    - (Bloom — Understanding) Explain which identifiers (MAC, IP, port) belong to which kind of device.
-    - (Bloom — Applying) Distinguish a client port number from a server port number in a sample socket pair.
-    
-    The MicroSim should be implemented in p5.js with no external dependencies. Use the existing MicroSim CSS theme. The side panel must remain visible on screens 480 px wide or wider; on narrower screens it stacks below the canvas.
-    -->
+    <main></main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
 </body>
 </html>

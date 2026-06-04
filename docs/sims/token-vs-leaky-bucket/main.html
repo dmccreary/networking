@@ -3,132 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Token Bucket vs. Leaky Bucket</title>
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Token Bucket vs. Leaky Bucket using p5.js</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
-            color: #212529;
-        }
-        #container {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background: white;
-        }
-        h1 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #1a3a6c;
-        }
-        .placeholder {
-            border: 2px dashed #adb5bd;
-            border-radius: 8px;
-            padding: 40px 20px;
-            text-align: center;
-            color: #6c757d;
-            margin: 20px 0;
-            min-height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .placeholder .badge {
-            display: inline-block;
-            background: #ffc107;
-            color: #212529;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        .placeholder h2 {
-            font-size: 18px;
-            color: #495057;
-            margin-bottom: 8px;
-        }
-        .placeholder p {
-            font-size: 14px;
-            max-width: 480px;
-        }
-        .meta {
-            margin-top: 20px;
-            font-size: 13px;
-            color: #6c757d;
-            border-top: 1px solid #dee2e6;
-            padding-top: 12px;
-        }
-        .meta strong { color: #495057; }
+        body { margin: 0px; padding: 0px; font-family: Arial, Helvetica, sans-serif; }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script src="token-vs-leaky-bucket.js"></script>
 </head>
 <body>
-    <div id="container">
-        <h1>Token Bucket vs. Leaky Bucket</h1>
-        <div class="placeholder">
-            <span class="badge">SCAFFOLD</span>
-            <h2>MicroSim Not Yet Implemented</h2>
-            <p>This MicroSim has been scaffolded from its specification but the
-            interactive content has not been built yet. See the chapter source
-            and the <code>index.md</code> in this directory for the full spec.</p>
-        </div>
-        <div class="meta">
-            <p><strong>Sim ID:</strong> token-vs-leaky-bucket</p>
-            <p><strong>Library:</strong> p5.js</p>
-            <p><strong>Bloom Level:</strong> TBD</p>
-            <p><strong>Learning Objective:</strong> TBD</p>
-        </div>
-    </div>
-
-    <!--
-    SPECIFICATION (from chapter index.md):
-
-    Type: microsim
-    **sim-id:** token-vs-leaky-bucket<br/>
-    **Library:** p5.js<br/>
-    **Status:** Specified
-    
-    Build an interactive MicroSim that animates a token bucket and a leaky bucket side by side, processing the same input stream so students can compare their output behaviors.
-    
-    Canvas: 900 px wide by 560 px tall, responsive down to 360 px. A 100 px control panel sits below.
-    
-    Layout:
-    
-    - Left half: leaky bucket. A vertical bucket icon with a small hole at the bottom. Packets arrive at the top as colored squares; the bucket fills if input exceeds drain rate; output emerges from the bottom hole at a constant rate. A side-channel labeled "Dropped" collects overflow.
-    - Right half: token bucket. A vertical bucket icon. Tokens (small green circles) are generated at a fixed rate and accumulate at the top. Packets arrive separately; each packet that finds a token available consumes one and leaves immediately. Packets that arrive when the bucket is empty wait in a queue or, if the queue overflows, are dropped.
-    
-    Both halves share a single input stream so students can directly compare behavior. Output streams are visualized as horizontal time-series strips showing packet emission times.
-    
-    Animation:
-    
-    - Input stream is generated according to user-configurable bursts: e.g., 5 packets at t=0, idle for 2s, 10 packets at t=2s, idle for 1s, 3 packets at t=3s.
-    - Below each bucket, a strip chart plots output rate vs. time.
-    - A combined chart at the bottom overlays both output streams so students can see that leaky-bucket output is uniformly spaced while token-bucket output preserves bursts.
-    
-    Controls panel:
-    
-    - Sliders: drain rate (leaky), token-fill rate (token), bucket capacity (both).
-    - Buttons: Play / Pause / Reset.
-    - Toggle: "Show drops" — highlights overflow events in red on both buckets.
-    - Preset buttons: "Smooth source", "Bursty source", "Stress test".
-    
-    Visual style:
-    
-    - Leaky bucket water level: pale blue.
-    - Token bucket tokens: green.
-    - Packets: colored squares with sequence numbers.
-    - Output strip charts: the existing MicroSim chart styling.
-    
-    Learning objectives:
-    
-    - (Bloom — Understanding) Students explain how each algorithm regulates traffic.
-    - (Bloom — Analyzing) Students contrast the burst-handling behavior of token vs. leaky bucket.
-    - (Bloom — Evaluating) Students recommend the appropriate algorithm for a given workload (constant-rate video stream → leaky; bursty file transfer → token).
-    
-    The MicroSim should be implemented in pure p5.js with the existing MicroSim CSS theme.
-    -->
+    <main></main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
 </body>
 </html>

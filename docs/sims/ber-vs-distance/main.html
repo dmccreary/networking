@@ -3,130 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signal Quality Across Distance</title>
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Signal Quality Across Distance using p5.js</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
-            color: #212529;
-        }
-        #container {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background: white;
-        }
-        h1 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #1a3a6c;
-        }
-        .placeholder {
-            border: 2px dashed #adb5bd;
-            border-radius: 8px;
-            padding: 40px 20px;
-            text-align: center;
-            color: #6c757d;
-            margin: 20px 0;
-            min-height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .placeholder .badge {
-            display: inline-block;
-            background: #ffc107;
-            color: #212529;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        .placeholder h2 {
-            font-size: 18px;
-            color: #495057;
-            margin-bottom: 8px;
-        }
-        .placeholder p {
-            font-size: 14px;
-            max-width: 480px;
-        }
-        .meta {
-            margin-top: 20px;
-            font-size: 13px;
-            color: #6c757d;
-            border-top: 1px solid #dee2e6;
-            padding-top: 12px;
-        }
-        .meta strong { color: #495057; }
+        body { margin: 0px; padding: 0px; font-family: Arial, Helvetica, sans-serif; }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script src="ber-vs-distance.js"></script>
 </head>
 <body>
-    <div id="container">
-        <h1>Signal Quality Across Distance</h1>
-        <div class="placeholder">
-            <span class="badge">SCAFFOLD</span>
-            <h2>MicroSim Not Yet Implemented</h2>
-            <p>This MicroSim has been scaffolded from its specification but the
-            interactive content has not been built yet. See the chapter source
-            and the <code>index.md</code> in this directory for the full spec.</p>
-        </div>
-        <div class="meta">
-            <p><strong>Sim ID:</strong> ber-vs-distance</p>
-            <p><strong>Library:</strong> p5.js</p>
-            <p><strong>Bloom Level:</strong> TBD</p>
-            <p><strong>Learning Objective:</strong> TBD</p>
-        </div>
-    </div>
-
-    <!--
-    SPECIFICATION (from chapter index.md):
-
-    Type: microsim
-    **sim-id:** ber-vs-distance<br/>
-    **Library:** p5.js<br/>
-    **Status:** Specified
-    
-    Build an interactive MicroSim that visualizes how attenuation, noise, and interference produce bit errors as signal traverses a medium of variable length.
-    
-    Canvas: 920 px wide by 580 px tall, responsive down to 360 px. A 120 px control panel sits below.
-    
-    Layout:
-    
-    - Top half: an oscilloscope-style display showing the signal at the sender (clean digital pulse train) and at the receiver (degraded waveform). A vertical "decision threshold" line indicates how the receiver decides 0 vs. 1.
-    - Bottom half: a horizontal "channel" rendered as a long rectangle with a small graph showing signal amplitude vs. distance. The amplitude curve drops exponentially with distance (attenuation), and a noise floor is added as scattered random fluctuations.
-    - A bit-error indicator shows received bits in two colors: green (correctly received) and red (errored).
-    
-    Controls panel:
-    
-    - Sliders: distance (0–100 km), transmit power (0–30 dBm), noise floor (-100 to -30 dBm), interference level (off / low / high).
-    - Modulation dropdown: NRZ (1 bit/symbol), 4-QAM (2 bits/symbol), 16-QAM (4 bits/symbol), 64-QAM (6 bits/symbol).
-    - "Add forward error correction" toggle — when on, errors below a threshold are corrected by the receiver and shown in yellow.
-    - "Show Shannon capacity" toggle — annotates the current configuration's Shannon capacity and the achieved bit rate.
-    
-    Behavior:
-    
-    - As distance increases, signal amplitude shrinks; the receiver's decision threshold becomes harder to apply, and red error bits start to appear.
-    - As modulation order increases, the constellation diagram shows tighter spacing between points, and small noise produces many more errors.
-    - The bit-error rate (BER) is computed live and displayed as a numeric readout.
-    
-    Visual style:
-    
-    - Sender waveform: clean honey-amber pulses.
-    - Receiver waveform: noisy version of the same, with the noise tinted in slate.
-    - Errored bits highlighted in red on a strip below the receiver display.
-    
-    Learning objectives:
-    
-    - (Bloom — Understanding) Students explain how attenuation, noise, and modulation order interact to produce bit errors.
-    - (Bloom — Analyzing) Students decompose a high-BER scenario into its contributing factors.
-    - (Bloom — Evaluating) Students judge whether a deployment requires a different medium or just a different modulation, given a target BER.
-    
-    The MicroSim should be implemented in pure p5.js with the existing MicroSim CSS theme.
-    -->
+    <main></main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
 </body>
 </html>

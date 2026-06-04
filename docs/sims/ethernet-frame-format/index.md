@@ -1,25 +1,42 @@
 ---
-title: Ethernet Frame Format
-description: Ethernet Frame Format
-status: scaffold
+title: "Ethernet Frame Format"
+description: "Interactive p5.js MicroSim: ethernet frame format."
+image: /sims/ethernet-frame-format/ethernet-frame-format.png
+og:image: /sims/ethernet-frame-format/ethernet-frame-format.png
+twitter:image: /sims/ethernet-frame-format/ethernet-frame-format.png
+social:
+   cards: false
+status: implemented
 library: p5.js
-bloom_level: TBD
+bloom_level: Remember
+quality_score: 0
 ---
 
 # Ethernet Frame Format
 
+<iframe src="main.html" height="482" width="100%" scrolling="no"></iframe>
 
+[Run the Ethernet Frame Format MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+## About This MicroSim
 
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
+(Bloom — Remembering and Understanding): Students recall the byte layout of an Ethernet frame and explain the purpose of each field.
+
+This MicroSim is built with p5.js and is width-responsive, so it adapts to
+the width of the page or container it is embedded in.
+
+## How to Use
+
+Use the controls in the panel below the drawing area to explore the concept.
+Adjust the sliders, toggle the options, and step through the stages to see how
+each change affects what is shown.
 
 ## Specification
 
 The full specification below is extracted from
 [Chapter 7: Ethernet, Switching, and VLANs](../../chapters/07-ethernet-and-vlans/index.md).
 
-```text
+```
 Type: infographic
 **sim-id:** ethernet-frame-format<br/>
 **Library:** p5.js<br/>
@@ -58,6 +75,35 @@ Visual style:
 Learning objective (Bloom — Remembering and Understanding): Students recall the byte layout of an Ethernet frame and explain the purpose of each field.
 ```
 
-## Related Resources
+## Iframe Embed Code
+
+You can add this MicroSim to any web page by adding this HTML:
+
+```html
+<iframe src="https://dmccreary.github.io/networking/sims/ethernet-frame-format/main.html"
+        height="502px"
+        width="100%"
+        scrolling="no"></iframe>
+```
+
+## Lesson Plan
+
+### Learning Objective
+
+(Bloom — Remembering and Understanding): Students recall the byte layout of an Ethernet frame and explain the purpose of each field.
+
+### Bloom Taxonomy Level
+
+**Remember**
+
+### Suggested Classroom Use
+
+1. **Predict** — Ask students to predict the behavior before they interact.
+2. **Explore** — Have students manipulate the controls and observe the results.
+3. **Explain** — Ask students to explain, in their own words, what they observed
+   and how it connects to ethernet, switching, and vlans.
+
+## References
 
 - [Chapter 7: Ethernet, Switching, and VLANs](../../chapters/07-ethernet-and-vlans/index.md)
+- [ACM/IEEE CS2023 Networking and Communication Knowledge Area](https://csed.acm.org/)

@@ -3,125 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NRZ vs. Manchester Encoding</title>
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>NRZ vs. Manchester Encoding using p5.js</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
-            color: #212529;
-        }
-        #container {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background: white;
-        }
-        h1 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #1a3a6c;
-        }
-        .placeholder {
-            border: 2px dashed #adb5bd;
-            border-radius: 8px;
-            padding: 40px 20px;
-            text-align: center;
-            color: #6c757d;
-            margin: 20px 0;
-            min-height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .placeholder .badge {
-            display: inline-block;
-            background: #ffc107;
-            color: #212529;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        .placeholder h2 {
-            font-size: 18px;
-            color: #495057;
-            margin-bottom: 8px;
-        }
-        .placeholder p {
-            font-size: 14px;
-            max-width: 480px;
-        }
-        .meta {
-            margin-top: 20px;
-            font-size: 13px;
-            color: #6c757d;
-            border-top: 1px solid #dee2e6;
-            padding-top: 12px;
-        }
-        .meta strong { color: #495057; }
+        body { margin: 0px; padding: 0px; font-family: Arial, Helvetica, sans-serif; }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script src="nrz-vs-manchester-encoding.js"></script>
 </head>
 <body>
-    <div id="container">
-        <h1>NRZ vs. Manchester Encoding</h1>
-        <div class="placeholder">
-            <span class="badge">SCAFFOLD</span>
-            <h2>MicroSim Not Yet Implemented</h2>
-            <p>This MicroSim has been scaffolded from its specification but the
-            interactive content has not been built yet. See the chapter source
-            and the <code>index.md</code> in this directory for the full spec.</p>
-        </div>
-        <div class="meta">
-            <p><strong>Sim ID:</strong> nrz-vs-manchester-encoding</p>
-            <p><strong>Library:</strong> p5.js</p>
-            <p><strong>Bloom Level:</strong> TBD</p>
-            <p><strong>Learning Objective:</strong> TBD</p>
-        </div>
-    </div>
-
-    <!--
-    SPECIFICATION (from chapter index.md):
-
-    Type: microsim
-    **sim-id:** nrz-vs-manchester-encoding<br/>
-    **Library:** p5.js<br/>
-    **Status:** Specified
-    
-    Build an interactive MicroSim that lets students enter a bit pattern and see the resulting voltage waveform under NRZ and Manchester encoding side by side.
-    
-    Canvas: 920 px wide by 520 px tall, responsive down to 360 px. A 100 px control panel sits below.
-    
-    Layout:
-    
-    - A text input box at the top accepts a bit string (e.g., "10110001") with a default of "10110001".
-    - Below the input, two stacked oscilloscope-style displays:
-      - Top trace labeled "NRZ Encoding": a horizontal voltage axis with discrete levels (low and high). The waveform follows the bit pattern directly — high for 1, low for 0 — with no transitions during a run of identical bits.
-      - Bottom trace labeled "Manchester Encoding": the same bit pattern, but each bit period contains a mid-bit transition. A 1 is a low-to-high transition; a 0 is a high-to-low transition.
-    - A vertical dashed line indicates each bit boundary, and a small numeric label above shows which bit (0/1) is being encoded in that period.
-    
-    Interactivity:
-    
-    - The user can edit the bit string and the waveforms update live.
-    - Toggle "Add noise": injects small random voltage offsets and shows how the receiver's decision threshold (a horizontal dashed line at the midpoint) tolerates the noise. Manchester's transition-based decoding is shown to be more robust because the receiver is comparing levels just before and after the mid-bit transition.
-    - Toggle "Long run of zeros": replaces the input with "00000000" and highlights how NRZ produces a flat line with no clock recovery, while Manchester continues to provide a transition each bit period.
-    
-    Visual style:
-    
-    - Voltage traces in honey amber on a slate grid background.
-    - Bit boundaries as thin vertical lines.
-    - Decision threshold as a horizontal dashed line in white.
-    
-    Learning objectives:
-    
-    - (Bloom — Understanding) Students explain why Manchester encoding always provides at least one transition per bit period.
-    - (Bloom — Analyzing) Students compare the bandwidth efficiency and clock-recovery properties of NRZ vs. Manchester.
-    - (Bloom — Evaluating) Students judge which encoding is appropriate for a given combination of distance, noise, and clock-recovery requirements.
-    
-    Implement in pure p5.js with the existing MicroSim CSS theme. The waveform display should be responsive and remain readable at 360 px wide.
-    -->
+    <main></main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
 </body>
 </html>

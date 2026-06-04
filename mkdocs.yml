@@ -40,7 +40,49 @@ nav:
     - Taxonomy Distribution Report: learning-graph/taxonomy-distribution.md
     - Mascot Rendering Test: learning-graph/mascot-render-test.md
   - MicroSims:
+    - List of MicroSims: sims/index.md
+    - Anatomy of a Man-in-the-Middle Attack: sims/mitm-and-tls-defense/index.md
+    - Anatomy of a Packet's Journey: sims/four-delay-components/index.md
+    - BSS and ESS Topology: sims/bss-ess-roaming/index.md
+    - Choosing a Transmission Medium: sims/transmission-media-choice/index.md
+    - CIDR Subnet Calculator: sims/cidr-subnet-calculator/index.md
+    - Congestion Control Phases and Algorithms: sims/tcp-congestion-control-comparison/index.md
+    - Distance-Vector vs. Link-State Convergence: sims/dv-vs-ls-convergence/index.md
+    - DNS Resolution Walkthrough: sims/dns-resolution-walkthrough/index.md
+    - Edge versus Core in a Small Network: sims/edge-vs-core-topology/index.md
+    - Encapsulation Walkthrough: sims/encapsulation-walkthrough/index.md
+    - Error Detection in Action: sims/error-detection-comparison/index.md
+    - Ethernet Frame Format: sims/ethernet-frame-format/index.md
+    - Interactive Network Explorer: sims/network-explorer/index.md
+    - Internet Topology and BGP Relationships: sims/internet-topology-bgp/index.md
+    - IPv4 vs. IPv6 Header Comparison: sims/ipv4-vs-ipv6-headers/index.md
+    - Layering Decision Tree: sims/layering-decision-tree/index.md
     - Learning Graph Viewer: sims/graph-viewer/index.md
+    - MAC Protocol Comparison: sims/mac-protocols-comparison/index.md
+    - NAT Traversal with STUN and TURN: sims/nat-traversal-stun-turn/index.md
+    - Network Lab Topology with Namespaces and netem: sims/virtual-network-lab/index.md
+    - NRZ vs. Manchester Encoding: sims/nrz-vs-manchester-encoding/index.md
+    - OSI vs. TCP/IP Layer Mapping: sims/osi-vs-tcpip-mapping/index.md
+    - Packet Fragmentation Walkthrough: sims/packet-fragmentation/index.md
+    - 'SDN Architecture: Control vs. Data Plane': sims/sdn-architecture-overview/index.md
+    - Signal Quality Across Distance: sims/ber-vs-distance/index.md
+    - Sliding Window Animation: sims/arq-protocols-comparison/index.md
+    - Spanning Tree in Action: sims/spanning-tree-protocol/index.md
+    - Standards Bodies and What They Govern: sims/standards-bodies-map/index.md
+    - TCP and UDP Socket Lifecycle: sims/socket-lifecycle-diagram/index.md
+    - TCP Three-Way Handshake and Termination: sims/tcp-handshake-and-termination/index.md
+    - The Four Addressing Scopes: sims/addressing-scopes-comparison/index.md
+    - The Nesting Envelope Model: sims/encapsulation-envelope-model/index.md
+    - The QoS Toolbox: sims/qos-toolbox-map/index.md
+    - The Three Identifiers Across the Protocol Stack: sims/address-triple-stack/index.md
+    - TLS 1.3 Handshake Walkthrough: sims/tls-handshake-walkthrough/index.md
+    - Token Bucket vs. Leaky Bucket: sims/token-vs-leaky-bucket/index.md
+    - VLANs and Link Aggregation Together: sims/vlans-and-link-aggregation/index.md
+    - Wireless Performance vs. Distance: sims/wireless-link-adaptation/index.md
+
+
+
+
   - FAQ: faq.md
   - Glossary: glossary.md
   - References: references.md

@@ -1,25 +1,42 @@
 ---
-title: The Nesting Envelope Model
-description: The Nesting Envelope Model
-status: scaffold
+title: "The Nesting Envelope Model"
+description: "Interactive p5.js MicroSim: the nesting envelope model."
+image: /sims/encapsulation-envelope-model/encapsulation-envelope-model.png
+og:image: /sims/encapsulation-envelope-model/encapsulation-envelope-model.png
+twitter:image: /sims/encapsulation-envelope-model/encapsulation-envelope-model.png
+social:
+   cards: false
+status: implemented
 library: p5.js
-bloom_level: TBD
+bloom_level: Remember
+quality_score: 0
 ---
 
 # The Nesting Envelope Model
 
+<iframe src="main.html" height="492" width="100%" scrolling="no"></iframe>
 
+[Run the The Nesting Envelope Model MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+## About This MicroSim
 
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
+(Bloom — Remembering and Understanding): Students recognize the canonical encapsulation order and recall the typical header size at each layer.
+
+This MicroSim is built with p5.js and is width-responsive, so it adapts to
+the width of the page or container it is embedded in.
+
+## How to Use
+
+Use the controls in the panel below the drawing area to explore the concept.
+Adjust the sliders, toggle the options, and step through the stages to see how
+each change affects what is shown.
 
 ## Specification
 
 The full specification below is extracted from
 [Chapter 2: Standards, Data Units, and Encapsulation](../../chapters/02-standards-and-encapsulation/index.md).
 
-```text
+```
 Type: diagram
 **sim-id:** encapsulation-envelope-model<br/>
 **Library:** p5.js<br/>
@@ -50,6 +67,35 @@ The diagram should be implemented in p5.js using the existing MicroSim styling. 
 Learning objective (Bloom — Remembering and Understanding): Students recognize the canonical encapsulation order and recall the typical header size at each layer.
 ```
 
-## Related Resources
+## Iframe Embed Code
+
+You can add this MicroSim to any web page by adding this HTML:
+
+```html
+<iframe src="https://dmccreary.github.io/networking/sims/encapsulation-envelope-model/main.html"
+        height="502px"
+        width="100%"
+        scrolling="no"></iframe>
+```
+
+## Lesson Plan
+
+### Learning Objective
+
+(Bloom — Remembering and Understanding): Students recognize the canonical encapsulation order and recall the typical header size at each layer.
+
+### Bloom Taxonomy Level
+
+**Remember**
+
+### Suggested Classroom Use
+
+1. **Predict** — Ask students to predict the behavior before they interact.
+2. **Explore** — Have students manipulate the controls and observe the results.
+3. **Explain** — Ask students to explain, in their own words, what they observed
+   and how it connects to standards, data units, and encapsulation.
+
+## References
 
 - [Chapter 2: Standards, Data Units, and Encapsulation](../../chapters/02-standards-and-encapsulation/index.md)
+- [ACM/IEEE CS2023 Networking and Communication Knowledge Area](https://csed.acm.org/)

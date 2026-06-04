@@ -3,125 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Congestion Control Phases and Algorithms</title>
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Congestion Control Phases and Algorithms using p5.js</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
-            color: #212529;
-        }
-        #container {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background: white;
-        }
-        h1 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #1a3a6c;
-        }
-        .placeholder {
-            border: 2px dashed #adb5bd;
-            border-radius: 8px;
-            padding: 40px 20px;
-            text-align: center;
-            color: #6c757d;
-            margin: 20px 0;
-            min-height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .placeholder .badge {
-            display: inline-block;
-            background: #ffc107;
-            color: #212529;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        .placeholder h2 {
-            font-size: 18px;
-            color: #495057;
-            margin-bottom: 8px;
-        }
-        .placeholder p {
-            font-size: 14px;
-            max-width: 480px;
-        }
-        .meta {
-            margin-top: 20px;
-            font-size: 13px;
-            color: #6c757d;
-            border-top: 1px solid #dee2e6;
-            padding-top: 12px;
-        }
-        .meta strong { color: #495057; }
+        body { margin: 0px; padding: 0px; font-family: Arial, Helvetica, sans-serif; }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script src="tcp-congestion-control-comparison.js"></script>
 </head>
 <body>
-    <div id="container">
-        <h1>Congestion Control Phases and Algorithms</h1>
-        <div class="placeholder">
-            <span class="badge">SCAFFOLD</span>
-            <h2>MicroSim Not Yet Implemented</h2>
-            <p>This MicroSim has been scaffolded from its specification but the
-            interactive content has not been built yet. See the chapter source
-            and the <code>index.md</code> in this directory for the full spec.</p>
-        </div>
-        <div class="meta">
-            <p><strong>Sim ID:</strong> tcp-congestion-control-comparison</p>
-            <p><strong>Library:</strong> p5.js</p>
-            <p><strong>Bloom Level:</strong> TBD</p>
-            <p><strong>Learning Objective:</strong> TBD</p>
-        </div>
-    </div>
-
-    <!--
-    SPECIFICATION (from chapter index.md):
-
-    Type: microsim
-    **sim-id:** tcp-congestion-control-comparison<br/>
-    **Library:** p5.js<br/>
-    **Status:** Specified
-    
-    Build an interactive MicroSim that plots `cwnd` over time for Reno, CUBIC, and BBR running on the same simulated path with configurable loss and bandwidth.
-    
-    Canvas: 960 px wide by 600 px tall, responsive down to 360 px. A 120 px control panel sits below.
-    
-    Layout:
-    
-    - A large time-vs-cwnd plot occupying most of the canvas. X-axis is time in RTTs; Y-axis is cwnd in segments.
-    - Three traces, one per algorithm, in distinct colors with a legend.
-    - Horizontal dashed lines marking the simulated link's bottleneck capacity and the bandwidth-delay product.
-    - Annotations at each loss event, showing fast retransmit, fast recovery, and timeout events.
-    
-    Controls panel:
-    
-    - Sliders: link bandwidth (1–10000 Mbps log), RTT (10–500 ms), loss rate (0–5%), buffer size (in BDPs).
-    - Toggle: "Add competing flows" to introduce additional algorithms competing for the link.
-    - Buttons: Step / Play / Reset.
-    - "Single algorithm focus" dropdown to highlight one trace.
-    
-    Visual style:
-    
-    - Reno: slate blue, sawtooth pattern.
-    - CUBIC: honey amber, cubic curve.
-    - BBR: forest green, smoother saturating curve.
-    
-    Learning objectives:
-    
-    - (Bloom — Understanding) Students explain how each algorithm's `cwnd` evolves through slow start, congestion avoidance, and loss recovery.
-    - (Bloom — Analyzing) Students compare fairness, buffer occupancy, and convergence time for the three algorithms.
-    - (Bloom — Evaluating) Students judge which algorithm fits a given link profile (lossy, long, or fast).
-    
-    Implement in pure p5.js with the existing MicroSim CSS theme.
-    -->
+    <main></main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
 </body>
 </html>

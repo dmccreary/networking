@@ -1,25 +1,42 @@
 ---
-title: Interactive Network Explorer
-description: Interactive Network Explorer
-status: scaffold
+title: "Interactive Network Explorer"
+description: "Interactive p5.js MicroSim: interactive network explorer."
+image: /sims/network-explorer/network-explorer.png
+og:image: /sims/network-explorer/network-explorer.png
+twitter:image: /sims/network-explorer/network-explorer.png
+social:
+   cards: false
+status: implemented
 library: p5.js
-bloom_level: TBD
+bloom_level: Remember
+quality_score: 0
 ---
 
 # Interactive Network Explorer
 
+<iframe src="main.html" height="554" width="100%" scrolling="no"></iframe>
 
+[Run the Interactive Network Explorer MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+## About This MicroSim
 
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
+s:
+
+This MicroSim is built with p5.js and is width-responsive, so it adapts to
+the width of the page or container it is embedded in.
+
+## How to Use
+
+Use the controls in the panel below the drawing area to explore the concept.
+Adjust the sliders, toggle the options, and step through the stages to see how
+each change affects what is shown.
 
 ## Specification
 
 The full specification below is extracted from
 [Chapter 1: Introduction to Networks and Communication](../../chapters/01-intro-to-networks/index.md).
 
-```text
+```
 Type: microsim
 **sim-id:** network-explorer<br/>
 **Library:** p5.js<br/>
@@ -63,6 +80,35 @@ Learning objectives:
 The MicroSim should be implemented in p5.js with no external dependencies. Use the existing MicroSim CSS theme. The side panel must remain visible on screens 480 px wide or wider; on narrower screens it stacks below the canvas.
 ```
 
-## Related Resources
+## Iframe Embed Code
+
+You can add this MicroSim to any web page by adding this HTML:
+
+```html
+<iframe src="https://dmccreary.github.io/networking/sims/network-explorer/main.html"
+        height="502px"
+        width="100%"
+        scrolling="no"></iframe>
+```
+
+## Lesson Plan
+
+### Learning Objective
+
+s:
+
+### Bloom Taxonomy Level
+
+**Remember**
+
+### Suggested Classroom Use
+
+1. **Predict** — Ask students to predict the behavior before they interact.
+2. **Explore** — Have students manipulate the controls and observe the results.
+3. **Explain** — Ask students to explain, in their own words, what they observed
+   and how it connects to introduction to networks and communication.
+
+## References
 
 - [Chapter 1: Introduction to Networks and Communication](../../chapters/01-intro-to-networks/index.md)
+- [ACM/IEEE CS2023 Networking and Communication Knowledge Area](https://csed.acm.org/)

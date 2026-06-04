@@ -1,25 +1,42 @@
 ---
-title: Layering Decision Tree
-description: Layering Decision Tree
-status: scaffold
+title: "Layering Decision Tree"
+description: "Interactive p5.js MicroSim: layering decision tree."
+image: /sims/layering-decision-tree/layering-decision-tree.png
+og:image: /sims/layering-decision-tree/layering-decision-tree.png
+twitter:image: /sims/layering-decision-tree/layering-decision-tree.png
+social:
+   cards: false
+status: implemented
 library: p5.js
-bloom_level: TBD
+bloom_level: Apply
+quality_score: 0
 ---
 
 # Layering Decision Tree
 
+<iframe src="main.html" height="634" width="100%" scrolling="no"></iframe>
 
+[Run the Layering Decision Tree MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+## About This MicroSim
 
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
+s:
+
+This MicroSim is built with p5.js and is width-responsive, so it adapts to
+the width of the page or container it is embedded in.
+
+## How to Use
+
+Use the controls in the panel below the drawing area to explore the concept.
+Adjust the sliders, toggle the options, and step through the stages to see how
+each change affects what is shown.
 
 ## Specification
 
 The full specification below is extracted from
 [Chapter 3: Network Architecture and Layered Models](../../chapters/03-architecture-and-layering/index.md).
 
-```text
+```
 Type: infographic
 **sim-id:** layering-decision-tree<br/>
 **Library:** p5.js<br/>
@@ -59,6 +76,35 @@ Learning objectives:
 Implement in pure p5.js with the existing MicroSim CSS. The tree must remain readable on screens 360 px wide (horizontal scroll allowed).
 ```
 
-## Related Resources
+## Iframe Embed Code
+
+You can add this MicroSim to any web page by adding this HTML:
+
+```html
+<iframe src="https://dmccreary.github.io/networking/sims/layering-decision-tree/main.html"
+        height="502px"
+        width="100%"
+        scrolling="no"></iframe>
+```
+
+## Lesson Plan
+
+### Learning Objective
+
+s:
+
+### Bloom Taxonomy Level
+
+**Apply**
+
+### Suggested Classroom Use
+
+1. **Predict** — Ask students to predict the behavior before they interact.
+2. **Explore** — Have students manipulate the controls and observe the results.
+3. **Explain** — Ask students to explain, in their own words, what they observed
+   and how it connects to network architecture and layered models.
+
+## References
 
 - [Chapter 3: Network Architecture and Layered Models](../../chapters/03-architecture-and-layering/index.md)
+- [ACM/IEEE CS2023 Networking and Communication Knowledge Area](https://csed.acm.org/)

@@ -1,25 +1,42 @@
 ---
-title: The Four Addressing Scopes
-description: The Four Addressing Scopes
-status: scaffold
+title: "The Four Addressing Scopes"
+description: "Interactive p5.js MicroSim: the four addressing scopes."
+image: /sims/addressing-scopes-comparison/addressing-scopes-comparison.png
+og:image: /sims/addressing-scopes-comparison/addressing-scopes-comparison.png
+twitter:image: /sims/addressing-scopes-comparison/addressing-scopes-comparison.png
+social:
+   cards: false
+status: implemented
 library: p5.js
-bloom_level: TBD
+bloom_level: Remember
+quality_score: 0
 ---
 
 # The Four Addressing Scopes
 
+<iframe src="main.html" height="638" width="100%" scrolling="no"></iframe>
 
+[Run the The Four Addressing Scopes MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+## About This MicroSim
 
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
+s:
+
+This MicroSim is built with p5.js and is width-responsive, so it adapts to
+the width of the page or container it is embedded in.
+
+## How to Use
+
+Use the controls in the panel below the drawing area to explore the concept.
+Adjust the sliders, toggle the options, and step through the stages to see how
+each change affects what is shown.
 
 ## Specification
 
 The full specification below is extracted from
 [Chapter 3: Network Architecture and Layered Models](../../chapters/03-architecture-and-layering/index.md).
 
-```text
+```
 Type: microsim
 **sim-id:** addressing-scopes-comparison<br/>
 **Library:** p5.js<br/>
@@ -65,6 +82,35 @@ Learning objectives:
 The MicroSim should be implemented in pure p5.js with no external dependencies, using the existing MicroSim CSS theme. Animations should be smooth at 60 FPS and pause on tab switch.
 ```
 
-## Related Resources
+## Iframe Embed Code
+
+You can add this MicroSim to any web page by adding this HTML:
+
+```html
+<iframe src="https://dmccreary.github.io/networking/sims/addressing-scopes-comparison/main.html"
+        height="502px"
+        width="100%"
+        scrolling="no"></iframe>
+```
+
+## Lesson Plan
+
+### Learning Objective
+
+s:
+
+### Bloom Taxonomy Level
+
+**Remember**
+
+### Suggested Classroom Use
+
+1. **Predict** — Ask students to predict the behavior before they interact.
+2. **Explore** — Have students manipulate the controls and observe the results.
+3. **Explain** — Ask students to explain, in their own words, what they observed
+   and how it connects to network architecture and layered models.
+
+## References
 
 - [Chapter 3: Network Architecture and Layered Models](../../chapters/03-architecture-and-layering/index.md)
+- [ACM/IEEE CS2023 Networking and Communication Knowledge Area](https://csed.acm.org/)

@@ -3,130 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TCP Three-Way Handshake and Termination</title>
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>TCP Three-Way Handshake and Termination using p5.js</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
-            color: #212529;
-        }
-        #container {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background: white;
-        }
-        h1 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #1a3a6c;
-        }
-        .placeholder {
-            border: 2px dashed #adb5bd;
-            border-radius: 8px;
-            padding: 40px 20px;
-            text-align: center;
-            color: #6c757d;
-            margin: 20px 0;
-            min-height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .placeholder .badge {
-            display: inline-block;
-            background: #ffc107;
-            color: #212529;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        .placeholder h2 {
-            font-size: 18px;
-            color: #495057;
-            margin-bottom: 8px;
-        }
-        .placeholder p {
-            font-size: 14px;
-            max-width: 480px;
-        }
-        .meta {
-            margin-top: 20px;
-            font-size: 13px;
-            color: #6c757d;
-            border-top: 1px solid #dee2e6;
-            padding-top: 12px;
-        }
-        .meta strong { color: #495057; }
+        body { margin: 0px; padding: 0px; font-family: Arial, Helvetica, sans-serif; }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script src="tcp-handshake-and-termination.js"></script>
 </head>
 <body>
-    <div id="container">
-        <h1>TCP Three-Way Handshake and Termination</h1>
-        <div class="placeholder">
-            <span class="badge">SCAFFOLD</span>
-            <h2>MicroSim Not Yet Implemented</h2>
-            <p>This MicroSim has been scaffolded from its specification but the
-            interactive content has not been built yet. See the chapter source
-            and the <code>index.md</code> in this directory for the full spec.</p>
-        </div>
-        <div class="meta">
-            <p><strong>Sim ID:</strong> tcp-handshake-and-termination</p>
-            <p><strong>Library:</strong> p5.js</p>
-            <p><strong>Bloom Level:</strong> TBD</p>
-            <p><strong>Learning Objective:</strong> TBD</p>
-        </div>
-    </div>
-
-    <!--
-    SPECIFICATION (from chapter index.md):
-
-    Type: microsim
-    **sim-id:** tcp-handshake-and-termination<br/>
-    **Library:** p5.js<br/>
-    **Status:** Specified
-    
-    Build an interactive MicroSim that animates TCP connection setup, data exchange, and termination as a labeled sequence diagram.
-    
-    Canvas: 940 px wide by 640 px tall, responsive down to 360 px. A 100 px control panel sits below.
-    
-    Layout:
-    
-    - Two vertical timelines (Client on the left, Server on the right) running top to bottom.
-    - Each segment is drawn as a labeled arrow between the timelines, with sequence and acknowledgment numbers shown.
-    - A current-state label appears beside each timeline at every step (CLOSED → SYN_SENT → ESTABLISHED → FIN_WAIT_1 → FIN_WAIT_2 → TIME_WAIT → CLOSED).
-    
-    Animation phases:
-    
-    1. **Handshake**: Client sends SYN(Cseq=100), Server replies SYN+ACK(Sseq=500, ack=101), Client sends ACK(ack=501).
-    2. **Data exchange**: Client sends DATA(seq=101, len=200), Server ACKs. Server sends DATA(seq=501, len=300), Client ACKs.
-    3. **Termination**: Client sends FIN(seq=301), Server ACKs. Server sends FIN(seq=801), Client ACKs. Client enters TIME_WAIT.
-    
-    Controls panel:
-    
-    - Buttons: Step / Play / Reset.
-    - Toggle: "Show TCP states" overlays the state machine on the side.
-    - Toggle: "Drop a packet" causes one of the segments to be lost; show retransmission and timer behavior.
-    - Toggle: "Half-close" pauses the termination after the first FIN, so students see a half-closed connection.
-    
-    Visual style:
-    
-    - Segments: arrows colored by direction (client→server in honey amber, server→client in slate).
-    - SYN/FIN flags: highlighted with a small badge.
-    - ACK numbers and sequence numbers in monospace labels.
-    
-    Learning objectives:
-    
-    - (Bloom — Understanding) Students explain each step of the three-way handshake and the four-way termination.
-    - (Bloom — Analyzing) Students decompose a captured TCP exchange into its phases and state transitions.
-    - (Bloom — Evaluating) Students judge when half-close is useful and why TIME_WAIT exists.
-    
-    Implement in pure p5.js with the existing MicroSim CSS theme.
-    -->
+    <main></main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
 </body>
 </html>

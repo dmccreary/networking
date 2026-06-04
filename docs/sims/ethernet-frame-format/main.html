@@ -3,125 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ethernet Frame Format</title>
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Ethernet Frame Format using p5.js</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
-            color: #212529;
-        }
-        #container {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background: white;
-        }
-        h1 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #1a3a6c;
-        }
-        .placeholder {
-            border: 2px dashed #adb5bd;
-            border-radius: 8px;
-            padding: 40px 20px;
-            text-align: center;
-            color: #6c757d;
-            margin: 20px 0;
-            min-height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .placeholder .badge {
-            display: inline-block;
-            background: #ffc107;
-            color: #212529;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        .placeholder h2 {
-            font-size: 18px;
-            color: #495057;
-            margin-bottom: 8px;
-        }
-        .placeholder p {
-            font-size: 14px;
-            max-width: 480px;
-        }
-        .meta {
-            margin-top: 20px;
-            font-size: 13px;
-            color: #6c757d;
-            border-top: 1px solid #dee2e6;
-            padding-top: 12px;
-        }
-        .meta strong { color: #495057; }
+        body { margin: 0px; padding: 0px; font-family: Arial, Helvetica, sans-serif; }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script src="ethernet-frame-format.js"></script>
 </head>
 <body>
-    <div id="container">
-        <h1>Ethernet Frame Format</h1>
-        <div class="placeholder">
-            <span class="badge">SCAFFOLD</span>
-            <h2>MicroSim Not Yet Implemented</h2>
-            <p>This MicroSim has been scaffolded from its specification but the
-            interactive content has not been built yet. See the chapter source
-            and the <code>index.md</code> in this directory for the full spec.</p>
-        </div>
-        <div class="meta">
-            <p><strong>Sim ID:</strong> ethernet-frame-format</p>
-            <p><strong>Library:</strong> p5.js</p>
-            <p><strong>Bloom Level:</strong> TBD</p>
-            <p><strong>Learning Objective:</strong> TBD</p>
-        </div>
-    </div>
-
-    <!--
-    SPECIFICATION (from chapter index.md):
-
-    Type: infographic
-    **sim-id:** ethernet-frame-format<br/>
-    **Library:** p5.js<br/>
-    **Status:** Specified
-    
-    Render an interactive infographic that shows the byte-level layout of an Ethernet frame, with hoverable annotations explaining each field.
-    
-    Canvas: 920 px wide by 480 px tall, responsive down to 360 px.
-    
-    Layout:
-    
-    - A horizontal "byte ruler" at the top shows positions 0-1517 (with breaks for the variable payload).
-    - Below the ruler, a frame is rendered as a series of color-coded blocks, each labeled with its field name and size:
-      - Preamble (7 bytes) — pale gray
-      - SFD (1 byte) — slate
-      - Destination MAC (6 bytes) — honey amber
-      - Source MAC (6 bytes) — honey amber
-      - EtherType / Length (2 bytes) — green
-      - Payload (46–1500 bytes) — light blue (variable width)
-      - FCS (4 bytes) — brown
-    - Each block has a small label above showing field name and offset; below, an example value (e.g., `f0:18:98:01:23:45` for source MAC, `0x0800` for EtherType).
-    
-    Interactivity:
-    
-    - Hover any block raises a callout with a one-paragraph explanation of the field's purpose, the values commonly seen, and the standard reference (IEEE 802.3 section).
-    - A toggle "Add 802.1Q tag" inserts a 4-byte VLAN tag between source MAC and EtherType, with explanatory text — preview for the VLAN section later in the chapter.
-    - A toggle "Show pad bytes" highlights the padding bytes added when payload is below the 46-byte minimum.
-    - A toggle "Jumbo frame" extends the payload field up to 9000 bytes and adjusts the byte ruler accordingly.
-    
-    Visual style:
-    
-    - Blocks share rounded corners and a subtle drop shadow.
-    - Hovered block: 2 px deep purple border (#4a148c).
-    - The byte ruler uses a fixed-width font.
-    
-    Learning objective (Bloom — Remembering and Understanding): Students recall the byte layout of an Ethernet frame and explain the purpose of each field.
-    -->
+    <main></main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
 </body>
 </html>

@@ -1,25 +1,42 @@
 ---
-title: Encapsulation Walkthrough
-description: Encapsulation Walkthrough
-status: scaffold
+title: "Encapsulation Walkthrough"
+description: "Interactive p5.js MicroSim: encapsulation walkthrough."
+image: /sims/encapsulation-walkthrough/encapsulation-walkthrough.png
+og:image: /sims/encapsulation-walkthrough/encapsulation-walkthrough.png
+twitter:image: /sims/encapsulation-walkthrough/encapsulation-walkthrough.png
+social:
+   cards: false
+status: implemented
 library: p5.js
-bloom_level: TBD
+bloom_level: Understand
+quality_score: 0
 ---
 
 # Encapsulation Walkthrough
 
+<iframe src="main.html" height="602" width="100%" scrolling="no"></iframe>
 
+[Run the Encapsulation Walkthrough MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+## About This MicroSim
 
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
+s:
+
+This MicroSim is built with p5.js and is width-responsive, so it adapts to
+the width of the page or container it is embedded in.
+
+## How to Use
+
+Use the controls in the panel below the drawing area to explore the concept.
+Adjust the sliders, toggle the options, and step through the stages to see how
+each change affects what is shown.
 
 ## Specification
 
 The full specification below is extracted from
 [Chapter 2: Standards, Data Units, and Encapsulation](../../chapters/02-standards-and-encapsulation/index.md).
 
-```text
+```
 Type: microsim
 **sim-id:** encapsulation-walkthrough<br/>
 **Library:** p5.js<br/>
@@ -72,6 +89,35 @@ Learning objectives:
 The MicroSim should be implemented in pure p5.js with no external dependencies, using the existing MicroSim CSS theme. All controls must be touch-friendly and keyboard-accessible.
 ```
 
-## Related Resources
+## Iframe Embed Code
+
+You can add this MicroSim to any web page by adding this HTML:
+
+```html
+<iframe src="https://dmccreary.github.io/networking/sims/encapsulation-walkthrough/main.html"
+        height="502px"
+        width="100%"
+        scrolling="no"></iframe>
+```
+
+## Lesson Plan
+
+### Learning Objective
+
+s:
+
+### Bloom Taxonomy Level
+
+**Understand**
+
+### Suggested Classroom Use
+
+1. **Predict** — Ask students to predict the behavior before they interact.
+2. **Explore** — Have students manipulate the controls and observe the results.
+3. **Explain** — Ask students to explain, in their own words, what they observed
+   and how it connects to standards, data units, and encapsulation.
+
+## References
 
 - [Chapter 2: Standards, Data Units, and Encapsulation](../../chapters/02-standards-and-encapsulation/index.md)
+- [ACM/IEEE CS2023 Networking and Communication Knowledge Area](https://csed.acm.org/)

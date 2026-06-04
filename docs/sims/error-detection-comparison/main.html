@@ -3,129 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Error Detection in Action</title>
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Error Detection in Action using p5.js</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
-            color: #212529;
-        }
-        #container {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background: white;
-        }
-        h1 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #1a3a6c;
-        }
-        .placeholder {
-            border: 2px dashed #adb5bd;
-            border-radius: 8px;
-            padding: 40px 20px;
-            text-align: center;
-            color: #6c757d;
-            margin: 20px 0;
-            min-height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .placeholder .badge {
-            display: inline-block;
-            background: #ffc107;
-            color: #212529;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        .placeholder h2 {
-            font-size: 18px;
-            color: #495057;
-            margin-bottom: 8px;
-        }
-        .placeholder p {
-            font-size: 14px;
-            max-width: 480px;
-        }
-        .meta {
-            margin-top: 20px;
-            font-size: 13px;
-            color: #6c757d;
-            border-top: 1px solid #dee2e6;
-            padding-top: 12px;
-        }
-        .meta strong { color: #495057; }
+        body { margin: 0px; padding: 0px; font-family: Arial, Helvetica, sans-serif; }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script src="error-detection-comparison.js"></script>
 </head>
 <body>
-    <div id="container">
-        <h1>Error Detection in Action</h1>
-        <div class="placeholder">
-            <span class="badge">SCAFFOLD</span>
-            <h2>MicroSim Not Yet Implemented</h2>
-            <p>This MicroSim has been scaffolded from its specification but the
-            interactive content has not been built yet. See the chapter source
-            and the <code>index.md</code> in this directory for the full spec.</p>
-        </div>
-        <div class="meta">
-            <p><strong>Sim ID:</strong> error-detection-comparison</p>
-            <p><strong>Library:</strong> p5.js</p>
-            <p><strong>Bloom Level:</strong> TBD</p>
-            <p><strong>Learning Objective:</strong> TBD</p>
-        </div>
-    </div>
-
-    <!--
-    SPECIFICATION (from chapter index.md):
-
-    Type: microsim
-    **sim-id:** error-detection-comparison<br/>
-    **Library:** p5.js<br/>
-    **Status:** Specified
-    
-    Build an interactive MicroSim that lets students inject bit errors into a frame and watch which of three error-detection codes catch them.
-    
-    Canvas: 920 px wide by 580 px tall, responsive down to 360 px. A 120 px control panel sits below.
-    
-    Layout:
-    
-    - A frame display at the top: 32 bits of data shown as a row of small squares, one bit per square, with a small label above each indicating its bit position.
-    - Three trailing fields shown to the right of the frame:
-      - 1-bit parity (computed from the data).
-      - 16-bit Internet checksum (computed from the data).
-      - 32-bit CRC-32 (computed from the data using polynomial `0xEDB88320`).
-    - Below the frame, a "received" copy initially identical to the sent frame.
-    
-    Interactivity:
-    
-    - Clicking any bit in the received copy flips it (toggles 0/1). The display recomputes the receiver's parity, checksum, and CRC values.
-    - Each of the three checks shows a green "OK" or red "FAIL" indicator depending on whether the recomputed value matches the original.
-    - "Inject N random errors" buttons (1, 2, 4, 8 errors) flip random bits and update the indicators.
-    - "Burst error" toggle: flip a contiguous block of bits.
-    - A counter tracks how many of the test cases each code caught.
-    
-    Visual style:
-    
-    - Sent frame in honey amber.
-    - Received frame in slate.
-    - Flipped bits highlighted in red.
-    - Pass/fail indicators in green/red.
-    
-    Learning objectives:
-    
-    - (Bloom — Understanding) Students explain why parity catches only odd-bit-count errors.
-    - (Bloom — Analyzing) Students decompose an error pattern into the contributions caught by each code.
-    - (Bloom — Evaluating) Students judge which error-detection code is strong enough for a given application.
-    
-    Implement in pure p5.js using the existing MicroSim CSS theme.
-    -->
+    <main></main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
 </body>
 </html>

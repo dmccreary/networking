@@ -3,133 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spanning Tree in Action</title>
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Spanning Tree in Action using p5.js</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
-            color: #212529;
-        }
-        #container {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background: white;
-        }
-        h1 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #1a3a6c;
-        }
-        .placeholder {
-            border: 2px dashed #adb5bd;
-            border-radius: 8px;
-            padding: 40px 20px;
-            text-align: center;
-            color: #6c757d;
-            margin: 20px 0;
-            min-height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .placeholder .badge {
-            display: inline-block;
-            background: #ffc107;
-            color: #212529;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        .placeholder h2 {
-            font-size: 18px;
-            color: #495057;
-            margin-bottom: 8px;
-        }
-        .placeholder p {
-            font-size: 14px;
-            max-width: 480px;
-        }
-        .meta {
-            margin-top: 20px;
-            font-size: 13px;
-            color: #6c757d;
-            border-top: 1px solid #dee2e6;
-            padding-top: 12px;
-        }
-        .meta strong { color: #495057; }
+        body { margin: 0px; padding: 0px; font-family: Arial, Helvetica, sans-serif; }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script src="spanning-tree-protocol.js"></script>
 </head>
 <body>
-    <div id="container">
-        <h1>Spanning Tree in Action</h1>
-        <div class="placeholder">
-            <span class="badge">SCAFFOLD</span>
-            <h2>MicroSim Not Yet Implemented</h2>
-            <p>This MicroSim has been scaffolded from its specification but the
-            interactive content has not been built yet. See the chapter source
-            and the <code>index.md</code> in this directory for the full spec.</p>
-        </div>
-        <div class="meta">
-            <p><strong>Sim ID:</strong> spanning-tree-protocol</p>
-            <p><strong>Library:</strong> p5.js</p>
-            <p><strong>Bloom Level:</strong> TBD</p>
-            <p><strong>Learning Objective:</strong> TBD</p>
-        </div>
-    </div>
-
-    <!--
-    SPECIFICATION (from chapter index.md):
-
-    Type: microsim
-    **sim-id:** spanning-tree-protocol<br/>
-    **Library:** p5.js<br/>
-    **Status:** Specified
-    
-    Build an interactive MicroSim that animates the Spanning Tree Protocol building a loop-free tree from a redundant switch topology.
-    
-    Canvas: 940 px wide by 600 px tall, responsive down to 360 px. A 120 px control panel sits below.
-    
-    Topology:
-    
-    - 5 switches arranged in a partial mesh with redundant links (e.g., a triangle with a tail and a diagonal). Each switch is labeled S1–S5 with a small bridge ID (priority + MAC).
-    - Hosts are not shown; this is a switch-only topology.
-    
-    Animation steps:
-    
-    1. All ports start in a "listening" state, drawn in yellow.
-    2. Each switch begins emitting BPDUs. The animation shows pulses traveling along each link.
-    3. Switches compare bridge IDs and elect the lowest-ID switch as root (highlighted with a crown icon).
-    4. Each non-root switch computes its shortest path to the root; ports on the path are turned green (forwarding), ports that would create loops are turned red (blocking).
-    5. A scenario button "Link failure" lets students click any link to disable it; the simulation re-runs RSTP and shows convergence as a previously-blocked port turns green.
-    
-    Controls panel:
-    
-    - Buttons: Step / Play / Reset.
-    - Toggle: "Show BPDU contents" — clicking a BPDU pulse displays the proposed root bridge ID and root path cost.
-    - Buttons: "Inject failure" (random link fails), "Inject root failure" (root bridge goes down).
-    - Speed slider.
-    
-    Visual style:
-    
-    - Switches: rounded rectangles in slate.
-    - Root bridge: highlighted with a crown icon and honey-amber border.
-    - Forwarding ports: green dots at link endpoints.
-    - Blocked ports: red dots.
-    - BPDUs: small pulsing circles traveling along links.
-    
-    Learning objectives:
-    
-    - (Bloom — Understanding) Students explain how STP elects a root and decides which ports to block.
-    - (Bloom — Analyzing) Students examine convergence behavior under link or root failure.
-    - (Bloom — Evaluating) Students judge the trade-off between STP simplicity and the bandwidth-efficient alternatives used in modern datacenter fabrics.
-    
-    Implement in pure p5.js with the existing MicroSim CSS theme.
-    -->
+    <main></main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
 </body>
 </html>

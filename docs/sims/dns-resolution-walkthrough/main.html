@@ -3,135 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DNS Resolution Walkthrough</title>
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>DNS Resolution Walkthrough using p5.js</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
-            color: #212529;
-        }
-        #container {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background: white;
-        }
-        h1 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #1a3a6c;
-        }
-        .placeholder {
-            border: 2px dashed #adb5bd;
-            border-radius: 8px;
-            padding: 40px 20px;
-            text-align: center;
-            color: #6c757d;
-            margin: 20px 0;
-            min-height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .placeholder .badge {
-            display: inline-block;
-            background: #ffc107;
-            color: #212529;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        .placeholder h2 {
-            font-size: 18px;
-            color: #495057;
-            margin-bottom: 8px;
-        }
-        .placeholder p {
-            font-size: 14px;
-            max-width: 480px;
-        }
-        .meta {
-            margin-top: 20px;
-            font-size: 13px;
-            color: #6c757d;
-            border-top: 1px solid #dee2e6;
-            padding-top: 12px;
-        }
-        .meta strong { color: #495057; }
+        body { margin: 0px; padding: 0px; font-family: Arial, Helvetica, sans-serif; }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script src="dns-resolution-walkthrough.js"></script>
 </head>
 <body>
-    <div id="container">
-        <h1>DNS Resolution Walkthrough</h1>
-        <div class="placeholder">
-            <span class="badge">SCAFFOLD</span>
-            <h2>MicroSim Not Yet Implemented</h2>
-            <p>This MicroSim has been scaffolded from its specification but the
-            interactive content has not been built yet. See the chapter source
-            and the <code>index.md</code> in this directory for the full spec.</p>
-        </div>
-        <div class="meta">
-            <p><strong>Sim ID:</strong> dns-resolution-walkthrough</p>
-            <p><strong>Library:</strong> p5.js</p>
-            <p><strong>Bloom Level:</strong> TBD</p>
-            <p><strong>Learning Objective:</strong> TBD</p>
-        </div>
-    </div>
-
-    <!--
-    SPECIFICATION (from chapter index.md):
-
-    Type: microsim
-    **sim-id:** dns-resolution-walkthrough<br/>
-    **Library:** p5.js<br/>
-    **Status:** Specified
-    
-    Build an interactive MicroSim that animates a DNS resolution from the user's laptop through their recursive resolver and the DNS hierarchy.
-    
-    Canvas: 960 px wide by 620 px tall, responsive down to 360 px. A 100 px control panel sits below.
-    
-    Layout:
-    
-    - Five labeled nodes arranged top to bottom: "Laptop", "Recursive Resolver", "Root", "TLD Server (.com)", "Authoritative Server (example.com)".
-    - Bidirectional arrows show queries (down) and answers (up). Each query/answer is labeled with the question/answer.
-    - A "cache" panel beside the recursive resolver shows currently-cached records with their remaining TTLs.
-    
-    Animation:
-    
-    - Step 1: Laptop sends "A example.com?" to resolver. Cache miss.
-    - Step 2: Resolver asks Root: "Where can I find .com?" Root returns NS records for .com TLD.
-    - Step 3: Resolver asks .com TLD: "Where can I find example.com?" TLD returns NS records.
-    - Step 4: Resolver asks Authoritative: "A example.com?" Authoritative returns the IP.
-    - Step 5: Resolver caches each answer with its TTL and returns the final IP to the laptop.
-    
-    Subsequent queries: a second query for the same name is answered from cache instantly, demonstrating caching benefits. A third query for `www.example.com` walks only to the authoritative server (TLD info already cached).
-    
-    Controls panel:
-    
-    - Buttons: Step / Play / Reset.
-    - Toggle: "Enable DNSSEC" — adds signature exchanges and verification steps.
-    - Toggle: "Cache poisoning attack" — shows an attacker injecting a forged response and the resolver caching it (without DNSSEC); with DNSSEC the forged response is rejected.
-    - Speed slider for animation pace.
-    
-    Visual style:
-    
-    - Nodes: rounded rectangles with role-specific icons.
-    - Queries: honey-amber arrows.
-    - Answers: slate arrows.
-    - Cache panel: yellow background with timestamps counting down.
-    
-    Learning objectives:
-    
-    - (Bloom — Understanding) Students explain the DNS hierarchy and the role of each tier.
-    - (Bloom — Analyzing) Students decompose a DNS resolution and identify which queries are answered from cache vs. fresh lookups.
-    - (Bloom — Evaluating) Students judge how DNSSEC and randomization defend against cache poisoning.
-    
-    Implement in pure p5.js with the existing MicroSim CSS theme.
-    -->
+    <main></main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
 </body>
 </html>

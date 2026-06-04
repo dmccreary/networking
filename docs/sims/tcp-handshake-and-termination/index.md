@@ -1,25 +1,42 @@
 ---
-title: TCP Three-Way Handshake and Termination
-description: TCP Three-Way Handshake and Termination
-status: scaffold
+title: "TCP Three-Way Handshake and Termination"
+description: "Interactive p5.js MicroSim: tcp three-way handshake and termination."
+image: /sims/tcp-handshake-and-termination/tcp-handshake-and-termination.png
+og:image: /sims/tcp-handshake-and-termination/tcp-handshake-and-termination.png
+twitter:image: /sims/tcp-handshake-and-termination/tcp-handshake-and-termination.png
+social:
+   cards: false
+status: implemented
 library: p5.js
-bloom_level: TBD
+bloom_level: Understand
+quality_score: 0
 ---
 
 # TCP Three-Way Handshake and Termination
 
+<iframe src="main.html" height="660" width="100%" scrolling="no"></iframe>
 
+[Run the TCP Three-Way Handshake and Termination MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+## About This MicroSim
 
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
+s:
+
+This MicroSim is built with p5.js and is width-responsive, so it adapts to
+the width of the page or container it is embedded in.
+
+## How to Use
+
+Use the controls in the panel below the drawing area to explore the concept.
+Adjust the sliders, toggle the options, and step through the stages to see how
+each change affects what is shown.
 
 ## Specification
 
 The full specification below is extracted from
 [Chapter 11: The Transport Layer](../../chapters/11-transport-layer/index.md).
 
-```text
+```
 Type: microsim
 **sim-id:** tcp-handshake-and-termination<br/>
 **Library:** p5.js<br/>
@@ -63,6 +80,35 @@ Learning objectives:
 Implement in pure p5.js with the existing MicroSim CSS theme.
 ```
 
-## Related Resources
+## Iframe Embed Code
+
+You can add this MicroSim to any web page by adding this HTML:
+
+```html
+<iframe src="https://dmccreary.github.io/networking/sims/tcp-handshake-and-termination/main.html"
+        height="502px"
+        width="100%"
+        scrolling="no"></iframe>
+```
+
+## Lesson Plan
+
+### Learning Objective
+
+s:
+
+### Bloom Taxonomy Level
+
+**Understand**
+
+### Suggested Classroom Use
+
+1. **Predict** — Ask students to predict the behavior before they interact.
+2. **Explore** — Have students manipulate the controls and observe the results.
+3. **Explain** — Ask students to explain, in their own words, what they observed
+   and how it connects to the transport layer.
+
+## References
 
 - [Chapter 11: The Transport Layer](../../chapters/11-transport-layer/index.md)
+- [ACM/IEEE CS2023 Networking and Communication Knowledge Area](https://csed.acm.org/)

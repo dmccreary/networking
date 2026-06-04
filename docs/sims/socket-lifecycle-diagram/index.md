@@ -1,25 +1,42 @@
 ---
-title: TCP and UDP Socket Lifecycle
-description: TCP and UDP Socket Lifecycle
-status: scaffold
+title: "TCP and UDP Socket Lifecycle"
+description: "Interactive p5.js MicroSim: tcp and udp socket lifecycle."
+image: /sims/socket-lifecycle-diagram/socket-lifecycle-diagram.png
+og:image: /sims/socket-lifecycle-diagram/socket-lifecycle-diagram.png
+twitter:image: /sims/socket-lifecycle-diagram/socket-lifecycle-diagram.png
+social:
+   cards: false
+status: implemented
 library: p5.js
-bloom_level: TBD
+bloom_level: Understand
+quality_score: 0
 ---
 
 # TCP and UDP Socket Lifecycle
 
+<iframe src="main.html" height="642" width="100%" scrolling="no"></iframe>
 
+[Run the TCP and UDP Socket Lifecycle MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+## About This MicroSim
 
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
+Students explain the order of system calls for TCP and UDP and identify which calls block on network events.
+
+This MicroSim is built with p5.js and is width-responsive, so it adapts to
+the width of the page or container it is embedded in.
+
+## How to Use
+
+Use the controls in the panel below the drawing area to explore the concept.
+Adjust the sliders, toggle the options, and step through the stages to see how
+each change affects what is shown.
 
 ## Specification
 
 The full specification below is extracted from
 [Chapter 14: Network Programming with Sockets](../../chapters/14-network-programming/index.md).
 
-```text
+```
 Type: infographic
 **sim-id:** socket-lifecycle-diagram<br/>
 **Library:** p5.js<br/>
@@ -50,6 +67,35 @@ Visual style:
 Learning objective (Bloom — Understanding): Students explain the order of system calls for TCP and UDP and identify which calls block on network events.
 ```
 
-## Related Resources
+## Iframe Embed Code
+
+You can add this MicroSim to any web page by adding this HTML:
+
+```html
+<iframe src="https://dmccreary.github.io/networking/sims/socket-lifecycle-diagram/main.html"
+        height="502px"
+        width="100%"
+        scrolling="no"></iframe>
+```
+
+## Lesson Plan
+
+### Learning Objective
+
+Students explain the order of system calls for TCP and UDP and identify which calls block on network events.
+
+### Bloom Taxonomy Level
+
+**Understand**
+
+### Suggested Classroom Use
+
+1. **Predict** — Ask students to predict the behavior before they interact.
+2. **Explore** — Have students manipulate the controls and observe the results.
+3. **Explain** — Ask students to explain, in their own words, what they observed
+   and how it connects to network programming with sockets.
+
+## References
 
 - [Chapter 14: Network Programming with Sockets](../../chapters/14-network-programming/index.md)
+- [ACM/IEEE CS2023 Networking and Communication Knowledge Area](https://csed.acm.org/)

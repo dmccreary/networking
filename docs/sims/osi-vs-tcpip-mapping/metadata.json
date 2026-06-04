@@ -1,20 +1,51 @@
 {
   "title": "OSI vs. TCP/IP Layer Mapping",
-  "description": "OSI vs. TCP/IP Layer Mapping",
-  "creator": "Dementia Education Project",
+  "description": "Interactive p5.js MicroSim: osi vs. tcp/ip layer mapping.",
+  "creator": "Dan McCreary",
   "date": "2026-06-04",
   "subject": [
-    "dementia"
+    "Computer Networking",
+    "Data Communication",
+    "Computer Science"
   ],
   "type": "Interactive Simulation",
   "format": "text/html",
   "language": "en-US",
-  "rights": "CC BY 4.0",
+  "rights": "CC BY-NC-SA 4.0",
   "identifier": "osi-vs-tcpip-mapping",
   "library": "p5.js",
-  "bloomLevel": "TBD",
-  "bloomVerb": "TBD",
-  "completion_status": "scaffold",
+  "educational": {
+    "gradeLevel": [
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "subjectArea": "Computer Science",
+    "topic": "OSI vs. TCP/IP Layer Mapping",
+    "learningObjectives": [
+      "Students explain why OSI's seven layers map to TCP/IP's four or five and which OSI layers have no dedicated counterpart in the Internet stack."
+    ],
+    "bloomsTaxonomy": "Understand",
+    "duration": "10-15 minutes",
+    "prerequisites": [],
+    "standards": [
+      "ACM/IEEE CS2023 Networking and Communication"
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration",
+    "keyQuestions": [],
+    "commonMisconceptions": [],
+    "assessmentOpportunities": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "responsive": true,
+    "dependencies": [
+      "p5.js"
+    ]
+  },
   "chapter_number": 3,
   "chapter_title": "Network Architecture and Layered Models",
   "chapter_dir": "03-architecture-and-layering"

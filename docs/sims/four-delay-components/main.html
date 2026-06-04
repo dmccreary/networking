@@ -3,134 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anatomy of a Packet's Journey</title>
+    <meta name="schema" content="https://dmccreary.github.io/intelligent-textbooks/ns/microsim/v1">
+    <title>Anatomy of a Packet's Journey using p5.js</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
-            color: #212529;
-        }
-        #container {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background: white;
-        }
-        h1 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #1a3a6c;
-        }
-        .placeholder {
-            border: 2px dashed #adb5bd;
-            border-radius: 8px;
-            padding: 40px 20px;
-            text-align: center;
-            color: #6c757d;
-            margin: 20px 0;
-            min-height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .placeholder .badge {
-            display: inline-block;
-            background: #ffc107;
-            color: #212529;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        .placeholder h2 {
-            font-size: 18px;
-            color: #495057;
-            margin-bottom: 8px;
-        }
-        .placeholder p {
-            font-size: 14px;
-            max-width: 480px;
-        }
-        .meta {
-            margin-top: 20px;
-            font-size: 13px;
-            color: #6c757d;
-            border-top: 1px solid #dee2e6;
-            padding-top: 12px;
-        }
-        .meta strong { color: #495057; }
+        body { margin: 0px; padding: 0px; font-family: Arial, Helvetica, sans-serif; }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script src="four-delay-components.js"></script>
 </head>
 <body>
-    <div id="container">
-        <h1>Anatomy of a Packet's Journey</h1>
-        <div class="placeholder">
-            <span class="badge">SCAFFOLD</span>
-            <h2>MicroSim Not Yet Implemented</h2>
-            <p>This MicroSim has been scaffolded from its specification but the
-            interactive content has not been built yet. See the chapter source
-            and the <code>index.md</code> in this directory for the full spec.</p>
-        </div>
-        <div class="meta">
-            <p><strong>Sim ID:</strong> four-delay-components</p>
-            <p><strong>Library:</strong> p5.js</p>
-            <p><strong>Bloom Level:</strong> TBD</p>
-            <p><strong>Learning Objective:</strong> TBD</p>
-        </div>
-    </div>
-
-    <!--
-    SPECIFICATION (from chapter index.md):
-
-    Type: microsim
-    **sim-id:** four-delay-components<br/>
-    **Library:** p5.js<br/>
-    **Status:** Specified
-    
-    Build an interactive MicroSim that shows a single packet moving from sender to receiver across three hops, decomposing the time spent at each stage into the four delay components.
-    
-    Canvas: 960 px wide by 600 px tall, responsive down to 360 px. A 120 px control panel sits below.
-    
-    Topology:
-    
-    - A horizontal path: Sender → Router 1 → Router 2 → Receiver. Distances between nodes are visually proportional to a configurable propagation delay.
-    - Each router is drawn with a small input buffer (queue) on its left side.
-    
-    Animation steps:
-    
-    1. Sender begins transmitting bits onto the first link. As bits flow out, a colored bar grows from the sender into the wire — this bar represents transmission delay; its length is proportional to packet size / link rate.
-    2. The leading edge of the bar travels along the wire to Router 1 — this represents propagation delay.
-    3. The packet enters Router 1's input buffer. If the buffer is non-empty (controlled by a slider showing background traffic load), the packet waits — this is queuing delay; visualize the wait as a darker color while the buffer drains.
-    4. Router 1 inspects headers and performs forwarding lookup — a small spinner over the router represents processing delay.
-    5. Router 1 transmits onto the next link, and the cycle repeats for hop 2 and hop 3.
-    6. Receiver finishes receiving the last bit; a horizontal bar at the bottom of the canvas accumulates the four delay components in distinct colors with running totals.
-    
-    Controls panel:
-    
-    - Sliders: packet size (64–9000 bytes), link rate (1 Mbps – 100 Gbps, log scale), distance per hop (1 km – 10000 km), background load (0–100%).
-    - Buttons: Step / Play / Reset.
-    - Toggle: "Show formulas" — overlays the algebraic expression for each delay component as it animates (\( d_{\text{trans}} = \text{packet}/{\text{rate}} \), \( d_{\text{prop}} = \text{distance}/c \), etc.).
-    - Toggle: "Stress test" — sweeps load from 0 to 100% and plots the resulting end-to-end latency on a small embedded chart showing the characteristic hockey-stick growth as queuing dominates near saturation.
-    
-    Visual style:
-    
-    - Propagation delay: light blue.
-    - Transmission delay: honey amber.
-    - Queuing delay: red (proportional to buffer depth, which fluctuates with load).
-    - Processing delay: green.
-    - The cumulative bar at the bottom uses the same colors stacked end-to-end.
-    
-    Learning objectives:
-    
-    - (Bloom — Understanding) Students explain how each of the four delay components contributes to total latency.
-    - (Bloom — Applying) Students compute end-to-end latency given packet size, link rate, distance, and load.
-    - (Bloom — Analyzing) Students identify which delay component dominates in scenarios such as a long satellite link, a saturated office link, or a short uncongested fiber.
-    
-    The MicroSim should be implemented in pure p5.js with no external dependencies, using the existing MicroSim CSS theme.
-    -->
+    <main></main>
+    <br/>
+    <a href=".">Back to Lesson Plan</a>
 </body>
 </html>

@@ -1,25 +1,42 @@
 ---
-title: The Three Identifiers Across the Protocol Stack
-description: The Three Identifiers Across the Protocol Stack
-status: scaffold
+title: "The Three Identifiers Across the Protocol Stack"
+description: "Interactive p5.js MicroSim: the three identifiers across the protocol stack."
+image: /sims/address-triple-stack/address-triple-stack.png
+og:image: /sims/address-triple-stack/address-triple-stack.png
+twitter:image: /sims/address-triple-stack/address-triple-stack.png
+social:
+   cards: false
+status: implemented
 library: p5.js
-bloom_level: TBD
+bloom_level: Understand
+quality_score: 0
 ---
 
 # The Three Identifiers Across the Protocol Stack
 
+<iframe src="main.html" height="512" width="100%" scrolling="no"></iframe>
 
+[Run the The Three Identifiers Across the Protocol Stack MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+## About This MicroSim
 
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
+Students explain why three different identifiers are used together and which question each one answers.
+
+This MicroSim is built with p5.js and is width-responsive, so it adapts to
+the width of the page or container it is embedded in.
+
+## How to Use
+
+Use the controls in the panel below the drawing area to explore the concept.
+Adjust the sliders, toggle the options, and step through the stages to see how
+each change affects what is shown.
 
 ## Specification
 
 The full specification below is extracted from
 [Chapter 1: Introduction to Networks and Communication](../../chapters/01-intro-to-networks/index.md).
 
-```text
+```
 Type: infographic
 **sim-id:** address-triple-stack<br/>
 **Library:** p5.js<br/>
@@ -46,6 +63,35 @@ The infographic should be implemented in p5.js using the existing MicroSim styli
 Learning objective (Bloom — Understanding): Students explain why three different identifiers are used together and which question each one answers.
 ```
 
-## Related Resources
+## Iframe Embed Code
+
+You can add this MicroSim to any web page by adding this HTML:
+
+```html
+<iframe src="https://dmccreary.github.io/networking/sims/address-triple-stack/main.html"
+        height="502px"
+        width="100%"
+        scrolling="no"></iframe>
+```
+
+## Lesson Plan
+
+### Learning Objective
+
+Students explain why three different identifiers are used together and which question each one answers.
+
+### Bloom Taxonomy Level
+
+**Understand**
+
+### Suggested Classroom Use
+
+1. **Predict** — Ask students to predict the behavior before they interact.
+2. **Explore** — Have students manipulate the controls and observe the results.
+3. **Explain** — Ask students to explain, in their own words, what they observed
+   and how it connects to introduction to networks and communication.
+
+## References
 
 - [Chapter 1: Introduction to Networks and Communication](../../chapters/01-intro-to-networks/index.md)
+- [ACM/IEEE CS2023 Networking and Communication Knowledge Area](https://csed.acm.org/)

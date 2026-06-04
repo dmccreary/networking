@@ -1,25 +1,42 @@
 ---
-title: OSI vs. TCP/IP Layer Mapping
-description: OSI vs. TCP/IP Layer Mapping
-status: scaffold
+title: "OSI vs. TCP/IP Layer Mapping"
+description: "Interactive p5.js MicroSim: osi vs. tcp/ip layer mapping."
+image: /sims/osi-vs-tcpip-mapping/osi-vs-tcpip-mapping.png
+og:image: /sims/osi-vs-tcpip-mapping/osi-vs-tcpip-mapping.png
+twitter:image: /sims/osi-vs-tcpip-mapping/osi-vs-tcpip-mapping.png
+social:
+   cards: false
+status: implemented
 library: p5.js
-bloom_level: TBD
+bloom_level: Understand
+quality_score: 0
 ---
 
 # OSI vs. TCP/IP Layer Mapping
 
+<iframe src="main.html" height="614" width="100%" scrolling="no"></iframe>
 
+[Run the OSI vs. TCP/IP Layer Mapping MicroSim Fullscreen](./main.html){ .md-button .md-button--primary }
 
-<iframe src="main.html" width="100%" height="600"></iframe>
+## About This MicroSim
 
-[Run MicroSim in Fullscreen](main.html){ .md-button .md-button--primary }
+Students explain why OSI's seven layers map to TCP/IP's four or five and which OSI layers have no dedicated counterpart in the Internet stack.
+
+This MicroSim is built with p5.js and is width-responsive, so it adapts to
+the width of the page or container it is embedded in.
+
+## How to Use
+
+Use the controls in the panel below the drawing area to explore the concept.
+Adjust the sliders, toggle the options, and step through the stages to see how
+each change affects what is shown.
 
 ## Specification
 
 The full specification below is extracted from
 [Chapter 3: Network Architecture and Layered Models](../../chapters/03-architecture-and-layering/index.md).
 
-```text
+```
 Type: infographic
 **sim-id:** osi-vs-tcpip-mapping<br/>
 **Library:** p5.js<br/>
@@ -49,6 +66,35 @@ Visual style:
 Learning objective (Bloom — Understanding): Students explain why OSI's seven layers map to TCP/IP's four or five and which OSI layers have no dedicated counterpart in the Internet stack.
 ```
 
-## Related Resources
+## Iframe Embed Code
+
+You can add this MicroSim to any web page by adding this HTML:
+
+```html
+<iframe src="https://dmccreary.github.io/networking/sims/osi-vs-tcpip-mapping/main.html"
+        height="502px"
+        width="100%"
+        scrolling="no"></iframe>
+```
+
+## Lesson Plan
+
+### Learning Objective
+
+Students explain why OSI's seven layers map to TCP/IP's four or five and which OSI layers have no dedicated counterpart in the Internet stack.
+
+### Bloom Taxonomy Level
+
+**Understand**
+
+### Suggested Classroom Use
+
+1. **Predict** — Ask students to predict the behavior before they interact.
+2. **Explore** — Have students manipulate the controls and observe the results.
+3. **Explain** — Ask students to explain, in their own words, what they observed
+   and how it connects to network architecture and layered models.
+
+## References
 
 - [Chapter 3: Network Architecture and Layered Models](../../chapters/03-architecture-and-layering/index.md)
+- [ACM/IEEE CS2023 Networking and Communication Knowledge Area](https://csed.acm.org/)
