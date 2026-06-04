@@ -1,0 +1,14 @@
+{
+  "sim_id": "layering-decision-tree",
+  "diagram_name": "Layering Decision Tree",
+  "chapter_number": 3,
+  "chapter_title": "Network Architecture and Layered Models",
+  "chapter_dir": "03-architecture-and-layering",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-06-04",
+  "specification": "Type: infographic\n**sim-id:** layering-decision-tree<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nBuild an interactive decision-tree infographic that helps students choose the right layered architecture for a hypothetical new application.\n\nCanvas: 900 px wide by 640 px tall, responsive down to 360 px.\n\nTree structure (top to bottom, branching as user clicks):\n\n1. Root question: \"What does your application send?\" — branches: short request/response | continuous stream | one-to-many.\n2. Short request/response branch → \"Loss tolerable?\" → No (TCP) | Yes (UDP).\n3. Continuous stream branch → \"Latency or correctness more important?\" → Latency (UDP/QUIC, application-level FEC) | Correctness (TCP).\n4. One-to-many branch → \"Controlled network or public Internet?\" → Controlled (multicast) | Public (unicast with replication or anycast).\n5. Each leaf shows a recommended transport-layer protocol and an explanation paragraph citing the end-to-end principle.\n\nInteractivity:\n\n- Each tree node is a clickable rounded rectangle.\n- When a node is clicked, the path from root to that node is highlighted in honey amber; off-path branches dim.\n- A side panel updates with a one-paragraph rationale referring back to the service-model dimensions (connection-oriented vs. connectionless, reliable vs. best-effort, stateful vs. stateless, addressing scope).\n- A \"Show example apps\" toggle annotates each leaf with two real-world apps that match (e.g., the Latency leaf labels \"Zoom, FaceTime\"; the Correctness leaf labels \"Spotify offline download, Netflix\").\n- A reset button collapses the tree back to the root.\n\nVisual style:\n\n- Tree nodes: rounded rectangles, slate fill with white text.\n- Active path: honey-amber edges and node borders.\n- Side panel: white background with honey-amber accent on the recommended protocol.\n\nLearning objectives:\n\n- (Bloom — Applying) Students apply service-model criteria to recommend a transport-layer protocol for a new application.\n- (Bloom — Evaluating) Students justify their choice by referencing the end-to-end principle and the trade-off between setup latency and reliability.\n\nImplement in pure p5.js with the existing MicroSim CSS. The tree must remain readable on screens 360 px wide (horizontal scroll allowed)."
+}

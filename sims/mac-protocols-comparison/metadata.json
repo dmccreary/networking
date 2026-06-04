@@ -1,0 +1,52 @@
+{
+  "title": "MAC Protocol Comparison",
+  "description": "Interactive p5.js MicroSim: mac protocol comparison.",
+  "creator": "Dan McCreary",
+  "date": "2026-06-04",
+  "subject": [
+    "Computer Networking",
+    "Data Communication",
+    "Computer Science"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "mac-protocols-comparison",
+  "library": "p5.js",
+  "educational": {
+    "gradeLevel": [
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "subjectArea": "Computer Science",
+    "topic": "MAC Protocol Comparison",
+    "learningObjectives": [
+      "s:"
+    ],
+    "bloomsTaxonomy": "Understand",
+    "duration": "10-15 minutes",
+    "prerequisites": [],
+    "standards": [
+      "ACM/IEEE CS2023 Networking and Communication"
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration",
+    "keyQuestions": [],
+    "commonMisconceptions": [],
+    "assessmentOpportunities": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "responsive": true,
+    "dependencies": [
+      "p5.js"
+    ]
+  },
+  "chapter_number": 6,
+  "chapter_title": "Link Layer Fundamentals and Reliable Transfer",
+  "chapter_dir": "06-link-layer-fundamentals"
+}

@@ -1,0 +1,14 @@
+{
+  "sim_id": "nrz-vs-manchester-encoding",
+  "diagram_name": "NRZ vs. Manchester Encoding",
+  "chapter_number": 5,
+  "chapter_title": "The Physical Layer",
+  "chapter_dir": "05-physical-layer",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-06-04",
+  "specification": "Type: microsim\n**sim-id:** nrz-vs-manchester-encoding<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nBuild an interactive MicroSim that lets students enter a bit pattern and see the resulting voltage waveform under NRZ and Manchester encoding side by side.\n\nCanvas: 920 px wide by 520 px tall, responsive down to 360 px. A 100 px control panel sits below.\n\nLayout:\n\n- A text input box at the top accepts a bit string (e.g., \"10110001\") with a default of \"10110001\".\n- Below the input, two stacked oscilloscope-style displays:\n  - Top trace labeled \"NRZ Encoding\": a horizontal voltage axis with discrete levels (low and high). The waveform follows the bit pattern directly — high for 1, low for 0 — with no transitions during a run of identical bits.\n  - Bottom trace labeled \"Manchester Encoding\": the same bit pattern, but each bit period contains a mid-bit transition. A 1 is a low-to-high transition; a 0 is a high-to-low transition.\n- A vertical dashed line indicates each bit boundary, and a small numeric label above shows which bit (0/1) is being encoded in that period.\n\nInteractivity:\n\n- The user can edit the bit string and the waveforms update live.\n- Toggle \"Add noise\": injects small random voltage offsets and shows how the receiver's decision threshold (a horizontal dashed line at the midpoint) tolerates the noise. Manchester's transition-based decoding is shown to be more robust because the receiver is comparing levels just before and after the mid-bit transition.\n- Toggle \"Long run of zeros\": replaces the input with \"00000000\" and highlights how NRZ produces a flat line with no clock recovery, while Manchester continues to provide a transition each bit period.\n\nVisual style:\n\n- Voltage traces in honey amber on a slate grid background.\n- Bit boundaries as thin vertical lines.\n- Decision threshold as a horizontal dashed line in white.\n\nLearning objectives:\n\n- (Bloom — Understanding) Students explain why Manchester encoding always provides at least one transition per bit period.\n- (Bloom — Analyzing) Students compare the bandwidth efficiency and clock-recovery properties of NRZ vs. Manchester.\n- (Bloom — Evaluating) Students judge which encoding is appropriate for a given combination of distance, noise, and clock-recovery requirements.\n\nImplement in pure p5.js with the existing MicroSim CSS theme. The waveform display should be responsive and remain readable at 360 px wide."
+}

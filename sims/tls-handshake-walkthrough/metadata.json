@@ -1,0 +1,52 @@
+{
+  "title": "TLS 1.3 Handshake Walkthrough",
+  "description": "Interactive p5.js MicroSim: tls 1.3 handshake walkthrough.",
+  "creator": "Dan McCreary",
+  "date": "2026-06-04",
+  "subject": [
+    "Computer Networking",
+    "Data Communication",
+    "Computer Science"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "tls-handshake-walkthrough",
+  "library": "p5.js",
+  "educational": {
+    "gradeLevel": [
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "subjectArea": "Computer Science",
+    "topic": "TLS 1.3 Handshake Walkthrough",
+    "learningObjectives": [
+      "s:"
+    ],
+    "bloomsTaxonomy": "Understand",
+    "duration": "10-15 minutes",
+    "prerequisites": [],
+    "standards": [
+      "ACM/IEEE CS2023 Networking and Communication"
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration",
+    "keyQuestions": [],
+    "commonMisconceptions": [],
+    "assessmentOpportunities": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "responsive": true,
+    "dependencies": [
+      "p5.js"
+    ]
+  },
+  "chapter_number": 12,
+  "chapter_title": "Network Security",
+  "chapter_dir": "12-network-security"
+}

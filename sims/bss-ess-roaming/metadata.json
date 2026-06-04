@@ -1,0 +1,52 @@
+{
+  "title": "BSS and ESS Topology",
+  "description": "Interactive p5.js MicroSim: bss and ess topology.",
+  "creator": "Dan McCreary",
+  "date": "2026-06-04",
+  "subject": [
+    "Computer Networking",
+    "Data Communication",
+    "Computer Science"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "bss-ess-roaming",
+  "library": "p5.js",
+  "educational": {
+    "gradeLevel": [
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "subjectArea": "Computer Science",
+    "topic": "BSS and ESS Topology",
+    "learningObjectives": [
+      "s:"
+    ],
+    "bloomsTaxonomy": "Understand",
+    "duration": "10-15 minutes",
+    "prerequisites": [],
+    "standards": [
+      "ACM/IEEE CS2023 Networking and Communication"
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration",
+    "keyQuestions": [],
+    "commonMisconceptions": [],
+    "assessmentOpportunities": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "responsive": true,
+    "dependencies": [
+      "p5.js"
+    ]
+  },
+  "chapter_number": 8,
+  "chapter_title": "Wireless and Mobile Networking",
+  "chapter_dir": "08-wireless-and-mobility"
+}

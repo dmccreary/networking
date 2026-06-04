@@ -1,0 +1,14 @@
+{
+  "sim_id": "virtual-network-lab",
+  "diagram_name": "Network Lab Topology with Namespaces and netem",
+  "chapter_number": 15,
+  "chapter_title": "Network Operations and Measurement",
+  "chapter_dir": "15-network-operations",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-06-04",
+  "specification": "Type: microsim\n**sim-id:** virtual-network-lab<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nBuild an interactive MicroSim that visualizes a small Linux-host virtual network lab and lets students apply impairments to specific interfaces.\n\nCanvas: 960 px wide by 600 px tall, responsive down to 360 px. A 120 px control panel sits below.\n\nTopology:\n\n- A single host containing 4 network namespaces: client, router, server-east, server-west.\n- A Linux bridge `br0` connects client to router; another bridge `br1` connects router to both servers.\n- veth pairs are drawn explicitly between namespaces and bridges.\n\nAnimation:\n\n- A traffic source in `client` sends test packets to `server-east` or `server-west`. Packet animations show traffic flowing through the bridges and router.\n- When tc netem is applied (via the controls), a small \"impairment\" badge appears on the affected interface, and packets visibly slow, get dropped, or reorder.\n- A real-time stats panel shows RTT, throughput, and loss observed by the client.\n\nControls panel:\n\n- Per-interface dropdowns to apply netem impairments: latency (0–500 ms), jitter (0–100 ms), loss (0–10%), reorder (0–10%).\n- Test buttons: ping (send ICMP), iperf-style throughput, http GET (large file).\n- Reset all impairments.\n- Toggle: \"Show command line\" displays the equivalent `tc netem` and `ip netns` commands the simulation is emulating.\n\nVisual style:\n\n- Namespaces: rounded rectangles with namespace icons.\n- Bridges: hexagons.\n- veth pairs: dashed amber edges.\n- Impairment badges: red for loss, blue for delay, green for reorder.\n- Packets: small dots animated along edges.\n\nLearning objectives:\n\n- (Bloom — Understanding) Students explain how Linux namespaces and bridges build a virtual network on one host.\n- (Bloom — Applying) Students choose and apply tc netem impairments to test specific application behaviors.\n- (Bloom — Analyzing) Students decompose observed application behavior under impairment into its causes (delay, loss, reorder).\n\nImplement in pure p5.js with the existing MicroSim CSS theme."
+}

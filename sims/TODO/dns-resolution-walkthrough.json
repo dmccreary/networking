@@ -1,0 +1,14 @@
+{
+  "sim_id": "dns-resolution-walkthrough",
+  "diagram_name": "DNS Resolution Walkthrough",
+  "chapter_number": 13,
+  "chapter_title": "Application Layer Protocols",
+  "chapter_dir": "13-application-layer",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-06-04",
+  "specification": "Type: microsim\n**sim-id:** dns-resolution-walkthrough<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nBuild an interactive MicroSim that animates a DNS resolution from the user's laptop through their recursive resolver and the DNS hierarchy.\n\nCanvas: 960 px wide by 620 px tall, responsive down to 360 px. A 100 px control panel sits below.\n\nLayout:\n\n- Five labeled nodes arranged top to bottom: \"Laptop\", \"Recursive Resolver\", \"Root\", \"TLD Server (.com)\", \"Authoritative Server (example.com)\".\n- Bidirectional arrows show queries (down) and answers (up). Each query/answer is labeled with the question/answer.\n- A \"cache\" panel beside the recursive resolver shows currently-cached records with their remaining TTLs.\n\nAnimation:\n\n- Step 1: Laptop sends \"A example.com?\" to resolver. Cache miss.\n- Step 2: Resolver asks Root: \"Where can I find .com?\" Root returns NS records for .com TLD.\n- Step 3: Resolver asks .com TLD: \"Where can I find example.com?\" TLD returns NS records.\n- Step 4: Resolver asks Authoritative: \"A example.com?\" Authoritative returns the IP.\n- Step 5: Resolver caches each answer with its TTL and returns the final IP to the laptop.\n\nSubsequent queries: a second query for the same name is answered from cache instantly, demonstrating caching benefits. A third query for `www.example.com` walks only to the authoritative server (TLD info already cached).\n\nControls panel:\n\n- Buttons: Step / Play / Reset.\n- Toggle: \"Enable DNSSEC\" — adds signature exchanges and verification steps.\n- Toggle: \"Cache poisoning attack\" — shows an attacker injecting a forged response and the resolver caching it (without DNSSEC); with DNSSEC the forged response is rejected.\n- Speed slider for animation pace.\n\nVisual style:\n\n- Nodes: rounded rectangles with role-specific icons.\n- Queries: honey-amber arrows.\n- Answers: slate arrows.\n- Cache panel: yellow background with timestamps counting down.\n\nLearning objectives:\n\n- (Bloom — Understanding) Students explain the DNS hierarchy and the role of each tier.\n- (Bloom — Analyzing) Students decompose a DNS resolution and identify which queries are answered from cache vs. fresh lookups.\n- (Bloom — Evaluating) Students judge how DNSSEC and randomization defend against cache poisoning.\n\nImplement in pure p5.js with the existing MicroSim CSS theme."
+}

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
+         <loc>https://dmccreary.github.io/networking/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/networking/about/</loc>
          <lastmod>2026-06-04</lastmod>
     </url>
@@ -113,6 +117,10 @@
          <lastmod>2026-06-04</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/networking/img/cover-image-prompt/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/networking/img/mascot/image-prompts/</loc>
          <lastmod>2026-06-04</lastmod>
     </url>
@@ -169,7 +177,163 @@
          <lastmod>2026-06-04</lastmod>
     </url>
     <url>
+         <loc>https://dmccreary.github.io/networking/sims/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/TODO/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/address-triple-stack/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/addressing-scopes-comparison/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/arq-protocols-comparison/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/ber-vs-distance/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/bss-ess-roaming/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/cidr-subnet-calculator/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/dns-resolution-walkthrough/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/dv-vs-ls-convergence/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/edge-vs-core-topology/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/encapsulation-envelope-model/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/encapsulation-walkthrough/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/error-detection-comparison/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/ethernet-frame-format/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/four-delay-components/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
          <loc>https://dmccreary.github.io/networking/sims/graph-viewer/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/internet-topology-bgp/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/ipv4-vs-ipv6-headers/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/layering-decision-tree/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/mac-protocols-comparison/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/mitm-and-tls-defense/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/nat-traversal-stun-turn/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/network-explorer/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/nrz-vs-manchester-encoding/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/osi-vs-tcpip-mapping/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/packet-fragmentation/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/qos-toolbox-map/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/sdn-architecture-overview/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/socket-lifecycle-diagram/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/spanning-tree-protocol/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/standards-bodies-map/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/tcp-congestion-control-comparison/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/tcp-handshake-and-termination/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/tls-handshake-walkthrough/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/token-vs-leaky-bucket/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/transmission-media-choice/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/virtual-network-lab/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/vlans-and-link-aggregation/</loc>
+         <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+         <loc>https://dmccreary.github.io/networking/sims/wireless-link-adaptation/</loc>
          <lastmod>2026-06-04</lastmod>
     </url>
 </urlset>

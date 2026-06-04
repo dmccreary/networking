@@ -1,0 +1,52 @@
+{
+  "title": "The QoS Toolbox",
+  "description": "Interactive p5.js MicroSim: the qos toolbox.",
+  "creator": "Dan McCreary",
+  "date": "2026-06-04",
+  "subject": [
+    "Computer Networking",
+    "Data Communication",
+    "Computer Science"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "qos-toolbox-map",
+  "library": "p5.js",
+  "educational": {
+    "gradeLevel": [
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "subjectArea": "Computer Science",
+    "topic": "The QoS Toolbox",
+    "learningObjectives": [
+      "Students decompose the QoS toolbox by location of action (edge ingress, core, end-to-end signaling) and by per-flow-state requirement (stateful vs. stateless)."
+    ],
+    "bloomsTaxonomy": "Analyze",
+    "duration": "10-15 minutes",
+    "prerequisites": [],
+    "standards": [
+      "ACM/IEEE CS2023 Networking and Communication"
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration",
+    "keyQuestions": [],
+    "commonMisconceptions": [],
+    "assessmentOpportunities": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "responsive": true,
+    "dependencies": [
+      "p5.js"
+    ]
+  },
+  "chapter_number": 4,
+  "chapter_title": "Network Performance and Quality of Service",
+  "chapter_dir": "04-performance-and-qos"
+}

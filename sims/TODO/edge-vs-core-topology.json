@@ -1,0 +1,14 @@
+{
+  "sim_id": "edge-vs-core-topology",
+  "diagram_name": "Edge versus Core in a Small Network",
+  "chapter_number": 1,
+  "chapter_title": "Introduction to Networks and Communication",
+  "chapter_dir": "01-intro-to-networks",
+  "library": "vis-network",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-06-04",
+  "specification": "Type: diagram\n**sim-id:** edge-vs-core-topology<br/>\n**Library:** vis-network<br/>\n**Status:** Specified\n\nRender a node-link diagram of a small network showing the edge–core distinction.\n\nLayout:\n\n- A horizontal canvas, 900 px wide by 500 px tall, responsive (scale to container width).\n- Two visual zones with subtle background tints: a pale honey-amber band on the left and right thirds (the edges) and a pale slate band in the middle third (the core). Label the bands with large semi-transparent text \"Network Edge\", \"Network Core\", \"Network Edge\".\n\nNodes:\n\n- Left edge: 4 end systems labeled \"Laptop\", \"Phone\", \"Desktop\", \"IoT Sensor\". Use a simple device icon (circle with a small monitor glyph) in honey amber (#F5A623).\n- Right edge: 3 servers labeled \"Web Server\", \"DNS Server\", \"Database\". Use a server-rack glyph in honey amber.\n- Core: 5 router nodes labeled \"R1\" through \"R5\", arranged in a partial mesh. Use a hexagonal glyph in slate (#546e7a).\n\nEdges:\n\n- Each end system on the left connects to either R1 or R2. Each server on the right connects to R4 or R5. The five core routers form a partial mesh: R1–R2, R1–R3, R2–R3, R3–R4, R3–R5, R4–R5.\n- Style edge links (end-system-to-router) as thin honey-amber lines and core links (router-to-router) as thicker slate lines, to communicate that the core typically uses higher-bandwidth links.\n\nInteractivity:\n\n- Hover on any node shows a tooltip with the node's role: \"End System (host)\" for left/right edge devices, \"Network Node (router)\" for core devices.\n- Hover on any edge shows a tooltip \"Communication Link\".\n\nThe diagram should be implemented with vis-network. Use the existing learning-graph viewer styling (rounded boxes, soft shadows). Disable physics-based jitter; lay out the graph deterministically."
+}

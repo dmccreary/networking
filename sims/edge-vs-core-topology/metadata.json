@@ -1,0 +1,52 @@
+{
+  "title": "Edge versus Core in a Small Network",
+  "description": "Interactive vis-network MicroSim: edge versus core in a small network.",
+  "creator": "Dan McCreary",
+  "date": "2026-06-04",
+  "subject": [
+    "Computer Networking",
+    "Data Communication",
+    "Computer Science"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "edge-vs-core-topology",
+  "library": "vis-network",
+  "educational": {
+    "gradeLevel": [
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "subjectArea": "Computer Science",
+    "topic": "Edge versus Core in a Small Network",
+    "learningObjectives": [
+      "Students explore edge versus core in a small network."
+    ],
+    "bloomsTaxonomy": "Understand",
+    "duration": "10-15 minutes",
+    "prerequisites": [],
+    "standards": [
+      "ACM/IEEE CS2023 Networking and Communication"
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration",
+    "keyQuestions": [],
+    "commonMisconceptions": [],
+    "assessmentOpportunities": []
+  },
+  "technical": {
+    "framework": "vis-network",
+    "responsive": true,
+    "dependencies": [
+      "vis-network"
+    ]
+  },
+  "chapter_number": 1,
+  "chapter_title": "Introduction to Networks and Communication",
+  "chapter_dir": "01-intro-to-networks"
+}

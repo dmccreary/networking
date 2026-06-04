@@ -1,0 +1,52 @@
+{
+  "title": "Choosing a Transmission Medium",
+  "description": "Interactive p5.js MicroSim: choosing a transmission medium.",
+  "creator": "Dan McCreary",
+  "date": "2026-06-04",
+  "subject": [
+    "Computer Networking",
+    "Data Communication",
+    "Computer Science"
+  ],
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en-US",
+  "rights": "CC BY-NC-SA 4.0",
+  "identifier": "transmission-media-choice",
+  "library": "p5.js",
+  "educational": {
+    "gradeLevel": [
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "subjectArea": "Computer Science",
+    "topic": "Choosing a Transmission Medium",
+    "learningObjectives": [
+      "Students apply medium-selection criteria to a deployment scenario and justify their choice based on bandwidth, distance, mobility, EMI, and cost."
+    ],
+    "bloomsTaxonomy": "Apply",
+    "duration": "10-15 minutes",
+    "prerequisites": [],
+    "standards": [
+      "ACM/IEEE CS2023 Networking and Communication"
+    ]
+  },
+  "pedagogical": {
+    "teachingStrategy": "Interactive exploration",
+    "keyQuestions": [],
+    "commonMisconceptions": [],
+    "assessmentOpportunities": []
+  },
+  "technical": {
+    "framework": "p5.js",
+    "responsive": true,
+    "dependencies": [
+      "p5.js"
+    ]
+  },
+  "chapter_number": 5,
+  "chapter_title": "The Physical Layer",
+  "chapter_dir": "05-physical-layer"
+}

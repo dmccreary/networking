@@ -1,0 +1,14 @@
+{
+  "sim_id": "ber-vs-distance",
+  "diagram_name": "Signal Quality Across Distance",
+  "chapter_number": 5,
+  "chapter_title": "The Physical Layer",
+  "chapter_dir": "05-physical-layer",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-06-04",
+  "specification": "Type: microsim\n**sim-id:** ber-vs-distance<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nBuild an interactive MicroSim that visualizes how attenuation, noise, and interference produce bit errors as signal traverses a medium of variable length.\n\nCanvas: 920 px wide by 580 px tall, responsive down to 360 px. A 120 px control panel sits below.\n\nLayout:\n\n- Top half: an oscilloscope-style display showing the signal at the sender (clean digital pulse train) and at the receiver (degraded waveform). A vertical \"decision threshold\" line indicates how the receiver decides 0 vs. 1.\n- Bottom half: a horizontal \"channel\" rendered as a long rectangle with a small graph showing signal amplitude vs. distance. The amplitude curve drops exponentially with distance (attenuation), and a noise floor is added as scattered random fluctuations.\n- A bit-error indicator shows received bits in two colors: green (correctly received) and red (errored).\n\nControls panel:\n\n- Sliders: distance (0–100 km), transmit power (0–30 dBm), noise floor (-100 to -30 dBm), interference level (off / low / high).\n- Modulation dropdown: NRZ (1 bit/symbol), 4-QAM (2 bits/symbol), 16-QAM (4 bits/symbol), 64-QAM (6 bits/symbol).\n- \"Add forward error correction\" toggle — when on, errors below a threshold are corrected by the receiver and shown in yellow.\n- \"Show Shannon capacity\" toggle — annotates the current configuration's Shannon capacity and the achieved bit rate.\n\nBehavior:\n\n- As distance increases, signal amplitude shrinks; the receiver's decision threshold becomes harder to apply, and red error bits start to appear.\n- As modulation order increases, the constellation diagram shows tighter spacing between points, and small noise produces many more errors.\n- The bit-error rate (BER) is computed live and displayed as a numeric readout.\n\nVisual style:\n\n- Sender waveform: clean honey-amber pulses.\n- Receiver waveform: noisy version of the same, with the noise tinted in slate.\n- Errored bits highlighted in red on a strip below the receiver display.\n\nLearning objectives:\n\n- (Bloom — Understanding) Students explain how attenuation, noise, and modulation order interact to produce bit errors.\n- (Bloom — Analyzing) Students decompose a high-BER scenario into its contributing factors.\n- (Bloom — Evaluating) Students judge whether a deployment requires a different medium or just a different modulation, given a target BER.\n\nThe MicroSim should be implemented in pure p5.js with the existing MicroSim CSS theme."
+}

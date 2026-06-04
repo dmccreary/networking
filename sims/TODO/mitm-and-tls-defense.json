@@ -1,0 +1,14 @@
+{
+  "sim_id": "mitm-and-tls-defense",
+  "diagram_name": "Anatomy of a Man-in-the-Middle Attack",
+  "chapter_number": 12,
+  "chapter_title": "Network Security",
+  "chapter_dir": "12-network-security",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-06-04",
+  "specification": "Type: microsim\n**sim-id:** mitm-and-tls-defense<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nBuild an interactive MicroSim that animates a man-in-the-middle attack on an unprotected connection, then on a TLS-protected connection, demonstrating how authentication blocks the attack.\n\nCanvas: 960 px wide by 600 px tall, responsive down to 360 px. A 120 px control panel sits below.\n\nLayout:\n\n- Three nodes arranged horizontally: Client (left), Attacker (middle), Server (right).\n- A \"Real path\" toggle: client believes traffic goes direct to server, but actually traverses the attacker.\n\nAnimation phases:\n\n- **Phase 1 — Plaintext.** Client sends \"Send $1000 to Alice\" in cleartext. Attacker reads it, modifies to \"Send $10000 to Mallory\", and forwards. Server processes the modified message. Attack succeeds.\n- **Phase 2 — TLS without verification (incorrect).** Client connects via TLS but skips certificate verification. Attacker presents its own fake certificate, completes its own TLS handshake with the client (in the role of fake server) and a separate one with the real server (as fake client). Attacker still reads everything.\n- **Phase 3 — TLS with proper certificate verification.** Client refuses the fake certificate (because it is signed by an unknown CA). Connection fails to establish; attack fails. Optionally show the real CA-signed certificate and successful negotiation.\n\nControls panel:\n\n- Buttons: Step / Play / Reset.\n- Phase tabs.\n- Toggle: \"Show certificate chain\" reveals the chain validation steps in Phase 3.\n- Toggle: \"Show pinned certificate\" shows certificate pinning catching even an attacker with a CA-signed fake certificate.\n\nVisual style:\n\n- Client / Attacker / Server: rounded rectangles with appropriate icons.\n- Plaintext messages: visible bytes.\n- Encrypted messages: padlock icons.\n- Modified messages highlighted in red.\n\nLearning objectives:\n\n- (Bloom — Understanding) Students explain how MITM works and what authentication adds.\n- (Bloom — Analyzing) Students decompose a TLS handshake into the steps that actually defeat MITM.\n- (Bloom — Evaluating) Students judge when certificate verification is sufficient and when pinning adds value.\n\nImplement in pure p5.js with the existing MicroSim CSS theme."
+}

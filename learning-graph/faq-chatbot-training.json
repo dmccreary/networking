@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "total_questions": 104,
+  "total_questions": 120,
   "entries": [
     {
       "id": "faq-001",
@@ -2938,6 +2938,460 @@
       ],
       "has_example": true,
       "word_count": 125
+    },
+    {
+      "id": "faq-105",
+      "category": "Core Concepts",
+      "question": "What is the sliding window protocol?",
+      "answer": "The sliding window is the mechanism TCP (and other reliable protocols) use to allow multiple unacknowledged bytes to be in flight simultaneously, keeping the bandwidth-delay product of the path full. Without it, a sender transmits one segment and idles until an acknowledgment arrives, wasting nearly all link capacity on high-delay paths. The window size is the maximum number of unacknowledged bytes the sender may have outstanding at any moment. Two windows govern TCP simultaneously: the receive window (rwnd), advertised by the receiver to prevent buffer overflow, and the congestion window (cwnd), maintained by the sender's congestion-control algorithm. The effective window is min(rwnd, cwnd). As each acknowledgment arrives, the window slides forward and new data can be sent. When the window is smaller than the bandwidth-delay product, the sender stalls and throughput falls below line rate. The TCP window scale option (RFC 7323) extends the 16-bit window field to support high-BDP paths. See Chapter 11.",
+      "bloom_level": "understand",
+      "difficulty": "intermediate",
+      "concepts": [
+        "Sliding Window",
+        "TCP",
+        "Flow Control",
+        "Congestion Control",
+        "Bandwidth Delay Product"
+      ],
+      "keywords": [
+        "sliding window",
+        "receive window",
+        "congestion window",
+        "cwnd",
+        "rwnd",
+        "window scaling",
+        "RFC 7323"
+      ],
+      "source_links": [
+        "chapters/11-transport-layer/index.md"
+      ],
+      "has_example": false,
+      "word_count": 155
+    },
+    {
+      "id": "faq-106",
+      "category": "Core Concepts",
+      "question": "What are the key fields in an IPv4 header?",
+      "answer": "The standard IPv4 header is 20 bytes and contains these essential fields. Version (4 bits, value 4) and IHL (header length in 32-bit words, minimum 5). DSCP/ECN carries QoS marking and Explicit Congestion Notification. Total Length is the packet size including the header. Identification, Flags, and Fragment Offset manage fragmentation: the DF flag enables path MTU discovery, and the fragment offset records a fragment's byte position. TTL is decremented at each router hop; when it reaches zero the router sends an ICMP Time Exceeded back to the source, which traceroute exploits. Protocol identifies the transport above IP (6=TCP, 17=UDP, 1=ICMP). Header Checksum covers only the header. Source and Destination addresses are each 32 bits. Unlike IPv6's fixed 40-byte header, IPv4 allows variable-length options when IHL is greater than 5. See Chapter 9.",
+      "bloom_level": "remember",
+      "difficulty": "intermediate",
+      "concepts": [
+        "IPv4 Header",
+        "IPv4",
+        "ICMP",
+        "TTL",
+        "Fragmentation"
+      ],
+      "keywords": [
+        "IPv4 header",
+        "TTL",
+        "time to live",
+        "fragment offset",
+        "IHL",
+        "protocol field",
+        "DSCP"
+      ],
+      "source_links": [
+        "chapters/09-network-layer-and-ip/index.md"
+      ],
+      "has_example": true,
+      "word_count": 155
+    },
+    {
+      "id": "faq-107",
+      "category": "Core Concepts",
+      "question": "What is a MAC protocol and how does it control channel access?",
+      "answer": "A media access control (MAC) protocol decides when each device on a shared physical channel may transmit. Without coordination, simultaneous transmissions collide and both are lost. Three families exist. Channel partitioning (TDMA, FDMA, CDMA) reserves a dedicated slice for each station, no collisions but idle stations waste capacity. Random access protocols let stations transmit when ready with a collision recovery procedure: ALOHA retransmits after a random delay; CSMA/CD (classic wired Ethernet) senses the channel and aborts on collision; CSMA/CA (Wi-Fi) listens before transmitting and waits a random backoff. Controlled access (token ring, polling) circulates explicit permission, eliminating collisions at the cost of coordination overhead. Modern switched Ethernet eliminates collisions by giving each host a dedicated segment, so CSMA/CD is historical. Wi-Fi still uses CSMA/CA because the wireless medium is genuinely shared. See Chapter 6.",
+      "bloom_level": "understand",
+      "difficulty": "intermediate",
+      "concepts": [
+        "Media Access Control",
+        "CSMA CD",
+        "CSMA CA",
+        "ALOHA Protocol",
+        "Ethernet"
+      ],
+      "keywords": [
+        "MAC protocol",
+        "CSMA/CD",
+        "CSMA/CA",
+        "ALOHA",
+        "channel access",
+        "collision",
+        "TDMA"
+      ],
+      "source_links": [
+        "chapters/06-link-layer-fundamentals/index.md"
+      ],
+      "has_example": false,
+      "word_count": 155
+    },
+    {
+      "id": "faq-108",
+      "category": "Core Concepts",
+      "question": "What is a cryptographic hash function?",
+      "answer": "A cryptographic hash function maps an input of any length to a fixed-size digest with three key security properties. Pre-image resistance: given a hash output, it is computationally infeasible to recover the input. Collision resistance: it is computationally infeasible to find two inputs that produce the same hash. Avalanche effect: flipping one input bit flips roughly half the output bits. Common algorithms: SHA-256 produces a 256-bit digest; SHA-3 uses a different internal construction; MD5 and SHA-1 are cryptographically broken. In networking, hashes appear in TLS certificate fingerprints, HMAC authentication codes, DNSSEC record signatures, and software release verification. If you change a single byte in a signed certificate, the hash no longer matches the CA's signature and every TLS client rejects it. See Chapter 12.",
+      "bloom_level": "understand",
+      "difficulty": "intermediate",
+      "concepts": [
+        "Hash Function",
+        "Cryptography Basics",
+        "Digital Signature",
+        "TLS Protocol",
+        "DNSSEC"
+      ],
+      "keywords": [
+        "hash function",
+        "SHA-256",
+        "SHA-3",
+        "HMAC",
+        "collision resistance",
+        "pre-image",
+        "cryptographic hash"
+      ],
+      "source_links": [
+        "chapters/12-network-security/index.md"
+      ],
+      "has_example": true,
+      "word_count": 145
+    },
+    {
+      "id": "faq-109",
+      "category": "Technical Detail Questions",
+      "question": "How does TCP close a connection?",
+      "answer": "TCP uses a four-way termination sequence because each direction of the full-duplex byte stream closes independently. The side that finishes sending first transmits a FIN segment; the other side replies with an ACK. The first side may now receive but not send. When the second side also finishes, it sends its own FIN, which the first side acknowledges. The sequence is FIN, ACK, FIN, ACK. After the final ACK, the initiating side enters TIME_WAIT for two times the maximum segment lifetime (60-120 seconds). TIME_WAIT ensures late-arriving packets from the old connection expire before a new connection reuses the same four-tuple. In practice the second ACK and FIN are often merged, giving the appearance of three messages. An abrupt RST tears down a connection immediately without the graceful sequence, issued when a process crashes, a port has no listener, or a packet arrives for an unknown connection. See Chapter 11.",
+      "bloom_level": "understand",
+      "difficulty": "intermediate",
+      "concepts": [
+        "TCP Termination",
+        "TCP",
+        "Connection Oriented"
+      ],
+      "keywords": [
+        "TCP close",
+        "FIN",
+        "ACK",
+        "TIME_WAIT",
+        "RST",
+        "four-way termination",
+        "TCP teardown"
+      ],
+      "source_links": [
+        "chapters/11-transport-layer/index.md"
+      ],
+      "has_example": false,
+      "word_count": 162
+    },
+    {
+      "id": "faq-110",
+      "category": "Technical Detail Questions",
+      "question": "What do HTTP status code classes mean?",
+      "answer": "HTTP responses begin with a three-digit status code whose leading digit identifies the outcome class. 1xx Informational: interim responses; 100 Continue prompts a client to send a large body; 101 Switching Protocols upgrades to WebSockets or HTTP/2. 2xx Success: 200 OK is standard; 201 Created confirms a new resource; 204 No Content signals success with no body. 3xx Redirection: 301 Moved Permanently tells clients to update bookmarks; 302 Found is temporary; 304 Not Modified tells a caching client its copy is still fresh. 4xx Client Error: 400 Bad Request (malformed syntax); 401 Unauthorized; 403 Forbidden; 404 Not Found; 429 Too Many Requests. 5xx Server Error: 500 Internal Server Error; 502 Bad Gateway; 503 Service Unavailable; 504 Gateway Timeout. Knowing the five class meanings is sufficient to diagnose any HTTP interaction. See Chapter 13.",
+      "bloom_level": "remember",
+      "difficulty": "beginner",
+      "concepts": [
+        "HTTP Status Code",
+        "HTTP Protocol"
+      ],
+      "keywords": [
+        "HTTP status code",
+        "200 OK",
+        "404",
+        "503",
+        "301 redirect",
+        "5xx",
+        "4xx"
+      ],
+      "source_links": [
+        "chapters/13-application-layer/index.md"
+      ],
+      "has_example": true,
+      "word_count": 155
+    },
+    {
+      "id": "faq-111",
+      "category": "Technical Detail Questions",
+      "question": "What are the most important HTTP request and response headers?",
+      "answer": "HTTP headers carry metadata in both directions. Key request headers: Host is mandatory in HTTP/1.1; Authorization carries credentials; Cookie sends session data; Content-Type and Content-Length describe a request body; Accept indicates preferred response formats; If-None-Match and If-Modified-Since enable conditional GETs for cache revalidation. Key response headers: Content-Type specifies body format; Set-Cookie installs a cookie on the client; Cache-Control directs caches with directives like max-age and no-store; Location provides the redirect URL for 3xx responses; Strict-Transport-Security instructs browsers to always use HTTPS; X-Content-Type-Options: nosniff prevents MIME-sniffing attacks. HTTP/2 compresses headers with HPACK; HTTP/3 uses QPACK, reducing per-request overhead for repeated large headers like Authorization or Cookie. Understanding these headers is essential for debugging proxies, caches, and authentication flows. See Chapter 13.",
+      "bloom_level": "understand",
+      "difficulty": "intermediate",
+      "concepts": [
+        "HTTP Headers",
+        "HTTP Protocol",
+        "Cookie",
+        "HTTPS"
+      ],
+      "keywords": [
+        "HTTP headers",
+        "Host header",
+        "Authorization",
+        "Cookie",
+        "Cache-Control",
+        "Content-Type",
+        "Set-Cookie",
+        "HPACK"
+      ],
+      "source_links": [
+        "chapters/13-application-layer/index.md"
+      ],
+      "has_example": false,
+      "word_count": 155
+    },
+    {
+      "id": "faq-112",
+      "category": "Technical Detail Questions",
+      "question": "How does Wi-Fi roaming work?",
+      "answer": "When a Wi-Fi client moves between access points in an Extended Service Set (ESS) sharing the same SSID, it performs a handoff: disassociating from the current AP and associating with one that has a stronger signal. The process has three stages. Scanning: the client passively listens for Beacon frames or actively sends Probe Request frames to solicit Probe Responses. Authentication and association: the client sends Authentication and Association Request frames to the new AP. Re-key: for WPA2/WPA3 enterprise networks, a new pairwise key is derived; IEEE 802.11r (Fast BSS Transition) pre-authenticates with neighboring APs to cut handoff latency below 50 ms. The distribution system must forward frames for the roaming client's MAC to the new AP. Seamless roaming matters for VoIP and streaming; a handoff above 150 ms can drop a call. Effective designs use overlapping coverage with 15-20% cell overlap and consistent SSID configuration across all APs. See Chapter 8.",
+      "bloom_level": "understand",
+      "difficulty": "intermediate",
+      "concepts": [
+        "Wi Fi Roaming",
+        "ESS",
+        "BSS",
+        "Handoff",
+        "Wi Fi"
+      ],
+      "keywords": [
+        "Wi-Fi roaming",
+        "handoff",
+        "ESS",
+        "BSS",
+        "802.11r",
+        "Fast BSS Transition",
+        "SSID",
+        "probe request"
+      ],
+      "source_links": [
+        "chapters/08-wireless-and-mobility/index.md"
+      ],
+      "has_example": false,
+      "word_count": 168
+    },
+    {
+      "id": "faq-113",
+      "category": "Technical Detail Questions",
+      "question": "What is traffic shaping and how does it differ from policing?",
+      "answer": "Traffic shaping and traffic policing both limit how much data flows through a network node, but they handle excess packets differently. A policer drops or marks excess packets immediately when the configured rate is exceeded. A shaper buffers excess packets and releases them later at a metered rate, no immediate drops unless the buffer fills. The two principal shaping algorithms are the token bucket and the leaky bucket. In the token bucket, tokens accumulate at the permitted rate up to a bucket capacity; each packet consumes tokens equal to its byte count, allowing short bursts. In the leaky bucket, incoming packets fill a fixed queue and drain at a constant rate, producing smooth output regardless of arrival burstiness. Traffic shaping is deployed at ISP edges and campus ingress points to smooth bursty flows before they enter constrained links, reducing queue buildup downstream. A home router upload shaper prevents large uploads from flooding the uplink and increasing latency for other traffic. See Chapter 4.",
+      "bloom_level": "understand",
+      "difficulty": "intermediate",
+      "concepts": [
+        "Traffic Shaping",
+        "Token Bucket",
+        "Leaky Bucket",
+        "Quality Of Service",
+        "Scheduling Discipline"
+      ],
+      "keywords": [
+        "traffic shaping",
+        "policing",
+        "token bucket",
+        "leaky bucket",
+        "QoS",
+        "rate limiting"
+      ],
+      "source_links": [
+        "chapters/04-performance-and-qos/index.md"
+      ],
+      "has_example": true,
+      "word_count": 168
+    },
+    {
+      "id": "faq-114",
+      "category": "Common Challenges",
+      "question": "What is DNS cache poisoning and how do I defend against it?",
+      "answer": "DNS cache poisoning injects forged resource records into a resolver's cache, causing every client using that resolver to receive false answers until the TTL expires. The classic attack exploits the 16-bit transaction ID in DNS queries by flooding a resolver with spoofed responses before the real authoritative server replies. Kaminsky's 2008 variant scaled this by querying thousands of unique subdomains simultaneously. Defenses: DNSSEC adds cryptographic signatures so a validating resolver can reject forged answers, the strongest defense. DNS over TLS (DoT) and DNS over HTTPS (DoH) encrypt the transport so on-path injection is blocked. Source-port randomization (RFC 5452) adds 16 bits of entropy to the effective transaction ID. Operator steps: enable DNSSEC validation on recursive resolvers, configure resolvers to use DoT or DoH upstream, use short TTLs during DNS changes so poisoned records expire quickly. Monitor for unexpected short-TTL answers or sudden changes in resolved addresses. See Chapters 13 and 12.",
+      "bloom_level": "analyze",
+      "difficulty": "advanced",
+      "concepts": [
+        "DNS Cache Poisoning",
+        "DNS Caching",
+        "DNSSEC",
+        "DNS"
+      ],
+      "keywords": [
+        "DNS cache poisoning",
+        "DNSSEC",
+        "DoT",
+        "DoH",
+        "DNS over TLS",
+        "source port randomization",
+        "Kaminsky",
+        "RFC 5452"
+      ],
+      "source_links": [
+        "chapters/13-application-layer/index.md",
+        "chapters/12-network-security/index.md"
+      ],
+      "has_example": true,
+      "word_count": 165
+    },
+    {
+      "id": "faq-115",
+      "category": "Common Challenges",
+      "question": "How do I calculate expected TCP throughput from window size and RTT?",
+      "answer": "Two formulas are useful. On a lossless path, maximum TCP throughput is bounded by: throughput = window_size / RTT. A default 65,535-byte receive window over a 100 ms RTT path caps throughput at about 655 KB/s or 5.2 Mbps, far below a gigabit link. With TCP window scaling (RFC 7323) and a 4 MB window: 4,000,000 divided by 0.1 equals 40 MB/s or 320 Mbps. On a lossy path, the Mathis formula applies: throughput is at most MSS divided by (RTT times the square root of p), where p is the packet-loss probability and MSS is the maximum segment size (typically 1460 bytes). At 0.01% loss and 100 ms RTT, the result is approximately 11.7 Mbps. Even tiny loss rates dramatically cap throughput on high-RTT paths. These formulas explain why satellite and intercontinental TCP flows underperform despite ample raw bandwidth, and why raising buffer sizes and using BBR congestion control improve real throughput. See Chapters 11 and 4.",
+      "bloom_level": "apply",
+      "difficulty": "intermediate",
+      "concepts": [
+        "Sliding Window",
+        "Bandwidth Delay Product",
+        "TCP",
+        "Congestion Control",
+        "Packet Loss"
+      ],
+      "keywords": [
+        "TCP throughput",
+        "window size",
+        "RTT",
+        "Mathis formula",
+        "packet loss",
+        "BDP",
+        "bandwidth delay product"
+      ],
+      "source_links": [
+        "chapters/11-transport-layer/index.md",
+        "chapters/04-performance-and-qos/index.md"
+      ],
+      "has_example": true,
+      "word_count": 185
+    },
+    {
+      "id": "faq-116",
+      "category": "Common Challenges",
+      "question": "How do I use Wireshark display filters to isolate traffic?",
+      "answer": "Wireshark's display filter bar accepts a rich expression language. Common patterns: ip.addr == 10.1.1.5 shows packets to or from a host; tcp.port == 443 shows HTTPS; dns shows all DNS; http.request.method == GET shows HTTP GET requests; tcp.flags.syn == 1 && tcp.flags.ack == 0 isolates new connection attempts. Combine predicates with && for AND, || for OR, and ! for NOT: tcp && !(tcp.port == 22) shows all TCP except SSH. Useful diagnostic filters: tcp.analysis.retransmission highlights retransmitted segments; tcp.analysis.window_full marks points where the receiver buffer is full; icmp.type == 3 surfaces destination-unreachable messages; tcp.analysis.zero_window shows receiver stall events. The Follow Stream feature (right-click a packet, then Follow, then TCP Stream) reconstructs a conversation as readable text. Statistics > Conversations lists per-flow byte counts; Statistics > IO Graph charts throughput over time. Display filters never alter the underlying capture file. See Chapter 15.",
+      "bloom_level": "apply",
+      "difficulty": "intermediate",
+      "concepts": [
+        "Packet Capture",
+        "Wireshark"
+      ],
+      "keywords": [
+        "Wireshark",
+        "display filter",
+        "tcp.analysis.retransmission",
+        "tcpdump",
+        "packet capture",
+        "follow stream"
+      ],
+      "source_links": [
+        "chapters/15-network-operations/index.md"
+      ],
+      "has_example": true,
+      "word_count": 175
+    },
+    {
+      "id": "faq-117",
+      "category": "Common Challenges",
+      "question": "What are the main ARQ protocols and how do they differ?",
+      "answer": "Automatic Repeat reQuest (ARQ) protocols ensure reliable delivery over unreliable links by having the receiver acknowledge correct frames and the sender retransmit lost or corrupted ones. Three canonical designs form a progression. Stop-and-Wait is the simplest: the sender transmits one frame and idles until an ACK arrives before sending the next. It is easy to implement but wastes nearly all capacity on high-delay links; if frames take 1 ms to transmit but 100 ms to traverse the path, the sender is idle 99% of the time. Go-Back-N allows a window of N unacknowledged frames in flight. When any frame is lost, the receiver discards all subsequent frames and the sender retransmits from the lost frame forward, wasting bandwidth but conserving receiver buffer. Selective Repeat also uses a window but the receiver buffers out-of-order frames; only the specifically identified lost frames are retransmitted. It is the most efficient but requires more receiver state. TCP with SACK implements selective-repeat semantics at the transport layer. See Chapter 6.",
+      "bloom_level": "analyze",
+      "difficulty": "intermediate",
+      "concepts": [
+        "Automatic Repeat Request",
+        "Go Back N",
+        "Selective Repeat",
+        "Reliable Delivery"
+      ],
+      "keywords": [
+        "ARQ",
+        "stop and wait",
+        "go-back-N",
+        "selective repeat",
+        "SACK",
+        "retransmission",
+        "sliding window ARQ"
+      ],
+      "source_links": [
+        "chapters/06-link-layer-fundamentals/index.md"
+      ],
+      "has_example": true,
+      "word_count": 175
+    },
+    {
+      "id": "faq-118",
+      "category": "Best Practice Questions",
+      "question": "How do I tune TCP socket buffers for high-throughput applications?",
+      "answer": "Default TCP buffers on many Linux systems are far too small for high-bandwidth-delay-product paths. The required buffer is approximately bandwidth times RTT: for a 10 Gbps link at 50 ms RTT that is 62.5 MB per direction, yet many systems default to 128 KB to 4 MB. Check current limits with: sysctl net.core.rmem_max net.core.wmem_max net.ipv4.tcp_rmem net.ipv4.tcp_wmem. To raise the kernel maximum: sysctl -w net.core.rmem_max=134217728 net.core.wmem_max=134217728 (128 MB). The tcp_rmem and tcp_wmem tuples specify minimum, default, and maximum; set the default large enough for auto-tuning to work. Verify window scaling is on: sysctl net.ipv4.tcp_window_scaling should return 1. Confirm the application uses large buffers with setsockopt(SO_RCVBUF) or relies on auto-tuning. Measure before and after with iperf3 -c server -t 30 -P 4. The diagnostic signature of a buffer bottleneck: throughput is a fraction of link speed, CPU is idle, and ss -n shows a small receive window for active connections. See Chapters 11 and 15.",
+      "bloom_level": "apply",
+      "difficulty": "advanced",
+      "concepts": [
+        "TCP",
+        "Bandwidth Delay Product",
+        "Sliding Window"
+      ],
+      "keywords": [
+        "TCP buffer",
+        "socket buffer",
+        "SO_RCVBUF",
+        "sysctl",
+        "wmem",
+        "rmem",
+        "window scaling",
+        "iperf3"
+      ],
+      "source_links": [
+        "chapters/11-transport-layer/index.md",
+        "chapters/15-network-operations/index.md"
+      ],
+      "has_example": true,
+      "word_count": 188
+    },
+    {
+      "id": "faq-119",
+      "category": "Advanced Topics",
+      "question": "What is the Shannon-Hartley theorem and why does it matter?",
+      "answer": "The Shannon-Hartley theorem gives the theoretical maximum error-free data rate for a band-limited channel with Gaussian noise: C equals B times log base 2 of (1 plus S/N), where C is channel capacity in bits per second, B is bandwidth in hertz, and S/N is the signal-to-noise ratio. This is a hard ceiling no encoding scheme can exceed. Two insights for networking: first, you can raise capacity by widening the channel or improving signal quality. Doubling S/N at a high baseline adds only one bit per symbol because the log grows slowly, while doubling bandwidth doubles capacity regardless of SNR. This explains why modern Wi-Fi (Wi-Fi 6, Wi-Fi 7) and 5G pursue wider channels at 160 MHz, 320 MHz, or millimeter-wave rather than perfecting channel quality. Second, it explains the performance cliff at the edge of Wi-Fi range: as distance increases, received signal strength falls, S/N drops, and the radio steps down through MCS levels, each step cutting throughput roughly in half. Real modulation schemes such as 1024-QAM achieve roughly 75-85% of the Shannon limit on clean channels. See Chapter 5.",
+      "bloom_level": "analyze",
+      "difficulty": "advanced",
+      "concepts": [
+        "Shannon Theorem",
+        "Channel Capacity",
+        "Bandwidth",
+        "Modulation"
+      ],
+      "keywords": [
+        "Shannon theorem",
+        "Shannon-Hartley",
+        "channel capacity",
+        "signal-to-noise ratio",
+        "SNR",
+        "bandwidth",
+        "MCS",
+        "1024-QAM"
+      ],
+      "source_links": [
+        "chapters/05-physical-layer/index.md"
+      ],
+      "has_example": true,
+      "word_count": 195
+    },
+    {
+      "id": "faq-120",
+      "category": "Advanced Topics",
+      "question": "What is Multipath TCP and when is it useful?",
+      "answer": "Multipath TCP (MPTCP) is an extension to TCP (RFC 8684) that allows a single logical connection to use multiple network paths simultaneously, establishing independent TCP subflows over each path. The application sees one normal TCP connection; beneath it MPTCP distributes the byte stream across multiple source and destination IP pairs and recombines them in order. The benefits are threefold: throughput aggregation by using two or more links in parallel such as Wi-Fi and cellular simultaneously; resilience because the connection survives the failure of any single subflow without an application-visible disconnect; and transparent handoff as a device moves between networks. Apple's iOS uses MPTCP for Siri to move traffic seamlessly from Wi-Fi to cellular; Linux kernels 5.6 and later support MPTCP natively. Caveats: MPTCP's coupled congestion control must keep each subflow fair to single-path TCP flows on shared bottlenecks, and middleboxes that strip TCP options can silently disable MPTCP by blocking subflow negotiation. MPTCP is not yet widely deployed for general web traffic but is increasingly relevant for mobile and IoT applications. See Chapter 11.",
+      "bloom_level": "analyze",
+      "difficulty": "advanced",
+      "concepts": [
+        "Multipath TCP",
+        "TCP",
+        "Reliable Delivery"
+      ],
+      "keywords": [
+        "Multipath TCP",
+        "MPTCP",
+        "RFC 8684",
+        "subflow",
+        "path aggregation",
+        "iOS Siri",
+        "connection migration"
+      ],
+      "source_links": [
+        "chapters/11-transport-layer/index.md"
+      ],
+      "has_example": true,
+      "word_count": 190
     }
   ]
 }

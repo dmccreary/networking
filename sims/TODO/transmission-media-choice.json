@@ -1,0 +1,14 @@
+{
+  "sim_id": "transmission-media-choice",
+  "diagram_name": "Choosing a Transmission Medium",
+  "chapter_number": 5,
+  "chapter_title": "The Physical Layer",
+  "chapter_dir": "05-physical-layer",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-06-04",
+  "specification": "Type: infographic\n**sim-id:** transmission-media-choice<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nRender an interactive infographic that helps students choose a transmission medium based on deployment constraints (distance, mobility, EMI environment, cost budget).\n\nCanvas: 920 px wide by 600 px tall, responsive down to 360 px.\n\nTree layout:\n\n1. Root: \"Need mobility?\" → Yes (wireless branch) | No (continue).\n2. \"Distance > 1 km?\" → Yes (fiber) | No (continue).\n3. \"EMI environment severe?\" → Yes (fiber or shielded twisted pair / coax) | No (continue).\n4. \"Cost-sensitive bulk install?\" → Yes (twisted pair) | No (consider fiber for future-proofing).\n\nEach leaf is a labeled box with the recommended medium, a representative typical use case, and a small icon (twisted-pair icon, coax icon, fiber icon, antenna icon).\n\nInteractivity:\n\n- Each tree node is clickable. When clicked, the path from root highlights in honey amber; off-path branches dim.\n- Hover on a leaf shows a side panel with that medium's typical bandwidth, attenuation per km, EMI immunity, and approximate cost per meter.\n- A reset button collapses the tree.\n\nVisual style:\n\n- Tree edges drawn as honey-amber arrows.\n- Decision nodes: rounded rectangles in slate.\n- Leaf nodes: rounded rectangles in honey amber.\n\nLearning objective (Bloom — Applying): Students apply medium-selection criteria to a deployment scenario and justify their choice based on bandwidth, distance, mobility, EMI, and cost."
+}

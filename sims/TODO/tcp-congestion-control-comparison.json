@@ -1,0 +1,14 @@
+{
+  "sim_id": "tcp-congestion-control-comparison",
+  "diagram_name": "Congestion Control Phases and Algorithms",
+  "chapter_number": 11,
+  "chapter_title": "The Transport Layer",
+  "chapter_dir": "11-transport-layer",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-06-04",
+  "specification": "Type: microsim\n**sim-id:** tcp-congestion-control-comparison<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nBuild an interactive MicroSim that plots `cwnd` over time for Reno, CUBIC, and BBR running on the same simulated path with configurable loss and bandwidth.\n\nCanvas: 960 px wide by 600 px tall, responsive down to 360 px. A 120 px control panel sits below.\n\nLayout:\n\n- A large time-vs-cwnd plot occupying most of the canvas. X-axis is time in RTTs; Y-axis is cwnd in segments.\n- Three traces, one per algorithm, in distinct colors with a legend.\n- Horizontal dashed lines marking the simulated link's bottleneck capacity and the bandwidth-delay product.\n- Annotations at each loss event, showing fast retransmit, fast recovery, and timeout events.\n\nControls panel:\n\n- Sliders: link bandwidth (1–10000 Mbps log), RTT (10–500 ms), loss rate (0–5%), buffer size (in BDPs).\n- Toggle: \"Add competing flows\" to introduce additional algorithms competing for the link.\n- Buttons: Step / Play / Reset.\n- \"Single algorithm focus\" dropdown to highlight one trace.\n\nVisual style:\n\n- Reno: slate blue, sawtooth pattern.\n- CUBIC: honey amber, cubic curve.\n- BBR: forest green, smoother saturating curve.\n\nLearning objectives:\n\n- (Bloom — Understanding) Students explain how each algorithm's `cwnd` evolves through slow start, congestion avoidance, and loss recovery.\n- (Bloom — Analyzing) Students compare fairness, buffer occupancy, and convergence time for the three algorithms.\n- (Bloom — Evaluating) Students judge which algorithm fits a given link profile (lossy, long, or fast).\n\nImplement in pure p5.js with the existing MicroSim CSS theme."
+}

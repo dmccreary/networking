@@ -1,0 +1,14 @@
+{
+  "sim_id": "nat-traversal-stun-turn",
+  "diagram_name": "NAT Traversal with STUN and TURN",
+  "chapter_number": 14,
+  "chapter_title": "Network Programming with Sockets",
+  "chapter_dir": "14-network-programming",
+  "library": "p5.js",
+  "bloom_level": null,
+  "bloom_verb": null,
+  "learning_objective": null,
+  "completion_status": "specified",
+  "extracted_date": "2026-06-04",
+  "specification": "Type: microsim\n**sim-id:** nat-traversal-stun-turn<br/>\n**Library:** p5.js<br/>\n**Status:** Specified\n\nBuild an interactive MicroSim that shows two peers, each behind their own NAT, discovering each other's external addresses via STUN and falling back to TURN when hole punching fails.\n\nCanvas: 960 px wide by 600 px tall, responsive down to 360 px. A 100 px control panel sits below.\n\nTopology:\n\n- Peer A (left): private IP `10.0.0.5:50001`, behind NAT-A with public IP `203.0.113.1`.\n- Peer B (right): private IP `192.168.1.10:50002`, behind NAT-B with public IP `198.51.100.1`.\n- STUN server in the middle-top with public address `stun.example.com:3478`.\n- TURN relay in the middle-bottom with public address `turn.example.com:3478`.\n- Signaling service (small box top-center) carries candidate addresses between peers.\n\nAnimation modes (selectable from a tab control):\n\n- **STUN successful (cone NAT)**: Each peer sends a STUN binding request; the server replies with the observed external address. Peers exchange candidates via signaling. Each peer sends a probe to the other's external address; both NATs open mappings; direct UDP flow established.\n- **STUN fails, TURN required (symmetric NAT)**: STUN returns an external address, but the symmetric NAT changes ports per destination, so the address is useless for B → A. TURN: peer A allocates a relay binding on the TURN server. Peer B connects to the relay address. Traffic flows through the relay.\n\nControls panel:\n\n- Mode tabs: Cone NAT (STUN) / Symmetric NAT (TURN).\n- Buttons: Step / Play / Reset.\n- Toggle: \"Show signaling messages\" reveals the candidate-exchange flow.\n- Toggle: \"Visualize bandwidth path\" shows how TURN doubles bytes-on-wire compared to direct STUN.\n\nVisual style:\n\n- Peers: rounded rectangles with laptop icons.\n- NATs: hexagons with translation tables visible.\n- STUN/TURN servers: rounded rectangles with cloud icons.\n- Successful path: green; relay path: amber.\n\nLearning objectives:\n\n- (Bloom — Understanding) Students explain how STUN discovers external addresses.\n- (Bloom — Analyzing) Students compare the bandwidth and latency cost of STUN-direct vs. TURN-relayed connections.\n- (Bloom — Evaluating) Students judge when TURN is required given NAT type.\n\nImplement in pure p5.js with the existing MicroSim CSS theme."
+}
