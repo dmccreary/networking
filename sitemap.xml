@@ -2,338 +2,338 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://dmccreary.github.io/networking/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/about/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/contact/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/course-description/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/faq/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/glossary/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/license/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/chapters/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/chapters/01-intro-to-networks/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/chapters/01-intro-to-networks/quiz/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/chapters/02-standards-and-encapsulation/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/chapters/02-standards-and-encapsulation/quiz/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/chapters/03-architecture-and-layering/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/chapters/03-architecture-and-layering/quiz/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/chapters/04-performance-and-qos/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/chapters/04-performance-and-qos/quiz/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/chapters/05-physical-layer/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/chapters/05-physical-layer/quiz/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/chapters/06-link-layer-fundamentals/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/chapters/07-ethernet-and-vlans/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/chapters/08-wireless-and-mobility/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/chapters/09-network-layer-and-ip/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/chapters/10-routing-and-forwarding/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/chapters/11-transport-layer/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/chapters/12-network-security/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/chapters/13-application-layer/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/chapters/14-network-programming/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/chapters/15-network-operations/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/chapters/16-sdn-emerging-and-capstones/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/img/cover-image-prompt/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/img/mascot/image-prompts/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/learning-graph/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/learning-graph/book-metrics/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/learning-graph/chapter-metrics/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/learning-graph/concept-list/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/learning-graph/concept-taxonomy/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/learning-graph/course-description-assessment/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/learning-graph/faq-coverage-gaps/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/learning-graph/faq-quality-report/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/learning-graph/mascot-render-test/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/learning-graph/quality-metrics/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/learning-graph/taxonomy-distribution/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/prompts/01-seed/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/prompts/02-learning-graph/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/TODO/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/address-triple-stack/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/addressing-scopes-comparison/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/arq-protocols-comparison/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/ber-vs-distance/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/bss-ess-roaming/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/cidr-subnet-calculator/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/dns-resolution-walkthrough/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/dv-vs-ls-convergence/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/edge-vs-core-topology/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/encapsulation-envelope-model/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/encapsulation-walkthrough/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/error-detection-comparison/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/ethernet-frame-format/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/four-delay-components/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/graph-viewer/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/internet-topology-bgp/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/ipv4-vs-ipv6-headers/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/layering-decision-tree/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/mac-protocols-comparison/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/mitm-and-tls-defense/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/nat-traversal-stun-turn/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/network-explorer/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/nrz-vs-manchester-encoding/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/osi-vs-tcpip-mapping/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/packet-fragmentation/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/qos-toolbox-map/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/sdn-architecture-overview/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/socket-lifecycle-diagram/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/spanning-tree-protocol/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/standards-bodies-map/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/tcp-congestion-control-comparison/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/tcp-handshake-and-termination/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/tls-handshake-walkthrough/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/token-vs-leaky-bucket/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/transmission-media-choice/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/virtual-network-lab/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/vlans-and-link-aggregation/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
     <url>
          <loc>https://dmccreary.github.io/networking/sims/wireless-link-adaptation/</loc>
-         <lastmod>2026-06-04</lastmod>
+         <lastmod>2026-06-06</lastmod>
     </url>
 </urlset>
