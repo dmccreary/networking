@@ -157,6 +157,9 @@ copyright: 'Copyright &copy; 2026 Dan McCreary'
 
 # Extra
 extra:
+  analytics:
+    provider: google
+    property: G-23MBQ7F16Q
   schema: https://dmccreary.github.io/intelligent-textbooks/ns/textbook/v1
   social:
     - icon: fontawesome/brands/github
