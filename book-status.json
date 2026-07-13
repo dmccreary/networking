@@ -1,0 +1,413 @@
+{
+  "project": {
+    "title": "Networking and Communication",
+    "subtitle": "Auto-scanned intelligent textbook",
+    "author": "Dan McCreary",
+    "costPerMTokens": 15,
+    "sessionBudget": {
+      "pro": 900000,
+      "max": 3500000
+    }
+  },
+  "sections": {
+    "scaffold": {
+      "status": "published",
+      "tokensTarget": 2000,
+      "tokensDone": 2000
+    },
+    "course-description": {
+      "status": "published",
+      "tokensTarget": 4000,
+      "tokensDone": 2816
+    },
+    "learning-graph": {
+      "status": "published",
+      "tokensTarget": 20000,
+      "tokensDone": 20000
+    },
+    "chapter-structure": {
+      "status": "published",
+      "tokensTarget": 15000,
+      "tokensDone": 15000
+    },
+    "chapter-content": {
+      "countLabel": "16 chapters",
+      "children": [
+        {
+          "n": 1,
+          "title": "Chapter 1: Introduction to Networks and Communication",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 2,
+          "title": "Chapter 2: Standards, Data Units, and Encapsulation",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 3,
+          "title": "Chapter 3: Network Architecture and Layered Models",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 4,
+          "title": "Chapter 4: Network Performance and Quality of Service",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 5,
+          "title": "Chapter 5: The Physical Layer",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 6,
+          "title": "Chapter 6: Link Layer Fundamentals and Reliable Transfer",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 7,
+          "title": "Chapter 7: Ethernet, Switching, and VLANs",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 8,
+          "title": "Chapter 8: Wireless and Mobile Networking",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 9,
+          "title": "Chapter 9: The Network Layer and IP Addressing",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 10,
+          "title": "Chapter 10: Routing and Forwarding",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 11,
+          "title": "Chapter 11: The Transport Layer",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 12,
+          "title": "Chapter 12: Network Security",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 13,
+          "title": "Chapter 13: Application Layer Protocols",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 14,
+          "title": "Chapter 14: Network Programming with Sockets",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 15,
+          "title": "Chapter 15: Network Operations and Measurement",
+          "status": "reviewed",
+          "tokens": 10000
+        },
+        {
+          "n": 16,
+          "title": "Chapter 16: SDN, NFV, Emerging Topics, and Capstone Projects",
+          "status": "reviewed",
+          "tokens": 10000
+        }
+      ]
+    },
+    "chapter-images": {
+      "status": "published",
+      "tokensTarget": 8000,
+      "tokensDone": 8000
+    },
+    "microsims": {
+      "countLabel": "38 simulations",
+      "children": [
+        {
+          "n": 1,
+          "title": "The Three Identifiers Across the Protocol Stack",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 2,
+          "title": "The Four Addressing Scopes",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 3,
+          "title": "Sliding Window Animation",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 4,
+          "title": "Signal Quality Across Distance",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 5,
+          "title": "BSS and ESS Topology",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 6,
+          "title": "CIDR Subnet Calculator",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 7,
+          "title": "DNS Resolution Walkthrough",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 8,
+          "title": "Distance-Vector vs. Link-State Convergence",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 9,
+          "title": "Edge versus Core in a Small Network",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 10,
+          "title": "The Nesting Envelope Model",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 11,
+          "title": "Encapsulation Walkthrough",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 12,
+          "title": "Error Detection in Action",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 13,
+          "title": "Ethernet Frame Format",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 14,
+          "title": "Anatomy of a Packet's Journey",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 15,
+          "title": "Graph Viewer",
+          "status": "drafted",
+          "tokens": 5000
+        },
+        {
+          "n": 16,
+          "title": "Internet Topology and BGP Relationships",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 17,
+          "title": "IPv4 vs. IPv6 Header Comparison",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 18,
+          "title": "Layering Decision Tree",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 19,
+          "title": "MAC Protocol Comparison",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 20,
+          "title": "Anatomy of a Man-in-the-Middle Attack",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 21,
+          "title": "NAT Traversal with STUN and TURN",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 22,
+          "title": "Interactive Network Explorer",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 23,
+          "title": "NRZ vs. Manchester Encoding",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 24,
+          "title": "OSI vs. TCP/IP Layer Mapping",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 25,
+          "title": "Packet Fragmentation Walkthrough",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 26,
+          "title": "The QoS Toolbox",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 27,
+          "title": "SDN Architecture: Control vs. Data Plane",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 28,
+          "title": "TCP and UDP Socket Lifecycle",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 29,
+          "title": "Spanning Tree in Action",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 30,
+          "title": "Standards Bodies and What They Govern",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 31,
+          "title": "Congestion Control Phases and Algorithms",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 32,
+          "title": "TCP Three-Way Handshake and Termination",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 33,
+          "title": "TLS 1.3 Handshake Walkthrough",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 34,
+          "title": "Token Bucket vs. Leaky Bucket",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 35,
+          "title": "Choosing a Transmission Medium",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 36,
+          "title": "Network Lab Topology with Namespaces and netem",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 37,
+          "title": "VLANs and Link Aggregation Together",
+          "status": "published",
+          "tokens": 5000
+        },
+        {
+          "n": 38,
+          "title": "Wireless Performance vs. Distance",
+          "status": "published",
+          "tokens": 5000
+        }
+      ]
+    },
+    "glossary": {
+      "status": "published",
+      "tokensTarget": 24379,
+      "tokensDone": 24379
+    },
+    "faq": {
+      "status": "published",
+      "tokensTarget": 20678,
+      "tokensDone": 20678
+    },
+    "quiz": {
+      "status": "drafted",
+      "tokensTarget": 30000,
+      "tokensDone": 8712
+    },
+    "reference": {
+      "status": "not-started",
+      "tokensTarget": 20000,
+      "tokensDone": 0
+    },
+    "teachers-guide": {
+      "status": "not-started",
+      "tokensTarget": 15000,
+      "tokensDone": 0
+    },
+    "book-metrics": {
+      "status": "published",
+      "tokensTarget": 2000,
+      "tokensDone": 2000
+    },
+    "publish": {
+      "status": "not-started",
+      "tokensTarget": 10000,
+      "tokensDone": 0
+    },
+    "stories": {
+      "status": "not-started",
+      "tokensTarget": 30000,
+      "tokensDone": 0
+    }
+  }
+}
